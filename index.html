@@ -91,7 +91,7 @@
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 15px 0;
-            background: transparent; /* Transparente al inicio */
+            background: transparent;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             transition: all 0.4s ease;
         }
@@ -116,36 +116,39 @@
             height: 40px; 
             width: auto; 
             object-fit: contain;
-            /* Filtro para que el logo sea blanco en fondo oscuro (si el png es negro) */
+            /* Filtro para volver blanco el logo negro en fondo oscuro */
             filter: brightness(0) invert(1); 
             transition: 0.3s;
         }
-        /* Logo vuelve a su color original en fondo blanco */
+        /* Logo vuelve a original (Negro) en fondo blanco */
         header.scrolled .logo-img {
-            filter: none; 
+            filter: none !important; 
         }
 
         /* Menú Desktop Distribuido */
         .desktop-menu { 
             display: none; 
             align-items: center; 
-            flex-grow: 1; /* Ocupa el espacio disponible */
-            margin-left: 60px; /* Separación del logo */
-            justify-content: space-between; /* Distribuye elementos */
+            flex-grow: 1; 
+            margin-left: 40px;
+            justify-content: space-between; /* Distribución total */
         }
         
         .nav-links-group { 
             display: flex; 
-            gap: 40px; 
-            flex-grow: 1; /* Empuja los enlaces para ocupar espacio */
-            justify-content: center; /* Centrados visualmente en su bloque */
+            gap: 0; 
+            flex-grow: 1; 
+            justify-content: space-evenly; /* Espaciado equitativo entre enlaces */
+            padding: 0 40px;
         }
         
         .desktop-menu a.nav-link { 
-            color: #ddd; /* Texto claro por defecto */
-            font-size: 0.95rem; 
-            font-weight: 500;
+            color: #ddd; 
+            font-size: 0.85rem; 
+            font-weight: 600;
             position: relative;
+            text-transform: uppercase; /* Mayúsculas */
+            letter-spacing: 1px;
         }
         .desktop-menu a.nav-link:hover { color: var(--primary); }
         
@@ -317,10 +320,9 @@
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container nav-flex">
-            <!-- Logotipo con Fallback (Si no existe local, usa uno genérico o texto) -->
+            <!-- Logotipo (Ruta local img/xferalogo.png) -->
             <a href="#">
-                <img src="img/xferalogo.png" alt="XFERA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size: 1.5rem; font-weight: 800; color: #fff;">XFERA<span style="color:var(--primary)">.</span></span>
+                <img src="img/xferalogo.png" alt="XFERA" class="logo-img">
             </a>
             
             <div class="desktop-menu">
@@ -405,7 +407,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 3 - SERVICIOS -->
+    <!-- SECCIÓN 3 - SERVICIOS (RUTAS LOCALES) -->
     <section id="services" style="padding: var(--padding-section); background: #0a0a0a;">
         <div class="container">
             <h2 class="title-std title-light">
@@ -418,8 +420,8 @@
             <!-- SERVICIO 1: Infraestructura TI -->
             <div class="service-split-layout" id="infraestructura">
                 <div class="visual-card-service">
-                    <!-- Ruta local con fallback a imagen de internet para que SIEMPRE se vea algo -->
-                    <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
+                    <!-- Ruta local exacta: img/infraestructura.jpg -->
+                    <img src="img/infraestructura.jpg" alt="Data Center">
                     <div class="visual-overlay"></div>
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
@@ -447,8 +449,8 @@
             <!-- SERVICIO 2: Consultoría TI -->
             <div class="service-split-layout" id="consultoria">
                  <div class="visual-card-service">
-                    <!-- Ruta local con fallback a imagen de internet -->
-                    <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
+                    <!-- Ruta local exacta: img/consultoria.jpg -->
+                    <img src="img/consultoria.jpg" alt="Consultoría TI Expertos">
                     <div class="visual-overlay"></div>
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
@@ -694,8 +696,7 @@
     <footer class="footer-section">
         <div class="container footer-grid">
             <div>
-                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size: 1.5rem; font-weight: 800; color: #fff;">XFERA<span style="color:var(--primary)">.</span></span></a>
+                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" style="margin-right: 0;"></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>

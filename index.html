@@ -21,11 +21,12 @@
             --bg-grey: #111111;
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
-            --blue-accent: #1b30af; /* Nuevo azul para cifras y CTA */
-            --blue-form: #101f75;   /* Azul oscuro formulario */
+            --blue-accent: #1b30af; 
+            --blue-form: #101f75;
             
             --padding-section: 100px 5%;
             --radius-card: 20px;
+            --nav-height: 80px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,9 +69,10 @@
             display: inline-flex; align-items: center; justify-content: center;
             padding: 12px 30px; border-radius: 999px;
             font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
         .btn-primary {
-            background: var(--primary); color: #000; /* Texto negro solicitado */
+            background: var(--primary); color: #000;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
         }
         .btn-primary:hover { box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); transform: translateY(-2px); }
@@ -85,31 +87,74 @@
         }
         .btn-secondary-dark:hover { background: #333; color: #fff; border-color: #333; }
 
-        /* --- 3. HEADER --- */
+        /* --- 3. HEADER DINÁMICO --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            padding: 20px 0;
-            background: rgba(5, 5, 5, 0.95);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 15px 0;
+            background: transparent; /* Transparente al inicio */
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
         }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         
-        /* Modificación Logotipo */
-        .logo-img { height: 40px; width: auto; margin-right: 40px; object-fit: contain; }
+        /* Estado Scrolled (Fondo Blanco) */
+        header.scrolled {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid transparent;
+            padding: 10px 0;
+        }
 
-        /* Menú Desktop distribuido */
+        .nav-flex { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 100%; 
+        }
+        
+        /* Logotipo */
+        .logo-img { 
+            height: 40px; 
+            width: auto; 
+            object-fit: contain;
+            /* Filtro para que el logo sea blanco en fondo oscuro (si el png es negro) */
+            filter: brightness(0) invert(1); 
+            transition: 0.3s;
+        }
+        /* Logo vuelve a su color original en fondo blanco */
+        header.scrolled .logo-img {
+            filter: none; 
+        }
+
+        /* Menú Desktop Distribuido */
         .desktop-menu { 
             display: none; 
             align-items: center; 
-            width: 100%; 
-            justify-content: space-between; /* Distribuye enlaces a lo ancho */
+            flex-grow: 1; /* Ocupa el espacio disponible */
+            margin-left: 60px; /* Separación del logo */
+            justify-content: space-between; /* Distribuye elementos */
         }
-        .nav-links-group { display: flex; gap: 30px; } /* Grupo de enlaces de texto */
         
-        .desktop-menu a.nav-link { color: #ccc; font-size: 0.9rem; font-weight: 500; }
+        .nav-links-group { 
+            display: flex; 
+            gap: 40px; 
+            flex-grow: 1; /* Empuja los enlaces para ocupar espacio */
+            justify-content: center; /* Centrados visualmente en su bloque */
+        }
+        
+        .desktop-menu a.nav-link { 
+            color: #ddd; /* Texto claro por defecto */
+            font-size: 0.95rem; 
+            font-weight: 500;
+            position: relative;
+        }
         .desktop-menu a.nav-link:hover { color: var(--primary); }
         
-        .mobile-toggle { font-size: 1.5rem; color: #fff; cursor: pointer; }
+        /* Textos oscuros cuando el menú es blanco */
+        header.scrolled .desktop-menu a.nav-link { color: #333; }
+        header.scrolled .desktop-menu a.nav-link:hover { color: var(--blue-accent); }
+
+        .mobile-toggle { font-size: 1.5rem; color: #fff; cursor: pointer; transition: 0.3s; }
+        header.scrolled .mobile-toggle { color: #333; }
         
         @media(min-width: 992px) { 
             .desktop-menu { display: flex; } 
@@ -147,6 +192,12 @@
         .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; opacity: 0.5; z-index:0; transition: 0.5s; }
         .visual-card-service:hover img { transform: scale(1.05); opacity: 0.6; }
         .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.6) 100%); z-index:1; }
+        
+        .cat-badge {
+            position: absolute; top: 25px; left: 25px; z-index: 10;
+            padding: 8px 16px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;letter-spacing: 1px;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); color: #fff; border: 1px solid;
+        }
         
         .service-content-col { display: flex; flex-direction: column; justify-content: center; }
         .service-list { margin-bottom: 0; }
@@ -263,11 +314,14 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
+    <!-- HEADER DINÁMICO -->
+    <header id="main-header">
         <div class="container nav-flex">
-            <!-- Logotipo -->
-            <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img"></a>
+            <!-- Logotipo con Fallback (Si no existe local, usa uno genérico o texto) -->
+            <a href="#">
+                <img src="img/xferalogo.png" alt="XFERA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none; font-size: 1.5rem; font-weight: 800; color: #fff;">XFERA<span style="color:var(--primary)">.</span></span>
+            </a>
             
             <div class="desktop-menu">
                 <div class="nav-links-group">
@@ -351,7 +405,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 3 - SERVICIOS (Imágenes Visibles URL) -->
+    <!-- SECCIÓN 3 - SERVICIOS -->
     <section id="services" style="padding: var(--padding-section); background: #0a0a0a;">
         <div class="container">
             <h2 class="title-std title-light">
@@ -364,8 +418,8 @@
             <!-- SERVICIO 1: Infraestructura TI -->
             <div class="service-split-layout" id="infraestructura">
                 <div class="visual-card-service">
-                    <!-- Imagen PRO URL -->
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80" alt="Data Center">
+                    <!-- Ruta local con fallback a imagen de internet para que SIEMPRE se vea algo -->
+                    <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
                     <div class="visual-overlay"></div>
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
@@ -393,8 +447,8 @@
             <!-- SERVICIO 2: Consultoría TI -->
             <div class="service-split-layout" id="consultoria">
                  <div class="visual-card-service">
-                    <!-- Imagen PRO URL -->
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Consultoría TI Expertos">
+                    <!-- Ruta local con fallback a imagen de internet -->
+                    <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
                     <div class="visual-overlay"></div>
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
@@ -640,8 +694,8 @@
     <footer class="footer-section">
         <div class="container footer-grid">
             <div>
-                <!-- Logotipo -->
-                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img"></a>
+                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none; font-size: 1.5rem; font-weight: 800; color: #fff;">XFERA<span style="color:var(--primary)">.</span></span></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
@@ -692,6 +746,16 @@
     </footer>
 
     <script>
+        // Efecto Scroll Header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Animación simple de contadores
         const counters = document.querySelectorAll('.counter');
         counters.forEach(counter => {

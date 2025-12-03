@@ -93,9 +93,10 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: 1px; white-space: nowrap; margin-right: 40px; }
-        .logo span { color: var(--primary); }
         
+        /* Modificación Logotipo */
+        .logo-img { height: 40px; width: auto; margin-right: 40px; } /* Ajusta la altura según necesites */
+
         /* Menú Desktop distribuido */
         .desktop-menu { 
             display: none; 
@@ -265,7 +266,8 @@
     <!-- HEADER -->
     <header>
         <div class="container nav-flex">
-            <a href="#" class="logo">XFERA<span>.</span></a>
+            <!-- Logotipo con imagen (Ruta actualizada) -->
+            <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img"></a>
             
             <div class="desktop-menu">
                 <div class="nav-links-group">
@@ -366,7 +368,7 @@
             <div class="service-split-layout" id="infraestructura">
                 <div class="visual-card-service">
                     <!-- Imagen Data Center Nueva -->
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80" alt="Data Center">
+                    <img src="https://images.unsplash.com/photo-1600434771631-92c14603c16d?auto=format&fit=crop&w=1000&q=80" alt="Data Center">
                     <div class="visual-overlay"></div>
                     <!-- Contenido DENTRO de la imagen -->
                     <div style="position: relative; z-index: 2;">
@@ -418,7 +420,7 @@
                     </ul>
                     <div style="margin-top: 40px;">
                         <!-- Botón estilo Primary como se pidió -->
-                        <a href="#contact" class="btn btn-primary" style="background: var(--secondary); border:none; box-shadow: 0 0 15px rgba(123,44,191,0.3);">Cotizar Consultoría</a>
+                        <a href="#contact" class="btn btn-primary">Cotizar Consultoría</a>
                     </div>
                 </div>
             </div>
@@ -462,10 +464,10 @@
         <div class="container">
             <h2 style="font-size: 2.2rem; margin-bottom: 30px;">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
             <!-- Texto unificado Blanco -->
-            <p class="cta-text-unified">
+            <p class="cta-text-unified" style="color: #fff;">
                 Nuestro equipo de ingeniería realizará un diagnóstico inicial donde revisaremos tus desafíos, requerimientos y proyecciones de crecimiento. Desde esa conversación construiremos una propuesta personalizada, clara y ajustada a tus necesidades reales.
             </p>
-            <p class="cta-text-unified">
+            <p class="cta-text-unified" style="color: #fff;">
                 Avanza hoy en tu modernización TI. Agenda una reunión con nuestros especialistas.
             </p>
             <!-- Botón estilo Primary -->
@@ -651,7 +653,8 @@
         <div class="container footer-grid">
             <!-- Columna 1: Logo -->
             <div>
-                <a href="#" class="logo" style="font-size: 1.5rem;">XFERA<span>.</span></a>
+                <!-- Logotipo con imagen (Ruta actualizada) -->
+                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" style="margin-right: 0;"></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>

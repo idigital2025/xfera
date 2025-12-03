@@ -95,7 +95,7 @@
         .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         
         /* Modificación Logotipo */
-        .logo-img { height: 40px; width: auto; margin-right: 40px; } /* Ajusta la altura según necesites */
+        .logo-img { height: 40px; width: auto; margin-right: 40px; object-fit: contain; }
 
         /* Menú Desktop distribuido */
         .desktop-menu { 
@@ -221,7 +221,7 @@
         .case-highlight {
             background: linear-gradient(to right, #111, #0a0a0a); border-left: 4px solid var(--secondary); padding: 40px; border-radius: 0 20px 20px 0; margin-top: 40px;
         }
-        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } /* Grid corregido */
+        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } 
         @media(max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
 
         /* CONFIANZA */
@@ -266,7 +266,7 @@
     <!-- HEADER -->
     <header>
         <div class="container nav-flex">
-            <!-- Logotipo con imagen (Ruta actualizada) -->
+            <!-- Logotipo -->
             <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img"></a>
             
             <div class="desktop-menu">
@@ -313,7 +313,6 @@
     <section class="sec-stats">
         <div class="container">
             <div class="stats-wrapper">
-                <!-- Bloques separados con texto en dos líneas -->
                 <div class="stat-block">
                     <div class="stat-item"><h3 class="counter" data-target="15">+0</h3></div>
                     <div class="stat-item"><p>Años de experiencia<br>en proyectos TI</p></div>
@@ -326,7 +325,6 @@
                     <div class="stat-item"><h3 class="counter" data-target="30">+0</h3></div>
                     <div class="stat-item"><p>Certificaciones<br>en plataformas</p></div>
                 </div>
-                <!-- Respaldo Técnico -->
                 <div class="respaldo-block">
                     <p style="color: #333; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">NUESTRO RESPALDO TÉCNICO</p>
                     <div class="tech-check"><i class="fas fa-check-circle"></i> Infraestructura alojada en Data Center Certificado Tier III</div>
@@ -336,7 +334,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 1 - SOMOS XFERA (Centrado) -->
+    <!-- SECCIÓN 1 - SOMOS XFERA -->
     <section id="about" class="sec-about">
         <div class="container">
             <h2 class="title-std title-dark">
@@ -353,13 +351,12 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 3 - SERVICIOS (Rediseño Final) -->
+    <!-- SECCIÓN 3 - SERVICIOS (Imágenes Visibles URL) -->
     <section id="services" style="padding: var(--padding-section); background: #0a0a0a;">
         <div class="container">
             <h2 class="title-std title-light">
                 SERVICIOS <span style="color: var(--primary);">INTEGRALES</span>
             </h2>
-            <!-- Texto ancho total -->
             <p style="width: 100%; color: #ccc; margin-bottom: 4rem; font-size: 1.1rem;">
                 Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI. Buscamos mejorar la disponibilidad de tus procesos, aumentar la seguridad y asegurar que tu infraestructura crezca al ritmo de tu negocio.
             </p>
@@ -367,10 +364,9 @@
             <!-- SERVICIO 1: Infraestructura TI -->
             <div class="service-split-layout" id="infraestructura">
                 <div class="visual-card-service">
-                    <!-- Imagen Data Center Reemplazada por una URL estable y temática -->
-                    <img src="https://images.unsplash.com/photo-1563770095-39d468f95c83?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Data Center">
+                    <!-- Imagen PRO URL -->
+                    <img src="https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80" alt="Data Center">
                     <div class="visual-overlay"></div>
-                    <!-- Contenido DENTRO de la imagen -->
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
                         <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Infraestructura TI</h3>
@@ -397,10 +393,9 @@
             <!-- SERVICIO 2: Consultoría TI -->
             <div class="service-split-layout" id="consultoria">
                  <div class="visual-card-service">
-                    <!-- Imagen Consultoría -->
+                    <!-- Imagen PRO URL -->
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Consultoría TI Expertos">
                     <div class="visual-overlay"></div>
-                    <!-- Contenido DENTRO de la imagen -->
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
                         <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Consultoría TI</h3>
@@ -419,7 +414,7 @@
                         <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
                     </ul>
                     <div style="margin-top: 40px;">
-                        <!-- Botón estilo Primary como se pidió -->
+                        <!-- Botón estilo Primary (mismo que infra) -->
                         <a href="#contact" class="btn btn-primary">Cotizar Consultoría</a>
                     </div>
                 </div>
@@ -463,7 +458,6 @@
     <section class="sec-cta-blue">
         <div class="container">
             <h2 style="font-size: 2.2rem; margin-bottom: 30px;">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
-            <!-- Texto unificado Blanco -->
             <p class="cta-text-unified" style="color: #fff;">
                 Nuestro equipo de ingeniería realizará un diagnóstico inicial donde revisaremos tus desafíos, requerimientos y proyecciones de crecimiento. Desde esa conversación construiremos una propuesta personalizada, clara y ajustada a tus necesidades reales.
             </p>
@@ -475,7 +469,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 6 - CASOS DE ÉXITO (Checks Alineados) -->
+    <!-- SECCIÓN 6 - CASOS DE ÉXITO -->
     <section id="casos" class="sec-cases">
         <div class="container">
             <h2 class="title-std title-light">
@@ -486,7 +480,6 @@
             </p>
             <div class="case-highlight">
                 <h3 style="color: #fff; margin-bottom: 25px; font-size: 1.5rem;">Resultados principales</h3>
-                <!-- Grid de 2 columnas corregido -->
                 <ul class="service-list case-grid">
                     <li><i class="fas fa-check-circle"></i> Continuidad operativa garantizada</li>
                     <li><i class="fas fa-check-circle"></i> Migraciones sin interrupción</li>
@@ -534,7 +527,6 @@
             <h2 class="title-std title-light">
                 INFRAESTRUCTURA <span style="color: var(--primary);">CENTRALIZADA</span>
             </h2>
-            <!-- Texto Blanco sin punto -->
             <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; color: #fff;">
                 Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
             </p>
@@ -593,16 +585,14 @@
         </div>
     </section>
 
-    <!-- SECCIÓN FORMULARIO (Diseño Final) -->
+    <!-- SECCIÓN FORMULARIO -->
     <section id="contact" style="padding: var(--padding-section); background: #000;">
         <div class="container">
-            <!-- Contenedor Azul #101f75 -->
             <div class="form-container-blue">
                 <div>
                     <h2 class="title-std title-light" style="margin-bottom: 30px;">
                         FORMULARIO DE <span style="color: var(--primary);">CONTACTO</span>
                     </h2>
-                    <!-- Textos Blanco -->
                     <p class="form-intro-text">Completa el formulario y te contactaremos para coordinar una reunión según tu disponibilidad.</p>
                     <p class="form-intro-text">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
                     <p class="form-intro-text" style="margin-top: 30px; font-weight: 600;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
@@ -634,12 +624,10 @@
                         <label class="form-label">Mensaje</label>
                     </div>
                     
-                    <!-- Texto Privacidad Corregido -->
                     <div style="margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center;">
                         Al enviar tu mensaje, aceptas nuestras <a href="#" style="color: var(--primary);">Políticas de Privacidad</a>.
                     </div>
 
-                    <!-- Botón Enviar Centrado y Reducido -->
                     <div style="text-align: center;">
                         <button type="button" class="btn btn-primary" style="padding: 12px 60px;">Enviar</button>
                     </div>
@@ -648,19 +636,17 @@
         </div>
     </section>
 
-    <!-- FOOTER (Datos Completos) -->
+    <!-- FOOTER -->
     <footer class="footer-section">
         <div class="container footer-grid">
-            <!-- Columna 1: Logo -->
             <div>
-                <!-- Logotipo con imagen (Ruta actualizada) -->
-                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" style="margin-right: 0;"></a>
+                <!-- Logotipo -->
+                <a href="#"><img src="img/xferalogo.png" alt="XFERA" class="logo-img"></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
             </div>
             
-            <!-- Columna 2: Navegación -->
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                 <div class="footer-links">
@@ -673,7 +659,6 @@
                 </div>
             </div>
 
-            <!-- Columna 3: Contacto (Datos Reales) -->
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
                 <div class="contact-info-item">
@@ -690,7 +675,6 @@
                 </div>
             </div>
 
-            <!-- Columna 4: Legal -->
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal & Partners</h4>
                 <div class="footer-links" style="margin-bottom: 25px;">

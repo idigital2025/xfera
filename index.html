@@ -75,9 +75,8 @@
             display: block;
             width: 60px;
             height: 5px;
-            /* MODIFICACIÓN: Línea azul #1f32ce y margen reducido */
             background-color: var(--title-blue); 
-            margin-top: 10px; /* Estaba en 15px, ahora más cerca */
+            margin-top: 10px;
             border-radius: 2px;
         }
 
@@ -93,12 +92,12 @@
         /* ANIMACIONES SCROLL (Reveal) */
         .reveal {
             opacity: 0;
-            transform: translateY(50px); /* Empieza desplazado hacia abajo */
-            transition: all 0.8s ease-out; /* Transición suave */
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
         }
         .reveal.active {
             opacity: 1;
-            transform: translateY(0); /* Posición final */
+            transform: translateY(0);
         }
 
         /* Botones */
@@ -158,11 +157,11 @@
         #back-to-top.show { opacity: 1; pointer-events: auto; }
         #back-to-top:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(0, 212, 255, 0.5); }
 
-        /* Botón WhatsApp Flotante (MODIFICADO: Arriba del botón subir) */
+        /* Botón WhatsApp Flotante */
         #wsp-float {
             position: fixed;
-            bottom: 95px; /* 30px (bottom) + 50px (altura btn subir) + 15px (espacio) */
-            right: 30px;  /* Mismo eje derecho que el botón subir */
+            bottom: 95px;
+            right: 30px;
             background: #25D366;
             color: #fff;
             width: 60px;
@@ -205,15 +204,22 @@
             width: 100%; 
         }
         
+        /* LOGO DINÁMICO */
         .logo-img { 
             height: 40px; 
             width: auto; 
             object-fit: contain;
             transition: 0.3s;
+            /* Por defecto (Fondo Oscuro): Invierte colores para que el logo negro se vea blanco */
             filter: brightness(0) invert(1);
         }
-        header.scrolled .logo-img { filter: none; }
+        
+        /* Estado Scrolled (Fondo Blanco): Quita el filtro para ver el logo negro original */
+        header.scrolled .logo-img {
+            filter: none; 
+        }
 
+        /* Menú Desktop Distribuido */
         .desktop-menu { 
             display: none; 
             align-items: center; 
@@ -230,6 +236,7 @@
             padding: 0 40px;
         }
         
+        /* ESTILOS DE ENLACES */
         .desktop-menu a.nav-link { 
             color: #ffffff; 
             font-size: 0.85rem; 
@@ -279,10 +286,12 @@
         .visual-card-service {
             min-height: 450px; position: relative; border-radius: 24px; overflow: hidden; display: flex; align-items: end; padding: 40px;
             border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background-color: #111; /* Fondo de respaldo por si la imagen no carga */
         }
         .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; opacity: 1; z-index:0; transition: 0.5s; }
         .visual-card-service:hover img { transform: scale(1.05); }
         
+        /* Opacidad reducida al 15% para ver más la imagen */
         .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.15) 100%); z-index:1; }
         
         .service-content-col { display: flex; flex-direction: column; justify-content: center; }
@@ -429,9 +438,10 @@
                 <div class="nav-links-group">
                     <a href="#home" class="nav-link">Inicio</a>
                     <a href="#about" class="nav-link">XFERA</a>
-                    <a href="#services" class="nav-link">Servicios</a>
+                    <a href="https://idigital2025.github.io/xfera/servicios" class="nav-link">Servicios</a>
                     <a href="#contact" class="nav-link">Contacto</a>
                 </div>
+                <!-- Botón CTA Negro -->
                 <a href="#contact" class="btn btn-primary" style="color: #000;">Cotizar tu Solución</a>
             </div>
             
@@ -445,7 +455,7 @@
             <div style="margin-bottom: 20px;">
                 <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Infraestructura Next-Gen</span>
             </div>
-            <!-- MODIFICACIÓN: Texto en mayúsculas -->
+            <!-- TÍTULO EN MAYÚSCULAS -->
             <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
                 Infraestructura moderna,<br> segura y escalable
             </h1>
@@ -524,7 +534,7 @@
             <!-- SERVICIO 1: Infraestructura TI -->
             <div class="service-split-layout" id="infraestructura">
                 <div class="visual-card-service">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80" alt="Data Center">
+                    <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
                     <div class="visual-overlay"></div>
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
@@ -552,7 +562,7 @@
             <!-- SERVICIO 2: Consultoría TI -->
             <div class="service-split-layout" id="consultoria">
                  <div class="visual-card-service">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Consultoría TI Expertos">
+                    <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
                     <div class="visual-overlay"></div>
                     <div style="position: relative; z-index: 2;">
                         <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
@@ -698,7 +708,7 @@
                     <i class="fas fa-check-circle" style="color: var(--primary);"></i> Seguridad integrada
                 </div>
             </div>
-            <a href="#infraestructura" class="btn btn-primary">Conocer más</a>
+            <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary">Conocer más</a>
         </div>
     </section>
 
@@ -798,7 +808,7 @@
     <footer class="footer-section">
         <div class="container footer-grid">
             <div>
-                <a href="#"><img src="img/logo-negro.png" alt="XFERA" class="logo-img" style="margin-right: 0;"></a>
+                <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" style="margin-right: 0;"></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
@@ -807,11 +817,11 @@
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                 <div class="footer-links">
-                    <a href="#home">Inicio</a>
-                    <a href="#about">Somos Xfera</a>
-                    <a href="#services">Servicios Integrales</a>
-                    <a href="#diferencial">Nuestro Diferencial</a>
-                    <a href="#casos">Casos de Éxito</a>
+                    <a href="index.html">Inicio</a>
+                    <a href="index.html#about">Somos Xfera</a>
+                    <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
+                    <a href="index.html#diferencial">Nuestro Diferencial</a>
+                    <a href="index.html#casos">Casos de Éxito</a>
                     <a href="#contact">Contacto</a>
                 </div>
             </div>

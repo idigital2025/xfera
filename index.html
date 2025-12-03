@@ -63,7 +63,7 @@
             letter-spacing: 0.5px;
             position: relative;
         }
-        /* MODIFICACIÓN: Texto destacado ahora es Azul (#1f32ce) */
+        /* Texto destacado ahora es Azul (#1f32ce) */
         .title-std span { color: var(--title-blue); }
         
         .title-light { color: #ffffff; }
@@ -75,9 +75,9 @@
             display: block;
             width: 60px;
             height: 5px;
-            /* MODIFICACIÓN: Línea ahora es Celeste (Cyan Primary) */
-            background-color: var(--primary); 
-            margin-top: 15px;
+            /* MODIFICACIÓN: Línea azul #1f32ce y margen reducido */
+            background-color: var(--title-blue); 
+            margin-top: 10px; /* Estaba en 15px, ahora más cerca */
             border-radius: 2px;
         }
 
@@ -88,6 +88,17 @@
         .title-centered::after {
             margin-left: auto;
             margin-right: auto;
+        }
+
+        /* ANIMACIONES SCROLL (Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px); /* Empieza desplazado hacia abajo */
+            transition: all 0.8s ease-out; /* Transición suave */
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0); /* Posición final */
         }
 
         /* Botones */
@@ -147,11 +158,11 @@
         #back-to-top.show { opacity: 1; pointer-events: auto; }
         #back-to-top:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(0, 212, 255, 0.5); }
 
-        /* Botón WhatsApp Flotante */
+        /* Botón WhatsApp Flotante (MODIFICADO: Arriba del botón subir) */
         #wsp-float {
             position: fixed;
-            bottom: 30px;
-            left: 30px; /* Izquierda para no tapar el 'Volver arriba' */
+            bottom: 95px; /* 30px (bottom) + 50px (altura btn subir) + 15px (espacio) */
+            right: 30px;  /* Mismo eje derecho que el botón subir */
             background: #25D366;
             color: #fff;
             width: 60px;
@@ -272,7 +283,6 @@
         .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; opacity: 1; z-index:0; transition: 0.5s; }
         .visual-card-service:hover img { transform: scale(1.05); }
         
-        /* MODIFICACIÓN: Opacidad reducida al 15% para que se vea más la imagen */
         .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.15) 100%); z-index:1; }
         
         .service-content-col { display: flex; flex-direction: column; justify-content: center; }
@@ -435,16 +445,20 @@
             <div style="margin-bottom: 20px;">
                 <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Infraestructura Next-Gen</span>
             </div>
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px;">
+            <!-- MODIFICACIÓN: Texto en mayúsculas -->
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
                 Infraestructura moderna,<br> segura y escalable
             </h1>
+            <!-- Subtítulo en Cian -->
             <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--primary); margin-bottom: 20px;">
                 Transformación digital diseñada por expertos
             </h2>
+            <!-- Texto blanco sin punto final -->
             <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #fff;">
                 Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <!-- CTA Actualizado -->
                 <a href="#contact" class="btn btn-primary">Cotizar tu Solución</a>
                 <a href="#contact" class="btn btn-outline">Habla con un experto</a>
             </div>
@@ -452,7 +466,7 @@
     </section>
 
     <!-- SECCIÓN 0 - CIFRAS -->
-    <section class="sec-stats">
+    <section class="sec-stats reveal">
         <div class="container">
             <div class="stats-wrapper">
                 <div class="stat-block">
@@ -477,7 +491,7 @@
     </section>
 
     <!-- SECCIÓN 1 - SOMOS XFERA -->
-    <section id="about" class="sec-about">
+    <section id="about" class="sec-about reveal">
         <div class="container">
             <h2 class="title-std title-dark title-centered">
                 SOMOS <span style="color: var(--title-blue);">XFERA</span>
@@ -498,7 +512,7 @@
     </section>
 
     <!-- SECCIÓN 3 - SERVICIOS -->
-    <section id="services" style="padding: var(--padding-section); background: #0a0a0a;">
+    <section id="services" style="padding: var(--padding-section); background: #0a0a0a;" class="reveal">
         <div class="container">
             <h2 class="title-std title-light">
                 SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
@@ -558,6 +572,7 @@
                         <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
                     </ul>
                     <div style="margin-top: 40px;">
+                        <!-- Botón estilo Primary (mismo que infra) -->
                         <a href="#contact" class="btn btn-primary">Cotizar Consultoría</a>
                     </div>
                 </div>
@@ -567,7 +582,7 @@
     </section>
 
     <!-- SECCIÓN NUEVA - NUESTRO DIFERENCIAL -->
-    <section id="diferencial" style="padding: var(--padding-section); background: #050505;">
+    <section id="diferencial" style="padding: var(--padding-section); background: #050505;" class="reveal">
         <div class="container">
             <h2 class="title-std title-light title-centered">
                 NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
@@ -598,7 +613,7 @@
     </section>
 
     <!-- SECCIÓN 8 - REFORZAMIENTO CTA -->
-    <section class="sec-cta-blue">
+    <section class="sec-cta-blue reveal">
         <div class="container">
             <h2 style="font-size: 2.2rem; margin-bottom: 30px;">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
             <p class="cta-text-unified" style="color: #fff;">
@@ -612,7 +627,7 @@
     </section>
 
     <!-- SECCIÓN 6 - CASOS DE ÉXITO -->
-    <section id="casos" class="sec-cases">
+    <section id="casos" class="sec-cases reveal">
         <div class="container">
             <h2 class="title-std title-light">
                 CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
@@ -637,7 +652,7 @@
     </section>
 
     <!-- SECCIÓN NUEVA - PARTNERS -->
-    <section style="padding: 60px 5%; background: #111;">
+    <section style="padding: 60px 5%; background: #111;" class="reveal">
         <div class="container">
             <h2 class="title-std title-light title-centered">
                 NUESTROS <span style="color: var(--title-blue);">PARTNERS</span>
@@ -664,7 +679,7 @@
     </section>
 
     <!-- SECCIÓN INFRAESTRUCTURA CENTRALIZADA -->
-    <section class="sec-infra">
+    <section class="sec-infra reveal">
         <div class="container">
             <h2 class="title-std title-light title-centered">
                 INFRAESTRUCTURA <span style="color: var(--title-blue);">CENTRALIZADA</span>
@@ -688,7 +703,7 @@
     </section>
 
     <!-- SECCIÓN 5 - BENEFICIOS -->
-    <section class="sec-white">
+    <section class="sec-white reveal">
         <div class="container">
             <div class="layout-white-split">
                 <div>
@@ -727,7 +742,7 @@
     </section>
 
     <!-- SECCIÓN FORMULARIO -->
-    <section id="contact">
+    <section id="contact" class="reveal">
         <div class="container">
             <div class="form-container-blue">
                 <div>
@@ -885,6 +900,23 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Lógica de Animación Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger inicial para elementos visibles al cargar
+        revealOnScroll();
+
     </script>
 
 </body>

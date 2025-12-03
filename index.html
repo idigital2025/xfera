@@ -197,7 +197,9 @@
         }
         .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; opacity: 0.5; z-index:0; transition: 0.5s; }
         .visual-card-service:hover img { transform: scale(1.05); opacity: 0.6; }
-        .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.6) 100%); z-index:1; }
+        
+        /* MODIFICACIÓN 1: Opacidad de la capa disminuida (0.35 en lugar de 0.6) */
+        .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.35) 100%); z-index:1; }
         
         .service-content-col { display: flex; flex-direction: column; justify-content: center; }
         .service-list { margin-bottom: 0; }
@@ -213,7 +215,9 @@
             padding: 30px; background: #f9f9f9; border-radius: 16px; border-left: 4px solid #eee; transition: 0.3s; height: 100%;
         }
         .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
-        .benefit-card-ref h3 { color: #333; font-size: 1.3rem; margin-bottom: 15px; }
+        
+        /* MODIFICACIÓN 3: Subtítulos de beneficios en color negro */
+        .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
 
         /* Formulario UX */
         .form-floating-group { position: relative; margin-bottom: 25px; }
@@ -264,7 +268,18 @@
         .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); }
 
         /* REFORZAMIENTO CTA */
-        .sec-cta-blue { background: var(--blue-accent); padding: 80px 5%; text-align: center; color: #fff; }
+        .sec-cta-blue {
+            /* Fondo con imagen 'seccion8.jpg' y filtro azul #1f32ce al 65% */
+            background: linear-gradient(to right, rgba(31, 50, 206, 0.65), rgba(31, 50, 206, 0.65)), url('img/seccion8.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 5% 120px 5%; /* Padding inferior extra para dar espacio a la superposición */
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 1; /* Z-index menor para quedar DETRÁS de la sección negra */
+            border-radius: 0; /* Sin bordes redondeados aquí */
+        }
         .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
         /* CASOS DE ÉXITO */
@@ -301,6 +316,20 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px;
         }
         .form-intro-text { font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6; }
+
+        /* SECCIÓN FORMULARIO (CORREGIDO: Puntas Redondas Superiores) */
+        #contact {
+            margin-top: -60px; /* Sube para tapar la sección anterior */
+            padding-top: 100px; /* Compensación interna */
+            padding-bottom: 80px;
+            padding-left: 5%;
+            padding-right: 5%;
+            background: #000;
+            border-radius: 60px 60px 0 0; /* Puntas redondas EN EL LÍMITE SUPERIOR */
+            position: relative;
+            z-index: 10; /* Z-index mayor para quedar ENCIMA de la sección azul */
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.5); /* Sombra sutil hacia arriba para destacar el corte */
+        }
 
         /* FOOTER */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; }
@@ -639,7 +668,8 @@
     </section>
 
     <!-- SECCIÓN FORMULARIO -->
-    <section id="contact" style="padding: var(--padding-section); background: #000;">
+    <!-- MODIFICACIÓN 4 CORREGIDA: Bordes redondos superiores y superposición -->
+    <section id="contact" style="padding: var(--padding-section); background: #000; margin-top: -40px; padding-top: 80px; border-radius: 40px 40px 0 0; position: relative; z-index: 3;">
         <div class="container">
             <div class="form-container-blue">
                 <div>

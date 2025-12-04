@@ -42,12 +42,14 @@
         
         html { scroll-behavior: smooth; }
         
-        body {
-            overflow-x: hidden;
+        /* CORRECCIÓN SCROLL GENERAL */
+        html, body {
+            overflow-x: hidden; /* Evita el descarrilamiento horizontal */
+            width: 100%;
+            position: relative;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-white);
-            width: 100%;
             font-size: 16px;
         }
 
@@ -215,7 +217,19 @@
         .respaldo-block { text-align: left; border-left: 2px solid #ddd; padding-left: 30px; }
         .tech-check { color: #666; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .tech-check i { color: var(--primary); font-size: 1.1rem; }
-        @media(max-width: 992px) { .respaldo-block { border-left: none; padding-left: 0; text-align: center; margin-top: 30px; } .tech-check { justify-content: center; } }
+        
+        /* Ajuste para break en dos líneas solo móvil */
+        .mobile-br { display: none; }
+
+        @media(max-width: 992px) { 
+            .respaldo-block { border-left: none; padding-left: 0; text-align: center; margin-top: 30px; } 
+            
+            /* Corrección Cifras Mobile: Ícono alineado arriba, no al centro */
+            .tech-check { justify-content: center; align-items: flex-start; text-align: left; }
+            .tech-check i { margin-top: 4px; } /* Ajuste fino para alinear con primera línea */
+            
+            .mobile-br { display: block; }
+        }
 
         /* --- 6. SERVICIOS --- */
         .service-split-layout {
@@ -236,6 +250,11 @@
         .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: #ccc; font-size: 1rem; }
         .service-list li i { color: var(--primary); margin-top: 4px; }
 
+        /* Ajuste tamaño títulos Servicios Mobile */
+        @media (max-width: 768px) {
+            .visual-card-service h3 { font-size: 1.8rem !important; } /* Achicar aprox 2pts visualmente */
+        }
+
         /* --- 7. DIFERENCIAL --- */
         .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         .diff-card { background: #111; padding: 2rem; border-radius: 20px; border: 1px solid #222; transition: 0.3s; }
@@ -246,7 +265,6 @@
             .snap-container { 
                 display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
                 padding-bottom: 20px; gap: 15px; scroll-behavior: smooth;
-                /* Ocultar barra de scroll estéticamente */
                 scrollbar-width: none; -ms-overflow-style: none;
             }
             .snap-container::-webkit-scrollbar { display: none; }
@@ -256,17 +274,18 @@
                 scroll-snap-align: center; 
             }
             
-            /* Controles de navegación móvil */
-            .mobile-controls-wrapper {
-                position: relative;
-            }
+            /* Controles de navegación móvil (Mejorados) */
+            .mobile-controls-wrapper { position: relative; }
             .scroll-btn {
                 position: absolute; top: 50%; transform: translateY(-50%);
-                width: 40px; height: 40px; border-radius: 50%;
-                background: rgba(255,255,255,0.9); color: #000; border: none;
+                width: 35px; height: 35px; border-radius: 50%;
+                /* Estilo negro con borde blanco */
+                background: #000; color: #fff; border: 1px solid #fff; 
                 display: flex; align-items: center; justify-content: center;
-                cursor: pointer; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                cursor: pointer; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+                font-size: 0.9rem;
             }
+            /* Posición más "hacia afuera" */
             .scroll-btn.prev { left: -10px; }
             .scroll-btn.next { right: -10px; }
         }
@@ -286,21 +305,25 @@
         }
         .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
-        /* AJUSTES MÓVILES ESPECÍFICOS (Solicitados) */
+        /* AJUSTES MÓVILES ESPECÍFICOS */
         @media (max-width: 768px) {
             /* 1. SOMOS XFERA: Alineación izquierda */
             .sec-about { text-align: left !important; }
             .sec-about .title-centered { text-align: left; }
             .sec-about .title-centered::after { margin-left: 0; }
-            .sec-about .btn-wrapper { text-align: left; } /* Wrapper helper */
+            .sec-about .btn-wrapper { text-align: left; } 
             
-            /* 3. CTA FINAL: Alineación izquierda */
+            /* 3. CTA FINAL: Alineación izquierda y tamaño título reducido */
             .sec-cta-blue { align-items: flex-start !important; text-align: left !important; }
             .cta-text-unified { margin-left: 0 !important; }
+            .sec-cta-blue h2 { font-size: 1.8rem !important; } /* Achicar aprox 4pts */
             
-            /* 4. BENEFICIOS: Ajustes */
-            .layout-white-split { display: block; } /* Romper grid */
-            .benefit-grid-mobile { margin-top: 30px; } /* Espacio entre texto y carrusel */
+            /* 4. BENEFICIOS */
+            .layout-white-split { display: block; }
+            .benefit-grid-mobile { margin-top: 30px; }
+            
+            /* 5. INFRAESTRUCTURA: Texto mismo tamaño que Casos */
+            .sec-infra p { font-size: 1.1rem !important; }
         }
 
         /* --- 9. CASOS & PARTNERS --- */
@@ -457,13 +480,13 @@
                     <div class="respaldo-block">
                         <p style="color: #333; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">NUESTRO RESPALDO TÉCNICO</p>
                         <div class="tech-check"><i class="fas fa-check-circle"></i> Infraestructura alojada en Data Center Certificado Tier III</div>
-                        <div class="tech-check"><i class="fas fa-check-circle"></i> Partner y actor autorizado Nutanix en Chile</div>
+                        <div class="tech-check"><i class="fas fa-check-circle"></i> Partner y actor autorizado <br class="mobile-br"> Nutanix en Chile</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 1 - SOMOS XFERA (OPTIMIZADO MÓVIL) -->
+        <!-- SECCIÓN 1 - SOMOS XFERA -->
         <section id="about" class="sec-about reveal" style="padding: var(--padding-section); background: #ffffff; color: #333; text-align: center;">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
@@ -551,7 +574,7 @@
             </div>
         </section>
 
-        <!-- NUESTRO DIFERENCIAL (OPTIMIZADO MÓVIL CARRUSEL) -->
+        <!-- NUESTRO DIFERENCIAL -->
         <section id="diferencial" style="padding: var(--padding-section); background: #050505;" class="reveal">
             <div class="container">
                 <h2 class="title-std title-light title-centered">
@@ -588,7 +611,7 @@
             </div>
         </section>
 
-        <!-- CTA FINAL (OPTIMIZADO MÓVIL ALINEACIÓN) -->
+        <!-- CTA FINAL -->
         <section class="sec-cta-blue reveal">
             <div class="container">
                 <h2 style="font-size: 2.2rem; margin-bottom: 30px; color: #fff; font-family: 'Space Grotesk';">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
@@ -678,7 +701,7 @@
             </div>
         </section>
 
-        <!-- BENEFICIOS (OPTIMIZADO MÓVIL CARRUSEL + BOTÓN AL FINAL) -->
+        <!-- BENEFICIOS -->
         <section class="sec-white reveal" style="background: #fff; color: #111; padding: var(--padding-section);">
             <div class="container">
                 <div class="layout-white-split">
@@ -689,17 +712,16 @@
                         <p style="font-weight: 500; color: #333; font-size: 1.1rem; line-height: 1.5; margin-bottom: 30px;">
                             ¿Aún no te convences de XFERA? Somos experiencia Senior en nuestro equipo de trabajo, quienes te garantizamos soluciones viables desde todas las perspectivas para tu negocio.
                         </p>
-                        <!-- Botón Desktop (Visible solo en PC) -->
+                        <!-- Botón Desktop -->
                         <a href="#contact" class="btn btn-secondary-dark desktop-only" style="padding: 15px 35px;">Solicitar reunión &rarr;</a>
                     </div>
                     
                     <div class="benefit-grid-mobile">
                         <div class="mobile-controls-wrapper">
-                            <!-- Botones de navegación (Solo móvil) -->
+                            <!-- Botones de navegación -->
                             <button class="scroll-btn prev mobile-nav-controls" data-target="benefit-scroll"><i class="fas fa-chevron-left"></i></button>
                             <button class="scroll-btn next mobile-nav-controls" data-target="benefit-scroll"><i class="fas fa-chevron-right"></i></button>
                             
-                            <!-- Ahora usamos la clase snap-container en movil para el scroll horizontal -->
                             <div class="snap-container" id="benefit-scroll" style="display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
                                 <div class="benefit-card-ref snap-item">
                                     <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
@@ -724,7 +746,7 @@
                             </div>
                         </div>
                         
-                        <!-- Botón Móvil (Visible solo en Móvil, al final) -->
+                        <!-- Botón Móvil -->
                         <a href="#contact" class="btn btn-secondary-dark mobile-only">Solicitar reunión &rarr;</a>
                     </div>
                 </div>
@@ -923,19 +945,36 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // 6. LÓGICA DE NAVEGACIÓN DE CARRUSEL MÓVIL (Nuevo)
+        // 6. LÓGICA DE NAVEGACIÓN DE CARRUSEL MÓVIL (Mejorada para salto exacto)
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
-                const scrollAmount = container.clientWidth * 0.85; // Desplaza el 85% del ancho visible
-
+                
+                // Cálculos exactos para el snap
+                const gap = 25; // Debe coincidir con el CSS gap
+                const item = container.querySelector('.snap-item');
+                if(!item) return;
+                
+                const itemWidth = item.offsetWidth;
+                const stride = itemWidth + gap; // Distancia exacta de salto
+                
+                // Determinar el índice actual basado en el scroll
+                const currentScroll = container.scrollLeft;
+                const currentIndex = Math.round(currentScroll / stride);
+                
+                let nextIndex;
                 if (isNext) {
-                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    nextIndex = currentIndex + 1;
                 } else {
-                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    nextIndex = currentIndex - 1;
                 }
+                
+                // Calcular nueva posición
+                const newScroll = nextIndex * stride;
+                
+                container.scrollTo({ left: newScroll, behavior: 'smooth' });
             });
         });
     </script>

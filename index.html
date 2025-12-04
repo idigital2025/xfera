@@ -251,8 +251,28 @@
             .snap-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
             .snap-item { flex: 0 0 85vw; scroll-snap-align: center; }
         }
+        
+        /* --- 8. REFORZAMIENTO CTA (RESTAURADO) --- */
+        .sec-cta-blue {
+            /* He restaurado tu path local. En el preview usará un fallback si no encuentra la imagen local. */
+            background: linear-gradient(to right, rgba(31, 50, 206, 0.65), rgba(31, 50, 206, 0.65)), url('img/seccion8.jpg');
+            /* Fallback visual solo para este preview si no tienes la imagen cargada en el entorno: */
+            background-color: var(--title-blue); 
+            
+            background-size: cover;
+            background-position: center;
+            padding: 100px 5%;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            border-radius: 0;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
-        /* --- 8. CASOS & PARTNERS --- */
+
+        /* --- 9. CASOS & PARTNERS --- */
         .case-highlight {
             background: linear-gradient(to right, #111, #0a0a0a); border-left: 4px solid var(--secondary); padding: 40px; border-radius: 0 20px 20px 0; margin-top: 40px;
         }
@@ -271,7 +291,7 @@
         }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- 9. BENEFICIOS & FORMULARIO --- */
+        /* --- 10. BENEFICIOS & FORMULARIO --- */
         .layout-white-split { display: grid; gap: 60px; }
         @media(min-width: 992px) { .layout-white-split { grid-template-columns: 350px 1fr; align-items: start; } }
         
@@ -304,7 +324,7 @@
             background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10;
         }
 
-        /* --- 10. FOOTER --- */
+        /* --- 11. FOOTER --- */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; }
         .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }

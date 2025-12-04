@@ -8,8 +8,8 @@
     <!-- Título Original -->
     <title>XFERA | Infraestructura TI & IaaS</title>
     
-    <!-- Metaetiquetas base para SEO (Genéricas, basadas en tu contenido) -->
-    <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones.">
+    <!-- Metaetiquetas -->
+    <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa.">
     
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,15 +22,15 @@
     <style>
         /* --- 1. VARIABLES & RESET --- */
         :root {
-            --primary: #00D4FF; /* Cyan Calipso */
-            --secondary: #7B2CBF; /* Morado */
+            --primary: #00D4FF;
+            --secondary: #7B2CBF;
             --bg-dark: #050505;
             --bg-grey: #111111;
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
             --blue-accent: #1b30af; 
             --blue-form: #101f75;
-            --title-blue: #1f32ce; /* Tu azul original de títulos */
+            --title-blue: #1f32ce;
             
             --padding-section: 100px 5%;
             --radius-card: 20px;
@@ -65,7 +65,6 @@
             padding: 0 20px;
         }
 
-        /* Títulos Estándar (Restaurado diseño original con línea) */
         .title-std {
             font-size: 1.8rem;
             text-transform: uppercase;
@@ -91,7 +90,7 @@
         .title-centered { text-align: center; }
         .title-centered::after { margin-left: auto; margin-right: auto; }
 
-        /* Animaciones (Optimizadas con GPU) */
+        /* Animaciones */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -153,11 +152,10 @@
 
         .logo-img { 
             height: 40px; width: auto; object-fit: contain; transition: 0.3s;
-            filter: brightness(0) invert(1); /* Logo blanco por defecto */
+            filter: brightness(0) invert(1);
         }
-        header.scrolled .logo-img { filter: none; /* Logo original (negro) al scrollear */ }
+        header.scrolled .logo-img { filter: none; }
 
-        /* Menú Desktop */
         .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
         .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
         
@@ -173,7 +171,6 @@
         .mobile-toggle { font-size: 1.5rem; color: #fff; cursor: pointer; transition: 0.3s; }
         header.scrolled .mobile-toggle { color: #333; }
 
-        /* MENÚ MÓVIL (Off-canvas) - Corrección Funcional */
         .mobile-menu-overlay {
             position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
             background: #111; z-index: 2000; padding: 80px 30px;
@@ -197,7 +194,7 @@
             .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- 4. HERO SECTION --- */
+        /* --- 4. HERO --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; text-align: center;
             background: linear-gradient(135deg, #1a1a3a 0%, #0a0a1a 50%, #050505 100%);
@@ -213,23 +210,20 @@
         .sec-stats { background: #ffffff; padding: 60px 5%; border-bottom: 1px solid #eee; }
         .stats-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; align-items: start; }
         .stat-block { text-align: center; }
-        
         .stat-item h3 { font-size: 3rem; color: var(--blue-accent); margin-bottom: 10px; font-weight: 800; line-height: 1; }
         .stat-item p { color: #666; font-size: 1rem; margin: 0; line-height: 1.3; font-weight: 500; }
-
         .respaldo-block { text-align: left; border-left: 2px solid #ddd; padding-left: 30px; }
         .tech-check { color: #666; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .tech-check i { color: var(--primary); font-size: 1.1rem; }
         @media(max-width: 992px) { .respaldo-block { border-left: none; padding-left: 0; text-align: center; margin-top: 30px; } .tech-check { justify-content: center; } }
 
-        /* --- 6. SERVICIOS (Split Layout Original) --- */
+        /* --- 6. SERVICIOS --- */
         .service-split-layout {
             display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
             border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px;
         }
         @media(min-width: 992px) { .service-split-layout { grid-template-columns: 1fr 1fr; } }
         .service-split-layout:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
         .visual-card-service {
             min-height: 450px; position: relative; border-radius: 24px; overflow: hidden; display: flex; align-items: end; padding: 40px;
             border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); background-color: #111;
@@ -237,7 +231,6 @@
         .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; transition: 0.5s; }
         .visual-card-service:hover img { transform: scale(1.05); }
         .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.15) 100%); z-index:1; }
-
         .service-content-col { display: flex; flex-direction: column; justify-content: center; }
         .service-list { margin-bottom: 0; }
         .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: #ccc; font-size: 1rem; }
@@ -247,30 +240,68 @@
         .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         .diff-card { background: #111; padding: 2rem; border-radius: 20px; border: 1px solid #222; transition: 0.3s; }
         .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); }
-        @media (max-width: 768px) {
-            .snap-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
-            .snap-item { flex: 0 0 85vw; scroll-snap-align: center; }
+        
+        /* CARRUSEL MÓVIL (Aplicable a Diferencial y Beneficios) */
+        @media (max-width: 992px) {
+            .snap-container { 
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+                padding-bottom: 20px; gap: 15px; scroll-behavior: smooth;
+                /* Ocultar barra de scroll estéticamente */
+                scrollbar-width: none; -ms-overflow-style: none;
+            }
+            .snap-container::-webkit-scrollbar { display: none; }
+            
+            .snap-item { 
+                flex: 0 0 85vw; /* 85% del ancho de pantalla */
+                scroll-snap-align: center; 
+            }
+            
+            /* Controles de navegación móvil */
+            .mobile-controls-wrapper {
+                position: relative;
+            }
+            .scroll-btn {
+                position: absolute; top: 50%; transform: translateY(-50%);
+                width: 40px; height: 40px; border-radius: 50%;
+                background: rgba(255,255,255,0.9); color: #000; border: none;
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            }
+            .scroll-btn.prev { left: -10px; }
+            .scroll-btn.next { right: -10px; }
         }
         
-        /* --- 8. REFORZAMIENTO CTA (RESTAURADO) --- */
+        /* En Desktop ocultamos los controles */
+        .mobile-nav-controls { display: none; }
+        @media(max-width: 992px) { .mobile-nav-controls { display: block; } }
+
+        /* --- 8. REFORZAMIENTO CTA --- */
         .sec-cta-blue {
-            /* He restaurado tu path local. En el preview usará un fallback si no encuentra la imagen local. */
             background: linear-gradient(to right, rgba(31, 50, 206, 0.65), rgba(31, 50, 206, 0.65)), url('img/seccion8.jpg');
-            /* Fallback visual solo para este preview si no tienes la imagen cargada en el entorno: */
             background-color: var(--title-blue); 
-            
-            background-size: cover;
-            background-position: center;
-            padding: 100px 5%;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
+            background-size: cover; background-position: center;
+            padding: 100px 5%; text-align: center; color: #fff;
+            position: relative; z-index: 1;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
         .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
+        /* AJUSTES MÓVILES ESPECÍFICOS (Solicitados) */
+        @media (max-width: 768px) {
+            /* 1. SOMOS XFERA: Alineación izquierda */
+            .sec-about { text-align: left !important; }
+            .sec-about .title-centered { text-align: left; }
+            .sec-about .title-centered::after { margin-left: 0; }
+            .sec-about .btn-wrapper { text-align: left; } /* Wrapper helper */
+            
+            /* 3. CTA FINAL: Alineación izquierda */
+            .sec-cta-blue { align-items: flex-start !important; text-align: left !important; }
+            .cta-text-unified { margin-left: 0 !important; }
+            
+            /* 4. BENEFICIOS: Ajustes */
+            .layout-white-split { display: block; } /* Romper grid */
+            .benefit-grid-mobile { margin-top: 30px; } /* Espacio entre texto y carrusel */
+        }
 
         /* --- 9. CASOS & PARTNERS --- */
         .case-highlight {
@@ -278,7 +309,6 @@
         }
         .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } 
         @media(max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
-
         .marquee-wrapper {
             overflow: hidden; width: 100%; position: relative; margin-top: 40px;
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -300,6 +330,14 @@
         }
         .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
         .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
+
+        /* Clases de utilidad para el botón duplicado */
+        .desktop-only { display: inline-flex; }
+        .mobile-only { display: none; }
+        @media(max-width: 992px) {
+            .desktop-only { display: none; }
+            .mobile-only { display: inline-flex; margin-top: 30px; width: 100%; }
+        }
 
         .form-container-blue {
             background: var(--blue-form); border-radius: 30px; padding: clamp(40px, 8vw, 80px);
@@ -330,7 +368,6 @@
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
         
-        /* Botones Flotantes */
         #back-to-top {
             position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #000;
             width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -346,7 +383,7 @@
 </head>
 <body id="top">
 
-    <!-- MENÚ MÓVIL OVERLAY (Agregado para funcionalidad) -->
+    <!-- MENÚ MÓVIL OVERLAY -->
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
@@ -360,7 +397,6 @@
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container nav-flex">
-            <!-- Logotipo -->
             <a href="#">
                 <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
             </a>
@@ -372,7 +408,6 @@
                     <a href="https://idigital2025.github.io/xfera/servicios" class="nav-link">Servicios</a>
                     <a href="#contact" class="nav-link">Contacto</a>
                 </div>
-                <!-- Botón CTA Negro -->
                 <a href="#contact" class="btn btn-primary" style="color: #000;">Cotizar tu Solución</a>
             </div>
             
@@ -387,15 +422,12 @@
                 <div style="margin-bottom: 20px;">
                     <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Infraestructura Next-Gen</span>
                 </div>
-                <!-- TÍTULO ORIGINAL -->
                 <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
                     Infraestructura moderna,<br> segura y escalable
                 </h1>
-                <!-- Subtítulo Original -->
                 <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--primary); margin-bottom: 20px;">
                     Transformación digital diseñada por expertos
                 </h2>
-                <!-- Texto Original -->
                 <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #fff;">
                     Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones
                 </p>
@@ -431,7 +463,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 1 - SOMOS XFERA -->
+        <!-- SECCIÓN 1 - SOMOS XFERA (OPTIMIZADO MÓVIL) -->
         <section id="about" class="sec-about reveal" style="padding: var(--padding-section); background: #ffffff; color: #333; text-align: center;">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
@@ -444,7 +476,7 @@
                     <p style="color: #555; font-size: 1rem;">
                         En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga y no tenga sorpresas inesperadas.
                     </p>
-                    <div style="margin-top: 30px;">
+                    <div class="btn-wrapper" style="margin-top: 30px;">
                         <a href="#contact" class="btn btn-secondary-dark">Conocer más</a>
                     </div>
                 </div>
@@ -461,7 +493,7 @@
                     Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI. Buscamos mejorar la disponibilidad de tus procesos, aumentar la seguridad y asegurar que tu infraestructura crezca al ritmo de tu negocio.
                 </p>
 
-                <!-- SERVICIO 1: Infraestructura TI -->
+                <!-- SERVICIO 1 -->
                 <div class="service-split-layout" id="infraestructura">
                     <div class="visual-card-service">
                         <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
@@ -489,7 +521,7 @@
                     </div>
                 </div>
 
-                <!-- SERVICIO 2: Consultoría TI -->
+                <!-- SERVICIO 2 -->
                 <div class="service-split-layout" id="consultoria">
                      <div class="visual-card-service">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -519,38 +551,44 @@
             </div>
         </section>
 
-        <!-- SECCIÓN NUEVA - NUESTRO DIFERENCIAL -->
+        <!-- NUESTRO DIFERENCIAL (OPTIMIZADO MÓVIL CARRUSEL) -->
         <section id="diferencial" style="padding: var(--padding-section); background: #050505;" class="reveal">
             <div class="container">
                 <h2 class="title-std title-light title-centered">
                     NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
                 </h2>
-                <div class="snap-container">
-                    <div class="diff-card snap-item">
-                        <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                        <h3>Equipo Certificado</h3>
-                        <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
-                    </div>
-                    <div class="diff-card snap-item">
-                        <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                        <h3>Hiperconvergencia</h3>
-                        <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
-                    </div>
-                    <div class="diff-card snap-item">
-                        <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                        <h3>Seguridad Tier III</h3>
-                        <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
-                    </div>
-                    <div class="diff-card snap-item">
-                        <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                        <h3>100% Personalizado</h3>
-                        <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
+                
+                <div class="mobile-controls-wrapper">
+                    <button class="scroll-btn prev mobile-nav-controls" data-target="diff-scroll"><i class="fas fa-chevron-left"></i></button>
+                    <button class="scroll-btn next mobile-nav-controls" data-target="diff-scroll"><i class="fas fa-chevron-right"></i></button>
+                    
+                    <div class="snap-container" id="diff-scroll">
+                        <div class="diff-card snap-item">
+                            <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                            <h3>Equipo Certificado</h3>
+                            <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
+                        </div>
+                        <div class="diff-card snap-item">
+                            <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                            <h3>Hiperconvergencia</h3>
+                            <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
+                        </div>
+                        <div class="diff-card snap-item">
+                            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                            <h3>Seguridad Tier III</h3>
+                            <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
+                        </div>
+                        <div class="diff-card snap-item">
+                            <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                            <h3>100% Personalizado</h3>
+                            <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 8 - REFORZAMIENTO CTA -->
+        <!-- CTA FINAL (OPTIMIZADO MÓVIL ALINEACIÓN) -->
         <section class="sec-cta-blue reveal">
             <div class="container">
                 <h2 style="font-size: 2.2rem; margin-bottom: 30px; color: #fff; font-family: 'Space Grotesk';">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
@@ -589,7 +627,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN NUEVA - PARTNERS -->
+        <!-- PARTNERS -->
         <section style="padding: 60px 5%; background: #111;" class="reveal">
             <div class="container">
                 <h2 class="title-std title-light title-centered">
@@ -616,7 +654,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN INFRAESTRUCTURA CENTRALIZADA -->
+        <!-- INFRAESTRUCTURA CENTRALIZADA -->
         <section class="sec-infra reveal" style="background: radial-gradient(circle at center, #151520 0%, #000 100%); padding: var(--padding-section); text-align: center;">
             <div class="container">
                 <h2 class="title-std title-light title-centered">
@@ -640,7 +678,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 5 - BENEFICIOS -->
+        <!-- BENEFICIOS (OPTIMIZADO MÓVIL CARRUSEL + BOTÓN AL FINAL) -->
         <section class="sec-white reveal" style="background: #fff; color: #111; padding: var(--padding-section);">
             <div class="container">
                 <div class="layout-white-split">
@@ -651,35 +689,49 @@
                         <p style="font-weight: 500; color: #333; font-size: 1.1rem; line-height: 1.5; margin-bottom: 30px;">
                             ¿Aún no te convences de XFERA? Somos experiencia Senior en nuestro equipo de trabajo, quienes te garantizamos soluciones viables desde todas las perspectivas para tu negocio.
                         </p>
-                        <a href="#contact" class="btn btn-secondary-dark" style="padding: 15px 35px;">Solicitar reunión &rarr;</a>
+                        <!-- Botón Desktop (Visible solo en PC) -->
+                        <a href="#contact" class="btn btn-secondary-dark desktop-only" style="padding: 15px 35px;">Solicitar reunión &rarr;</a>
                     </div>
-                    <div style="display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                        <div class="benefit-card-ref">
-                            <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
-                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>
+                    
+                    <div class="benefit-grid-mobile">
+                        <div class="mobile-controls-wrapper">
+                            <!-- Botones de navegación (Solo móvil) -->
+                            <button class="scroll-btn prev mobile-nav-controls" data-target="benefit-scroll"><i class="fas fa-chevron-left"></i></button>
+                            <button class="scroll-btn next mobile-nav-controls" data-target="benefit-scroll"><i class="fas fa-chevron-right"></i></button>
+                            
+                            <!-- Ahora usamos la clase snap-container en movil para el scroll horizontal -->
+                            <div class="snap-container" id="benefit-scroll" style="display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                                <div class="benefit-card-ref snap-item">
+                                    <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>
+                                </div>
+                                <div class="benefit-card-ref snap-item">
+                                    <h3 style="color: var(--secondary);">Escalabilidad inmediata</h3>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Infraestructura que crece con tu negocio sin interrupciones.</p>
+                                </div>
+                                <div class="benefit-card-ref snap-item">
+                                    <h3 style="color: var(--secondary);">Migraciones sin riesgos</h3>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Procesos rápidos, seguros y sin fricción.</p>
+                                </div>
+                                <div class="benefit-card-ref snap-item">
+                                    <h3 style="color: var(--secondary);">Menor costo total (TCO)</h3>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Menos mantenimiento, menos complejidad.</p>
+                                </div>
+                                <div class="benefit-card-ref snap-item" style="grid-column: span 2;">
+                                    <h3 style="color: var(--secondary);">Seguridad centralizada</h3>
+                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Protección unificada de datos y sistemas críticos.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="benefit-card-ref">
-                            <h3 style="color: var(--secondary);">Escalabilidad inmediata</h3>
-                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Infraestructura que crece con tu negocio sin interrupciones.</p>
-                        </div>
-                        <div class="benefit-card-ref">
-                            <h3 style="color: var(--secondary);">Migraciones sin riesgos</h3>
-                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Procesos rápidos, seguros y sin fricción.</p>
-                        </div>
-                        <div class="benefit-card-ref">
-                            <h3 style="color: var(--secondary);">Menor costo total (TCO)</h3>
-                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Menos mantenimiento, menos complejidad.</p>
-                        </div>
-                        <div class="benefit-card-ref" style="grid-column: span 2;">
-                            <h3 style="color: var(--secondary);">Seguridad centralizada</h3>
-                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Protección unificada de datos y sistemas críticos.</p>
-                        </div>
+                        
+                        <!-- Botón Móvil (Visible solo en Móvil, al final) -->
+                        <a href="#contact" class="btn btn-secondary-dark mobile-only">Solicitar reunión &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN FORMULARIO -->
+        <!-- FORMULARIO -->
         <section id="contact" class="reveal">
             <div class="container">
                 <div class="form-container-blue">
@@ -798,14 +850,14 @@
 
     <!-- SCRIPTS OPTIMIZADOS -->
     <script>
-        // 1. Efecto Scroll Header (Optimizado)
+        // 1. Efecto Scroll Header
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         }, { passive: true });
 
-        // 2. Lógica Menú Móvil (Corregido: ahora abre un menú real)
+        // 2. Lógica Menú Móvil
         const menuBtn = document.getElementById('menuBtn');
         const closeMenu = document.getElementById('closeMenu');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -822,7 +874,7 @@
         overlay.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // 3. Animación de Contadores (Optimizado con IntersectionObserver)
+        // 3. Animación de Contadores
         const counterSection = document.querySelector('.sec-stats');
         let countersStarted = false;
 
@@ -869,6 +921,22 @@
         backToTop.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 6. LÓGICA DE NAVEGACIÓN DE CARRUSEL MÓVIL (Nuevo)
+        document.querySelectorAll('.scroll-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const container = document.getElementById(targetId);
+                const isNext = this.classList.contains('next');
+                const scrollAmount = container.clientWidth * 0.85; // Desplaza el 85% del ancho visible
+
+                if (isNext) {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            });
         });
     </script>
 

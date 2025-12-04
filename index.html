@@ -210,6 +210,7 @@
             .mobile-br { display: block; }
         }
 
+        /* --- SERVICIOS --- */
         .service-split-layout {
             display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
             border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px;
@@ -227,7 +228,12 @@
         .service-list { margin-bottom: 0; }
         .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: #ccc; font-size: 1rem; }
         .service-list li i { color: var(--primary); margin-top: 4px; }
-        @media (max-width: 768px) { .visual-card-service h3 { font-size: 1.8rem !important; } }
+        
+        @media (max-width: 768px) { 
+            .visual-card-service h3 { font-size: 1.8rem !important; }
+            /* Texto servicios mobile ajustado */
+            .visual-card-service p { font-size: 1rem !important; }
+        }
 
         /* --- CARRUSEL Y SNAP (Diferencial & Beneficios) --- */
         .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
@@ -250,11 +256,13 @@
                 scroll-behavior: smooth;
                 scrollbar-width: none; 
                 grid-template-columns: none !important; /* Anular grid */
+                width: 100%; /* Asegurar ancho contenedor */
             }
             .snap-container::-webkit-scrollbar { display: none; }
             
             .snap-item { 
-                flex: 0 0 88vw; /* Tarjetas ocupan casi todo el ancho */
+                flex: 0 0 85vw; /* Tarjetas ocupan casi todo el ancho */
+                width: 85vw; /* Refuerzo ancho */
                 scroll-snap-align: center; 
                 min-width: 0; /* Fix flex overflow */
             }
@@ -279,9 +287,9 @@
             .scroll-btn.dark-theme {
                 background: #000; color: #fff; border: 1px solid #fff; 
             }
-            /* Estilo Light (Beneficios) */
+            /* Estilo Light (Beneficios) - Ajustado a Blanco con Borde Negro */
             .scroll-btn.light-theme {
-                background: #fff; color: #000; border: 1px solid #000; 
+                background: #fff; color: #000; border: 1px solid #000; z-index: 10;
             }
         }
         
@@ -300,6 +308,8 @@
         .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
         @media (max-width: 768px) {
+            h1 { font-size: 2.3rem !important; } /* Hero title achicado */
+            
             .sec-about { text-align: left !important; }
             .sec-about .title-centered { text-align: left; }
             .sec-about .title-centered::after { margin-left: 0; }
@@ -309,8 +319,9 @@
             .cta-text-unified { margin-left: 0 !important; }
             .sec-cta-blue h2 { font-size: 1.8rem !important; }
             
-            .layout-white-split { display: block; }
-            .benefit-grid-mobile { margin-top: 30px; }
+            /* Beneficios Layout Mobile */
+            .layout-white-split { display: block; overflow: hidden; width: 100%; } 
+            .benefit-grid-mobile { margin-top: 30px; width: 100%; }
             
             .sec-infra p { font-size: 1.1rem !important; }
         }
@@ -351,7 +362,7 @@
         .form-input {
             width: 100%; padding: 15px 0 10px; background: transparent; border: none;
             border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; outline: none; font-size: 1rem; transition: 0.3s;
-            max-width: 100%; /* Asegurar que no desborde */
+            max-width: 100%; box-sizing: border-box; /* Asegurar que no desborde */
         }
         .form-input:focus { border-bottom-color: var(--primary); }
         .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label {
@@ -367,18 +378,22 @@
             background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10;
         }
 
-        /* AJUSTES FORMULARIO MÓVIL (Nuevos) */
+        /* AJUSTES FORMULARIO MÓVIL (Corregido desborde) */
         @media(max-width: 768px) {
             #contact {
                 background: var(--blue-form); /* Fondo azul en toda la sección */
                 margin-top: 0; /* Quitar efecto overlap */
-                border-radius: 0;
-                padding-left: 20px; padding-right: 20px; /* Reducir padding lateral */
+                border-radius: 30px 30px 0 0; /* Puntas redondas arriba */
+                padding-left: 5%; padding-right: 5%; /* Padding normal */
             }
             .form-container-blue {
                 background: transparent; /* Quitar caja interna */
-                padding: 0; /* Quitar padding interno */
+                padding: 20px 0; /* Reducir padding interno */
                 gap: 30px;
+                display: flex; flex-direction: column; /* Apilar limpio */
+            }
+            .form-container-blue img {
+                width: 100%; height: auto; object-fit: cover; /* Imagen responsiva */
             }
             .form-intro-text { font-size: 0.95rem; }
             .privacy-text { text-align: left !important; }
@@ -448,7 +463,7 @@
                     Infraestructura moderna,<br> segura y escalable
                 </h1>
                 <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--primary); margin-bottom: 20px;">
-                    Transformación digital diseñada por expertos
+                    Transformación digital <br class="mobile-br"> diseñada por expertos
                 </h2>
                 <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #fff;">
                     Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones
@@ -520,7 +535,7 @@
                         <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
                         <div class="visual-overlay"></div>
                         <div style="position: relative; z-index: 2;">
-                            <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
+                            <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: #000; display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
                             <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Infraestructura TI</h3>
                             <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
                                 Arquitecturas modernas basadas en Nutanix y cloud privada, diseñadas para garantizar rendimiento, disponibilidad y seguridad continua.
@@ -547,7 +562,7 @@
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
                         <div class="visual-overlay"></div>
                         <div style="position: relative; z-index: 2;">
-                            <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
+                            <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: #000; display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
                             <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Consultoría TI</h3>
                             <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
                                 Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.
@@ -716,7 +731,7 @@
                     </div>
                     
                     <div class="benefit-grid-mobile">
-                        <!-- Contenedor Carrusel (Clase snap-container reutilizada) -->
+                        <!-- Contenedor Carrusel -->
                         <div class="snap-container" id="benefit-scroll">
                             <div class="benefit-card-ref snap-item">
                                 <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
@@ -939,7 +954,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // 6. LÓGICA DE CARRUSEL CON LOOP INFINITO (Nuevo)
+        // 6. LÓGICA DE CARRUSEL CON LOOP INFINITO
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');

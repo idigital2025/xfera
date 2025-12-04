@@ -2,8 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Título Original -->
     <title>XFERA | Infraestructura TI & IaaS</title>
+    
+    <!-- Metaetiquetas base para SEO (Genéricas, basadas en tu contenido) -->
+    <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones.">
+    
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,29 +30,33 @@
             --text-gray: #b0b0b0;
             --blue-accent: #1b30af; 
             --blue-form: #101f75;
-            --title-blue: #1f32ce; /* Nuevo color para texto de títulos */
+            --title-blue: #1f32ce; /* Tu azul original de títulos */
             
             --padding-section: 100px 5%;
             --radius-card: 20px;
             --nav-height: 80px;
+            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html, body {
+        html { scroll-behavior: smooth; }
+        
+        body {
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-white);
             width: 100%;
-            scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.1; margin-bottom: 1rem; }
         p { line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; color: var(--text-gray); font-weight: 400; }
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: var(--transition); }
         ul { list-style: none; padding: 0; margin: 0; }
-        
+        img { max-width: 100%; height: auto; display: block; }
+
         /* --- 2. UTILIDADES --- */
         .container {
             width: 100%;
@@ -54,7 +65,7 @@
             padding: 0 20px;
         }
 
-        /* CLASE ESTÁNDAR PARA TÍTULOS CON LÍNEA DECORATIVA */
+        /* Títulos Estándar (Restaurado diseño original con línea) */
         .title-std {
             font-size: 1.8rem;
             text-transform: uppercase;
@@ -63,13 +74,10 @@
             letter-spacing: 0.5px;
             position: relative;
         }
-        /* Texto destacado ahora es Azul (#1f32ce) */
         .title-std span { color: var(--title-blue); }
-        
         .title-light { color: #ffffff; }
         .title-dark { color: #333333; }
 
-        /* LÍNEA DECORATIVA AUTOMÁTICA */
         .title-std::after {
             content: '';
             display: block;
@@ -80,46 +88,40 @@
             border-radius: 2px;
         }
 
-        /* Variación para títulos centrados: Centra la línea */
-        .title-centered {
-            text-align: center;
-        }
-        .title-centered::after {
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .title-centered { text-align: center; }
+        .title-centered::after { margin-left: auto; margin-right: auto; }
 
-        /* ANIMACIONES SCROLL (Reveal) */
+        /* Animaciones (Optimizadas con GPU) */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
-            transition: all 0.8s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* Botones */
         .btn {
             display: inline-flex; align-items: center; justify-content: center;
             padding: 12px 30px; border-radius: 999px;
             font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
+        
         .btn-primary {
             background: var(--primary); color: #000;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
         }
-        .btn-primary:hover { box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); transform: translateY(-2px); }
+        .btn-primary:hover { 
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); 
+            transform: translateY(-2px); 
+        }
         
         .btn-outline {
             background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff;
         }
         .btn-outline:hover { 
-            border-color: var(--primary); 
-            background: var(--primary); 
-            color: #000;
+            border-color: var(--primary); background: var(--primary); color: #000;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
@@ -127,61 +129,11 @@
             background: transparent; border: 1px solid #333; color: #333;
         }
         .btn-secondary-dark:hover { 
-            background: var(--primary); 
-            color: #000; 
-            border-color: var(--primary);
+            background: var(--primary); color: #000; border-color: var(--primary);
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* Botón Subir */
-        #back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            color: #000;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.3s;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        #back-to-top.show { opacity: 1; pointer-events: auto; }
-        #back-to-top:hover { transform: translateY(-5px); box-shadow: 0 0 25px rgba(0, 212, 255, 0.5); }
-
-        /* Botón WhatsApp Flotante */
-        #wsp-float {
-            position: fixed;
-            bottom: 95px;
-            right: 30px;
-            background: #25D366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            transition: 0.3s;
-        }
-        #wsp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
-
-
-        /* --- 3. HEADER DINÁMICO --- */
+        /* --- 3. HEADER & NAV --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 15px 0;
@@ -197,137 +149,55 @@
             padding: 10px 0;
         }
 
-        .nav-flex { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 100%; 
-        }
-        
-        /* LOGO DINÁMICO */
-        .logo-img { 
-            height: 40px; 
-            width: auto; 
-            object-fit: contain;
-            transition: 0.3s;
-            /* Por defecto (Fondo Oscuro): Invierte colores para que el logo negro se vea blanco */
-            filter: brightness(0) invert(1);
-        }
-        
-        /* Estado Scrolled (Fondo Blanco): Quita el filtro para ver el logo negro original */
-        header.scrolled .logo-img {
-            filter: none; 
-        }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
 
-        /* Menú Desktop Distribuido */
-        .desktop-menu { 
-            display: none; 
-            align-items: center; 
-            flex-grow: 1; 
-            margin-left: 40px;
-            justify-content: space-between; 
+        .logo-img { 
+            height: 40px; width: auto; object-fit: contain; transition: 0.3s;
+            filter: brightness(0) invert(1); /* Logo blanco por defecto */
         }
+        header.scrolled .logo-img { filter: none; /* Logo original (negro) al scrollear */ }
+
+        /* Menú Desktop */
+        .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
+        .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
         
-        .nav-links-group { 
-            display: flex; 
-            gap: 0; 
-            flex-grow: 1; 
-            justify-content: space-evenly; 
-            padding: 0 40px;
+        .nav-link { 
+            color: #ffffff; font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; 
+            transition: color 0.3s ease; 
         }
+        .nav-link:hover { color: var(--primary); }
         
-        /* ESTILOS DE ENLACES */
-        .desktop-menu a.nav-link { 
-            color: #ffffff; 
-            font-size: 0.85rem; 
-            font-weight: 400; 
-            position: relative;
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-        .desktop-menu a.nav-link:hover { color: var(--primary); }
-        
-        header.scrolled .desktop-menu a.nav-link { color: #000000; }
-        header.scrolled .desktop-menu a.nav-link:hover { color: var(--blue-accent); }
+        header.scrolled .nav-link { color: #000000; }
+        header.scrolled .nav-link:hover { color: var(--blue-accent); }
 
         .mobile-toggle { font-size: 1.5rem; color: #fff; cursor: pointer; transition: 0.3s; }
         header.scrolled .mobile-toggle { color: #333; }
+
+        /* MENÚ MÓVIL (Off-canvas) - Corrección Funcional */
+        .mobile-menu-overlay {
+            position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
+            background: #111; z-index: 2000; padding: 80px 30px;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; gap: 25px;
+        }
+        .mobile-menu-overlay.active { right: 0; }
+        .overlay-backdrop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
+        .overlay-backdrop.active { opacity: 1; visibility: visible; }
         
+        .mobile-link { color: #fff; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .mobile-close { position: absolute; top: 25px; right: 25px; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
         @media(min-width: 992px) { 
             .desktop-menu { display: flex; } 
             .mobile-toggle { display: none; } 
+            .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- CONTROLES MOBILE --- */
-        .slider-wrapper { position: relative; }
-        .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .mobile-controls { display: none; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .slider-dots { display: flex; gap: 5px; }
-        .dot { width: 8px; height: 8px; background: #333; border-radius: 50%; }
-        .dot.active { background: var(--primary); }
-        .arrow-btn { background: rgba(255,255,255,0.1); border:none; color:white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;}
-        @media (max-width: 768px) {
-            .snap-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; margin-right: -20px; padding-right: 20px; scroll-behavior: smooth; }
-            .snap-item { flex: 0 0 85vw; scroll-snap-align: center; }
-            .mobile-controls { display: flex; }
-        }
-
-        /* --- ESTILOS ESPECÍFICOS --- */
-
-        /* Servicios Integrales */
-        .service-split-layout {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px;
-        }
-        .service-split-layout:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        @media(max-width: 992px) { .service-split-layout { grid-template-columns: 1fr; } }
-
-        .visual-card-service {
-            min-height: 450px; position: relative; border-radius: 24px; overflow: hidden; display: flex; align-items: end; padding: 40px;
-            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            background-color: #111; /* Fondo de respaldo por si la imagen no carga */
-        }
-        .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; opacity: 1; z-index:0; transition: 0.5s; }
-        .visual-card-service:hover img { transform: scale(1.05); }
-        
-        /* Opacidad reducida al 15% para ver más la imagen */
-        .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.15) 100%); z-index:1; }
-        
-        .service-content-col { display: flex; flex-direction: column; justify-content: center; }
-        .service-list { margin-bottom: 0; }
-        .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: #ccc; font-size: 1rem; }
-        .service-list li i { color: var(--primary); margin-top: 4px; }
-        
-        /* Beneficios Clave */
-        .layout-white-split { display: grid; gap: 60px; }
-        @media(min-width: 992px) {
-            .layout-white-split { grid-template-columns: 350px 1fr; align-items: start; }
-        }
-        .benefit-card-ref {
-            padding: 30px; background: #f9f9f9; border-radius: 16px; border-left: 4px solid #eee; transition: 0.3s; height: 100%;
-        }
-        .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
-        .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
-
-        /* Formulario UX */
-        .form-floating-group { position: relative; margin-bottom: 25px; }
-        .form-input {
-            width: 100%; padding: 15px 0 10px; background: transparent; border: none;
-            border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; outline: none; font-size: 1rem; transition: 0.3s;
-        }
-        .form-input:focus { border-bottom-color: var(--primary); }
-        .form-label {
-            position: absolute; top: 15px; left: 0; color: rgba(255,255,255,0.7); pointer-events: none;
-            transition: 0.3s ease all; font-size: 1rem;
-        }
-        .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label {
-            top: -10px; font-size: 0.8rem; color: var(--primary);
-        }
-
-        /* --- SECCIONES COMUNES --- */
-        
-        /* HERO */
+        /* --- 4. HERO SECTION --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; text-align: center;
             background: linear-gradient(135deg, #1a1a3a 0%, #0a0a1a 50%, #050505 100%);
@@ -339,49 +209,56 @@
             pointer-events: none;
         }
 
-        /* 0. CIFRAS */
+        /* --- 5. STATS --- */
         .sec-stats { background: #ffffff; padding: 60px 5%; border-bottom: 1px solid #eee; }
         .stats-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; align-items: start; }
         .stat-block { text-align: center; }
+        
         .stat-item h3 { font-size: 3rem; color: var(--blue-accent); margin-bottom: 10px; font-weight: 800; line-height: 1; }
         .stat-item p { color: #666; font-size: 1rem; margin: 0; line-height: 1.3; font-weight: 500; }
-        
+
         .respaldo-block { text-align: left; border-left: 2px solid #ddd; padding-left: 30px; }
         .tech-check { color: #666; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .tech-check i { color: var(--primary); font-size: 1.1rem; }
         @media(max-width: 992px) { .respaldo-block { border-left: none; padding-left: 0; text-align: center; margin-top: 30px; } .tech-check { justify-content: center; } }
 
-        /* 1. SOMOS XFERA */
-        .sec-about { padding: var(--padding-section); background: #ffffff; color: #333; position: relative; text-align: center; }
+        /* --- 6. SERVICIOS (Split Layout Original) --- */
+        .service-split-layout {
+            display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px;
+        }
+        @media(min-width: 992px) { .service-split-layout { grid-template-columns: 1fr 1fr; } }
+        .service-split-layout:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-        /* NUEVO DIFERENCIAL */
+        .visual-card-service {
+            min-height: 450px; position: relative; border-radius: 24px; overflow: hidden; display: flex; align-items: end; padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); background-color: #111;
+        }
+        .visual-card-service img { position: absolute; inset:0; width:100%; height:100%; object-fit: cover; transition: 0.5s; }
+        .visual-card-service:hover img { transform: scale(1.05); }
+        .visual-overlay { position: absolute; inset:0; background: linear-gradient(to top, #000 10%, rgba(0,0,0,0.15) 100%); z-index:1; }
+
+        .service-content-col { display: flex; flex-direction: column; justify-content: center; }
+        .service-list { margin-bottom: 0; }
+        .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: #ccc; font-size: 1rem; }
+        .service-list li i { color: var(--primary); margin-top: 4px; }
+
+        /* --- 7. DIFERENCIAL --- */
+        .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         .diff-card { background: #111; padding: 2rem; border-radius: 20px; border: 1px solid #222; transition: 0.3s; }
         .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); }
-
-        /* REFORZAMIENTO CTA */
-        .sec-cta-blue {
-            background: linear-gradient(to right, rgba(31, 50, 206, 0.65), rgba(31, 50, 206, 0.65)), url('img/seccion8.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 5%;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            z-index: 1;
-            border-radius: 0;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        @media (max-width: 768px) {
+            .snap-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
+            .snap-item { flex: 0 0 85vw; scroll-snap-align: center; }
         }
-        .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
-        /* CASOS DE ÉXITO */
-        .sec-cases { background: #080808; padding: var(--padding-section); }
+        /* --- 8. CASOS & PARTNERS --- */
         .case-highlight {
             background: linear-gradient(to right, #111, #0a0a0a); border-left: 4px solid var(--secondary); padding: 40px; border-radius: 0 20px 20px 0; margin-top: 40px;
         }
         .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } 
         @media(max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
 
-        /* CONFIANZA */
         .marquee-wrapper {
             overflow: hidden; width: 100%; position: relative; margin-top: 40px;
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -392,39 +269,73 @@
             filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: 0.3s;
             display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;
         }
-        .logo-box:hover { filter: grayscale(0%); opacity: 1; background: #333; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* INFRAESTRUCTURA CENTRALIZADA */
-        .sec-infra { background: radial-gradient(circle at center, #151520 0%, #000 100%); padding: var(--padding-section); text-align: center; }
+        /* --- 9. BENEFICIOS & FORMULARIO --- */
+        .layout-white-split { display: grid; gap: 60px; }
+        @media(min-width: 992px) { .layout-white-split { grid-template-columns: 350px 1fr; align-items: start; } }
+        
+        .benefit-card-ref {
+            padding: 30px; background: #f9f9f9; border-radius: 16px; border-left: 4px solid #eee; transition: 0.3s; height: 100%;
+        }
+        .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
+        .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
 
-        /* BENEFICIOS */
-        .sec-white { background: #fff; color: #111; padding: var(--padding-section); }
-
-        /* FORMULARIO */
         .form-container-blue {
             background: var(--blue-form); border-radius: 30px; padding: clamp(40px, 8vw, 80px);
             display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px;
         }
-        .form-intro-text { font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6; }
-
-        /* SECCIÓN FORMULARIO */
-        #contact {
-            margin-top: -60px; padding-top: 100px; padding-bottom: 80px; padding-left: 5%; padding-right: 5%;
-            background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10; box-shadow: none;
+        .form-floating-group { position: relative; margin-bottom: 25px; }
+        .form-input {
+            width: 100%; padding: 15px 0 10px; background: transparent; border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; outline: none; font-size: 1rem; transition: 0.3s;
+        }
+        .form-input:focus { border-bottom-color: var(--primary); }
+        .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label {
+            top: -10px; font-size: 0.8rem; color: var(--primary);
+        }
+        .form-label {
+            position: absolute; top: 15px; left: 0; color: rgba(255,255,255,0.7); pointer-events: none;
+            transition: 0.3s ease all; font-size: 1rem;
         }
 
-        /* FOOTER */
+        #contact {
+            margin-top: -60px; padding-top: 100px; padding-bottom: 80px; padding-left: 5%; padding-right: 5%;
+            background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10;
+        }
+
+        /* --- 10. FOOTER --- */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; }
         .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
-        .contact-info-item { display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
-        .contact-info-item i { color: var(--primary); margin-top: 3px; }
-
+        
+        /* Botones Flotantes */
+        #back-to-top {
+            position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #000;
+            width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100;
+        }
+        #back-to-top.show { opacity: 1; pointer-events: auto; }
+        #wsp-float {
+            position: fixed; bottom: 95px; right: 30px; background: #25D366; color: #fff;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; z-index: 100; transition: 0.3s;
+        }
     </style>
 </head>
 <body id="top">
+
+    <!-- MENÚ MÓVIL OVERLAY (Agregado para funcionalidad) -->
+    <div class="overlay-backdrop" id="overlay"></div>
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-close" id="closeMenu">&times;</div>
+        <a href="#home" class="mobile-link">Inicio</a>
+        <a href="#about" class="mobile-link">XFERA</a>
+        <a href="https://idigital2025.github.io/xfera/servicios" class="mobile-link">Servicios</a>
+        <a href="#contact" class="mobile-link">Contacto</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+    </div>
 
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
@@ -445,394 +356,362 @@
                 <a href="#contact" class="btn btn-primary" style="color: #000;">Cotizar tu Solución</a>
             </div>
             
-            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
-    <!-- HERO -->
-    <section id="home">
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="margin-bottom: 20px;">
-                <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Infraestructura Next-Gen</span>
-            </div>
-            <!-- TÍTULO EN MAYÚSCULAS -->
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
-                Infraestructura moderna,<br> segura y escalable
-            </h1>
-            <!-- Subtítulo en Cian -->
-            <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--primary); margin-bottom: 20px;">
-                Transformación digital diseñada por expertos
-            </h2>
-            <!-- Texto blanco sin punto final -->
-            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #fff;">
-                Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones
-            </p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <!-- CTA Actualizado -->
-                <a href="#contact" class="btn btn-primary">Cotizar tu Solución</a>
-                <a href="#contact" class="btn btn-outline">Habla con un experto</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 0 - CIFRAS -->
-    <section class="sec-stats reveal">
-        <div class="container">
-            <div class="stats-wrapper">
-                <div class="stat-block">
-                    <div class="stat-item"><h3 class="counter" data-target="15">+0</h3></div>
-                    <div class="stat-item"><p>Años de experiencia<br>en proyectos TI</p></div>
+    <main>
+        <!-- HERO -->
+        <section id="home">
+            <div class="container" style="position: relative; z-index: 2;">
+                <div style="margin-bottom: 20px;">
+                    <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Infraestructura Next-Gen</span>
                 </div>
-                <div class="stat-block">
-                    <div class="stat-item"><h3 class="counter" data-target="100">+0</h3></div>
-                    <div class="stat-item"><p>Implementaciones<br>exitosas</p></div>
-                </div>
-                <div class="stat-block">
-                    <div class="stat-item"><h3 class="counter" data-target="30">+0</h3></div>
-                    <div class="stat-item"><p>Certificaciones<br>en plataformas</p></div>
-                </div>
-                <div class="respaldo-block">
-                    <p style="color: #333; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">NUESTRO RESPALDO TÉCNICO</p>
-                    <div class="tech-check"><i class="fas fa-check-circle"></i> Infraestructura alojada en Data Center Certificado Tier III</div>
-                    <div class="tech-check"><i class="fas fa-check-circle"></i> Partner y actor autorizado Nutanix en Chile</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 1 - SOMOS XFERA -->
-    <section id="about" class="sec-about reveal">
-        <div class="container">
-            <h2 class="title-std title-dark title-centered">
-                SOMOS <span style="color: var(--title-blue);">XFERA</span>
-            </h2>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <p style="color: #555; font-size: 1.1rem; font-weight: 500;">
-                    Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad.
+                <!-- TÍTULO ORIGINAL -->
+                <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
+                    Infraestructura moderna,<br> segura y escalable
+                </h1>
+                <!-- Subtítulo Original -->
+                <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--primary); margin-bottom: 20px;">
+                    Transformación digital diseñada por expertos
+                </h2>
+                <!-- Texto Original -->
+                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #fff;">
+                    Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones
                 </p>
-                <p style="color: #555; font-size: 1rem;">
-                    En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga y no tenga sorpresas inesperadas.
-                </p>
-                <!-- CTA AGREGADO -->
-                <div style="margin-top: 30px;">
-                    <a href="#contact" class="btn btn-secondary-dark">Conocer más</a>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary">Cotizar tu Solución</a>
+                    <a href="#contact" class="btn btn-outline">Habla con un experto</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECCIÓN 3 - SERVICIOS -->
-    <section id="services" style="padding: var(--padding-section); background: #0a0a0a;" class="reveal">
-        <div class="container">
-            <h2 class="title-std title-light">
-                SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
-            </h2>
-            <p style="width: 100%; color: #ccc; margin-bottom: 4rem; font-size: 1.1rem;">
-                Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI. Buscamos mejorar la disponibilidad de tus procesos, aumentar la seguridad y asegurar que tu infraestructura crezca al ritmo de tu negocio.
-            </p>
-
-            <!-- SERVICIO 1: Infraestructura TI -->
-            <div class="service-split-layout" id="infraestructura">
-                <div class="visual-card-service">
-                    <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
-                    <div class="visual-overlay"></div>
-                    <div style="position: relative; z-index: 2;">
-                        <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
-                        <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Infraestructura TI</h3>
-                        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
-                            Arquitecturas modernas basadas en Nutanix y cloud privada, diseñadas para garantizar rendimiento, disponibilidad y seguridad continua.
-                        </p>
+        <!-- SECCIÓN 0 - CIFRAS -->
+        <section class="sec-stats reveal">
+            <div class="container">
+                <div class="stats-wrapper">
+                    <div class="stat-block">
+                        <div class="stat-item"><h3 class="counter" data-target="15">+0</h3></div>
+                        <div class="stat-item"><p>Años de experiencia<br>en proyectos TI</p></div>
                     </div>
-                </div>
-                <div class="service-content-col">
-                    <h4 style="margin-bottom: 25px; color: #fff; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; font-weight: 700;">Incluye:</h4>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Infraestructura como Servicio (IaaS)</li>
-                        <li><i class="fas fa-check-circle"></i> Nube Privada (VPC)</li>
-                        <li><i class="fas fa-check-circle"></i> Servidores Virtuales (VPS)</li>
-                        <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
-                        <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
-                    </ul>
-                    <div style="margin-top: 40px;">
-                        <!-- Botón Actualizado -->
-                        <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary">Conocer más</a>
+                    <div class="stat-block">
+                        <div class="stat-item"><h3 class="counter" data-target="100">+0</h3></div>
+                        <div class="stat-item"><p>Implementaciones<br>exitosas</p></div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-item"><h3 class="counter" data-target="30">+0</h3></div>
+                        <div class="stat-item"><p>Certificaciones<br>en plataformas</p></div>
+                    </div>
+                    <div class="respaldo-block">
+                        <p style="color: #333; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">NUESTRO RESPALDO TÉCNICO</p>
+                        <div class="tech-check"><i class="fas fa-check-circle"></i> Infraestructura alojada en Data Center Certificado Tier III</div>
+                        <div class="tech-check"><i class="fas fa-check-circle"></i> Partner y actor autorizado Nutanix en Chile</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- SERVICIO 2: Consultoría TI -->
-            <div class="service-split-layout" id="consultoria">
-                 <div class="visual-card-service">
-                    <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
-                    <div class="visual-overlay"></div>
-                    <div style="position: relative; z-index: 2;">
-                        <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
-                        <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Consultoría TI</h3>
-                        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
-                            Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.
-                        </p>
-                    </div>
-                </div>
-                <div class="service-content-col">
-                    <h4 style="margin-bottom: 25px; color: #fff; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; font-weight: 700;">Incluye:</h4>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios gestionados (Managed Services)</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios profesionales de ingeniería</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Migraciones TI</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
-                    </ul>
-                    <div style="margin-top: 40px;">
-                        <!-- Botón Actualizado -->
-                        <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary">Conocer más</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SERVICIO 2: Consultoría TI -->
-            <div class="service-split-layout" id="consultoria">
-                 <div class="visual-card-service">
-                    <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
-                    <div class="visual-overlay"></div>
-                    <div style="position: relative; z-index: 2;">
-                        <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
-                        <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Consultoría TI</h3>
-                        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
-                            Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.
-                        </p>
-                    </div>
-                </div>
-                <div class="service-content-col">
-                    <h4 style="margin-bottom: 25px; color: #fff; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; font-weight: 700;">Incluye:</h4>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios gestionados (Managed Services)</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios profesionales de ingeniería</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Migraciones TI</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
-                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
-                    </ul>
-                    <div style="margin-top: 40px;">
-                        <!-- Botón estilo Primary (mismo que infra) -->
-                        <a href="#contact" class="btn btn-primary">Cotizar Consultoría</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECCIÓN NUEVA - NUESTRO DIFERENCIAL -->
-    <section id="diferencial" style="padding: var(--padding-section); background: #050505;" class="reveal">
-        <div class="container">
-            <h2 class="title-std title-light title-centered">
-                NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
-            </h2>
-            <div class="snap-container">
-                <div class="diff-card snap-item">
-                    <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                    <h3>Equipo Certificado</h3>
-                    <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
-                </div>
-                <div class="diff-card snap-item">
-                    <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                    <h3>Hiperconvergencia</h3>
-                    <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
-                </div>
-                <div class="diff-card snap-item">
-                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                    <h3>Seguridad Tier III</h3>
-                    <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
-                </div>
-                <div class="diff-card snap-item">
-                    <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                    <h3>100% Personalizado</h3>
-                    <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 8 - REFORZAMIENTO CTA -->
-    <section class="sec-cta-blue reveal">
-        <div class="container">
-            <h2 style="font-size: 2.2rem; margin-bottom: 30px;">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
-            <p class="cta-text-unified" style="color: #fff;">
-                Nuestro equipo de ingeniería realizará un diagnóstico inicial donde revisaremos tus desafíos, requerimientos y proyecciones de crecimiento. Desde esa conversación construiremos una propuesta personalizada, clara y ajustada a tus necesidades reales.
-            </p>
-            <p class="cta-text-unified" style="color: #fff;">
-                Avanza hoy en tu modernización TI. Agenda una reunión con nuestros especialistas.
-            </p>
-            <a href="#contact" class="btn btn-primary">Solicitar Reunión</a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 6 - CASOS DE ÉXITO -->
-    <section id="casos" class="sec-cases reveal">
-        <div class="container">
-            <h2 class="title-std title-light">
-                CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
-            </h2>
-            <p style="font-size: 1.1rem;">
-                Conoce uno de nuestros proyectos realizados para instituciones críticas. Hemos modernizado y asegurado infraestructura para organizaciones públicas y privadas, incluyendo entidades clave como SUSESO, logrando:
-            </p>
-            <div class="case-highlight">
-                <h3 style="color: #fff; margin-bottom: 25px; font-size: 1.5rem;">Resultados principales</h3>
-                <ul class="service-list case-grid">
-                    <li><i class="fas fa-check-circle"></i> Continuidad operativa garantizada</li>
-                    <li><i class="fas fa-check-circle"></i> Migraciones sin interrupción</li>
-                    <li><i class="fas fa-check-circle"></i> Mayor resiliencia y seguridad</li>
-                    <li><i class="fas fa-check-circle"></i> Reducción de tiempos de administración</li>
-                    <li><i class="fas fa-check-circle"></i> Modernización completa en producción</li>
-                </ul>
-            </div>
-            <div style="margin-top: 40px;">
-                <a href="#casos" class="btn btn-outline">Ver Casos de Éxito</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN NUEVA - PARTNERS -->
-    <section style="padding: 60px 5%; background: #111;" class="reveal">
-        <div class="container">
-            <h2 class="title-std title-light title-centered">
-                NUESTROS <span style="color: var(--title-blue);">PARTNERS</span>
-            </h2>
-            <p style="text-align: center; font-size: 1rem; margin-bottom: 40px; color: #ccc;">La confianza de las organizaciones que requieren infraestructura crítica</p>
-            <div class="marquee-wrapper">
-                <div class="marquee-track">
-                    <div class="logo-box">VEEAM</div>
-                    <div class="logo-box">SUSESO</div>
-                    <div class="logo-box">PURE STORAGE</div>
-                    <div class="logo-box">MERCADO PÚBLICO</div>
-                    <div class="logo-box">NUTANIX</div>
-                    <div class="logo-box">LENOVO</div>
-                    <!-- Repetición -->
-                    <div class="logo-box">VEEAM</div>
-                    <div class="logo-box">SUSESO</div>
-                    <div class="logo-box">PURE STORAGE</div>
-                    <div class="logo-box">MERCADO PÚBLICO</div>
-                    <div class="logo-box">NUTANIX</div>
-                    <div class="logo-box">LENOVO</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN INFRAESTRUCTURA CENTRALIZADA -->
-    <section class="sec-infra reveal">
-        <div class="container">
-            <h2 class="title-std title-light title-centered">
-                INFRAESTRUCTURA <span style="color: var(--title-blue);">CENTRALIZADA</span>
-            </h2>
-            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; color: #fff;">
-                Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
-            </p>
-            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
-                <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; display: flex; gap: 10px; align-items: center;">
-                    <i class="fas fa-check-circle" style="color: var(--primary);"></i> Escalabilidad instantánea
-                </div>
-                <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; display: flex; gap: 10px; align-items: center;">
-                    <i class="fas fa-check-circle" style="color: var(--primary);"></i> Alta disponibilidad
-                </div>
-                <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; display: flex; gap: 10px; align-items: center;">
-                    <i class="fas fa-check-circle" style="color: var(--primary);"></i> Seguridad integrada
-                </div>
-            </div>
-            <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary">Conocer más</a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 5 - BENEFICIOS -->
-    <section class="sec-white reveal">
-        <div class="container">
-            <div class="layout-white-split">
-                <div>
-                    <h2 class="title-std title-dark" style="margin-bottom: 25px;">
-                        BENEFICIOS <span style="color: var(--title-blue);">CLAVES</span>
-                    </h2>
-                    <p style="font-weight: 500; color: #333; font-size: 1.1rem; line-height: 1.5; margin-bottom: 30px;">
-                        ¿Aún no te convences de XFERA? Somos experiencia Senior en nuestro equipo de trabajo, quienes te garantizamos soluciones viables desde todas las perspectivas para tu negocio.
+        <!-- SECCIÓN 1 - SOMOS XFERA -->
+        <section id="about" class="sec-about reveal" style="padding: var(--padding-section); background: #ffffff; color: #333; text-align: center;">
+            <div class="container">
+                <h2 class="title-std title-dark title-centered">
+                    SOMOS <span style="color: var(--title-blue);">XFERA</span>
+                </h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <p style="color: #555; font-size: 1.1rem; font-weight: 500;">
+                        Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad.
                     </p>
-                    <a href="#contact" class="btn btn-secondary-dark" style="padding: 15px 35px;">Solicitar reunión &rarr;</a>
-                </div>
-                <div style="display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                    <div class="benefit-card-ref">
-                        <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>
-                    </div>
-                    <div class="benefit-card-ref">
-                        <h3 style="color: var(--secondary);">Escalabilidad inmediata</h3>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555;">Infraestructura que crece con tu negocio sin interrupciones.</p>
-                    </div>
-                    <div class="benefit-card-ref">
-                        <h3 style="color: var(--secondary);">Migraciones sin riesgos</h3>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555;">Procesos rápidos, seguros y sin fricción.</p>
-                    </div>
-                    <div class="benefit-card-ref">
-                        <h3 style="color: var(--secondary);">Menor costo total (TCO)</h3>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555;">Menos mantenimiento, menos complejidad.</p>
-                    </div>
-                    <div class="benefit-card-ref" style="grid-column: span 2;">
-                        <h3 style="color: var(--secondary);">Seguridad centralizada</h3>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555;">Protección unificada de datos y sistemas críticos.</p>
+                    <p style="color: #555; font-size: 1rem;">
+                        En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga y no tenga sorpresas inesperadas.
+                    </p>
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="btn btn-secondary-dark">Conocer más</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECCIÓN FORMULARIO -->
-    <section id="contact" class="reveal">
-        <div class="container">
-            <div class="form-container-blue">
-                <div>
-                    <h2 class="title-std title-light" style="margin-bottom: 30px;">
-                        FORMULARIO DE <span style="color: var(--title-blue);">CONTACTO</span>
-                    </h2>
-                    <p class="form-intro-text">Completa el formulario y te contactaremos para coordinar una reunión según tu disponibilidad.</p>
-                    <p class="form-intro-text">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
-                    <p class="form-intro-text" style="margin-top: 30px; font-weight: 600;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
-                    
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Operaciones Tecnológicas en la Nube" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
+        <!-- SECCIÓN 3 - SERVICIOS -->
+        <section id="services" style="padding: var(--padding-section); background: #0a0a0a;" class="reveal">
+            <div class="container">
+                <h2 class="title-std title-light">
+                    SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
+                </h2>
+                <p style="width: 100%; color: #ccc; margin-bottom: 4rem; font-size: 1.1rem;">
+                    Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI. Buscamos mejorar la disponibilidad de tus procesos, aumentar la seguridad y asegurar que tu infraestructura crezca al ritmo de tu negocio.
+                </p>
+
+                <!-- SERVICIO 1: Infraestructura TI -->
+                <div class="service-split-layout" id="infraestructura">
+                    <div class="visual-card-service">
+                        <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
+                        <div class="visual-overlay"></div>
+                        <div style="position: relative; z-index: 2;">
+                            <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 1</span>
+                            <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Infraestructura TI</h3>
+                            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
+                                Arquitecturas modernas basadas en Nutanix y cloud privada, diseñadas para garantizar rendimiento, disponibilidad y seguridad continua.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-content-col">
+                        <h4 style="margin-bottom: 25px; color: #fff; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; font-weight: 700;">Incluye:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Infraestructura como Servicio (IaaS)</li>
+                            <li><i class="fas fa-check-circle"></i> Nube Privada (VPC)</li>
+                            <li><i class="fas fa-check-circle"></i> Servidores Virtuales (VPS)</li>
+                            <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
+                            <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
+                        </ul>
+                        <div style="margin-top: 40px;">
+                            <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary">Conocer más</a>
+                        </div>
+                    </div>
                 </div>
-                
-                <form>
-                    <div class="form-floating-group">
-                        <input type="text" class="form-input" placeholder=" " required>
-                        <label class="form-label">Nombre completo</label>
+
+                <!-- SERVICIO 2: Consultoría TI -->
+                <div class="service-split-layout" id="consultoria">
+                     <div class="visual-card-service">
+                        <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
+                        <div class="visual-overlay"></div>
+                        <div style="position: relative; z-index: 2;">
+                            <span style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,0,0,0.5); display: inline-block; margin-bottom: 15px;">Modalidad 2</span>
+                            <h3 style="font-size: 2.2rem; margin-bottom: 15px; color: #fff;">Consultoría TI</h3>
+                            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.5;">
+                                Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.
+                            </p>
+                        </div>
                     </div>
-                    <div class="form-floating-group">
-                        <input type="email" class="form-input" placeholder=" " required>
-                        <label class="form-label">Correo electrónico</label>
+                    <div class="service-content-col">
+                        <h4 style="margin-bottom: 25px; color: #fff; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px; font-weight: 700;">Incluye:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios gestionados (Managed Services)</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios profesionales de ingeniería</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Migraciones TI</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
+                        </ul>
+                        <div style="margin-top: 40px;">
+                            <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary">Conocer más</a>
+                        </div>
                     </div>
-                    <div class="form-floating-group">
-                        <input type="tel" class="form-input" placeholder=" " required>
-                        <label class="form-label">Teléfono</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NUEVA - NUESTRO DIFERENCIAL -->
+        <section id="diferencial" style="padding: var(--padding-section); background: #050505;" class="reveal">
+            <div class="container">
+                <h2 class="title-std title-light title-centered">
+                    NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
+                </h2>
+                <div class="snap-container">
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Equipo Certificado</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
                     </div>
-                    <div class="form-floating-group">
-                        <input type="text" class="form-input" placeholder=" " required>
-                        <label class="form-label">Empresa</label>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Hiperconvergencia</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
                     </div>
-                    <div class="form-floating-group">
-                        <input type="text" class="form-input" placeholder=" ">
-                        <label class="form-label">Tamaño de la empresa (opcional)</label>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Seguridad Tier III</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
                     </div>
-                    <div class="form-floating-group">
-                        <input type="text" class="form-input" placeholder=" " required>
-                        <label class="form-label">Mensaje</label>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>100% Personalizado</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8 - REFORZAMIENTO CTA -->
+        <section class="sec-cta-blue reveal">
+            <div class="container">
+                <h2 style="font-size: 2.2rem; margin-bottom: 30px; color: #fff; font-family: 'Space Grotesk';">¿Listo para impulsar la continuidad y rendimiento de tu infraestructura TI?</h2>
+                <p class="cta-text-unified" style="color: #fff; max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6;">
+                    Nuestro equipo de ingeniería realizará un diagnóstico inicial donde revisaremos tus desafíos, requerimientos y proyecciones de crecimiento. Desde esa conversación construiremos una propuesta personalizada, clara y ajustada a tus necesidades reales.
+                </p>
+                <p class="cta-text-unified" style="color: #fff; max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6;">
+                    Avanza hoy en tu modernización TI. Agenda una reunión con nuestros especialistas.
+                </p>
+                <a href="#contact" class="btn btn-primary">Solicitar Reunión</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6 - CASOS DE ÉXITO -->
+        <section id="casos" class="sec-cases reveal" style="background: #080808; padding: var(--padding-section);">
+            <div class="container">
+                <h2 class="title-std title-light">
+                    CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
+                </h2>
+                <p style="font-size: 1.1rem; color: #ccc;">
+                    Conoce uno de nuestros proyectos realizados para instituciones críticas. Hemos modernizado y asegurado infraestructura para organizaciones públicas y privadas, incluyendo entidades clave como SUSESO, logrando:
+                </p>
+                <div class="case-highlight">
+                    <h3 style="color: #fff; margin-bottom: 25px; font-size: 1.5rem;">Resultados principales</h3>
+                    <ul class="service-list case-grid">
+                        <li><i class="fas fa-check-circle"></i> Continuidad operativa garantizada</li>
+                        <li><i class="fas fa-check-circle"></i> Migraciones sin interrupción</li>
+                        <li><i class="fas fa-check-circle"></i> Mayor resiliencia y seguridad</li>
+                        <li><i class="fas fa-check-circle"></i> Reducción de tiempos de administración</li>
+                        <li><i class="fas fa-check-circle"></i> Modernización completa en producción</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="#casos" class="btn btn-outline">Ver Casos de Éxito</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NUEVA - PARTNERS -->
+        <section style="padding: 60px 5%; background: #111;" class="reveal">
+            <div class="container">
+                <h2 class="title-std title-light title-centered">
+                    NUESTROS <span style="color: var(--title-blue);">PARTNERS</span>
+                </h2>
+                <p style="text-align: center; font-size: 1rem; margin-bottom: 40px; color: #ccc;">La confianza de las organizaciones que requieren infraestructura crítica</p>
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <div class="logo-box">VEEAM</div>
+                        <div class="logo-box">SUSESO</div>
+                        <div class="logo-box">PURE STORAGE</div>
+                        <div class="logo-box">MERCADO PÚBLICO</div>
+                        <div class="logo-box">NUTANIX</div>
+                        <div class="logo-box">LENOVO</div>
+                        <!-- Repetición -->
+                        <div class="logo-box">VEEAM</div>
+                        <div class="logo-box">SUSESO</div>
+                        <div class="logo-box">PURE STORAGE</div>
+                        <div class="logo-box">MERCADO PÚBLICO</div>
+                        <div class="logo-box">NUTANIX</div>
+                        <div class="logo-box">LENOVO</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN INFRAESTRUCTURA CENTRALIZADA -->
+        <section class="sec-infra reveal" style="background: radial-gradient(circle at center, #151520 0%, #000 100%); padding: var(--padding-section); text-align: center;">
+            <div class="container">
+                <h2 class="title-std title-light title-centered">
+                    INFRAESTRUCTURA <span style="color: var(--title-blue);">CENTRALIZADA</span>
+                </h2>
+                <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; color: #fff;">
+                    Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
+                </p>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; display: flex; gap: 10px; align-items: center; color: #fff;">
+                        <i class="fas fa-check-circle" style="color: var(--primary);"></i> Escalabilidad instantánea
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; display: flex; gap: 10px; align-items: center; color: #fff;">
+                        <i class="fas fa-check-circle" style="color: var(--primary);"></i> Alta disponibilidad
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; display: flex; gap: 10px; align-items: center; color: #fff;">
+                        <i class="fas fa-check-circle" style="color: var(--primary);"></i> Seguridad integrada
+                    </div>
+                </div>
+                <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary">Conocer más</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5 - BENEFICIOS -->
+        <section class="sec-white reveal" style="background: #fff; color: #111; padding: var(--padding-section);">
+            <div class="container">
+                <div class="layout-white-split">
+                    <div>
+                        <h2 class="title-std title-dark" style="margin-bottom: 25px;">
+                            BENEFICIOS <span style="color: var(--title-blue);">CLAVES</span>
+                        </h2>
+                        <p style="font-weight: 500; color: #333; font-size: 1.1rem; line-height: 1.5; margin-bottom: 30px;">
+                            ¿Aún no te convences de XFERA? Somos experiencia Senior en nuestro equipo de trabajo, quienes te garantizamos soluciones viables desde todas las perspectivas para tu negocio.
+                        </p>
+                        <a href="#contact" class="btn btn-secondary-dark" style="padding: 15px 35px;">Solicitar reunión &rarr;</a>
+                    </div>
+                    <div style="display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                        <div class="benefit-card-ref">
+                            <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
+                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>
+                        </div>
+                        <div class="benefit-card-ref">
+                            <h3 style="color: var(--secondary);">Escalabilidad inmediata</h3>
+                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Infraestructura que crece con tu negocio sin interrupciones.</p>
+                        </div>
+                        <div class="benefit-card-ref">
+                            <h3 style="color: var(--secondary);">Migraciones sin riesgos</h3>
+                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Procesos rápidos, seguros y sin fricción.</p>
+                        </div>
+                        <div class="benefit-card-ref">
+                            <h3 style="color: var(--secondary);">Menor costo total (TCO)</h3>
+                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Menos mantenimiento, menos complejidad.</p>
+                        </div>
+                        <div class="benefit-card-ref" style="grid-column: span 2;">
+                            <h3 style="color: var(--secondary);">Seguridad centralizada</h3>
+                            <p style="margin: 0; font-size: 0.95rem; color: #555;">Protección unificada de datos y sistemas críticos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN FORMULARIO -->
+        <section id="contact" class="reveal">
+            <div class="container">
+                <div class="form-container-blue">
+                    <div>
+                        <h2 class="title-std title-light" style="margin-bottom: 30px;">
+                            FORMULARIO DE <span style="color: var(--title-blue);">CONTACTO</span>
+                        </h2>
+                        <p class="form-intro-text" style="font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6;">Completa el formulario y te contactaremos para coordinar una reunión según tu disponibilidad.</p>
+                        <p class="form-intro-text" style="font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6;">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
+                        <p class="form-intro-text" style="margin-top: 30px; font-weight: 600; font-size: 1rem; color: #fff;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
+                        
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Operaciones Tecnológicas en la Nube" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
                     </div>
                     
-                    <div style="margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center;">
-                        Al enviar tu mensaje, aceptas nuestras <a href="#" style="color: var(--primary);">Políticas de Privacidad</a>.
-                    </div>
+                    <form>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label class="form-label">Nombre completo</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="email" class="form-input" placeholder=" " required>
+                            <label class="form-label">Correo electrónico</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="tel" class="form-input" placeholder=" " required>
+                            <label class="form-label">Teléfono</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label class="form-label">Empresa</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" ">
+                            <label class="form-label">Tamaño de la empresa (opcional)</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label class="form-label">Mensaje</label>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center;">
+                            Al enviar tu mensaje, aceptas nuestras <a href="#" style="color: var(--primary);">Políticas de Privacidad</a>.
+                        </div>
 
-                    <div style="text-align: center;">
-                        <button type="button" class="btn btn-primary" style="padding: 12px 60px;">Enviar</button>
-                    </div>
-                </form>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 60px;">Enviar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer-section">
@@ -858,16 +737,16 @@
 
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
-                <div class="contact-info-item">
-                    <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-info-item" style="display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
                     <span>Dirección Comercial Xfera,<br>Santiago, Chile.</span>
                 </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-phone-alt"></i>
+                <div class="contact-info-item" style="display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                    <i class="fas fa-phone-alt" style="color: var(--primary);"></i>
                     <span>+56 9 1234 5678</span>
                 </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-envelope"></i>
+                <div class="contact-info-item" style="display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                    <i class="fas fa-envelope" style="color: var(--primary);"></i>
                     <span>contacto@xfera.cl</span>
                 </div>
             </div>
@@ -897,66 +776,80 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- SCRIPTS OPTIMIZADOS -->
     <script>
-        // Efecto Scroll Header
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Animación simple de contadores
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            counter.innerText = '+0';
-            const updateCounter = () => {
-                const target = +counter.getAttribute('data-target');
-                const c = +counter.innerText.replace('+','');
-                const increment = Math.max(1, target / 100);
-                if(c < target) {
-                    counter.innerText = '+' + Math.ceil(c + increment);
-                    setTimeout(updateCounter, 25);
-                } else {
-                    counter.innerText = '+' + target;
-                }
-            };
-            setTimeout(updateCounter, 800);
-        });
-
-        // Lógica del botón Subir
-        const backToTopButton = document.getElementById('back-to-top');
+        // 1. Efecto Scroll Header (Optimizado)
+        const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
 
-        backToTopButton.addEventListener('click', (e) => {
+        // 2. Lógica Menú Móvil (Corregido: ahora abre un menú real)
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // 3. Animación de Contadores (Optimizado con IntersectionObserver)
+        const counterSection = document.querySelector('.sec-stats');
+        let countersStarted = false;
+
+        const startCounters = () => {
+            if(countersStarted) return;
+            countersStarted = true;
+            document.querySelectorAll('.counter').forEach(counter => {
+                counter.innerText = '+0';
+                const target = +counter.getAttribute('data-target');
+                const updateCounter = () => {
+                    const c = +counter.innerText.replace('+','');
+                    const increment = Math.max(1, target / 50);
+                    if(c < target) {
+                        counter.innerText = '+' + Math.ceil(c + increment);
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.innerText = '+' + target;
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        // 4. Reveal Animations & Counter Trigger
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if(entry.target.classList.contains('sec-stats')) startCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 5. Botón Back to Top
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) backToTop.classList.add('show');
+            else backToTop.classList.remove('show');
+        }, { passive: true });
+
+        backToTop.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // Lógica de Animación Reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 100;
-            reveals.forEach((reveal) => {
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        // Trigger inicial para elementos visibles al cargar
-        revealOnScroll();
-
     </script>
 
 </body>

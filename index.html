@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Título Original -->
     <title>XFERA | Infraestructura TI & IaaS</title>
-    
-    <!-- Metaetiquetas -->
     <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa.">
     
     <!-- Fuentes -->
@@ -42,9 +39,8 @@
         
         html { scroll-behavior: smooth; }
         
-        /* CORRECCIÓN SCROLL GENERAL */
         html, body {
-            overflow-x: hidden; /* Evita el descarrilamiento horizontal */
+            overflow-x: hidden;
             width: 100%;
             position: relative;
             font-family: 'Inter', sans-serif;
@@ -92,7 +88,6 @@
         .title-centered { text-align: center; }
         .title-centered::after { margin-left: auto; margin-right: auto; }
 
-        /* Animaciones */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -108,16 +103,13 @@
             font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem;
             transition: var(--transition);
         }
-        
         .btn-primary {
             background: var(--primary); color: #000;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
         }
         .btn-primary:hover { 
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); 
-            transform: translateY(-2px); 
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); transform: translateY(-2px); 
         }
-        
         .btn-outline {
             background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff;
         }
@@ -125,7 +117,6 @@
             border-color: var(--primary); background: var(--primary); color: #000;
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
-
         .btn-secondary-dark {
             background: transparent; border: 1px solid #333; color: #333;
         }
@@ -142,16 +133,13 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             transition: all 0.4s ease;
         }
-        
         header.scrolled {
             background: #ffffff;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             border-bottom: 1px solid transparent;
             padding: 10px 0;
         }
-
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-
         .logo-img { 
             height: 40px; width: auto; object-fit: contain; transition: 0.3s;
             filter: brightness(0) invert(1);
@@ -160,13 +148,11 @@
 
         .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
         .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
-        
         .nav-link { 
             color: #ffffff; font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; 
             transition: color 0.3s ease; 
         }
         .nav-link:hover { color: var(--primary); }
-        
         header.scrolled .nav-link { color: #000000; }
         header.scrolled .nav-link:hover { color: var(--blue-accent); }
 
@@ -186,7 +172,6 @@
             z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s;
         }
         .overlay-backdrop.active { opacity: 1; visibility: visible; }
-        
         .mobile-link { color: #fff; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .mobile-close { position: absolute; top: 25px; right: 25px; font-size: 1.5rem; color: #fff; cursor: pointer; }
 
@@ -196,7 +181,7 @@
             .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- 4. HERO --- */
+        /* --- 4. SECCIONES COMUNES --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; text-align: center;
             background: linear-gradient(135deg, #1a1a3a 0%, #0a0a1a 50%, #050505 100%);
@@ -208,7 +193,6 @@
             pointer-events: none;
         }
 
-        /* --- 5. STATS --- */
         .sec-stats { background: #ffffff; padding: 60px 5%; border-bottom: 1px solid #eee; }
         .stats-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; align-items: start; }
         .stat-block { text-align: center; }
@@ -217,21 +201,15 @@
         .respaldo-block { text-align: left; border-left: 2px solid #ddd; padding-left: 30px; }
         .tech-check { color: #666; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .tech-check i { color: var(--primary); font-size: 1.1rem; }
-        
-        /* Ajuste para break en dos líneas solo móvil */
         .mobile-br { display: none; }
 
         @media(max-width: 992px) { 
             .respaldo-block { border-left: none; padding-left: 0; text-align: center; margin-top: 30px; } 
-            
-            /* Corrección Cifras Mobile: Ícono alineado arriba, no al centro */
             .tech-check { justify-content: center; align-items: flex-start; text-align: left; }
-            .tech-check i { margin-top: 4px; } /* Ajuste fino para alinear con primera línea */
-            
+            .tech-check i { margin-top: 4px; }
             .mobile-br { display: block; }
         }
 
-        /* --- 6. SERVICIOS --- */
         .service-split-layout {
             display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
             border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px;
@@ -249,52 +227,68 @@
         .service-list { margin-bottom: 0; }
         .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: #ccc; font-size: 1rem; }
         .service-list li i { color: var(--primary); margin-top: 4px; }
+        @media (max-width: 768px) { .visual-card-service h3 { font-size: 1.8rem !important; } }
 
-        /* Ajuste tamaño títulos Servicios Mobile */
-        @media (max-width: 768px) {
-            .visual-card-service h3 { font-size: 1.8rem !important; } /* Achicar aprox 2pts visualmente */
-        }
-
-        /* --- 7. DIFERENCIAL --- */
+        /* --- CARRUSEL Y SNAP (Diferencial & Beneficios) --- */
         .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        
         .diff-card { background: #111; padding: 2rem; border-radius: 20px; border: 1px solid #222; transition: 0.3s; }
         .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); }
         
-        /* CARRUSEL MÓVIL (Aplicable a Diferencial y Beneficios) */
+        .benefit-card-ref {
+            padding: 30px; background: #f9f9f9; border-radius: 16px; border-left: 4px solid #eee; transition: 0.3s; height: 100%;
+        }
+        .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
+        .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
+
         @media (max-width: 992px) {
             .snap-container { 
-                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
-                padding-bottom: 20px; gap: 15px; scroll-behavior: smooth;
-                scrollbar-width: none; -ms-overflow-style: none;
+                display: flex !important; /* Forza flex para carrusel */
+                overflow-x: auto; 
+                scroll-snap-type: x mandatory; 
+                padding-bottom: 20px; gap: 20px; 
+                scroll-behavior: smooth;
+                scrollbar-width: none; 
+                grid-template-columns: none !important; /* Anular grid */
             }
             .snap-container::-webkit-scrollbar { display: none; }
             
             .snap-item { 
-                flex: 0 0 85vw; /* 85% del ancho de pantalla */
+                flex: 0 0 88vw; /* Tarjetas ocupan casi todo el ancho */
                 scroll-snap-align: center; 
+                min-width: 0; /* Fix flex overflow */
             }
             
-            /* Controles de navegación móvil (Mejorados) */
-            .mobile-controls-wrapper { position: relative; }
-            .scroll-btn {
-                position: absolute; top: 50%; transform: translateY(-50%);
-                width: 35px; height: 35px; border-radius: 50%;
-                /* Estilo negro con borde blanco */
-                background: #000; color: #fff; border: 1px solid #fff; 
-                display: flex; align-items: center; justify-content: center;
-                cursor: pointer; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-                font-size: 0.9rem;
+            /* Contenedor de Botones abajo */
+            .controls-container {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 20px;
             }
-            /* Posición más "hacia afuera" */
-            .scroll-btn.prev { left: -10px; }
-            .scroll-btn.next { right: -10px; }
+            
+            .scroll-btn {
+                width: 40px; height: 40px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                font-size: 1rem; transition: 0.2s;
+            }
+            .scroll-btn:active { transform: scale(0.9); }
+
+            /* Estilo Dark (Diferencial) */
+            .scroll-btn.dark-theme {
+                background: #000; color: #fff; border: 1px solid #fff; 
+            }
+            /* Estilo Light (Beneficios) */
+            .scroll-btn.light-theme {
+                background: #fff; color: #000; border: 1px solid #000; 
+            }
         }
         
-        /* En Desktop ocultamos los controles */
         .mobile-nav-controls { display: none; }
-        @media(max-width: 992px) { .mobile-nav-controls { display: block; } }
+        @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
 
-        /* --- 8. REFORZAMIENTO CTA --- */
+        /* --- CTA BLUE --- */
         .sec-cta-blue {
             background: linear-gradient(to right, rgba(31, 50, 206, 0.65), rgba(31, 50, 206, 0.65)), url('img/seccion8.jpg');
             background-color: var(--title-blue); 
@@ -305,28 +299,22 @@
         }
         .cta-text-unified { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; line-height: 1.6; color: #fff; }
 
-        /* AJUSTES MÓVILES ESPECÍFICOS */
         @media (max-width: 768px) {
-            /* 1. SOMOS XFERA: Alineación izquierda */
             .sec-about { text-align: left !important; }
             .sec-about .title-centered { text-align: left; }
             .sec-about .title-centered::after { margin-left: 0; }
             .sec-about .btn-wrapper { text-align: left; } 
             
-            /* 3. CTA FINAL: Alineación izquierda y tamaño título reducido */
             .sec-cta-blue { align-items: flex-start !important; text-align: left !important; }
             .cta-text-unified { margin-left: 0 !important; }
-            .sec-cta-blue h2 { font-size: 1.8rem !important; } /* Achicar aprox 4pts */
+            .sec-cta-blue h2 { font-size: 1.8rem !important; }
             
-            /* 4. BENEFICIOS */
             .layout-white-split { display: block; }
             .benefit-grid-mobile { margin-top: 30px; }
             
-            /* 5. INFRAESTRUCTURA: Texto mismo tamaño que Casos */
             .sec-infra p { font-size: 1.1rem !important; }
         }
 
-        /* --- 9. CASOS & PARTNERS --- */
         .case-highlight {
             background: linear-gradient(to right, #111, #0a0a0a); border-left: 4px solid var(--secondary); padding: 40px; border-radius: 0 20px 20px 0; margin-top: 40px;
         }
@@ -348,13 +336,6 @@
         .layout-white-split { display: grid; gap: 60px; }
         @media(min-width: 992px) { .layout-white-split { grid-template-columns: 350px 1fr; align-items: start; } }
         
-        .benefit-card-ref {
-            padding: 30px; background: #f9f9f9; border-radius: 16px; border-left: 4px solid #eee; transition: 0.3s; height: 100%;
-        }
-        .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
-        .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
-
-        /* Clases de utilidad para el botón duplicado */
         .desktop-only { display: inline-flex; }
         .mobile-only { display: none; }
         @media(max-width: 992px) {
@@ -370,6 +351,7 @@
         .form-input {
             width: 100%; padding: 15px 0 10px; background: transparent; border: none;
             border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; outline: none; font-size: 1rem; transition: 0.3s;
+            max-width: 100%; /* Asegurar que no desborde */
         }
         .form-input:focus { border-bottom-color: var(--primary); }
         .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label {
@@ -383,6 +365,23 @@
         #contact {
             margin-top: -60px; padding-top: 100px; padding-bottom: 80px; padding-left: 5%; padding-right: 5%;
             background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10;
+        }
+
+        /* AJUSTES FORMULARIO MÓVIL (Nuevos) */
+        @media(max-width: 768px) {
+            #contact {
+                background: var(--blue-form); /* Fondo azul en toda la sección */
+                margin-top: 0; /* Quitar efecto overlap */
+                border-radius: 0;
+                padding-left: 20px; padding-right: 20px; /* Reducir padding lateral */
+            }
+            .form-container-blue {
+                background: transparent; /* Quitar caja interna */
+                padding: 0; /* Quitar padding interno */
+                gap: 30px;
+            }
+            .form-intro-text { font-size: 0.95rem; }
+            .privacy-text { text-align: left !important; }
         }
 
         /* --- 11. FOOTER --- */
@@ -516,7 +515,6 @@
                     Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI. Buscamos mejorar la disponibilidad de tus procesos, aumentar la seguridad y asegurar que tu infraestructura crezca al ritmo de tu negocio.
                 </p>
 
-                <!-- SERVICIO 1 -->
                 <div class="service-split-layout" id="infraestructura">
                     <div class="visual-card-service">
                         <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
@@ -544,7 +542,6 @@
                     </div>
                 </div>
 
-                <!-- SERVICIO 2 -->
                 <div class="service-split-layout" id="consultoria">
                      <div class="visual-card-service">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -574,39 +571,41 @@
             </div>
         </section>
 
-        <!-- NUESTRO DIFERENCIAL -->
+        <!-- NUESTRO DIFERENCIAL (CARRUSEL LOOP) -->
         <section id="diferencial" style="padding: var(--padding-section); background: #050505;" class="reveal">
             <div class="container">
                 <h2 class="title-std title-light title-centered">
                     NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
                 </h2>
                 
-                <div class="mobile-controls-wrapper">
-                    <button class="scroll-btn prev mobile-nav-controls" data-target="diff-scroll"><i class="fas fa-chevron-left"></i></button>
-                    <button class="scroll-btn next mobile-nav-controls" data-target="diff-scroll"><i class="fas fa-chevron-right"></i></button>
-                    
-                    <div class="snap-container" id="diff-scroll">
-                        <div class="diff-card snap-item">
-                            <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                            <h3>Equipo Certificado</h3>
-                            <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
-                        </div>
-                        <div class="diff-card snap-item">
-                            <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                            <h3>Hiperconvergencia</h3>
-                            <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
-                        </div>
-                        <div class="diff-card snap-item">
-                            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                            <h3>Seguridad Tier III</h3>
-                            <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
-                        </div>
-                        <div class="diff-card snap-item">
-                            <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-                            <h3>100% Personalizado</h3>
-                            <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
-                        </div>
+                <!-- Contenedor ID único -->
+                <div class="snap-container" id="diff-scroll">
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Equipo Certificado</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
                     </div>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Hiperconvergencia</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
+                    </div>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Seguridad Tier III</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
+                    </div>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>100% Personalizado</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
+                    </div>
+                </div>
+
+                <!-- Botones Abajo y Juntos (Dark Theme) -->
+                <div class="mobile-nav-controls controls-container">
+                    <button class="scroll-btn prev dark-theme" data-target="diff-scroll"><i class="fas fa-chevron-left"></i></button>
+                    <button class="scroll-btn next dark-theme" data-target="diff-scroll"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
@@ -701,7 +700,7 @@
             </div>
         </section>
 
-        <!-- BENEFICIOS -->
+        <!-- BENEFICIOS (CARRUSEL LOOP + BUTTONS BLANCOS) -->
         <section class="sec-white reveal" style="background: #fff; color: #111; padding: var(--padding-section);">
             <div class="container">
                 <div class="layout-white-split">
@@ -717,33 +716,34 @@
                     </div>
                     
                     <div class="benefit-grid-mobile">
-                        <div class="mobile-controls-wrapper">
-                            <!-- Botones de navegación -->
-                            <button class="scroll-btn prev mobile-nav-controls" data-target="benefit-scroll"><i class="fas fa-chevron-left"></i></button>
-                            <button class="scroll-btn next mobile-nav-controls" data-target="benefit-scroll"><i class="fas fa-chevron-right"></i></button>
-                            
-                            <div class="snap-container" id="benefit-scroll" style="display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                                <div class="benefit-card-ref snap-item">
-                                    <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
-                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>
-                                </div>
-                                <div class="benefit-card-ref snap-item">
-                                    <h3 style="color: var(--secondary);">Escalabilidad inmediata</h3>
-                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Infraestructura que crece con tu negocio sin interrupciones.</p>
-                                </div>
-                                <div class="benefit-card-ref snap-item">
-                                    <h3 style="color: var(--secondary);">Migraciones sin riesgos</h3>
-                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Procesos rápidos, seguros y sin fricción.</p>
-                                </div>
-                                <div class="benefit-card-ref snap-item">
-                                    <h3 style="color: var(--secondary);">Menor costo total (TCO)</h3>
-                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Menos mantenimiento, menos complejidad.</p>
-                                </div>
-                                <div class="benefit-card-ref snap-item" style="grid-column: span 2;">
-                                    <h3 style="color: var(--secondary);">Seguridad centralizada</h3>
-                                    <p style="margin: 0; font-size: 0.95rem; color: #555;">Protección unificada de datos y sistemas críticos.</p>
-                                </div>
+                        <!-- Contenedor Carrusel (Clase snap-container reutilizada) -->
+                        <div class="snap-container" id="benefit-scroll">
+                            <div class="benefit-card-ref snap-item">
+                                <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
+                                <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>
                             </div>
+                            <div class="benefit-card-ref snap-item">
+                                <h3 style="color: var(--secondary);">Escalabilidad inmediata</h3>
+                                <p style="margin: 0; font-size: 0.95rem; color: #555;">Infraestructura que crece con tu negocio sin interrupciones.</p>
+                            </div>
+                            <div class="benefit-card-ref snap-item">
+                                <h3 style="color: var(--secondary);">Migraciones sin riesgos</h3>
+                                <p style="margin: 0; font-size: 0.95rem; color: #555;">Procesos rápidos, seguros y sin fricción.</p>
+                            </div>
+                            <div class="benefit-card-ref snap-item">
+                                <h3 style="color: var(--secondary);">Menor costo total (TCO)</h3>
+                                <p style="margin: 0; font-size: 0.95rem; color: #555;">Menos mantenimiento, menos complejidad.</p>
+                            </div>
+                            <div class="benefit-card-ref snap-item">
+                                <h3 style="color: var(--secondary);">Seguridad centralizada</h3>
+                                <p style="margin: 0; font-size: 0.95rem; color: #555;">Protección unificada de datos y sistemas críticos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Botones Abajo y Juntos (Light Theme: Blanco c/ borde negro) -->
+                        <div class="mobile-nav-controls controls-container">
+                            <button class="scroll-btn prev light-theme" data-target="benefit-scroll"><i class="fas fa-chevron-left"></i></button>
+                            <button class="scroll-btn next light-theme" data-target="benefit-scroll"><i class="fas fa-chevron-right"></i></button>
                         </div>
                         
                         <!-- Botón Móvil -->
@@ -753,7 +753,7 @@
             </div>
         </section>
 
-        <!-- FORMULARIO -->
+        <!-- FORMULARIO (FONDO AZUL MÓVIL Y AJUSTES) -->
         <section id="contact" class="reveal">
             <div class="container">
                 <div class="form-container-blue">
@@ -794,7 +794,7 @@
                             <label class="form-label">Mensaje</label>
                         </div>
                         
-                        <div style="margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center;">
+                        <div class="privacy-text" style="margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center;">
                             Al enviar tu mensaje, aceptas nuestras <a href="#" style="color: var(--primary);">Políticas de Privacidad</a>.
                         </div>
 
@@ -861,16 +861,10 @@
         </div>
     </footer>
 
-    <!-- Botones Flotantes -->
-    <a href="#top" id="back-to-top" title="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <a href="https://wa.me/56912345678" target="_blank" id="wsp-float" title="Hablar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="#top" id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></a>
+    <a href="https://wa.me/56912345678" target="_blank" id="wsp-float" title="Hablar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- SCRIPTS OPTIMIZADOS -->
+    <!-- SCRIPTS ACTUALIZADOS PARA LOOP -->
     <script>
         // 1. Efecto Scroll Header
         const header = document.getElementById('main-header');
@@ -920,7 +914,7 @@
             });
         };
 
-        // 4. Reveal Animations & Counter Trigger
+        // 4. Reveal Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -945,34 +939,44 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // 6. LÓGICA DE NAVEGACIÓN DE CARRUSEL MÓVIL (Mejorada para salto exacto)
+        // 6. LÓGICA DE CARRUSEL CON LOOP INFINITO (Nuevo)
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                // Cálculos exactos para el snap
-                const gap = 25; // Debe coincidir con el CSS gap
+                // Medidas
+                const gap = 20; // Gap definido en CSS mobile
                 const item = container.querySelector('.snap-item');
                 if(!item) return;
                 
                 const itemWidth = item.offsetWidth;
-                const stride = itemWidth + gap; // Distancia exacta de salto
+                const stride = itemWidth + gap; // Distancia de un paso
                 
-                // Determinar el índice actual basado en el scroll
                 const currentScroll = container.scrollLeft;
+                const maxScroll = container.scrollWidth - container.clientWidth;
                 const currentIndex = Math.round(currentScroll / stride);
                 
                 let nextIndex;
+                let newScroll;
+
+                // Lógica de Loop Infinito
                 if (isNext) {
-                    nextIndex = currentIndex + 1;
+                    if (currentScroll + 10 >= maxScroll) { // Margen de error pequeño
+                        newScroll = 0; // Volver al inicio
+                    } else {
+                        nextIndex = currentIndex + 1;
+                        newScroll = nextIndex * stride;
+                    }
                 } else {
-                    nextIndex = currentIndex - 1;
+                    if (currentScroll <= 10) { 
+                        newScroll = maxScroll; // Ir al final
+                    } else {
+                        nextIndex = currentIndex - 1;
+                        newScroll = nextIndex * stride;
+                    }
                 }
-                
-                // Calcular nueva posición
-                const newScroll = nextIndex * stride;
                 
                 container.scrollTo({ left: newScroll, behavior: 'smooth' });
             });

@@ -261,10 +261,19 @@
             .snap-container::-webkit-scrollbar { display: none; }
             
             .snap-item { 
-                flex: 0 0 85vw; /* Tarjetas ocupan casi todo el ancho */
-                width: 85vw; /* Refuerzo ancho */
+                flex: 0 0 85vw; /* MÓVIL: 1 tarjeta (85% ancho) */
+                width: 85vw; 
                 scroll-snap-align: center; 
-                min-width: 0; /* Fix flex overflow */
+                min-width: 0; 
+            }
+
+            /* --- MEJORA RESPONSIVA TABLET (Nuevo) --- */
+            /* Entre 600px y 992px mostramos 2 tarjetas en vez de 1 gigante */
+            @media (min-width: 600px) {
+                .snap-item {
+                    flex: 0 0 45vw; /* TABLET: ~2 tarjetas (45% ancho c/u) */
+                    width: 45vw;
+                }
             }
             
             /* Contenedor de Botones abajo */
@@ -362,8 +371,10 @@
         }
 
         .form-container-blue {
-            background: var(--blue-form); border-radius: 30px; padding: clamp(40px, 8vw, 80px);
+            background: transparent; /* Fondo transparente (el azul está en #contact) */
+            padding: clamp(40px, 8vw, 80px);
             display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px;
+            border-radius: 0; box-shadow: none; /* Sin estilos de tarjeta */
         }
         .form-floating-group { position: relative; margin-bottom: 25px; }
         .form-input {
@@ -381,14 +392,17 @@
         }
 
         #contact {
-            margin-top: -60px; padding-top: 100px; padding-bottom: 80px; padding-left: 5%; padding-right: 5%;
-            background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10;
+            background: var(--blue-form); /* Fondo azul global */
+            margin-top: -60px; 
+            padding-top: 50px; /* Reducido a la mitad (era 100px) */
+            padding-bottom: 80px; padding-left: 5%; padding-right: 5%;
+            position: relative; z-index: 10;
+            border-radius: 60px 60px 0 0; /* Bordes redondeados en Desktop también */
         }
 
         /* AJUSTES FORMULARIO MÓVIL (CORRECCIÓN FONDO NEGRO Y PADDING) */
         @media(max-width: 768px) {
             #contact {
-                background: var(--blue-form) !important; /* Forzar fondo azul */
                 margin-top: 0; 
                 border-radius: 30px 30px 0 0; 
                 padding-left: 5%; padding-right: 5%;
@@ -396,7 +410,6 @@
                 padding-bottom: 60px; /* Espacio abajo para no cortar */
             }
             .form-container-blue {
-                background: transparent; 
                 padding: 0; 
                 gap: 30px;
                 display: flex; flex-direction: column; 
@@ -769,7 +782,7 @@
                         </div>
                         
                         <!-- Botón Móvil -->
-                        <a href="#contact" class="btn btn-secondary-dark mobile-only">Solicitar reunión &rarr;</a>
+                        <a href="#contact" class="btn btn-primary mobile-only">Solicitar reunión &rarr;</a>
                     </div>
                 </div>
             </div>

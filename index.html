@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <title>XFERA | Infraestructura TI & IaaS</title>
-    <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa.">
+    <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix.">
     
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -287,7 +287,7 @@
             .scroll-btn.dark-theme {
                 background: #000; color: #fff; border: 1px solid #fff; 
             }
-            /* Estilo Light (Beneficios) - Ajustado a Blanco con Borde Negro */
+            /* Estilo Light (Beneficios) */
             .scroll-btn.light-theme {
                 background: #fff; color: #000; border: 1px solid #000; z-index: 10;
             }
@@ -319,9 +319,9 @@
             .cta-text-unified { margin-left: 0 !important; }
             .sec-cta-blue h2 { font-size: 1.8rem !important; }
             
-            /* Beneficios Layout Mobile */
-            .layout-white-split { display: block; overflow: hidden; width: 100%; } 
-            .benefit-grid-mobile { margin-top: 30px; width: 100%; }
+            /* Beneficios Layout Mobile - CORRECCION DESBORDE */
+            .layout-white-split { display: block; width: 100%; overflow: hidden; } 
+            .benefit-grid-mobile { margin-top: 30px; width: 100%; overflow: hidden; }
             
             .sec-infra p { font-size: 1.1rem !important; }
         }
@@ -351,7 +351,14 @@
         .mobile-only { display: none; }
         @media(max-width: 992px) {
             .desktop-only { display: none; }
-            .mobile-only { display: inline-flex; margin-top: 30px; width: 100%; }
+            /* Corrección Botón Mobile en Beneficios */
+            .mobile-only { 
+                display: flex; 
+                margin: 30px auto 0; 
+                width: auto; 
+                max-width: 90%; 
+                justify-content: center;
+            }
         }
 
         .form-container-blue {
@@ -378,22 +385,24 @@
             background: #000; border-radius: 60px 60px 0 0; position: relative; z-index: 10;
         }
 
-        /* AJUSTES FORMULARIO MÓVIL (Corregido desborde) */
+        /* AJUSTES FORMULARIO MÓVIL (CORRECCIÓN FONDO NEGRO Y PADDING) */
         @media(max-width: 768px) {
             #contact {
-                background: var(--blue-form); /* Fondo azul en toda la sección */
-                margin-top: 0; /* Quitar efecto overlap */
-                border-radius: 30px 30px 0 0; /* Puntas redondas arriba */
-                padding-left: 5%; padding-right: 5%; /* Padding normal */
+                background: var(--blue-form) !important; /* Forzar fondo azul */
+                margin-top: 0; 
+                border-radius: 30px 30px 0 0; 
+                padding-left: 5%; padding-right: 5%;
+                padding-top: 40px !important; /* Reducción drástica padding */
+                padding-bottom: 60px; /* Espacio abajo para no cortar */
             }
             .form-container-blue {
-                background: transparent; /* Quitar caja interna */
-                padding: 20px 0; /* Reducir padding interno */
+                background: transparent; 
+                padding: 0; 
                 gap: 30px;
-                display: flex; flex-direction: column; /* Apilar limpio */
+                display: flex; flex-direction: column; 
             }
             .form-container-blue img {
-                width: 100%; height: auto; object-fit: cover; /* Imagen responsiva */
+                width: 100%; height: auto; object-fit: cover; 
             }
             .form-intro-text { font-size: 0.95rem; }
             .privacy-text { text-align: left !important; }
@@ -593,7 +602,6 @@
                     NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
                 </h2>
                 
-                <!-- Contenedor ID único -->
                 <div class="snap-container" id="diff-scroll">
                     <div class="diff-card snap-item">
                         <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
@@ -617,7 +625,6 @@
                     </div>
                 </div>
 
-                <!-- Botones Abajo y Juntos (Dark Theme) -->
                 <div class="mobile-nav-controls controls-container">
                     <button class="scroll-btn prev dark-theme" data-target="diff-scroll"><i class="fas fa-chevron-left"></i></button>
                     <button class="scroll-btn next dark-theme" data-target="diff-scroll"><i class="fas fa-chevron-right"></i></button>

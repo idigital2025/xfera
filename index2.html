@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIREFRAME - Landing Multi-Modelo</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ESTILOS WIREFRAME (Consistentes) */
+        :root { --bg-color: #ffffff; }
+        body { font-family: Arial, Helvetica, sans-serif; background-color: var(--bg-color); color: #333; }
+        
+        .wf-btn-primary {
+            background-color: #000; color: white; border: 2px solid #000;
+            text-transform: uppercase; font-weight: bold; font-size: 0.9rem; letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .wf-btn-primary:hover { background-color: #333; }
+        
+        .wf-icon-placeholder {
+            background-color: #ddd; border-radius: 50%; position: relative;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        
+        .nav-link { text-decoration: none; color: #666; transition: color 0.2s; }
+        .nav-link:hover { color: #000; text-decoration: underline; }
+
+        /* Estilo Toggle Región */
+        .region-toggle-btn.active { background-color: black; color: white; border-color: black; }
+        .region-toggle-btn { background-color: white; color: gray; border: 1px solid #ccc; }
+
+        /* Estilo Tarjeta Modelo (Seleccionable) */
+        .model-card { cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+        .model-card:hover { transform: translateY(-2px); }
+        .model-card.selected { border-color: #000; background-color: #f9fafb; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .model-card.selected .check-icon { display: block; }
+        .check-icon { display: none; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen scroll-smooth">
+
+    <!-- INDICADOR -->
+    <div class="bg-black text-white text-center py-1 text-xs font-bold sticky top-0 z-[60]">
+        WIREFRAME: 3 SECCIONES (FLUJO DE SELECCIÓN)
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-gray-300 sticky top-6 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 flex-shrink-0">
+                <div class="w-10 h-10 bg-black flex items-center justify-center text-white font-bold text-xs">LOGO</div>
+                <span class="text-sm font-bold text-gray-400">[MARCA]</span>
+            </div>
+            <nav class="hidden lg:flex gap-8 font-bold text-sm text-gray-600 flex-grow justify-center items-center">
+                <a href="#paso1" class="nav-link">1. MODELOS</a>
+                <a href="#paso2" class="nav-link">2. UBICACIÓN</a>
+                <a href="#paso3" class="nav-link">3. DETALLES</a>
+            </nav>
+            <div class="hidden md:block flex-shrink-0">
+                <a href="#paso3" class="wf-btn-primary px-6 py-2 rounded-sm inline-block">COTIZAR</a>
+            </div>
+            <button class="lg:hidden text-2xl text-gray-700"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- SECCIÓN 1 (NUEVA): SELECCIÓN DE MODELO -->
+        <section id="paso1" class="py-12 bg-white border-b border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PASO 1</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-black uppercase">Modelos Cordillera</h2>
+                    <p class="text-sm text-gray-500 mt-2">Elige entre nuestras 4 opciones disponibles para ver sus detalles.</p>
+                </div>
+
+                <!-- Grid de Modelos -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                    
+                    <!-- Card Modelo 1 (Seleccionado por defecto) -->
+                    <div class="model-card selected p-4 border border-gray-200 rounded-lg text-center relative" onclick="selectModel(1, 'MODELO CORDILLERA', '40')">
+                        <div class="absolute top-2 right-2 check-icon text-black"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="h-24 bg-gray-200 mb-3 flex items-center justify-center rounded">
+                            <span class="text-gray-400 text-xs font-bold">[IMG]</span>
+                        </div>
+                        <h3 class="font-bold text-sm">CORDILLERA</h3>
+                        <span class="text-xs text-gray-500 block">40 m²</span>
+                    </div>
+
+                    <!-- Card Modelo 2 -->
+                    <div class="model-card p-4 border border-gray-200 rounded-lg text-center relative" onclick="selectModel(2, 'MODELO CORDILLERA', '54')">
+                        <div class="absolute top-2 right-2 check-icon text-black"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="h-24 bg-gray-200 mb-3 flex items-center justify-center rounded">
+                            <span class="text-gray-400 text-xs font-bold">[IMG]</span>
+                        </div>
+                        <h3 class="font-bold text-sm">CORDILLERA</h3>
+                        <span class="text-xs text-gray-500 block">54 m²</span>
+                    </div>
+
+                    <!-- Card Modelo 3 -->
+                    <div class="model-card p-4 border border-gray-200 rounded-lg text-center relative" onclick="selectModel(3, 'MODELO CORDILLERA', '60')">
+                        <div class="absolute top-2 right-2 check-icon text-black"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="h-24 bg-gray-200 mb-3 flex items-center justify-center rounded">
+                            <span class="text-gray-400 text-xs font-bold">[IMG]</span>
+                        </div>
+                        <h3 class="font-bold text-sm">CORDILLERA</h3>
+                        <span class="text-xs text-gray-500 block">60 m²</span>
+                    </div>
+
+                    <!-- Card Modelo 4 -->
+                    <div class="model-card p-4 border border-gray-200 rounded-lg text-center relative" onclick="selectModel(4, 'MODELO CORDILLERA', '72')">
+                        <div class="absolute top-2 right-2 check-icon text-black"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="h-24 bg-gray-200 mb-3 flex items-center justify-center rounded">
+                            <span class="text-gray-400 text-xs font-bold">[IMG]</span>
+                        </div>
+                        <h3 class="font-bold text-sm">CORDILLERA</h3>
+                        <span class="text-xs text-gray-500 block">72 m²</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: UBICACIÓN Y PRECIO (HERO HÍBRIDO) -->
+        <section id="paso2" class="relative bg-gray-100 py-12 lg:py-16 border-b border-gray-300 transition-all">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    
+                    <!-- Visual Principal (Cambia según modelo) -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="relative w-full h-[300px] lg:h-[400px] bg-gray-300 flex items-center justify-center rounded-lg shadow-sm border border-gray-400">
+                            <span class="text-gray-500 font-bold text-xl uppercase" id="hero-img-label">[ RENDER CORDILLERA ]</span>
+                            <!-- Badge m2 -->
+                            <div class="absolute top-4 right-4 bg-black text-white px-4 py-2 font-bold text-lg rounded-sm shadow-lg">
+                                <span id="hero-m2">40</span> m²
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel de Decisión -->
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PASO 2: Configuración</span>
+                            <h1 class="text-4xl lg:text-5xl font-bold text-black uppercase leading-tight mb-2" id="hero-title">MODELO CORDILLERA</h1>
+                            <p class="text-gray-600">Descripción específica del modelo seleccionado. Ideal para terrenos familiares con excelente distribución.</p>
+                        </div>
+
+                        <!-- SELECTOR UBICACIÓN -->
+                        <div class="p-6 bg-white border border-gray-300 rounded-lg shadow-sm">
+                            <h3 class="font-bold text-sm text-black mb-3 uppercase">Selecciona Ubicación del Proyecto:</h3>
+                            <div class="flex gap-2 mb-6">
+                                <button onclick="updatePrice('rm')" id="btn-rm" class="region-toggle-btn active flex-1 py-3 font-bold rounded text-sm transition-colors">RM (Santiago)</button>
+                                <button onclick="updatePrice('coq')" id="btn-coq" class="region-toggle-btn flex-1 py-3 font-bold rounded text-sm transition-colors">IV Región</button>
+                            </div>
+
+                            <div class="border-t border-gray-100 pt-4">
+                                <div class="flex justify-between items-end">
+                                    <span class="text-gray-500 text-sm">Valor Desde:</span>
+                                    <span id="display-price" class="text-3xl font-bold text-black">$2.480.000</span>
+                                </div>
+                                <div class="mt-2 text-xs text-gray-400 text-right">*Valor referencial Kit Básico</div>
+                            </div>
+                        </div>
+
+                        <!-- CTA PDF -->
+                        <button class="w-full border-2 border-black text-black font-bold py-4 hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-file-pdf"></i> <span id="pdf-text">DESCARGAR CATÁLOGO [RM]</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: DETALLES Y CONTACTO -->
+        <section id="paso3" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Ficha Técnica -->
+                    <div class="lg:col-span-7 space-y-8">
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PASO 3</span>
+                            <h2 class="text-2xl font-bold text-black mb-4 border-b-2 border-black inline-block pb-1">Detalles del Kit</h2>
+                            
+                            <div class="space-y-3 mt-4">
+                                <div class="border border-gray-300 rounded p-4 flex justify-between items-center bg-gray-50">
+                                    <div><h3 class="font-bold text-black">KIT BÁSICO</h3><p class="text-xs text-gray-500">Estructura esencial</p></div>
+                                    <span class="font-bold text-lg" id="price-basic">Ref. $2.4M</span>
+                                </div>
+                                <div class="border border-gray-300 rounded p-4 flex justify-between items-center bg-white shadow-sm border-l-4 border-l-black">
+                                    <div><h3 class="font-bold text-black">KIT INTERMEDIO</h3><p class="text-xs text-gray-500">+ Ventanas y Puertas</p></div>
+                                    <span class="font-bold text-lg" id="price-inter">Ref. $3.6M</span>
+                                </div>
+                                <div class="border border-gray-300 rounded p-4 flex justify-between items-center bg-gray-50">
+                                    <div><h3 class="font-bold text-black">KIT COMPLETO</h3><p class="text-xs text-gray-500">+ Pisos y Terminaciones</p></div>
+                                    <span class="font-bold text-lg" id="price-full">Ref. $4.1M</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Specs Grid -->
+                        <div class="grid grid-cols-2 gap-4 border-t border-gray-200 pt-6">
+                            <div>
+                                <h3 class="font-bold text-sm mb-2 text-black">Especificaciones</h3>
+                                <ul class="text-xs text-gray-600 space-y-1 list-disc pl-4">
+                                    <li>Estructura Panelizada</li>
+                                    <li>Madera Impregnada</li>
+                                    <li>Techumbre Zinc</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm mb-2 text-black">Adicionales</h3>
+                                <ul class="text-xs text-gray-600 space-y-1 list-disc pl-4">
+                                    <li>Teja Asfáltica</li>
+                                    <li>Pilotes de Fundación</li>
+                                    <li>Vigas a la Vista</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-gray-100 p-6 lg:p-8 rounded-lg border border-gray-200">
+                            <h3 class="text-xl font-bold text-black mb-2">Solicitar Cotización</h3>
+                            <p class="text-xs text-gray-500 mb-6">Cotizando: <strong id="form-model-name">MODELO CORDILLERA</strong></p>
+                            
+                            <form class="space-y-4">
+                                <input type="text" placeholder="Nombre Completo" class="w-full p-3 bg-white border border-gray-300 rounded text-sm">
+                                <input type="email" placeholder="Correo Electrónico" class="w-full p-3 bg-white border border-gray-300 rounded text-sm">
+                                <input type="tel" placeholder="Teléfono" class="w-full p-3 bg-white border border-gray-300 rounded text-sm">
+                                
+                                <div class="p-3 bg-white border border-gray-300 rounded">
+                                    <span class="block text-xs font-bold text-gray-400 mb-1">REGION</span>
+                                    <div class="flex gap-4 text-sm">
+                                        <label class="flex items-center gap-1"><input type="radio" name="form_reg" checked> RM</label>
+                                        <label class="flex items-center gap-1"><input type="radio" name="form_reg"> Coquimbo</label>
+                                    </div>
+                                </div>
+
+                                <textarea placeholder="Mensaje..." class="w-full p-3 bg-white border border-gray-300 rounded text-sm h-20 resize-none"></textarea>
+                                <button class="w-full wf-btn-primary py-4 mt-2">ENVIAR</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-400">
+                <div class="p-4"><h3 class="font-bold text-white mb-2">[MARCA]</h3><p>Lorem ipsum footer.</p></div>
+                <div class="p-4"><h3 class="font-bold text-white mb-2">CONTACTO</h3><p>Teléfonos, Mail.</p></div>
+                <div class="p-4"><h3 class="font-bold text-white mb-2">LEGAL</h3><p>Política de privacidad.</p></div>
+            </div>
+            <div class="text-center text-xs text-gray-600 mt-12">© 2024 Wireframe Prototype</div>
+        </div>
+    </footer>
+
+    <!-- LOGICA DE INTERACCIÓN (Simulada para Wireframe) -->
+    <script>
+        // Datos Base por Región (Solo ejemplo para el modelo activo)
+        const regionData = {
+            rm: { base: 2480000, label: 'RM' },
+            coq: { base: 2750000, label: 'IV REG' }
+        };
+
+        // Estado Actual
+        let currentRegion = 'rm';
+        let basePrice = 2480000; // Cordillera RM por defecto
+
+        // 1. Lógica Selección de Modelo
+        function selectModel(index, name, m2) {
+            // UI Cards
+            document.querySelectorAll('.model-card').forEach(card => card.classList.remove('selected'));
+            document.querySelectorAll('.model-card')[index-1].classList.add('selected');
+
+            // Actualizar Textos
+            document.getElementById('hero-title').innerText = name;
+            document.getElementById('hero-img-label').innerText = `[ RENDER ${name.replace('MODELO ', '')} ]`;
+            document.getElementById('form-model-name').innerText = name;
+            document.getElementById('hero-m2').innerText = m2;
+
+            // Simular cambio de precio base por modelo (Factor simple para el ejemplo)
+            const factors = [1, 1.2, 1.5, 1.8]; 
+            basePrice = regionData[currentRegion].base * factors[index-1];
+            
+            updateDisplayPrices();
+        }
+
+        // 2. Lógica Selección de Región
+        function updatePrice(region) {
+            currentRegion = region;
+            
+            // Toggle Botones
+            document.getElementById('btn-rm').classList.toggle('active', region === 'rm');
+            document.getElementById('btn-coq').classList.toggle('active', region === 'coq');
+
+            // Recalcular base según región seleccionada (manteniendo el factor del modelo actual)
+            // Para simplificar wireframe, reseteamos al base de la región
+            // En prod real, esto cruza Modelo x Región. Aquí simulamos el cambio visual.
+            const currentModelIndex = Array.from(document.querySelectorAll('.model-card')).findIndex(el => el.classList.contains('selected'));
+            const factors = [1, 1.2, 1.5, 1.8];
+            basePrice = regionData[region].base * factors[currentModelIndex];
+
+            updateDisplayPrices();
+            
+            // Actualizar Texto PDF
+            document.getElementById('pdf-text').innerText = `DESCARGAR CATÁLOGO [${regionData[region].label}]`;
+        }
+
+        // Helper para formatear y mostrar precios
+        function updateDisplayPrices() {
+            const fmt = (val) => '$' + Math.floor(val).toLocaleString('es-CL');
+            
+            document.getElementById('display-price').innerText = fmt(basePrice);
+            document.getElementById('price-basic').innerText = 'Ref. ' + fmt(basePrice);
+            document.getElementById('price-inter').innerText = 'Ref. ' + fmt(basePrice * 1.5);
+            document.getElementById('price-full').innerText = 'Ref. ' + fmt(basePrice * 1.8);
+        }
+    </script>
+
+</body>
+</html>

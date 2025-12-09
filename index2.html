@@ -28,6 +28,7 @@
             --blue-accent: #1b30af; 
             --blue-form: #101f75;
             --title-blue: #1f32ce;
+            --text-dark-hero: #191919; /* Nuevo color para textos del hero y botón secundario */
             
             /* Variables para secciones Light */
             --bg-light: #ffffff;
@@ -35,6 +36,7 @@
             --text-dark: #1a1a1a;
             --text-desc-light: #555555;
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-image: 20px 20px 60px rgba(0,0,0,0.15); /* Sombra para imagen Somos Xfera */
             
             --padding-section: 100px 5%;
             --radius-card: 20px;
@@ -46,9 +48,12 @@
         
         html { scroll-behavior: smooth; }
         
+        /* CORRECCIÓN ANCHO PAGINA */
         html, body {
             overflow-x: hidden;
             width: 100%;
+            margin: 0; /* Asegurar margen 0 */
+            padding: 0;
             position: relative;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
@@ -134,6 +139,17 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
+        /* ESTILO ESPECÍFICO BOTÓN HERO SECUNDARIO (Blanco/Cian -> Blanco/191919) */
+        .btn-hero-secondary {
+            background: #ffffff; 
+            color: var(--text-dark-hero); /* Color 191919 */
+            border: 2px solid var(--text-dark-hero); /* Borde 191919 */
+        }
+        .btn-hero-secondary:hover {
+            background: var(--text-dark-hero);
+            color: #fff;
+        }
+
         /* --- 3. HEADER & NAV (MODIFICADO: SIEMPRE BLANCO) --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
@@ -143,7 +159,6 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Sombra sutil siempre */
             transition: all 0.4s ease;
         }
-        /* Clase scrolled se mantiene por si se quiere animar padding, pero el color es igual */
         header.scrolled {
             padding: 10px 0;
         }
@@ -190,7 +205,7 @@
             .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- 4. HERO (MODIFICADO: FONDO IMAGEN) --- */
+        /* --- 4. HERO (MODIFICADO: FONDO IMAGEN & TEXTOS) --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; text-align: center;
             /* Imagen Desktop por defecto */
@@ -199,9 +214,21 @@
             position: relative; padding-top: 80px;
         }
         
-        /* AÑADIDO: Sombra de texto para mantener legibilidad sin el filtro de fondo */
-        #home h1, #home h2, #home p {
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+        /* FILTRO OSCURO ELIMINADO COMPLETAMENTE */
+        #home::before { content: none; }
+
+        /* Ajustes de Color de Texto Hero (Sin Sombras) */
+        #home h1 { 
+            color: var(--title-blue) !important; 
+            text-shadow: none !important;
+        }
+        #home h2 { 
+            color: var(--text-dark-hero) !important; /* Color 191919 */
+            text-shadow: none !important;
+        }
+        #home p { 
+            color: var(--text-dark-hero) !important; /* Color 191919 */
+            text-shadow: none !important;
         }
         
         /* Imagen Mobile (Tablet Vertical y Celular) */
@@ -229,7 +256,72 @@
             .mobile-br { display: block; }
         }
 
-        .sec-about { padding: var(--padding-section); background: #ffffff; color: #333; text-align: center; }
+        /* --- NUEVA SECCIÓN SOMOS XFERA (Diseño 2 columnas con imagen) --- */
+        .sec-about { padding: var(--padding-section); background: #ffffff; color: #333; }
+        .about-split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-content-col h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+        .about-content-col h2 span {
+            color: var(--title-blue);
+        }
+        .about-content-col p {
+            color: var(--text-desc-light);
+            font-size: 1.05rem;
+        }
+        .about-list {
+            margin: 30px 0;
+        }
+        .about-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .about-list li i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        .about-image-col {
+            position: relative;
+        }
+        .about-image-container {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-image);
+        }
+        .about-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 30px;
+        }
+
+        @media(min-width: 992px) {
+            .about-split-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media(max-width: 768px) {
+            .sec-about {
+                text-align: left;
+            }
+            .about-content-col h2 {
+                font-size: 1.8rem;
+            }
+        }
+
 
         /* --- SERVICIOS (Dark Base) --- */
         #services { padding: var(--padding-section); background: #0a0a0a; }
@@ -500,9 +592,7 @@
         <!-- HERO (Dark con Imagen) -->
         <section id="home">
             <div class="container" style="position: relative; z-index: 2;">
-                <div style="margin-bottom: 20px;">
-                    <span style="border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Infraestructura Next-Gen</span>
-                </div>
+                <!-- Etiqueta Next-Gen ELIMINADA -->
                 <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
                     Infraestructura moderna,<br> segura y escalable
                 </h1>
@@ -514,7 +604,8 @@
                 </p>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <a href="#contact" class="btn btn-primary">Cotizar tu Solución</a>
-                    <a href="#contact" class="btn btn-outline">Habla con un experto</a>
+                    <!-- Botón secundario con estilo blanco/cian -->
+                    <a href="#contact" class="btn btn-hero-secondary">Habla con un experto</a>
                 </div>
             </div>
         </section>
@@ -547,18 +638,29 @@
         <!-- SECCIÓN 1 - SOMOS XFERA -->
         <section id="about" class="sec-about reveal">
             <div class="container">
-                <h2 class="title-std title-dark title-centered">
-                    SOMOS <span style="color: var(--title-blue);">XFERA</span>
-                </h2>
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <p style="color: #555; font-size: 1.1rem; font-weight: 500;">
-                        Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad.
-                    </p>
-                    <p style="color: #555; font-size: 1rem;">
-                        En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga y no tenga sorpresas inesperadas.
-                    </p>
-                    <div class="btn-wrapper" style="margin-top: 30px;">
-                        <a href="#contact" class="btn btn-secondary-dark">Conocer más</a>
+                <div class="about-split-layout">
+                    <div class="about-content-col">
+                        <h2>Somos la respuesta a los desafíos de infraestructura TI <span>más complejos</span></h2>
+                        <p>
+                            Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad.
+                        </p>
+                        <p>
+                            En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
+                        </p>
+                        <ul class="about-list">
+                            <li><i class="fas fa-check-circle"></i> Sistemas que no escalan</li>
+                            <li><i class="fas fa-check-circle"></i> Riesgos de fallos</li>
+                            <li><i class="fas fa-check-circle"></i> Altos costos operativos</li>
+                            <li><i class="fas fa-check-circle"></i> Demandas de seguridad</li>
+                        </ul>
+                        <div class="btn-wrapper">
+                            <a href="#contact" class="btn btn-primary">Conocer más</a>
+                        </div>
+                    </div>
+                    <div class="about-image-col">
+                        <div class="about-image-container">
+                            <img src="datacenter-hero-Dl1IAIUb.jpg" alt="Infraestructura TI XFERA">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -630,7 +732,7 @@
             </div>
         </section>
 
-        <!-- NUESTRO DIFERENCIAL (LIGHT MODE) -->
+        <!-- NUESTRO DIFERENCIAL (CAMBIO A LIGHT) -->
         <section id="diferencial" style="padding: var(--padding-section); background: var(--bg-light);" class="reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">

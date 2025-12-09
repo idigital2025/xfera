@@ -255,7 +255,7 @@
         .hero-split-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 30px; /* REDUCIDO DE 60px A 30px PARA AGRANDAR IMAGEN */
             align-items: center;
             position: relative;
             z-index: 1;
@@ -291,8 +291,8 @@
         /* MODIFICACIÓN TÍTULOS HERO (REDUCCIÓN TAMAÑO) */
         #home h1 { 
             color: var(--text-dark-hero) !important; /* CAMBIO: Base en negro #191919 */
-            /* Reducido ligeramente de 2.5rem/3.8rem */
-            font-size: clamp(2.3rem, 5vw, 3.5rem); 
+            /* Reducido ligeramente (aprox 2pts) */
+            font-size: clamp(2.1rem, 5vw, 3.3rem); 
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 25px;
@@ -316,7 +316,7 @@
         #home p { 
             color: var(--text-desc-light) !important; /* CAMBIO: Color gris (#555555) */
             text-shadow: none !important;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Reducido de 1.1rem */
             margin-bottom: 35px;
             max-width: 90%;
         }
@@ -358,11 +358,11 @@
                 order: -1; 
             }
             
-            /* IMAGEN MÓVIL: Altura Fija 300px */
+            /* IMAGEN MÓVIL: Altura Automática (No Recorte) */
             .hero-img-col img {
-                height: 300px;
-                width: auto; 
-                max-width: 100%; 
+                height: auto; /* Altura automática para no deformar */
+                width: 100%; /* Ocupar ancho completo */
+                max-width: 100%; /* Limite para que no sea excesiva */
                 object-position: center;
                 margin: 0 auto; 
             }

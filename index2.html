@@ -134,40 +134,38 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* --- 3. HEADER & NAV (Base Dark) --- */
+        /* --- 3. HEADER & NAV (MODIFICADO: SIEMPRE BLANCO) --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 15px 0;
-            background: transparent;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: #ffffff; /* Fondo blanco siempre */
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Sombra sutil siempre */
             transition: all 0.4s ease;
         }
+        /* Clase scrolled se mantiene por si se quiere animar padding, pero el color es igual */
         header.scrolled {
-            background: #ffffff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border-bottom: 1px solid transparent;
             padding: 10px 0;
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
         .logo-img { 
-            height: 40px; width: auto; object-fit: contain; transition: 0.3s;
-            filter: brightness(0) invert(1);
+            height: 46px; /* Aumentado 15% (era 40px) */
+            width: auto; object-fit: contain; transition: 0.3s;
+            filter: none; /* Logo original siempre visible */
         }
-        header.scrolled .logo-img { filter: none; }
 
         .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
         .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
+        
         .nav-link { 
-            color: #ffffff; font-size: 0.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; 
+            color: var(--text-dark); /* Color oscuro para fondo blanco */
+            font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; 
             transition: color 0.3s ease; 
         }
-        .nav-link:hover { color: var(--primary); }
-        header.scrolled .nav-link { color: #000000; }
-        header.scrolled .nav-link:hover { color: var(--blue-accent); }
+        .nav-link:hover { color: var(--blue-accent); }
 
-        .mobile-toggle { font-size: 1.5rem; color: #fff; cursor: pointer; transition: 0.3s; }
-        header.scrolled .mobile-toggle { color: #333; }
+        .mobile-toggle { font-size: 1.5rem; color: #333; /* Icono oscuro */ cursor: pointer; transition: 0.3s; }
 
         /* Menú móvil */
         .mobile-menu-overlay {
@@ -192,16 +190,25 @@
             .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- 4. HERO (Dark Base) --- */
+        /* --- 4. HERO (MODIFICADO: FONDO IMAGEN) --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; text-align: center;
-            background: linear-gradient(135deg, #1a1a3a 0%, #0a0a1a 50%, #050505 100%);
+            /* Imagen Desktop por defecto */
+            background: url('img/hero-desktop.jpg') no-repeat center center;
+            background-size: cover;
             position: relative; padding-top: 80px;
         }
-        #home::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.15), transparent 60%);
-            pointer-events: none;
+        
+        /* AÑADIDO: Sombra de texto para mantener legibilidad sin el filtro de fondo */
+        #home h1, #home h2, #home p {
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Imagen Mobile (Tablet Vertical y Celular) */
+        @media (max-width: 768px) {
+            #home {
+                background-image: url('img/hero-mobile.jpg');
+            }
         }
 
         /* --- SECCIONES BLANCAS (Cifras & Somos Xfera) --- */
@@ -252,7 +259,7 @@
         #diferencial { padding: var(--padding-section); background: var(--bg-light); } /* Fondo blanco */
         
         .diff-card { 
-            background: #f9f9f9; /* AHORA: Gris muy suave unificado */
+            background: #f9f9f9; /* Gris muy suave unificado */
             padding: 2rem; border-radius: 20px; 
             border: 1px solid #eee; /* Borde sutil */
             box-shadow: var(--shadow-card); 
@@ -447,6 +454,8 @@
             .scroll-btn:active { transform: scale(0.9); }
             /* Flechas Light Theme (Blanco con borde negro) */
             .scroll-btn.light-theme { background: #fff; color: #000; border: 1px solid #000; z-index: 10; }
+            /* Flechas Dark Theme */
+            .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
         }
         .mobile-nav-controls { display: none; }
         @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
@@ -488,7 +497,7 @@
     </header>
 
     <main>
-        <!-- HERO (Dark) -->
+        <!-- HERO (Dark con Imagen) -->
         <section id="home">
             <div class="container" style="position: relative; z-index: 2;">
                 <div style="margin-bottom: 20px;">
@@ -510,7 +519,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 0 - CIFRAS (Light - Ya era así) -->
+        <!-- SECCIÓN 0 - CIFRAS -->
         <section class="sec-stats reveal">
             <div class="container">
                 <div class="stats-wrapper">
@@ -535,7 +544,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 1 - SOMOS XFERA (Light) -->
+        <!-- SECCIÓN 1 - SOMOS XFERA -->
         <section id="about" class="sec-about reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
@@ -622,7 +631,7 @@
         </section>
 
         <!-- NUESTRO DIFERENCIAL (LIGHT MODE) -->
-        <section id="diferencial" style="padding: var(--padding-section); background: #ffffff;" class="reveal">
+        <section id="diferencial" style="padding: var(--padding-section); background: var(--bg-light);" class="reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
                     NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
@@ -991,6 +1000,7 @@
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
+                // Medidas
                 const gap = 20; 
                 const item = container.querySelector('.snap-item');
                 if(!item) return;

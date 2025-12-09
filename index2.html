@@ -142,15 +142,15 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* BOTÓN HERO SECUNDARIO */
+        /* BOTÓN HERO SECUNDARIO (Texto #191919 + Borde Negro) */
         .btn-hero-secondary {
             background: #ffffff; 
             color: var(--text-dark-hero); 
-            border: 2px solid #ffffff; 
+            border: 2px solid var(--text-dark-hero); /* Borde Negro Solicitado */
         }
         .btn-hero-secondary:hover {
-            background: var(--primary);
-            border-color: var(--primary);
+            background: var(--text-dark-hero);
+            border-color: var(--text-dark-hero);
             color: #fff;
         }
 
@@ -208,36 +208,149 @@
 
         /* --- 4. HERO --- */
         #home {
-            min-height: 100vh; display: flex; align-items: center; text-align: center;
-            /* CAMBIO A .PNG */
-            background: url('img/hero-desktop.png') no-repeat center center;
-            background-size: cover;
-            position: relative; padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: #ffffff; /* Fondo blanco */
+            position: relative;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            overflow: hidden;
         }
-        #home::before { content: none; } 
 
-        /* TEXTOS HERO */
+        /* ORBES DE FONDO */
+        .hero-orb-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero-orb-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(123, 44, 191, 0.1);
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text-col {
+            text-align: left;
+        }
+
+        /* Tag de Hero */
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            background: #f0f9ff;
+            color: var(--title-blue); 
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+        .hero-pill::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--title-blue);
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
         #home h1 { 
-            color: var(--title-blue) !important; 
-            text-shadow: none !important;
-        }
-        #home h2 { 
             color: var(--text-dark-hero) !important; 
-            text-shadow: none !important;
-        }
-        #home p { 
-            color: var(--text-dark-hero) !important; 
-            text-shadow: none !important;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: none; 
         }
         
-        /* Nuevo: Clase para destacar texto en azul dentro del H1 */
         .highlight-blue {
             color: var(--title-blue) !important;
         }
         
+        #home p { 
+            color: var(--text-desc-light) !important; 
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 90%;
+        }
+
+        /* Estilos Imagen Derecha */
+        .hero-img-col {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* IMAGEN DESKTOP POR DEFECTO */
+        .hero-img-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            object-fit: cover; 
+        }
+
+        /* MEDIA QUERY AJUSTADA PARA MÓVIL */
         @media (max-width: 768px) {
-            /* CAMBIO A .PNG */
-            #home { background-image: url('img/hero-mobile.png'); }
+            #home {
+                padding-top: 120px; 
+                text-align: center;
+            }
+            .hero-split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            /* ORDEN MÓVIL: Imagen Arriba */
+            .hero-img-col {
+                order: -1; 
+            }
+            
+            /* IMAGEN MÓVIL: Altura Fija 300px */
+            .hero-img-col img {
+                height: 300px;
+                width: auto; 
+                max-width: 100%; 
+                object-position: center;
+                margin: 0 auto; 
+            }
+            
+            .hero-text-col {
+                text-align: center;
+            }
+            #home p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
         }
 
         /* --- SECCIONES BLANCAS --- */
@@ -352,22 +465,35 @@
         }
 
 
-        /* --- SERVICIOS (MODIFICADO: FONDO 060d28) --- */
+        /* --- SERVICIOS (MODIFICADO: FONDO GRIS SUTIL) --- */
         #services { 
             padding: var(--padding-section); 
-            background: #060d28; /* Nuevo fondo azul oscuro */
+            background: #f8f9fa; /* Gris muy sutil (antes azul oscuro) */
         }
         
         /* Centrar textos servicios en Desktop */
         @media(min-width: 992px) {
-            #services .title-std { text-align: center; }
+            #services .title-std { text-align: center; color: var(--text-dark) !important; }
             #services .title-std::after { margin-left: auto; margin-right: auto; }
-            #services > .container > p { text-align: center; margin-left: auto; margin-right: auto; max-width: 800px; }
+            #services > .container > p { 
+                text-align: center; 
+                margin-left: auto; margin-right: auto; 
+                max-width: 800px;
+                color: var(--text-desc-light) !important; /* Gris oscuro del párrafo */
+            }
+        }
+
+        /* TEXTOS SERVICIOS (Ajuste para fondo claro) */
+        #services .title-std { color: var(--text-dark); }
+        #services > .container > p {
+            font-size: 0.9rem; /* Igualar a "Somos Xfera" */
+            line-height: 1.6;
+            color: var(--text-desc-light);
         }
 
         .service-split-layout {
             display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
-            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px;
+            border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 60px; /* Borde más sutil para fondo claro */
         }
         @media(min-width: 992px) { .service-split-layout { grid-template-columns: 1fr 1fr; } }
         .service-split-layout:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -380,7 +506,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             margin-bottom: 80px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra más suave para fondo claro */
         }
         .service-full-card:last-child { margin-bottom: 0; }
 
@@ -412,7 +538,7 @@
             .service-image-side { min-height: 300px; }
             .service-content-side { padding: 30px; }
             
-            /* Alineación Móvil a la izquierda (por defecto hereda, pero aseguramos) */
+            /* Alineación Móvil a la izquierda */
             #services .title-std { text-align: left; }
             #services .title-std::after { margin-left: 0; }
             #services > .container > p { text-align: left; margin-left: 0; }
@@ -621,6 +747,9 @@
             border-radius: 60px 60px 0 0; 
         }
 
+        /* TITULO BLANCO EN FORMULARIO (Solicitado) */
+        #contact .title-std { color: #ffffff !important; }
+
         @media(max-width: 768px) {
             #contact {
                 margin-top: 0; border-radius: 30px 30px 0 0; 
@@ -731,13 +860,19 @@
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
                             <a href="#services" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
-                            <a href="#contact" class="btn btn-hero-secondary">Cotiza tu solución <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+                            <!-- Botón Secundario Modificado: Borde Negro + Icono Email -->
+                            <a href="#contact" class="btn btn-hero-secondary">Cotiza tu solución <i class="fas fa-envelope" style="margin-left: 5px;"></i></a>
                         </div>
                     </div>
                     
-                    <!-- IMAGEN DERECHA -->
+                    <!-- IMAGEN DERECHA (TAG PICTURE CON SWAP DE TAMAÑOS) -->
                     <div class="hero-img-col">
-                        <img src="img/hero-desktop.png" alt="Infraestructura TI XFERA">
+                        <picture>
+                            <!-- MOBILE/TABLET VERTICAL (< 768px): Usa imagen mobile recortada en 300px via CSS -->
+                            <source media="(max-width: 768px)" srcset="img/hero-mobile.png">
+                            <!-- DESKTOP/TABLET (> 768px): Usa imagen desktop completa -->
+                            <img src="img/hero-desktop.png" alt="Infraestructura TI XFERA">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -804,14 +939,14 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3 - SERVICIOS (MODIFICADO: FONDO 060d28) -->
+        <!-- SECCIÓN 3 - SERVICIOS (MODIFICADO: FONDO GRIS CLARO) -->
         <section id="services" class="reveal">
             <div class="container">
-                <h2 class="title-std title-light" style="color: #fff;">
-                    SERVICIOS <span style="color: #fff;">INTEGRALES</span>
+                <h2 class="title-std title-light" style="color: #000;">
+                    SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
                 </h2>
-                <p style="width: 100%; color: #ccc; margin-bottom: 4rem; font-size: 1.1rem;">
-                    Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI. Buscamos mejorar la disponibilidad de tus procesos, aumentar la seguridad y asegurar que tu infraestructura crezca al ritmo de tu negocio.
+                <p style="width: 100%; color: var(--text-desc-light); margin-bottom: 4rem; font-size: 0.9rem;">
+                    Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad. En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
                 </p>
 
                 <!-- SERVICIO 1 -->
@@ -1140,8 +1275,6 @@
                     <a href="index.html">Inicio</a>
                     <a href="index.html#about">Somos Xfera</a>
                     <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
-                    <a href="index.html#diferencial">Nuestro Diferencial</a>
-                    <a href="index.html#casos">Casos de Éxito</a>
                     <a href="#contact">Contacto</a>
                 </div>
             </div>

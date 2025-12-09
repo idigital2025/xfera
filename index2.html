@@ -77,6 +77,14 @@
             padding: 0 20px;
         }
 
+        /* MODIFICACIÓN ANCHO ESCRITORIO (Más margen horizontal) */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 70px; /* Aumentado para dar +100px total de margen visual */
+                max-width: 1200px; /* Ajuste para compensar padding */
+            }
+        }
+
         .title-std {
             font-size: 1.8rem;
             text-transform: uppercase;
@@ -167,7 +175,7 @@
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
         .logo-img { 
-            height: 46px; 
+            height: 55px; /* AUMENTADO 20% (era 46px) */
             width: auto; object-fit: contain; transition: 0.3s;
             filter: none; 
         }
@@ -280,31 +288,47 @@
             margin-right: 8px;
         }
 
+        /* MODIFICACIÓN TÍTULOS HERO (REDUCCIÓN TAMAÑO) */
         #home h1 { 
-            color: var(--text-dark-hero) !important; 
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            color: var(--text-dark-hero) !important; /* CAMBIO: Base en negro #191919 */
+            /* Reducido ligeramente de 2.5rem/3.8rem */
+            font-size: clamp(2.3rem, 5vw, 3.5rem); 
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 25px;
             text-transform: none; 
+            text-shadow: none !important;
         }
         
         .highlight-blue {
             color: var(--title-blue) !important;
         }
         
+        #home h2 { 
+            color: var(--text-dark-hero) !important; 
+            /* Reducido de 1.2rem */
+            font-size: 1.1rem; 
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-shadow: none !important;
+        }
+        
         #home p { 
-            color: var(--text-desc-light) !important; 
+            color: var(--text-desc-light) !important; /* CAMBIO: Color gris (#555555) */
+            text-shadow: none !important;
             font-size: 1.1rem;
             margin-bottom: 35px;
             max-width: 90%;
         }
 
-        /* Estilos Imagen Derecha */
+        /* Estilos Imagen Derecha - ELIMINADO FONDO BLANCO */
         .hero-img-col {
             position: relative;
             display: flex;
             justify-content: center;
+            /* Asegurar que no haya fondo ni sombras en el contenedor */
+            background: transparent; 
+            box-shadow: none;
         }
         
         /* IMAGEN DESKTOP POR DEFECTO */
@@ -312,8 +336,10 @@
             width: 100%;
             height: auto;
             border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            /* Eliminado box-shadow para limpieza en PNG transparente */
+            box-shadow: none; 
             object-fit: cover; 
+            background: transparent;
         }
 
         /* MEDIA QUERY AJUSTADA PARA MÓVIL */

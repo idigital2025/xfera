@@ -36,7 +36,9 @@
             --text-dark: #1a1a1a;
             --text-desc-light: #555555;
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
-            --shadow-image: 0 20px 40px rgba(0,0,0,0.2);
+            
+            /* Sombra imagen sutilmente azul */
+            --shadow-image: 20px 20px 60px rgba(0, 212, 255, 0.15);
             
             --padding-section: 100px 5%;
             --radius-card: 20px;
@@ -260,16 +262,17 @@
         
         .about-content-col { text-align: left; }
         .about-content-col h2 {
-            font-size: 2.5rem;
+            font-size: 2rem; /* Achicado de 2.5rem */
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 25px;
             line-height: 1.2;
+            max-width: 15ch; /* Forzar ~3 líneas en desktop */
         }
         .about-content-col h2 span { color: var(--title-blue); }
         .about-content-col p {
             color: var(--text-desc-light);
-            font-size: 1.05rem;
+            font-size: 0.9rem; /* Achicado 20% (era 1.05rem) */
             line-height: 1.6;
             margin-bottom: 20px;
         }
@@ -288,7 +291,7 @@
             gap: 10px;
             color: var(--text-dark);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.8rem; /* Achicado 20% (era 0.95rem) */
         }
         .about-list-grid li::before {
             content: '';
@@ -305,7 +308,7 @@
         .about-image-wrapper {
             position: relative;
             border-radius: 20px;
-            box-shadow: var(--shadow-image);
+            box-shadow: var(--shadow-image); /* Sombra sutilmente azul */
             line-height: 0; /* Eliminar espacio bajo imagen */
         }
         .about-image-wrapper img {
@@ -346,7 +349,7 @@
         }
         @media(max-width: 768px) {
             .sec-about { text-align: left; }
-            .about-content-col h2 { font-size: 2rem; }
+            .about-content-col h2 { font-size: 1.8rem; max-width: none; }
             .about-list-grid { grid-template-columns: 1fr; } /* 1 col en movil pequeño */
         }
 
@@ -669,7 +672,7 @@
                     <!-- Columna Imagen -->
                     <div class="about-image-col">
                         <div class="about-image-wrapper">
-                            <img src="datacenter-hero-Dl1IAIUb.jpg" alt="Centro de Datos">
+                            <img src="img/datacenter-hero-Dl1IAIUb.jpg" alt="Centro de Datos">
                             <!-- Tarjeta Flotante -->
                             <div class="floating-badge">
                                 <strong>100%</strong><br>Uptime garantizado

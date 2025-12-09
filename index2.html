@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- 1. VARIABLES (Base Dark Original) --- */
+        /* --- 1. VARIABLES --- */
         :root {
             --primary: #00D4FF;
             --secondary: #7B2CBF;
@@ -28,15 +28,15 @@
             --blue-accent: #1b30af; 
             --blue-form: #101f75;
             --title-blue: #1f32ce;
-            --text-dark-hero: #191919; /* Nuevo color para textos del hero y botón secundario */
+            --text-dark-hero: #191919; /* Color #191919 solicitado */
             
-            /* Variables para secciones Light */
+            /* Variables Light */
             --bg-light: #ffffff;
             --bg-light-alt: #f9fafb;
             --text-dark: #1a1a1a;
             --text-desc-light: #555555;
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
-            --shadow-image: 20px 20px 60px rgba(0,0,0,0.15); /* Sombra para imagen Somos Xfera */
+            --shadow-image: 0 20px 40px rgba(0,0,0,0.2);
             
             --padding-section: 100px 5%;
             --radius-card: 20px;
@@ -52,7 +52,7 @@
         html, body {
             overflow-x: hidden;
             width: 100%;
-            margin: 0; /* Asegurar margen 0 */
+            margin: 0;
             padding: 0;
             position: relative;
             font-family: 'Inter', sans-serif;
@@ -85,9 +85,8 @@
         }
         .title-std span { color: var(--title-blue); }
         
-        /* Variantes de Título */
-        .title-light { color: #ffffff; } /* Para fondo oscuro */
-        .title-dark { color: var(--text-dark); } /* Para fondo claro */
+        .title-light { color: #ffffff; } 
+        .title-dark { color: var(--text-dark); } 
 
         .title-std::after {
             content: '';
@@ -139,50 +138,48 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* ESTILO ESPECÍFICO BOTÓN HERO SECUNDARIO (Blanco/Cian -> Blanco/191919) */
+        /* BOTÓN HERO SECUNDARIO (Texto #191919) */
         .btn-hero-secondary {
             background: #ffffff; 
-            color: var(--text-dark-hero); /* Color 191919 */
-            border: 2px solid var(--text-dark-hero); /* Borde 191919 */
+            color: var(--text-dark-hero); 
+            border: 2px solid #ffffff; 
         }
         .btn-hero-secondary:hover {
-            background: var(--text-dark-hero);
+            background: var(--primary);
+            border-color: var(--primary);
             color: #fff;
         }
 
-        /* --- 3. HEADER & NAV (MODIFICADO: SIEMPRE BLANCO) --- */
+        /* --- 3. HEADER & NAV --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 15px 0;
-            background: #ffffff; /* Fondo blanco siempre */
+            background: #ffffff; 
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Sombra sutil siempre */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             transition: all 0.4s ease;
         }
-        header.scrolled {
-            padding: 10px 0;
-        }
+        header.scrolled { padding: 10px 0; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
         .logo-img { 
-            height: 46px; /* Aumentado 15% (era 40px) */
+            height: 46px; 
             width: auto; object-fit: contain; transition: 0.3s;
-            filter: none; /* Logo original siempre visible */
+            filter: none; 
         }
 
         .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
         .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
         
         .nav-link { 
-            color: var(--text-dark); /* Color oscuro para fondo blanco */
+            color: var(--text-dark); 
             font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; 
             transition: color 0.3s ease; 
         }
         .nav-link:hover { color: var(--blue-accent); }
 
-        .mobile-toggle { font-size: 1.5rem; color: #333; /* Icono oscuro */ cursor: pointer; transition: 0.3s; }
+        .mobile-toggle { font-size: 1.5rem; color: #333; cursor: pointer; transition: 0.3s; }
 
-        /* Menú móvil */
         .mobile-menu-overlay {
             position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
             background: #111; z-index: 2000; padding: 80px 30px;
@@ -205,40 +202,35 @@
             .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- 4. HERO (MODIFICADO: FONDO IMAGEN & TEXTOS) --- */
+        /* --- 4. HERO --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; text-align: center;
-            /* Imagen Desktop por defecto */
             background: url('img/hero-desktop.jpg') no-repeat center center;
             background-size: cover;
             position: relative; padding-top: 80px;
         }
-        
-        /* FILTRO OSCURO ELIMINADO COMPLETAMENTE */
-        #home::before { content: none; }
+        #home::before { content: none; } 
 
-        /* Ajustes de Color de Texto Hero (Sin Sombras) */
+        /* TEXTOS HERO */
         #home h1 { 
             color: var(--title-blue) !important; 
             text-shadow: none !important;
         }
+        /* Texto "Transformación digital..." en #191919 */
         #home h2 { 
-            color: var(--text-dark-hero) !important; /* Color 191919 */
+            color: var(--text-dark-hero) !important; 
             text-shadow: none !important;
         }
         #home p { 
-            color: var(--text-dark-hero) !important; /* Color 191919 */
+            color: var(--text-dark-hero) !important; 
             text-shadow: none !important;
         }
         
-        /* Imagen Mobile (Tablet Vertical y Celular) */
         @media (max-width: 768px) {
-            #home {
-                background-image: url('img/hero-mobile.jpg');
-            }
+            #home { background-image: url('img/hero-mobile.jpg'); }
         }
 
-        /* --- SECCIONES BLANCAS (Cifras & Somos Xfera) --- */
+        /* --- SECCIONES BLANCAS --- */
         .sec-stats { background: #ffffff; padding: 60px 5%; border-bottom: 1px solid #eee; }
         .stats-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; align-items: start; }
         .stat-block { text-align: center; }
@@ -256,74 +248,110 @@
             .mobile-br { display: block; }
         }
 
-        /* --- NUEVA SECCIÓN SOMOS XFERA (Diseño 2 columnas con imagen) --- */
+        /* --- SECCIÓN SOMOS XFERA (REDISEÑO NUEVO) --- */
         .sec-about { padding: var(--padding-section); background: #ffffff; color: #333; }
+        
         .about-split-layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 60px;
+            gap: 80px; /* Mayor espacio entre columnas */
             align-items: center;
         }
+        
+        .about-content-col { text-align: left; }
         .about-content-col h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 25px;
+            line-height: 1.2;
         }
-        .about-content-col h2 span {
-            color: var(--title-blue);
-        }
+        .about-content-col h2 span { color: var(--title-blue); }
         .about-content-col p {
             color: var(--text-desc-light);
             font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
-        .about-list {
+        
+        /* Lista en grid 2 columnas con bullets azules */
+        .about-list-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin: 30px 0;
+            padding: 0;
         }
-        .about-list li {
-            margin-bottom: 15px;
+        .about-list-grid li {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             color: var(--text-dark);
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
-        .about-list li i {
-            color: var(--primary);
-            font-size: 1.2rem;
+        .about-list-grid li::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--title-blue);
+            border-radius: 50%;
+            flex-shrink: 0;
         }
-        .about-image-col {
+
+        /* Contenedor imagen con tarjeta flotante */
+        .about-image-col { position: relative; }
+        .about-image-wrapper {
             position: relative;
-        }
-        .about-image-container {
-            border-radius: 30px;
-            overflow: hidden;
+            border-radius: 20px;
             box-shadow: var(--shadow-image);
+            line-height: 0; /* Eliminar espacio bajo imagen */
         }
-        .about-image-container img {
+        .about-image-wrapper img {
             width: 100%;
             height: auto;
+            border-radius: 20px;
             display: block;
-            border-radius: 30px;
+        }
+        /* Tarjeta "100% Uptime" */
+        .floating-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: #ffffff;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            font-size: 0.9rem;
+            color: var(--text-desc-light);
+            line-height: 1.3;
+            z-index: 2;
+        }
+        .floating-badge strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--title-blue);
+            font-weight: 800;
         }
 
         @media(min-width: 992px) {
-            .about-split-layout {
-                grid-template-columns: 1fr 1fr;
-            }
+            .about-split-layout { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width: 992px) {
+            .about-split-layout { grid-template-columns: 1fr; gap: 40px; }
+            .about-image-wrapper { margin-left: 20px; margin-bottom: 20px; } /* Espacio para badge */
+            .floating-badge { left: -10px; bottom: 20px; padding: 10px 20px; }
+            .floating-badge strong { font-size: 1.5rem; }
         }
         @media(max-width: 768px) {
-            .sec-about {
-                text-align: left;
-            }
-            .about-content-col h2 {
-                font-size: 1.8rem;
-            }
+            .sec-about { text-align: left; }
+            .about-content-col h2 { font-size: 2rem; }
+            .about-list-grid { grid-template-columns: 1fr; } /* 1 col en movil pequeño */
         }
 
 
-        /* --- SERVICIOS (Dark Base) --- */
+        /* --- SERVICIOS --- */
         #services { padding: var(--padding-section); background: #0a0a0a; }
         .service-split-layout {
             display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px;
@@ -347,74 +375,54 @@
             .visual-card-service p { font-size: 1rem !important; }
         }
 
-        /* --- NUESTRO DIFERENCIAL (CAMBIO A LIGHT) --- */
-        #diferencial { padding: var(--padding-section); background: var(--bg-light); } /* Fondo blanco */
-        
+        /* --- DIFERENCIAL --- */
+        #diferencial { padding: var(--padding-section); background: var(--bg-light); }
         .diff-card { 
-            background: #f9f9f9; /* Gris muy suave unificado */
-            padding: 2rem; border-radius: 20px; 
-            border: 1px solid #eee; /* Borde sutil */
-            box-shadow: var(--shadow-card); 
-            transition: 0.3s; 
+            background: #f9f9f9; padding: 2rem; border-radius: 20px; 
+            border: 1px solid #eee; box-shadow: var(--shadow-card); transition: 0.3s; 
         }
         .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
-        .diff-card h3 { color: var(--text-dark); } /* Título oscuro */
-        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; } /* Texto gris oscuro */
+        .diff-card h3 { color: var(--text-dark); }
+        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; }
 
-        /* --- INFRAESTRUCTURA CENTRALIZADA (CAMBIO A LIGHT) --- */
+        /* --- INFRAESTRUCTURA --- */
         .sec-infra { 
-            /* Fondo radial claro */
             background: radial-gradient(circle at center, #f0f4ff 0%, #ffffff 100%); 
-            padding: var(--padding-section); 
-            text-align: center; 
+            padding: var(--padding-section); text-align: center; 
         }
         .sec-infra p { color: var(--text-desc-light) !important; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
-        
-        /* Pills adaptados a light */
         .infra-pill {
-            background: #fff; 
-            padding: 15px 30px; border-radius: 50px; 
+            background: #fff; padding: 15px 30px; border-radius: 50px; 
             display: flex; gap: 10px; align-items: center; 
-            color: var(--text-dark); 
-            border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            color: var(--text-dark); border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* --- CASOS DE ÉXITO (CAMBIO A LIGHT) --- */
-        .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); } /* Fondo gris suave */
+        /* --- CASOS DE ÉXITO --- */
+        .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); }
         .sec-cases p { color: var(--text-desc-light); }
-        
         .case-highlight {
-            background: #fff; /* Tarjeta blanca */
-            border-left: 4px solid var(--secondary); 
-            padding: 40px; border-radius: 0 20px 20px 0; 
-            margin-top: 40px;
-            box-shadow: var(--shadow-card);
+            background: #fff; border-left: 4px solid var(--secondary); 
+            padding: 40px; border-radius: 0 20px 20px 0; margin-top: 40px; box-shadow: var(--shadow-card);
         }
         .case-highlight h3 { color: var(--text-dark) !important; margin-bottom: 25px; font-size: 1.5rem; }
         .case-highlight li { color: var(--text-desc-light) !important; }
 
-        /* --- PARTNERS (CAMBIO A LIGHT) --- */
+        /* --- PARTNERS --- */
         .sec-partners { padding: 60px 5%; background: #ffffff; }
         .sec-partners p { color: var(--text-desc-light); }
-        
         .marquee-wrapper {
             overflow: hidden; width: 100%; position: relative; margin-top: 40px;
-            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); /* Mascara blanca */
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
         }
         .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
         .logo-box {
-            background: #fff; /* Caja blanca */
-            padding: 15px 30px; border-radius: 8px;
-            border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            color: #555; /* Texto oscuro */
-            display: flex; align-items: center; justify-content: center; font-weight: 700;
-            opacity: 1; filter: none;
+            background: #fff; padding: 15px 30px; border-radius: 8px;
+            border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            color: #555; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 1; filter: none;
         }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CTA BLUE (Dark Base) --- */
+        /* --- CTA BLUE --- */
         .sec-cta-blue {
             background: linear-gradient(to right, rgba(31, 50, 206, 0.65), rgba(31, 50, 206, 0.65)), url('img/seccion8.jpg');
             background-color: var(--title-blue); 
@@ -463,7 +471,7 @@
             .mobile-only { display: flex; margin: 30px auto 0; width: auto; max-width: 90%; justify-content: center; }
         }
 
-        /* --- FORMULARIO (Clean Blue Global) --- */
+        /* --- FORMULARIO --- */
         .form-container-blue {
             background: transparent; 
             padding: clamp(40px, 8vw, 80px);
@@ -507,7 +515,7 @@
             .privacy-text { text-align: left !important; }
         }
 
-        /* --- FOOTER (Dark Base) --- */
+        /* --- FOOTER --- */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; }
         .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
@@ -544,9 +552,7 @@
                 cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
             }
             .scroll-btn:active { transform: scale(0.9); }
-            /* Flechas Light Theme (Blanco con borde negro) */
             .scroll-btn.light-theme { background: #fff; color: #000; border: 1px solid #000; z-index: 10; }
-            /* Flechas Dark Theme */
             .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
         }
         .mobile-nav-controls { display: none; }
@@ -589,22 +595,23 @@
     </header>
 
     <main>
-        <!-- HERO (Dark con Imagen) -->
+        <!-- HERO -->
         <section id="home">
             <div class="container" style="position: relative; z-index: 2;">
-                <!-- Etiqueta Next-Gen ELIMINADA -->
                 <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-transform: uppercase;">
                     Infraestructura moderna,<br> segura y escalable
                 </h1>
-                <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--primary); margin-bottom: 20px;">
+                <!-- SUBTÍTULO EN #191919 -->
+                <h2 style="font-size: 1.2rem; font-weight: 400; color: var(--text-dark-hero); margin-bottom: 20px;">
                     Transformación digital <br class="mobile-br"> diseñada por expertos
                 </h2>
-                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #fff;">
+                <!-- PÁRRAFO EN #191919 -->
+                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: var(--text-dark-hero);">
                     Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones
                 </p>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <a href="#contact" class="btn btn-primary">Cotizar tu Solución</a>
-                    <!-- Botón secundario con estilo blanco/cian -->
+                    <!-- BOTÓN SECUNDARIO: FONDO BLANCO, TEXTO #191919 -->
                     <a href="#contact" class="btn btn-hero-secondary">Habla con un experto</a>
                 </div>
             </div>
@@ -635,31 +642,38 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 1 - SOMOS XFERA -->
+        <!-- SECCIÓN 1 - SOMOS XFERA (REDISEÑADA) -->
         <section id="about" class="sec-about reveal">
             <div class="container">
                 <div class="about-split-layout">
+                    <!-- Columna Texto -->
                     <div class="about-content-col">
-                        <h2>Somos la respuesta a los desafíos de infraestructura TI <span>más complejos</span></h2>
+                        <h2>Somos la respuesta a los desafíos de infraestructura TI <br><span>más complejos</span></h2>
                         <p>
                             Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad.
                         </p>
                         <p>
                             En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
                         </p>
-                        <ul class="about-list">
-                            <li><i class="fas fa-check-circle"></i> Sistemas que no escalan</li>
-                            <li><i class="fas fa-check-circle"></i> Riesgos de fallos</li>
-                            <li><i class="fas fa-check-circle"></i> Altos costos operativos</li>
-                            <li><i class="fas fa-check-circle"></i> Demandas de seguridad</li>
+                        <!-- Lista en Grid 2 columnas -->
+                        <ul class="about-list-grid">
+                            <li>Sistemas que no escalan</li>
+                            <li>Riesgos de fallos</li>
+                            <li>Altos costos operativos</li>
+                            <li>Demandas de seguridad</li>
                         </ul>
                         <div class="btn-wrapper">
                             <a href="#contact" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
+                    <!-- Columna Imagen -->
                     <div class="about-image-col">
-                        <div class="about-image-container">
-                            <img src="datacenter-hero-Dl1IAIUb.jpg" alt="Infraestructura TI XFERA">
+                        <div class="about-image-wrapper">
+                            <img src="datacenter-hero-Dl1IAIUb.jpg" alt="Centro de Datos">
+                            <!-- Tarjeta Flotante -->
+                            <div class="floating-badge">
+                                <strong>100%</strong><br>Uptime garantizado
+                            </div>
                         </div>
                     </div>
                 </div>

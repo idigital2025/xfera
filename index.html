@@ -355,9 +355,22 @@
         
         .about-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; padding: 0; }
         .about-list-grid li { display: flex; align-items: center; gap: 10px; color: var(--text-dark); font-weight: 500; font-size: 0.8rem; }
+        
         .about-list-grid li::before {
-            content: ''; display: block; width: 8px; height: 8px; background-color: var(--title-blue); border-radius: 50%; flex-shrink: 0;
+            content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
         }
+
+        /* COLORES PUNTOS SOMOS XFERA - MODIFICADO */
+        .about-list-grid li:nth-child(1)::before,
+        .about-list-grid li:nth-child(2)::before {
+            background-color: var(--secondary); /* Morado para los 2 primeros */
+        }
+        .about-list-grid li:nth-child(3)::before,
+        .about-list-grid li:nth-child(4)::before {
+            background-color: var(--primary); /* Cian para los 2 últimos */
+        }
+
+
         .about-image-col { position: relative; }
         .about-image-wrapper { position: relative; border-radius: 20px; box-shadow: var(--shadow-image); line-height: 0; }
         .about-image-wrapper img { width: 100%; height: auto; border-radius: 20px; display: block; }
@@ -454,7 +467,7 @@
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
         .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 0.95rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.6; }
         
-        /* Pills modificados: Cuadrado redondeado y check azul */
+        /* Pills modificados */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
             border-radius: 12px; 
@@ -465,21 +478,6 @@
 
         /* --- CASOS DE ÉXITO --- */
         .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); }
-        
-        /* Centrar título de sección Casos de Éxito */
-        .sec-cases .title-std { text-align: center; color: var(--text-dark); }
-        .sec-cases .title-std::after { margin-left: auto; margin-right: auto; }
-        
-        /* Estilo para el subtítulo de la sección */
-        .section-subtitle {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            color: var(--text-desc-light);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
         .cases-split-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
         
         .case-image-wrapper { position: relative; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-image); }
@@ -640,16 +638,6 @@
             .snap-container::-webkit-scrollbar { display: none; }
             .snap-item { flex: 0 0 85vw; width: 85vw; scroll-snap-align: center; min-width: 0; }
             @media (min-width: 600px) { .snap-item { flex: 0 0 45vw; width: 45vw; } }
-            
-            /* FLECHAS REDONDAS */
-            .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-            .scroll-btn {
-                width: 45px; height: 45px; border-radius: 50%;
-                display: flex; align-items: center; justify-content: center;
-                cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
-            }
-            .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
-            .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
         }
         .mobile-nav-controls { display: none; }
         @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
@@ -936,7 +924,7 @@
         <!-- CASOS DE ÉXITO -->
         <section id="casos" class="sec-cases reveal">
             <div class="container">
-                <h2 class="title-std title-dark title-centered">
+                <h2 class="title-std title-dark">
                     CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
                 </h2>
                 <!-- Subtítulo añadido -->
@@ -1003,7 +991,7 @@
             </div>
         </section>
 
-        <!-- INFRAESTRUCTURA CENTRALIZADA -->
+        <!-- INFRAESTRUCTURA CENTRALIZADA (SIN CTA) -->
         <section class="sec-infra reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
@@ -1023,11 +1011,10 @@
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Seguridad integrada
                     </div>
                 </div>
-                <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-white-filled">Conocer más</a>
             </div>
         </section>
 
-        <!-- BENEFICIOS CLAVES (FONDO DEGRADADO CYAN, TARJETAS BLANCAS) -->
+        <!-- BENEFICIOS CLAVES (SIN CTA) -->
         <section class="sec-benefits-bg reveal">
             <div class="container">
                 <div class="benefits-header">
@@ -1068,10 +1055,6 @@
                             <button class="scroll-btn prev light-theme" data-target="benefits-scroll"><i class="fas fa-chevron-left"></i></button>
                             <button class="scroll-btn next light-theme" data-target="benefits-scroll"><i class="fas fa-chevron-right"></i></button>
                         </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 50px;">
-                        <a href="#contact" class="btn btn-white-filled btn-centered-responsive" style="padding: 15px 35px;">Solicitar reunión &rarr;</a>
                     </div>
                 </div>
             </div>

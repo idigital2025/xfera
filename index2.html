@@ -77,6 +77,14 @@
             padding: 0 20px;
         }
 
+        /* MODIFICACIÓN ANCHO ESCRITORIO (Más margen horizontal) */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 160px; /* Aumentado: 70px originales + 90px solicitados */
+                max-width: 1400px; /* Ajuste ligero de max-width para balancear el padding extra */
+            }
+        }
+
         .title-std {
             font-size: 1.8rem;
             text-transform: uppercase;
@@ -142,7 +150,7 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* BOTÓN HERO SECUNDARIO - MODIFICADO: Borde Negro */
+        /* BOTÓN HERO SECUNDARIO */
         .btn-hero-secondary {
             background: #ffffff; 
             color: var(--text-dark-hero); 
@@ -211,154 +219,38 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: #ffffff; /* Fondo blanco */
-            position: relative;
-            padding-top: 100px;
+            text-align: center;
+            background: url('img/hero-desktop.png') no-repeat center center;
+            background-size: cover;
+            position: relative; padding-top: 100px;
             padding-bottom: 50px;
             overflow: hidden;
         }
+        #home::before { content: none; } 
 
-        /* ORBES DE FONDO */
-        .hero-orb-1 {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 500px;
-            height: 500px;
-            background-color: rgba(0, 212, 255, 0.1);
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .hero-orb-2 {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 400px;
-            height: 400px;
-            background-color: rgba(123, 44, 191, 0.1);
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .hero-split-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px; 
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text-col {
-            text-align: left;
-        }
-
-        /* Tag de Hero */
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            background: #f0f9ff;
-            color: var(--title-blue); 
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
-        }
-        .hero-pill::before {
-            content: '';
-            display: block;
-            width: 6px;
-            height: 6px;
-            background-color: var(--title-blue);
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-
+        /* TEXTOS HERO */
         #home h1 { 
+            color: var(--title-blue) !important; 
+            text-shadow: none !important;
+        }
+        /* Texto "Transformación digital..." en #191919 */
+        #home h2 { 
             color: var(--text-dark-hero) !important; 
-            font-size: clamp(2.5rem, 5vw, 3.8rem); 
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 25px;
-            text-transform: none; 
+            text-shadow: none !important;
+        }
+        #home p { 
+            color: var(--text-dark-hero) !important; 
             text-shadow: none !important;
         }
         
+        /* Nuevo: Clase para destacar texto en azul dentro del H1 */
         .highlight-blue {
             color: var(--title-blue) !important;
         }
         
-        #home h2 { 
-            color: var(--text-dark-hero) !important; 
-            font-size: 1.1rem; 
-            font-weight: 400;
-            margin-bottom: 20px;
-            text-shadow: none !important;
-        }
-        
-        #home p { 
-            color: var(--text-desc-light) !important; 
-            text-shadow: none !important;
-            font-size: 1rem; 
-            margin-bottom: 35px;
-            max-width: 90%;
-        }
-
-        /* Estilos Imagen Derecha */
-        .hero-img-col {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            background: transparent; 
-            box-shadow: none;
-        }
-        
-        /* IMAGEN DESKTOP POR DEFECTO */
-        .hero-img-col img {
-            width: 100%;
-            height: auto;
-            border-radius: 30px;
-            box-shadow: none; 
-            object-fit: cover; 
-            background: transparent;
-        }
-
-        /* MEDIA QUERY AJUSTADA PARA MÓVIL */
         @media (max-width: 768px) {
-            #home {
-                padding-top: 120px; 
-                text-align: center;
-            }
-            .hero-split-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .hero-img-col {
-                order: -1; 
-            }
-            .hero-img-col img {
-                height: auto; 
-                width: 100%; 
-                max-width: 100%; 
-                object-position: center;
-                margin: 0 auto; 
-            }
-            .hero-text-col {
-                text-align: center;
-            }
-            #home p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-actions {
-                justify-content: center;
-            }
+            /* CAMBIO A .PNG */
+            #home { background-image: url('img/hero-mobile.png'); }
         }
 
         /* --- SECCIONES BLANCAS --- */
@@ -473,15 +365,14 @@
         }
 
 
-        /* --- SERVICIOS (MODIFICADO: FONDO GRIS CLARO) --- */
+        /* --- SERVICIOS (MODIFICADO: MÁS PEQUEÑOS Y SIN ZOOM) --- */
         #services { 
             padding: var(--padding-section); 
-            background: #f8f9fa; /* Gris muy sutil (antes azul oscuro) */
+            background: #f8f9fa; /* Gris muy sutil */
         }
         
         /* Centrar textos servicios en Desktop */
         @media(min-width: 992px) {
-            /* Títulos en oscuro */
             #services .title-std { text-align: center; color: var(--text-dark) !important; }
             #services .title-std::after { margin-left: auto; margin-right: auto; }
             #services > .container > p { 
@@ -590,7 +481,7 @@
         
         .cases-split-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+            grid-template-columns: 1.2fr 1fr; /* Más espacio a la imagen */
             gap: 60px;
             align-items: center;
         }
@@ -622,7 +513,7 @@
         }
         .case-overlay-card h4 {
             margin: 0 0 5px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-dark);
             font-weight: 800;
         }

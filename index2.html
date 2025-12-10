@@ -150,7 +150,7 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* BOTÓN HERO SECUNDARIO */
+        /* BOTÓN HERO SECUNDARIO (Texto #191919 + Borde Negro) */
         .btn-hero-secondary {
             background: #ffffff; 
             color: var(--text-dark-hero); 
@@ -174,8 +174,9 @@
         header.scrolled { padding: 10px 0; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
+        /* LOGO AUMENTADO */
         .logo-img { 
-            height: 55px; 
+            height: 72px; /* Aumentado 30% desde 55px */
             width: auto; object-fit: contain; transition: 0.3s;
             filter: none; 
         }
@@ -222,7 +223,8 @@
             text-align: center;
             background: url('img/hero-desktop.png') no-repeat center center;
             background-size: cover;
-            position: relative; padding-top: 100px;
+            position: relative;
+            padding-top: 120px; /* Aumentado padding top para compensar header más alto */
             padding-bottom: 50px;
             overflow: hidden;
         }
@@ -250,7 +252,7 @@
         
         @media (max-width: 768px) {
             /* CAMBIO A .PNG */
-            #home { background-image: url('img/hero-mobile.png'); }
+            #home { background-image: url('img/hero-mobile.png'); padding-top: 120px; }
         }
 
         /* --- SECCIONES BLANCAS --- */

@@ -305,7 +305,6 @@
             #home { padding-top: 120px; text-align: center; background: #ffffff; }
             .hero-split-layout { grid-template-columns: 1fr; gap: 40px; }
             .hero-img-col { order: -1; }
-            
             .hero-img-col img {
                 width: 85%; height: auto; max-width: 450px; object-fit: contain; margin: 0 auto; 
                 border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
@@ -453,12 +452,12 @@
         }
         .sec-infra .title-std { color: #fff !important; }
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
-        .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
+        .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 0.95rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.6; }
         
         /* Pills modificados: Cuadrado redondeado y check azul */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
-            border-radius: 12px; /* MODIFICADO: Borde cuadrado con puntas redondas */
+            border-radius: 12px; 
             display: flex; gap: 10px; align-items: center; 
             color: var(--text-dark); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
@@ -466,7 +465,22 @@
 
         /* --- CASOS DE ÉXITO --- */
         .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); }
-        .cases-split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        
+        /* Centrar título de sección Casos de Éxito */
+        .sec-cases .title-std { text-align: center; color: var(--text-dark); }
+        .sec-cases .title-std::after { margin-left: auto; margin-right: auto; }
+        
+        /* Estilo para el subtítulo de la sección */
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--text-desc-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .cases-split-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
         
         .case-image-wrapper { position: relative; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-image); }
         .case-image-wrapper img { width: 100%; height: auto; display: block; border-radius: 24px; }
@@ -475,8 +489,8 @@
             padding: 20px 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             max-width: 280px; border: 1px solid #eee;
         }
-        .case-overlay-card h4 { margin: 0 0 5px; font-size: 1.3rem; color: var(--text-dark); font-weight: 800; }
-        .case-overlay-card p { margin: 0; font-size: 0.85rem; color: var(--text-desc-light); line-height: 1.3; }
+        .case-overlay-card h4 { margin: 0 0 5px; font-size: 1.1rem; color: var(--text-dark); font-weight: 800; }
+        .case-overlay-card p { margin: 0; font-size: 0.8rem; color: var(--text-desc-light); line-height: 1.3; }
 
         .case-content-col p.lead { font-size: 1.1rem; color: var(--text-desc-light); line-height: 1.6; margin-bottom: 30px; }
         .case-results-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
@@ -511,7 +525,10 @@
 
         /* --- CTA PROCESS --- */
         .sec-process { background-color: #f8fafc; padding: 100px 5%; text-align: center; } 
-        .sec-process h2 { font-size: 2.2rem; margin-bottom: 25px; color: #111; font-weight: 800; text-transform: uppercase; position: relative; display: inline-block; }
+        .sec-process h2 { 
+            font-size: 1.8rem; /* MODIFICADO: Igual a .title-std */
+            margin-bottom: 25px; color: #111; font-weight: 700; text-transform: uppercase; position: relative; display: inline-block; 
+        }
         .sec-process h2::after { content: ''; display: block; width: 60px; height: 5px; background-color: var(--title-blue); margin: 15px auto 0; border-radius: 2px; }
         .sec-process h2 span { color: var(--title-blue); }
         .sec-process .subtitle { font-size: 1rem; color: var(--text-desc-light); max-width: 600px; margin: 0 auto 50px; }
@@ -537,9 +554,8 @@
         .step-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: #111; }
         .step-item p { font-size: 0.9rem; color: var(--text-desc-light); line-height: 1.4; max-width: 250px; }
 
-        /* --- BENEFICIOS CLAVES (FONDO DEGRADADO 35%) --- */
+        /* --- BENEFICIOS CLAVES --- */
         .sec-benefits-bg { 
-            /* Reducido punto focal al 35% para que no toque bordes */
             background: radial-gradient(circle at center, #8ff4ff 0%, #ffffff 35%); 
             padding: var(--padding-section); 
             color: #111; 
@@ -624,6 +640,16 @@
             .snap-container::-webkit-scrollbar { display: none; }
             .snap-item { flex: 0 0 85vw; width: 85vw; scroll-snap-align: center; min-width: 0; }
             @media (min-width: 600px) { .snap-item { flex: 0 0 45vw; width: 45vw; } }
+            
+            /* FLECHAS REDONDAS */
+            .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+            .scroll-btn {
+                width: 45px; height: 45px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
+            }
+            .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
+            .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
         }
         .mobile-nav-controls { display: none; }
         @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
@@ -703,7 +729,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 0 - CIFRAS -->
+        <!-- SECCIÓN 0 - CIFRAS (AZUL OSCURO Y TEXTO BLANCO) -->
         <section class="sec-stats reveal">
             <div class="container">
                 <div class="stats-wrapper">
@@ -903,16 +929,18 @@
                     </div>
                 </div>
                 
-                <a href="#contact" class="btn btn-primary">Solicitar reunión &rarr;</a>
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-video" style="margin-right: 6px;"></i> Solicitar reunión</a>
             </div>
         </section>
 
         <!-- CASOS DE ÉXITO -->
         <section id="casos" class="sec-cases reveal">
             <div class="container">
-                <h2 class="title-std title-dark">
+                <h2 class="title-std title-dark title-centered">
                     CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
                 </h2>
+                <!-- Subtítulo añadido -->
+                <p class="section-subtitle">Conoce uno de nuestros proyectos realizados para instituciones públicas y privadas, modernizando y asegurado infraestructura de primer nivel</p>
                 
                 <div class="cases-split-layout">
                     <div class="case-image-col">
@@ -981,7 +1009,7 @@
                 <h2 class="title-std title-dark title-centered">
                     INFRAESTRUCTURA <span style="color: #ffffff;">CENTRALIZADA</span>
                 </h2>
-                <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; color: #ffffff !important;">
+                <p style="font-size: 0.95rem; max-width: 800px; margin: 0 auto 50px; color: #ffffff !important;">
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
@@ -1251,9 +1279,8 @@
                 
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;
-                const currentIndex = Math.round(currentScroll / stride);
                 
-                let nextIndex;
+                // Ajuste de lógica de scroll
                 let newScroll;
 
                 if (isNext) {

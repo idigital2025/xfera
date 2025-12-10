@@ -214,7 +214,7 @@
             .mobile-menu-overlay, .overlay-backdrop { display: none; }
         }
 
-        /* --- 4. HERO (RESTAURADO LIMPIO) --- */
+        /* --- 4. HERO --- */
         #home {
             min-height: 100vh;
             display: flex;
@@ -316,7 +316,7 @@
             max-width: 90%;
         }
 
-        /* Estilos Imagen Derecha (Contenedor Limpio) */
+        /* Estilos Imagen Derecha */
         .hero-img-col {
             position: relative;
             display: flex;
@@ -346,13 +346,7 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
-            /* ORDEN MÓVIL: Imagen Arriba */
-            .hero-img-col {
-                order: -1; 
-            }
-            
-            /* IMAGEN MÓVIL: Altura Fija 300px */
+            .hero-img-col { order: -1; }
             .hero-img-col img {
                 height: 300px;
                 width: auto; 
@@ -360,17 +354,9 @@
                 object-position: center;
                 margin: 0 auto; 
             }
-            
-            .hero-text-col {
-                text-align: center;
-            }
-            #home p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-actions {
-                justify-content: center;
-            }
+            .hero-text-col { text-align: center; }
+            #home p { margin-left: auto; margin-right: auto; }
+            .hero-actions { justify-content: center; }
         }
 
         /* --- SECCIONES BLANCAS --- */
@@ -564,6 +550,7 @@
             .service-image-side { min-height: 250px; }
             .service-content-side { padding: 30px; }
             
+            /* Alineación Móvil a la izquierda */
             #services .title-std { text-align: left; }
             #services .title-std::after { margin-left: 0; }
             #services > .container > p { text-align: left; margin-left: 0; }
@@ -749,6 +736,32 @@
         .benefit-card-ref { padding: 30px; background: #f9f9f9; border-radius: 16px; border-left: 4px solid #eee; transition: 0.3s; height: 100%; }
         .benefit-card-ref:hover { border-left-color: var(--secondary); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
         .benefit-card-ref h3 { color: #000 !important; font-size: 1.3rem; margin-bottom: 15px; }
+        
+        /* Beneficios Carrusel (Desktop) */
+        .benefits-carousel-wrapper {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .benefits-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding-bottom: 20px;
+            scrollbar-width: none; /* Firefox */
+        }
+        .benefits-carousel::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+        
+        .benefits-carousel .benefit-card-ref {
+            flex: 0 0 280px; /* Width of each card */
+            scroll-snap-align: start;
+        }
+
+        @media(max-width: 768px) {
+            .benefits-carousel .benefit-card-ref {
+                flex: 0 0 85vw;
+            }
+        }
 
         /* --- FORMULARIO --- */
         #contact { background: var(--blue-form); margin-top: -60px; padding-top: 50px; padding-bottom: 80px; padding-left: 5%; padding-right: 5%; position: relative; z-index: 10; border-radius: 60px 60px 0 0; }
@@ -783,8 +796,9 @@
         #back-to-top.show { opacity: 1; pointer-events: auto; }
         #wsp-float { bottom: 95px; background: #25D366; color: #fff; width: 60px; height: 60px; font-size: 2rem; }
 
-        /* CARRUSEL RESPONSIVE */
+        /* CARRUSEL RESPONSIVE (Diferencial - 4 columnas desktop) */
         .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(4, 1fr); } 
+        
         @media (max-width: 992px) {
             .snap-container { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; gap: 20px; scroll-behavior: smooth; scrollbar-width: none; grid-template-columns: none !important; width: 100%; }
             .snap-container::-webkit-scrollbar { display: none; }
@@ -1202,7 +1216,7 @@
                     </div>
                     
                     <div class="benefit-grid-mobile">
-                        <div class="snap-container" id="benefit-scroll">
+                        <div class="snap-container benefits-carousel" id="benefit-scroll">
                             <div class="benefit-card-ref snap-item">
                                 <h3 style="color: var(--secondary);">Continuidad operativa real</h3>
                                 <p style="margin: 0; font-size: 0.95rem; color: #555;">Disponibilidad incluso ante incidentes críticos.</p>

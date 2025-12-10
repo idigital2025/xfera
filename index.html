@@ -60,7 +60,6 @@
             padding: 0;
             position: relative;
             font-family: 'Inter', sans-serif;
-            /* CAMBIO: Fondo base claro (Hielo) para evitar flash negro al hacer scroll */
             background-color: #f0f2f5; 
             color: var(--text-white);
             font-size: 16px;
@@ -153,10 +152,10 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
         
-        /* Botón Blanco Relleno (Para Infraestructura y Beneficios) */
+        /* Botón Blanco Relleno */
         .btn-white-filled {
             background: #ffffff;
-            color: #000000; /* Texto Negro */
+            color: #000000;
             border: 1px solid rgba(0,0,0,0.1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
@@ -244,30 +243,15 @@
             overflow: hidden;
         }
         
-        /* Orbes de fondo (Vectores) */
         .hero-orb-1 {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 500px;
-            height: 500px;
-            background-color: rgba(0, 212, 255, 0.1);
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: 0;
-            pointer-events: none;
+            position: absolute; top: 0; right: 0; width: 500px; height: 500px;
+            background-color: rgba(0, 212, 255, 0.1); border-radius: 50%; filter: blur(120px);
+            z-index: 0; pointer-events: none;
         }
         .hero-orb-2 {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 400px;
-            height: 400px;
-            background-color: rgba(123, 44, 191, 0.1);
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: 0;
-            pointer-events: none;
+            position: absolute; bottom: 0; left: 0; width: 400px; height: 400px;
+            background-color: rgba(123, 44, 191, 0.1); border-radius: 50%; filter: blur(100px);
+            z-index: 0; pointer-events: none;
         }
 
         .hero-split-layout {
@@ -283,105 +267,55 @@
             text-align: left;
         }
 
-        /* Tag de Hero */
         .hero-pill {
             display: inline-flex;
-            align-items: center;
-            background: #f0f9ff;
-            color: var(--title-blue); 
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            align-items: center; background: #f0f9ff;
+            color: var(--title-blue); padding: 8px 16px; border-radius: 30px;
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; letter-spacing: 0.5px;
         }
         .hero-pill::before {
-            content: '';
-            display: block;
-            width: 6px;
-            height: 6px;
-            background-color: var(--title-blue);
-            border-radius: 50%;
-            margin-right: 8px;
+            content: ''; display: block; width: 6px; height: 6px;
+            background-color: var(--title-blue); border-radius: 50%; margin-right: 8px;
         }
 
         #home h1 { 
             color: var(--text-dark-hero) !important; 
-            font-size: clamp(2.1rem, 5vw, 3.3rem); 
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 25px;
-            text-transform: none; 
-            text-shadow: none !important;
+            font-size: clamp(2.1rem, 5vw, 3.3rem); line-height: 1.1; font-weight: 800; margin-bottom: 25px; text-transform: none; text-shadow: none !important;
         }
         .highlight-blue { color: var(--title-blue) !important; }
         
         #home h2 { 
-            color: var(--text-dark-hero) !important; 
-            font-size: 1.1rem; 
-            font-weight: 400;
-            margin-bottom: 20px;
-            text-shadow: none !important;
+            color: var(--text-dark-hero) !important; font-size: 1.1rem; 
+            font-weight: 400; margin-bottom: 20px; text-shadow: none !important;
         }
-        
         #home p { 
-            color: var(--text-desc-light) !important; 
-            text-shadow: none !important;
-            font-size: 1rem; 
-            margin-bottom: 35px;
-            max-width: 90%;
+            color: var(--text-desc-light) !important; text-shadow: none !important;
+            font-size: 1rem; margin-bottom: 35px; max-width: 90%;
         }
 
-        /* Estilos Imagen Derecha */
         .hero-img-col {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            background: transparent; 
-            box-shadow: none;
+            position: relative; display: flex; justify-content: center; background: transparent; box-shadow: none;
         }
         
-        /* IMAGEN DESKTOP POR DEFECTO */
         .hero-img-col img {
-            width: 100%;
-            height: auto;
-            border-radius: 30px;
-            box-shadow: none; 
-            object-fit: cover; 
-            background: transparent;
+            width: 100%; height: auto; border-radius: 30px; box-shadow: none; object-fit: cover; background: transparent;
         }
 
-        /* MEDIA QUERY AJUSTADA PARA MÓVIL (< 768px) */
         @media (max-width: 768px) {
-            #home {
-                padding-top: 120px; 
-                text-align: center;
-                background: #ffffff;
-            }
-            .hero-split-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            #home { padding-top: 120px; text-align: center; background: #ffffff; }
+            .hero-split-layout { grid-template-columns: 1fr; gap: 40px; }
             .hero-img-col { order: -1; }
             
-            /* CORRECCIÓN IMAGEN MÓVIL: AUTO HEIGHT */
             .hero-img-col img {
-                width: 85%; /* Ocupar un ancho razonable, no borde a borde */
-                height: auto; /* Altura automática para NO CORTAR la imagen */
-                max-width: 450px; /* Límite para que no se vea gigante en tablets pequeñas */
-                object-fit: contain; /* Asegura que se vea completa */
-                margin: 0 auto; 
-                border-radius: 20px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra suave para destacar */
+                width: 85%; height: auto; max-width: 450px; object-fit: contain; margin: 0 auto; 
+                border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
             }
-            
             .hero-text-col { text-align: center; }
             #home p { margin-left: auto; margin-right: auto; }
             .hero-actions { justify-content: center; }
         }
 
-        /* --- SECCIÓN 0 - CIFRAS (AZUL OSCURO Y TEXTO BLANCO) --- */
+        /* --- SECCIÓN 0 - CIFRAS --- */
         .sec-stats { 
             background: var(--title-blue); 
             padding: 60px 5%; border-bottom: 1px solid rgba(255,255,255,0.1); 
@@ -390,27 +324,17 @@
         .stats-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: nowrap; }
         .stat-block { text-align: center; flex-shrink: 0; }
         
-        .stat-item h3 { 
-            font-size: 2.5rem; 
-            color: #ffffff; /* Número Blanco */
-            margin-bottom: 10px; font-weight: 800; line-height: 1; 
-        }
-        .stat-item p { 
-            color: rgba(255,255,255,0.8); /* Texto Blanco Suave */
-            font-size: 0.9rem; margin: 0; line-height: 1.3; font-weight: 500; 
-        }
+        .stat-item h3 { font-size: 2.5rem; color: #ffffff; margin-bottom: 10px; font-weight: 800; line-height: 1; }
+        .stat-item p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0; line-height: 1.3; font-weight: 500; }
         
         .respaldo-block { 
             text-align: left; border-left: 2px solid rgba(255,255,255,0.3); 
             padding-left: 30px; flex-shrink: 1; 
         }
-        .respaldo-block p { color: #ffffff !important; } /* Título Respaldo Blanco */
+        .respaldo-block p { color: #ffffff !important; } 
         
-        .tech-check { 
-            color: rgba(255,255,255,0.9); /* Texto Check Blanco */
-            font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; 
-        }
-        .tech-check i { color: #ffffff; font-size: 1.1rem; } /* Icono Blanco (o Cyan si prefieres var(--primary)) */
+        .tech-check { color: rgba(255,255,255,0.9); font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .tech-check i { color: #ffffff; font-size: 1.1rem; } 
         .mobile-br { display: none; }
 
         @media(max-width: 992px) { 
@@ -522,26 +446,22 @@
         .diff-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
         .diff-card h3 { color: var(--text-dark); font-size: 1.1rem; }
 
-        /* --- INFRAESTRUCTURA (FONDO AZUL) --- */
+        /* --- INFRAESTRUCTURA --- */
         .sec-infra { 
             background: var(--title-blue); /* Fondo Azul */
             padding: var(--padding-section); text-align: center; color: #fff;
         }
         .sec-infra .title-std { color: #fff !important; }
-        
-        /* Modificación Línea Blanca bajo título */
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
-        
         .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
         
-        /* Modificación de Pills (Contenedores) */
+        /* Pills modificados: Cuadrado redondeado y check azul */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
-            border-radius: 12px; /* MODIFICADO: 12px para cuadrado redondeado */
+            border-radius: 12px; /* MODIFICADO: Borde cuadrado con puntas redondas */
             display: flex; gap: 10px; align-items: center; 
             color: var(--text-dark); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
-        /* Icono Azul Rey Forzado */
         .infra-pill i { color: var(--title-blue) !important; font-size: 1.1rem; }
 
         /* --- CASOS DE ÉXITO --- */
@@ -590,7 +510,7 @@
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- CTA PROCESS --- */
-        .sec-process { background-color: #f8fafc; padding: 100px 5%; text-align: center; } /* Gris Hielo */
+        .sec-process { background-color: #f8fafc; padding: 100px 5%; text-align: center; } 
         .sec-process h2 { font-size: 2.2rem; margin-bottom: 25px; color: #111; font-weight: 800; text-transform: uppercase; position: relative; display: inline-block; }
         .sec-process h2::after { content: ''; display: block; width: 60px; height: 5px; background-color: var(--title-blue); margin: 15px auto 0; border-radius: 2px; }
         .sec-process h2 span { color: var(--title-blue); }
@@ -617,9 +537,10 @@
         .step-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: #111; }
         .step-item p { font-size: 0.9rem; color: var(--text-desc-light); line-height: 1.4; max-width: 250px; }
 
-        /* --- BENEFICIOS CLAVES (FONDO DEGRADADO CYAN, TARJETAS BLANCAS) --- */
+        /* --- BENEFICIOS CLAVES (FONDO DEGRADADO 35%) --- */
         .sec-benefits-bg { 
-            background: radial-gradient(circle at center, #8ff4ff 0%, #ffffff 60%); 
+            /* Reducido punto focal al 35% para que no toque bordes */
+            background: radial-gradient(circle at center, #8ff4ff 0%, #ffffff 35%); 
             padding: var(--padding-section); 
             color: #111; 
         }
@@ -651,6 +572,16 @@
 
         @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
         @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
+
+        /* Controles Globales (Ahora fuera de media query) */
+        .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        .scroll-btn {
+            width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
+        }
+        .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
+        .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
 
         .benefits-controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
 
@@ -693,16 +624,6 @@
             .snap-container::-webkit-scrollbar { display: none; }
             .snap-item { flex: 0 0 85vw; width: 85vw; scroll-snap-align: center; min-width: 0; }
             @media (min-width: 600px) { .snap-item { flex: 0 0 45vw; width: 45vw; } }
-            
-            /* FLECHAS REDONDAS */
-            .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-            .scroll-btn {
-                width: 45px; height: 45px; border-radius: 50%;
-                display: flex; align-items: center; justify-content: center;
-                cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
-            }
-            .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
-            .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
         }
         .mobile-nav-controls { display: none; }
         @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
@@ -1319,11 +1240,12 @@
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                // Medidas
-                const gap = 20; 
-                const item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card');
+                // Buscar el item dentro del contenedor específico
+                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card');
                 if(!item) return;
                 
+                // Medidas
+                const gap = 20; 
                 const itemWidth = item.offsetWidth;
                 const stride = itemWidth + gap; 
                 
@@ -1335,18 +1257,18 @@
                 let newScroll;
 
                 if (isNext) {
-                    if (currentScroll + 10 >= maxScroll) {
+                    if (currentScroll + stride > maxScroll) {
+                         // Si llegamos al final, volver al principio (Loop)
                         newScroll = 0;
                     } else {
-                        nextIndex = currentIndex + 1;
-                        newScroll = nextIndex * stride;
+                        newScroll = currentScroll + stride;
                     }
                 } else {
-                    if (currentScroll <= 10) { 
+                    if (currentScroll - stride < 0) { 
+                        // Si estamos al principio, ir al final (Loop)
                         newScroll = maxScroll;
                     } else {
-                        nextIndex = currentIndex - 1;
-                        newScroll = nextIndex * stride;
+                        newScroll = currentScroll - stride;
                     }
                 }
                 

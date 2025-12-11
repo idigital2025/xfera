@@ -14,8 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
     
-    <!-- Iconos -->
+    <!-- Iconos: FontAwesome (General) + Phosphor Icons (Lineales para Sectores) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         /* =========================================
@@ -140,7 +141,6 @@
         #xfera-header {
             position: relative; height: 60vh; min-height: 450px;
             display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
-            /* IMAGEN DE FONDO */
             background: url('https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1920&q=80') no-repeat center center; 
             background-size: cover;
             margin-top: 80px;
@@ -158,31 +158,16 @@
             max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;
         }
 
-        /* NUESTRA ESENCIA (RESTAURADO A BLANCO Y TEXTO OSCURO) */
+        /* NUESTRA ESENCIA (FONDO AZUL) */
         #esencia { 
             padding: 100px 5%; 
-            background: #ffffff; /* Fondo Blanco */
+            background: var(--title-blue); /* Fondo Azul */
             text-align: center; 
-            color: var(--text-dark);
+            color: #fff; /* Texto Blanco */
         }
-        
-        #esencia .title-std { 
-            text-align: center; 
-            color: var(--text-dark);
-        }
-        #esencia .title-std::after { 
-            margin-left: auto; margin-right: auto; 
-            background-color: var(--title-blue); /* Línea Azul */
-        }
-        
-        #esencia p { 
-            text-align: left; 
-            max-width: 100%; 
-            margin: 0 auto 20px 0; 
-            font-size: 1.1rem; 
-            color: var(--text-desc-light); /* Texto Gris Oscuro */
-        }
-
+        #esencia .title-std { text-align: center; color: #fff; }
+        #esencia .title-std::after { margin-left: auto; margin-right: auto; background-color: #fff; }
+        #esencia p { text-align: left; max-width: 100%; margin: 0 auto 20px 0; font-size: 1.1rem; color: rgba(255,255,255,0.9); }
         @media(max-width: 768px) { #esencia p { text-align: left; } }
 
         /* PROPÓSITO Y FUTURO */
@@ -190,6 +175,10 @@
         .grid-proposito { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .card-proposito { background: #fff; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-card); border-top: 5px solid var(--primary); }
         .card-proposito:last-child { border-top-color: var(--secondary); }
+        
+        /* AUMENTO DE PADDING ENTRE TITULO Y CONTENEDORES */
+        .sec-proposito .title-std { margin-bottom: 60px; } /* Más aire aquí */
+        
         .card-proposito h3 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 20px; }
         @media(max-width: 768px) { .grid-proposito { grid-template-columns: 1fr; } }
 
@@ -199,17 +188,15 @@
             display: grid; grid-template-columns: 1fr 1fr; gap: 60px; 
             align-items: start; 
         }
-        
         .why-text-col { text-align: left; }
         .why-text-col .title-std { text-align: left; }
         .why-text-col .title-std::after { margin-left: 0; }
-        
         .why-image-col img { 
             width: 100%; border-radius: 24px; box-shadow: var(--shadow-image); 
             object-fit: cover; height: 100%; min-height: 300px;
         }
 
-        /* SECTORES CLAVE */
+        /* SECTORES CLAVE (ICONOS LINEALES) */
         .sectores-wrapper { margin-top: 60px; width: 100%; }
         .sectores-wrapper h4 { text-align: center; margin-bottom: 30px; font-weight: 700; color: var(--text-dark); }
 
@@ -226,7 +213,10 @@
             transition: 0.3s;
         }
         .industria-item:hover { transform: translateY(-5px); }
+        
+        /* ICONOS PHOSPHOR (Lineales) */
         .industria-item i { font-size: 2.2rem; color: var(--primary); margin-bottom: 5px; }
+        
         .industria-item span { font-size: 0.9rem; font-weight: 400; color: var(--text-dark); line-height: 1.2; }
 
         @media(max-width: 768px) {
@@ -282,20 +272,22 @@
         .diff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .diff-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
 
-        /* CERTIFICACIONES (CARRUSEL AJUSTADO) */
+        /* CERTIFICACIONES (1 POR PANTALLA) */
         .sec-certs { padding: 100px 5%; background: var(--bg-soft-gray); }
         .cert-slider-wrapper { position: relative; width: 100%; margin-top: 40px; }
         
-        /* CORRECCIÓN SOMBRAS: Padding aumentado */
         .cert-slider {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
-            padding: 60px 30px; /* Padding Aumentado verticalmente */
+            padding: 60px 30px; 
             width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
         }
         .cert-slider::-webkit-scrollbar { display: none; }
         
         .cert-card {
-            flex: 0 0 350px; scroll-snap-align: center;
+            /* 1 POR PANTALLA EN TODAS LAS RESOLUCIONES */
+            flex: 0 0 100%; 
+            scroll-snap-align: center;
+            
             background: #fff; padding: 40px 30px; border-radius: 20px; 
             box-shadow: var(--shadow-card); border: 1px solid #eee;
             display: flex; flex-direction: column; justify-content: start; text-align: left;
@@ -317,7 +309,14 @@
         .cert-card li { margin-bottom: 8px; font-size: 0.9rem; color: #444; display: flex; gap: 10px; align-items: start; line-height: 1.4; }
         .cert-card li::before { content: '✓'; color: var(--primary); font-weight: bold; }
 
-        @media(max-width: 992px) { .cert-slider .cert-card { flex: 0 0 85vw; /* 1 Item por pantalla */ } }
+        /* Ajuste de ancho responsivo para "1 por pantalla" pero con márgenes */
+        @media(min-width: 992px) { 
+            /* En desktop, dejamos que ocupe todo el ancho del slider visible, pero quizás queramos limitar el ancho máximo para que no sea ETERNO */
+            .cert-card { flex: 0 0 100%; max-width: 100%; } 
+        }
+        @media(max-width: 992px) { 
+            .cert-card { flex: 0 0 100%; } 
+        }
 
         /* PARTNERS & CLIENTES */
         .sec-ecosystem { padding: 80px 5%; background: #fff; }
@@ -393,7 +392,7 @@
             </div>
         </section>
 
-        <!-- NUESTRA ESENCIA (RESTAURADO) -->
+        <!-- NUESTRA ESENCIA (AZUL) -->
         <section id="esencia" class="reveal">
             <div class="container">
                 <h2 class="title-std">Nuestra Esencia</h2>
@@ -436,19 +435,19 @@
                     </div>
                 </div>
 
-                <!-- SECTORES CLAVE -->
+                <!-- SECTORES CLAVE (ICONOS PHOSPHOR LINEALES) -->
                 <div class="sectores-wrapper">
                     <h4>Trabajamos con sectores clave:</h4>
                     <div class="industrias-grid">
-                        <div class="industria-item"><i class="fas fa-hammer"></i><span>Minería y Energía</span></div>
-                        <div class="industria-item"><i class="fas fa-fish"></i><span>Salmonicultura</span></div>
-                        <div class="industria-item"><i class="fas fa-shopping-cart"></i><span>Retail</span></div>
-                        <div class="industria-item"><i class="fas fa-landmark"></i><span>Finanzas</span></div>
-                        <div class="industria-item"><i class="fas fa-truck"></i><span>Logística</span></div>
-                        <div class="industria-item"><i class="fas fa-heartbeat"></i><span>Salud</span></div>
-                        <div class="industria-item"><i class="fas fa-graduation-cap"></i><span>Educación</span></div>
-                        <div class="industria-item"><i class="fas fa-building"></i><span>Sector Público</span></div>
-                        <div class="industria-item"><i class="fas fa-broadcast-tower"></i><span>Telecom</span></div>
+                        <div class="industria-item"><i class="ph ph-pickaxe"></i><span>Minería y Energía</span></div>
+                        <div class="industria-item"><i class="ph ph-fish"></i><span>Salmonicultura</span></div>
+                        <div class="industria-item"><i class="ph ph-shopping-cart"></i><span>Retail</span></div>
+                        <div class="industria-item"><i class="ph ph-bank"></i><span>Finanzas</span></div>
+                        <div class="industria-item"><i class="ph ph-truck"></i><span>Logística</span></div>
+                        <div class="industria-item"><i class="ph ph-heartbeat"></i><span>Salud</span></div>
+                        <div class="industria-item"><i class="ph ph-graduation-cap"></i><span>Educación</span></div>
+                        <div class="industria-item"><i class="ph ph-buildings"></i><span>Sector Público</span></div>
+                        <div class="industria-item"><i class="ph ph-broadcast"></i><span>Telecom</span></div>
                     </div>
                 </div>
             </div>
@@ -523,7 +522,7 @@
             </div>
         </section>
 
-        <!-- PARTNERS & CLIENTES -->
+        <!-- PARTNERS & CLIENTES (MOVIDO ARRIBA) -->
         <section class="sec-ecosystem reveal">
             <div class="container">
                 <h2 class="title-std title-centered" style="color: var(--text-dark);">Nuestros Partners</h2>
@@ -536,7 +535,6 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
-                        <!-- Repetir -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -544,7 +542,7 @@
             </div>
         </section>
 
-        <!-- CERTIFICACIONES (CARRUSEL AJUSTADO) -->
+        <!-- CERTIFICACIONES (1 SLIDE) -->
         <section class="sec-certs reveal">
             <div class="container">
                 <h2 class="title-std title-centered">Certificaciones</h2>
@@ -614,7 +612,6 @@
         <section class="sec-ecosystem reveal" style="background: #f8fafc; padding-top: 50px;">
             <div class="container">
                 <h2 class="title-std title-centered">Clientes</h2>
-                <!-- Solo Slider, sin texto de lista -->
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
                          <div class="logo-box"><img src="https://placehold.co/240x120?text=SUSESO" alt="SUSESO"></div>
@@ -632,7 +629,7 @@
         <!-- CTA FINAL -->
         <section class="sec-cta-final reveal">
             <div class="container">
-                <h2 style="font-size: 2rem; margin-bottom: 20px;">Conoce Nuestros Servicios</h2>
+                <h2>Conoce Nuestros Servicios</h2>
                 <p>Explora nuestras soluciones de Infraestructura TI y Consultoría TI, diseñadas para continuidad operativa, seguridad avanzada y crecimiento tecnológico en Chile.</p>
                 <a href="servicios.html" class="btn btn-white-filled">Ver Servicios</a>
             </div>
@@ -739,9 +736,16 @@
                 let item = container.querySelector('.snap-item') || container.querySelector('.cert-card') || container.querySelector('.diff-card') || container.querySelector('.industria-item');
                 if(!item) return;
                 
-                const gap = 20; 
-                const itemWidth = item.offsetWidth;
-                const stride = itemWidth + gap; 
+                // Medidas - Lógica dinámica para 100% width slide
+                let stride;
+                if (item.classList.contains('cert-card')) {
+                     // Para certificaciones, el stride es el ancho del contenedor completo (1 item por vista)
+                     stride = container.clientWidth;
+                } else {
+                     const gap = 20; 
+                     const itemWidth = item.offsetWidth;
+                     stride = itemWidth + gap; 
+                }
                 
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;

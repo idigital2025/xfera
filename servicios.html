@@ -70,6 +70,7 @@
             font-size: 16px;
         }
 
+        /* Tipografía Global */
         h1, h2, h3, h4, h5 { font-family: 'Space Grotesk', sans-serif; line-height: 1.1; margin-bottom: 1rem; }
         p { line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; color: var(--text-desc-light); font-weight: 400; }
         a { text-decoration: none; transition: var(--transition); }
@@ -217,7 +218,7 @@
             font-size: 1.2rem; 
             color: #444; /* Texto un poco más oscuro para contraste con filtro suave */
             margin-bottom: 40px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         /* SECCIÓN INTRODUCCIÓN Y ANCLAS */
@@ -292,6 +293,8 @@
         @media (max-width: 768px) {
             .service-section { padding: 80px 5%; }
             .service-content-side { padding: 30px 20px; }
+            .anchor-buttons-container { flex-direction: column; align-items: center; }
+            .anchor-btn { width: 100%; justify-content: center; }
         }
 
         /* --- SUBSECCIÓN COMPONENTES (IaaS) --- */
@@ -388,6 +391,8 @@
             display: flex; gap: 10px; align-items: center; 
             color: var(--text-dark); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
+        
+        /* CHECK AZUL */
         .tech-pill i { color: var(--title-blue) !important; font-size: 1.1rem; }
 
         /* --- PARTNERS --- */
@@ -663,7 +668,6 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
-                        <!-- Logos Actualizados -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -699,14 +703,15 @@
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
+                    <!-- REINTEGRADO: Cajas blancas con borde redondeado y check azul -->
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Escalabilidad instantánea
+                        <i class="fas fa-check-circle"></i> Escalabilidad instantánea
                     </div>
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Alta disponibilidad
+                        <i class="fas fa-check-circle"></i> Alta disponibilidad
                     </div>
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Seguridad integrada
+                        <i class="fas fa-check-circle"></i> Seguridad integrada
                     </div>
                 </div>
                 <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-white-filled">Conocer más</a>

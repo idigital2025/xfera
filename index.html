@@ -451,8 +451,10 @@
 
         .service-content-side { padding: 30px 40px; display: flex; flex-direction: column; justify-content: center; background: #fff; }
         .service-content-side p { color: var(--text-desc-light); font-size: 0.95rem; margin-bottom: 20px; }
-        .service-content-side h4 { color: var(--text-dark); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 800; }
-        .service-list li { color: var(--text-desc-light); margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
+        .service-content-side h4 { color: var(--text-dark); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; display: inline-block; }
+
+        .service-list { list-style: none; padding: 0; }
+        .service-list li { margin-bottom: 8px; display: flex; align-items: start; gap: 12px; color: var(--text-desc-light); font-size: 1rem; font-weight: 500; }
         .service-list li i { color: var(--primary); margin-top: 3px; }
 
         @media (max-width: 992px) {
@@ -688,9 +690,9 @@
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
-        <a href="index.html" class="mobile-link">Inicio</a>
-        <a href="xfera.html" class="mobile-link">XFERA</a>
-        <a href="servicios.html" class="mobile-link">Servicios</a>
+        <a href="#home" class="mobile-link">Inicio</a>
+        <a href="#about" class="mobile-link">XFERA</a>
+        <a href="https://idigital2025.github.io/xfera/servicios" class="mobile-link">Servicios</a>
         <a href="#contact" class="mobile-link">Contacto</a>
         <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
@@ -698,16 +700,16 @@
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container nav-flex">
-            <a href="index.html">
+            <a href="#">
                 <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
             </a>
             
             <div class="desktop-menu">
                 <div class="nav-links-group">
-                    <a href="index.html" class="nav-link">Inicio</a>
-                    <a href="xfera.html" class="nav-link">XFERA</a>
-                    <a href="servicios.html" class="nav-link">Servicios</a>
-                    <a href="index.html#contact" class="nav-link">Contacto</a>
+                    <a href="#home" class="nav-link">Inicio</a>
+                    <a href="#about" class="nav-link">XFERA</a>
+                    <a href="https://idigital2025.github.io/xfera/servicios" class="nav-link">Servicios</a>
+                    <a href="#contact" class="nav-link">Contacto</a>
                 </div>
                 <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
             </div>
@@ -725,8 +727,8 @@
                     <div class="hero-text-col">
                         <span class="hero-pill">Transformación digital por expertos</span>
                         <h1>Somos la solución a los desafíos más exigentes de infraestructura TI</h1>
-                        <p>Infraestructura tecnológica, nube privada e hiperconvergencia Nutanix para empresas que exigen continuidad, seguridad y escalabilidad sin interrupciones.<br>
-                        +15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro</p>
+                        <p><strong>Infraestructura tecnológica</strong>, <strong>nube privada</strong> e <strong>hiperconvergencia Nutanix</strong> para empresas que exigen <strong>continuidad</strong>, <strong>seguridad</strong> y <strong>escalabilidad sin interrupciones</strong>.<br>
+                        Con más de <strong>15 años de experiencia</strong> y <strong>100+ implementaciones</strong>, en <strong>Xfera</strong> transformamos centros de datos en plataformas ágiles y listas para el futuro</p>
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
                             <a href="servicios.html" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
@@ -983,6 +985,7 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
+                        <!-- Logos -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -1018,6 +1021,7 @@
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Seguridad integrada
                     </div>
                 </div>
+                <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-white-filled">Conocer más</a>
             </div>
         </section>
 
@@ -1064,7 +1068,7 @@
             </div>
         </section>
 
-        <!-- FORMULARIO -->
+        <!-- SECCIÓN 7: FORMULARIO -->
         <section id="contact" class="reveal">
             <div class="container">
                 <div class="form-container-blue">
@@ -1127,20 +1131,29 @@
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
             </div>
+            
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                 <div class="footer-links">
                     <a href="index.html">Inicio</a>
-                    <a href="xfera.html">Somos Xfera</a>
+                    <a href="index.html#about">Somos Xfera</a>
                     <a href="servicios.html">Servicios</a>
                     <a href="index.html#contact">Contacto</a>
                 </div>
             </div>
+
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
-                <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span></div>
-                <div class="contact-info-item"><i class="fas fa-envelope"></i><span>contacto@xfera.cl</span></div>
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contacto@xfera.cl</span>
+                </div>
             </div>
+
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal</h4>
                 <div class="footer-links">

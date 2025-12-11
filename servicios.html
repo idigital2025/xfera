@@ -395,12 +395,12 @@
         .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 40px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
         .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
         
-        /* LOGO BOX MODIFICADO (300x150, sin padding, efecto gris) */
+        /* LOGO BOX MODIFICADO (Reducido 20%: 240px x 120px) */
         .logo-box {
             background: #fff; padding: 0; 
             border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             display: flex; align-items: center; justify-content: center; 
-            width: 300px; height: 150px;
+            width: 240px; height: 120px; /* Reducido de 300x150 */
         }
         .logo-box img { 
             width: 100%; height: 100%; object-fit: contain; 
@@ -512,7 +512,7 @@
         <section id="infraestructura" class="service-section bg-light-blue reveal">
             <div class="container">
                 <div class="service-intro">
-                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--title-blue);">TI</span></h2>
+                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--primary);">TI</span></h2>
                     <p>Diseñamos plataformas de infraestructura robusta y de alto rendimiento —en tus instalaciones o en nuestra nube privada Tier III— asegurando disponibilidad, seguridad y eficiencia.</p>
                 </div>
                 
@@ -700,13 +700,13 @@
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle"></i> Escalabilidad instantánea
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Escalabilidad instantánea
                     </div>
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle"></i> Alta disponibilidad
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Alta disponibilidad
                     </div>
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle"></i> Seguridad integrada
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Seguridad integrada
                     </div>
                 </div>
                 <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-white-filled">Conocer más</a>

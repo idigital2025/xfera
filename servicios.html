@@ -53,10 +53,14 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-behavior: smooth; }
+        html { 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; /* Evita scroll horizontal global */
+            width: 100%;
+        }
         
         body {
-            overflow-x: hidden;
+            overflow-x: hidden; /* Refuerzo para evitar movimiento horizontal */
             width: 100%;
             margin: 0; padding: 0;
             position: relative;
@@ -127,7 +131,7 @@
             border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .btn-white-filled:hover {
-            background: #f0f0f0; color: var(--title-blue);
+            background: #f0f0f0; color: var(--primary);
             transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
@@ -370,8 +374,19 @@
         
         .benefits-carousel {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
-            padding: 40px 20px; width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
+            padding: 40px 20px; 
+            width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
         }
+        
+        /* Ajuste Mobile para Benefits Carousel */
+        @media(max-width: 768px) {
+            .benefits-carousel {
+                padding-left: 10px; /* Más espacio lateral interno */
+                padding-right: 10px;
+                /* Eliminamos márgenes negativos si los hubiera */
+            }
+        }
+        
         .benefits-carousel::-webkit-scrollbar { display: none; }
         
         .benefit-card {
@@ -439,7 +454,29 @@
         #contact .title-std { color: #ffffff !important; }
         .form-container-blue { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; }
         .form-floating-group { position: relative; margin-bottom: 25px; }
-        .form-input { width: 100%; padding: 15px 0 10px; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff !important; outline: none; font-size: 1rem; transition: 0.3s; }
+        
+        /* Modificación Formulario Mobile */
+        @media(max-width: 768px) {
+            #contact { 
+                padding-left: 20px; /* Padding específico para móvil */
+                padding-right: 20px; 
+            }
+            .form-container-blue {
+                gap: 40px; /* Reducir gap en mobile */
+            }
+            .form-intro-text {
+                font-size: 0.95rem; /* Ajuste leve de fuente */
+            }
+        }
+
+        .form-input { 
+            width: 100%; padding: 15px 0 10px; 
+            background: transparent; 
+            border: none; 
+            border-bottom: 1px solid rgba(255,255,255,0.5); 
+            color: #fff !important; 
+            outline: none; font-size: 1rem; transition: 0.3s; 
+        }
         .form-input::placeholder { color: rgba(255,255,255,0.5); }
         .form-input:focus { border-bottom-color: var(--primary); }
         .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label { top: -10px; font-size: 0.8rem; color: var(--primary); }
@@ -534,7 +571,7 @@
         <section id="infraestructura" class="service-section bg-light-blue reveal">
             <div class="container">
                 <div class="service-intro">
-                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--title-blue);">TI</span></h2>
+                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--primary);">TI</span></h2>
                     <p>Diseñamos plataformas de infraestructura robusta y de alto rendimiento —en tus instalaciones o en nuestra nube privada Tier III— asegurando disponibilidad, seguridad y eficiencia.</p>
                 </div>
                 
@@ -701,7 +738,7 @@
             </div>
         </section>
 
-        <!-- INFRAESTRUCTURA CENTRALIZADA (RESTAURADO) -->
+        <!-- INFRAESTRUCTURA CENTRALIZADA -->
         <section class="sec-infra reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
@@ -725,7 +762,7 @@
             </div>
         </section>
 
-        <!-- BENEFICIOS DE ELEGIR XFERA (MOVIDO AL FINAL) -->
+        <!-- BENEFICIOS CLAVES (MOVIDO AL FINAL) -->
         <section class="sec-benefits-bg reveal">
             <div class="container">
                 <div class="benefits-header">

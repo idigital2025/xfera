@@ -7,7 +7,6 @@
     
     <title>XFERA | Servicios Integrales</title>
     <meta name="description" content="Servicios de infraestructura TI, nube privada e hiperconvergencia Nutanix. Diseño, implementación y administración de entornos críticos.">
-    <meta name="keywords" content="infraestructura TI, nube privada, IaaS Chile, infraestructura on premise, hiperconvergencia Nutanix, servicios gestionados TI, consultoría TI, migración TI, servidores virtuales VPS, nube privada VPC, data center Tier III, continuidad operativa, modernización TI, soporte TI especializado">
     
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +32,7 @@
             --title-blue: #1f32ce;      
             --text-dark-hero: #191919; 
             
-            /* Variables Light & Fondos Nuevos (ACTUALIZADOS) */
+            /* Variables Light */
             --bg-light: #ffffff;
             --bg-light-alt: #f8f9fa; 
             --bg-soft-gray: #f8fafc;
@@ -42,7 +41,6 @@
             
             --text-dark: #1a1a1a;
             --text-desc-light: #555555;
-            
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
             
             --padding-section: 120px 5%; 
@@ -55,12 +53,12 @@
         
         html { 
             scroll-behavior: smooth; 
-            overflow-x: hidden; /* Evita scroll horizontal global */
+            overflow-x: hidden; 
             width: 100%;
         }
         
         body {
-            overflow-x: hidden; /* Refuerzo para evitar movimiento horizontal */
+            overflow-x: hidden;
             width: 100%;
             margin: 0; padding: 0;
             position: relative;
@@ -70,8 +68,7 @@
             font-size: 16px;
         }
 
-        /* Tipografía Global */
-        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.1; margin-bottom: 1rem; }
+        h1, h2, h3, h4, h5 { font-family: 'Space Grotesk', sans-serif; line-height: 1.1; margin-bottom: 1rem; }
         p { line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; color: var(--text-desc-light); font-weight: 400; }
         a { text-decoration: none; transition: var(--transition); }
         ul { list-style: none; padding: 0; margin: 0; }
@@ -135,9 +132,14 @@
             transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        /* =========================================
-           3. HEADER & NAVEGACIÓN
-           ========================================= */
+        .btn-hero-secondary {
+            background: #ffffff; color: var(--text-dark-hero); border: 1px solid #000000; 
+        }
+        .btn-hero-secondary:hover {
+            background: var(--primary); border-color: var(--primary); color: #fff;
+        }
+
+        /* --- 3. HEADER & NAV --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 15px 0; background: #ffffff; 
@@ -157,7 +159,6 @@
         .nav-link:hover { color: var(--blue-accent); }
         .mobile-toggle { font-size: 1.5rem; color: #333; cursor: pointer; }
 
-        /* Mobile Menu */
         .mobile-menu-overlay {
             position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
             background: #111; z-index: 2000; padding: 80px 30px; transition: right 0.4s;
@@ -180,7 +181,7 @@
            4. SECCIONES ESPECÍFICAS SERVICIOS
            ========================================= */
 
-        /* HERO - PADDING CORREGIDO (Menos altura) */
+        /* HERO */
         #services-header {
             position: relative;
             height: 60vh;
@@ -190,7 +191,7 @@
             justify-content: center;
             text-align: center;
             color: var(--text-dark);
-            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background: url('img/hero-servicios.jpg') no-repeat center center;
             background-size: cover;
             margin-top: 80px;
         }
@@ -207,88 +208,51 @@
             text-transform: none; letter-spacing: 0;
             color: var(--text-dark-hero);
         }
-        #services-header p {
-            font-size: 1.2rem; 
-            color: #666;
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
+        #services-header p { font-size: 1.2rem; color: #666; margin-bottom: 40px; font-weight: 500; }
 
-        /* SECCIÓN INTRODUCCIÓN Y ANCLAS (Alineación Corregida) */
-        #intro-services { 
-            padding: 120px 0; 
-            background: #fff; 
-        }
-        
-        .intro-flex {
-            display: flex; flex-direction: column; gap: 30px;
-            max-width: 1000px; margin: 0 auto;
-        }
-        
+        /* INTRODUCCIÓN */
+        #intro-services { padding: 120px 0; background: #fff; }
+        .intro-flex { display: flex; flex-direction: column; gap: 30px; max-width: 1000px; margin: 0 auto; }
         .intro-header-centered { text-align: center; }
         .intro-header-centered .title-std { display: inline-block; }
         .intro-header-centered .title-std::after { margin-left: auto; margin-right: auto; }
+        .intro-text-col p { color: var(--text-desc-light); font-size: 1.1rem; line-height: 1.6; max-width: 100%; text-align: left; }
         
-        .intro-text-col p { 
-            color: var(--text-desc-light); font-size: 1.1rem; line-height: 1.6; 
-            max-width: 100%; text-align: left; 
-        }
-        
-        .anchor-buttons-container {
-            display: flex; justify-content: center; 
-            gap: 30px; flex-wrap: wrap; margin-top: 30px;
-        }
+        .anchor-buttons-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
         .anchor-btn {
-            display: flex; align-items: center; gap: 15px;
-            padding: 15px 30px;
-            border-radius: 16px;
-            background: #f9fafb;
-            border: 1px solid #eee;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            min-width: 220px;
-            text-decoration: none;
-            justify-content: center;
+            display: flex; align-items: center; gap: 15px; padding: 15px 30px;
+            border-radius: 16px; background: #f9fafb; border: 1px solid #eee;
+            color: var(--text-dark); font-weight: 700; font-size: 1rem;
+            transition: all 0.3s ease; cursor: pointer; min-width: 220px; text-decoration: none; justify-content: center;
         }
         .anchor-btn i { font-size: 1.4rem; }
-        
-        .anchor-btn.infra:hover {
-            background: #e0faff; border-color: var(--primary); color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2); transform: translateY(-3px);
-        }
-        .anchor-btn.consult:hover {
-            background: #f3e5f5; border-color: var(--secondary); color: var(--secondary);
-            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2); transform: translateY(-3px);
+        .anchor-btn.infra:hover { background: #e0faff; border-color: var(--primary); color: var(--primary); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2); transform: translateY(-3px); }
+        .anchor-btn.consult:hover { background: #f3e5f5; border-color: var(--secondary); color: var(--secondary); box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2); transform: translateY(-3px); }
+
+        @media(max-width: 768px) {
+            .intro-text-col { text-align: center; }
+            .anchor-buttons-container { justify-content: center; flex-direction: column; }
+            .anchor-btn { width: 100%; justify-content: center; }
         }
 
-        /* ESTILOS DE SECCIÓN DE SERVICIOS */
+        /* SERVICIOS */
         .service-section { padding: var(--padding-section); } 
         .bg-light-blue { background-color: var(--bg-soft-blue); } 
         .bg-light-purple { background-color: var(--bg-soft-purple); } 
-
         .service-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-        #infraestructura { border-bottom: 1px solid #dbeafe; } 
+        
+        /* Línea gris eliminada de #infraestructura */
+        #infraestructura { border-bottom: none; } 
 
         /* TARJETAS DE SERVICIO */
         .service-full-card {
-            background: #fff;
-            border-radius: 24px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-bottom: 100px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #eee;
+            background: #fff; border-radius: 24px; overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee;
         }
-        
-        /* BORDES DE COLORES INTERCAMBIADOS */
         .service-full-card.infra { border: 1px solid var(--primary); }
         .service-full-card.consult { border: 1px solid var(--secondary); }
         .service-full-card:last-child { margin-bottom: 0; }
-
         .service-full-card.alt .service-image-side { order: 2; }
         .service-full-card.alt .service-content-side { order: 1; }
 
@@ -296,29 +260,15 @@
         .service-image-side img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
         .service-image-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent); z-index: 1; }
 
-        .service-content-side { 
-            padding: 60px; 
-            display: flex; flex-direction: column; justify-content: center; 
-        }
-        
-        /* COLORES TITULOS TI */
+        .service-content-side { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
         .service-full-card.infra h3 { color: var(--primary); } 
         .service-full-card.consult h3 { color: var(--secondary); }
-
         .service-content-side h3 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 700; }
         .service-content-side p { font-size: 1.05rem; color: var(--text-desc-light); margin-bottom: 30px; }
-        
-        .service-content-side h4 { 
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; 
-            color: var(--text-dark); margin-bottom: 20px; border-bottom: 1px solid #eee; 
-            padding-bottom: 10px; display: inline-block; 
-        }
+        .service-content-side h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; display: inline-block; }
 
         .service-list { list-style: none; padding: 0; }
-        .service-list li { 
-            margin-bottom: 15px; display: flex; align-items: start; gap: 12px; 
-            color: var(--text-desc-light); font-size: 1rem; font-weight: 500; 
-        }
+        .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: var(--text-desc-light); font-size: 1rem; font-weight: 500; }
         .service-full-card.infra .service-list i { color: var(--primary); }
         .service-full-card.consult .service-list i { color: var(--secondary); }
 
@@ -332,8 +282,6 @@
         @media (max-width: 768px) {
             .service-section { padding: 80px 5%; }
             .service-content-side { padding: 30px 20px; }
-            .anchor-buttons-container { flex-direction: column; align-items: center; }
-            .anchor-btn { width: 100%; justify-content: center; }
         }
 
         /* --- SUBSECCIÓN COMPONENTES (IaaS) --- */
@@ -352,47 +300,55 @@
         }
         .component-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
         .component-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        
+        /* Título en 2 líneas */
         .component-card h5 { 
             font-size: 1.2rem; color: var(--text-dark); 
             margin-bottom: 15px; font-weight: 700;
-            min-height: 3rem; display: flex; align-items: center;
+            min-height: 3.5rem; /* Forzar espacio para 2 líneas */
+            display: flex; align-items: center;
         }
         .component-card p { font-size: 0.95rem; color: var(--text-desc-light); margin: 0; line-height: 1.5; }
 
-        /* --- BENEFICIOS CLAVES (Estilo Carrusel Home) --- */
+        /* Mobile Carousel for Components */
+        @media(max-width: 768px) {
+            .components-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+                scrollbar-width: none;
+            }
+            .component-card {
+                flex: 0 0 85vw; /* Carrusel Mobile */
+                scroll-snap-align: center;
+                min-height: auto;
+            }
+            .iaas-controls { display: flex !important; justify-content: center; gap: 15px; margin-top: 20px; }
+        }
+        /* Ocultar controles en Desktop */
+        .iaas-controls { display: none; }
+
+        /* --- BENEFICIOS CLAVES --- */
         .sec-benefits-bg { 
             background: radial-gradient(circle at center, rgba(143, 244, 255, 0.4) 0%, #ffffff 35%); 
-            padding: var(--padding-section); 
-            color: #111; 
+            padding: var(--padding-section); color: #111; 
         }
         .benefits-header { text-align: center; max-width: 800px; margin: 0 auto 50px; }
         .benefits-header .title-std { text-align: center; color: var(--text-dark); }
         .benefits-header .title-std::after { margin-left: auto; margin-right: auto; }
-        .benefits-header p { font-size: 1.1rem; line-height: 1.6; color: var(--text-desc-light); margin-top: 20px; }
         
         .benefits-slider-wrapper { position: relative; width: 100%; margin-bottom: 50px; }
-        
         .benefits-carousel {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
-            padding: 40px 20px; 
-            width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
+            padding: 40px 20px; width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
         }
-        
-        /* Ajuste Mobile para Benefits Carousel */
-        @media(max-width: 768px) {
-            .benefits-carousel {
-                padding-left: 10px; /* Más espacio lateral interno */
-                padding-right: 10px;
-                /* Eliminamos márgenes negativos si los hubiera */
-            }
-        }
-        
         .benefits-carousel::-webkit-scrollbar { display: none; }
         
         .benefit-card {
             flex: 0 0 350px; scroll-snap-align: start;
-            background: #ffffff; 
-            border-radius: 20px; padding: 35px 25px; border: 1px solid #eee;
+            background: #ffffff; border-radius: 20px; padding: 35px 25px; border: 1px solid #eee;
             box-shadow: var(--shadow-card); transition: 0.3s;
             display: flex; flex-direction: column; justify-content: center;
         }
@@ -403,6 +359,7 @@
         @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
         @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
 
+        /* Controles */
         .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
         .scroll-btn {
             width: 45px; height: 45px; border-radius: 50%;
@@ -412,33 +369,29 @@
         .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
         .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
 
-        .benefits-controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-
-        /* --- CTA INTERMEDIO --- */
+        /* CTA Intermedio */
         .cta-mid { background: var(--bg-soft-gray); padding: 120px 5%; text-align: center; }
         .cta-mid h2 { color: var(--title-blue); font-size: 2rem; margin-bottom: 15px; }
         .cta-mid p { max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
 
-        /* --- INFRAESTRUCTURA CENTRALIZADA --- */
+        /* Infraestructura Centralizada */
         .sec-infra { 
-            background: var(--title-blue); 
-            padding: var(--padding-section); text-align: center; color: #fff;
+            background: var(--title-blue); padding: var(--padding-section); text-align: center; color: #fff;
         }
         .sec-infra .title-std { color: #fff !important; }
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
         .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 0.95rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.6; }
         .sec-infra h4 { color: #fff; margin-bottom: 30px; font-size: 1.2rem; }
         
-        /* Cajas/Pills de Infraestructura (Estilo Cuadrado Redondo) */
-        .infra-pill {
-            background: #fff; padding: 15px 30px; 
-            border-radius: 12px; 
-            display: flex; gap: 10px; align-items: center; 
-            color: var(--text-dark); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        .tech-list-centered { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .tech-pill {
+            background: #fff; padding: 15px 30px; border-radius: 12px;
+            display: flex; gap: 10px; align-items: center; color: var(--text-dark); border: none; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
-        .infra-pill i { color: var(--title-blue) !important; font-size: 1.1rem; }
+        .tech-pill i { color: var(--title-blue) !important; font-size: 1.1rem; }
 
-        /* --- PARTNERS --- */
+        /* Partners */
         .sec-partners { padding: 80px 5%; background: #ffffff; }
         .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 40px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
         .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
@@ -449,34 +402,22 @@
         .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- FORMULARIO --- */
-        #contact { background: var(--blue-form); margin-top: 0; padding: 80px 5%; position: relative; z-index: 10; }
-        #contact .title-std { color: #ffffff !important; }
-        .form-container-blue { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; }
-        .form-floating-group { position: relative; margin-bottom: 25px; }
-        
-        /* Modificación Formulario Mobile */
+        /* Formulario - Corrección Mobile Overflow */
+        #contact { 
+            background: var(--blue-form); margin-top: 0; 
+            padding: 80px 5%; /* Padding normal */
+            position: relative; z-index: 10; 
+            overflow: hidden; /* Seguridad extra */
+        }
         @media(max-width: 768px) {
-            #contact { 
-                padding-left: 20px; /* Padding específico para móvil */
-                padding-right: 20px; 
-            }
-            .form-container-blue {
-                gap: 40px; /* Reducir gap en mobile */
-            }
-            .form-intro-text {
-                font-size: 0.95rem; /* Ajuste leve de fuente */
-            }
+            #contact { padding: 60px 20px; } /* Más espacio lateral en móvil */
         }
 
-        .form-input { 
-            width: 100%; padding: 15px 0 10px; 
-            background: transparent; 
-            border: none; 
-            border-bottom: 1px solid rgba(255,255,255,0.5); 
-            color: #fff !important; 
-            outline: none; font-size: 1rem; transition: 0.3s; 
-        }
+        #contact .title-std { color: #ffffff !important; }
+        .form-container-blue { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; } /* Ajuste de minmax para mobile */
+        
+        .form-floating-group { position: relative; margin-bottom: 25px; }
+        .form-input { width: 100%; padding: 15px 0 10px; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff !important; outline: none; font-size: 1rem; transition: 0.3s; }
         .form-input::placeholder { color: rgba(255,255,255,0.5); }
         .form-input:focus { border-bottom-color: var(--primary); }
         .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label { top: -10px; font-size: 0.8rem; color: var(--primary); }
@@ -535,7 +476,7 @@
         <!-- HERO CON FILTRO BLANCO Y TEXTOS OSCUROS/AZULES -->
         <section id="services-header">
             <div class="header-content">
-                <h1>Servicios <span style="color: var(--title-blue);">integrales</span></h1>
+                <h1>Servicios <span style="color: var(--title-blue);">Integrales</span></h1>
                 <p>Acompañamos a tu empresa en cada etapa de su evolución tecnológica con soluciones escalables, seguras y administradas por expertos certificados</p>
                 <a href="#intro-services" class="btn btn-primary">Conocer servicios</a>
             </div>
@@ -571,7 +512,7 @@
         <section id="infraestructura" class="service-section bg-light-blue reveal">
             <div class="container">
                 <div class="service-intro">
-                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--primary);">TI</span></h2>
+                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--title-blue);">TI</span></h2>
                     <p>Diseñamos plataformas de infraestructura robusta y de alto rendimiento —en tus instalaciones o en nuestra nube privada Tier III— asegurando disponibilidad, seguridad y eficiencia.</p>
                 </div>
                 
@@ -601,7 +542,7 @@
                 <!-- Tarjeta 2: IaaS (Alternada) -->
                 <div class="service-full-card infra alt">
                     <div class="service-image-side">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="IaaS">
+                        <img src="img/iaas-cloud.jpg" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80'" alt="IaaS">
                         <div class="service-image-overlay"></div>
                     </div>
                     <div class="service-content-side">
@@ -626,17 +567,17 @@
                         Nuestra nube privada integra servicios virtuales diseñados para escalar, proteger y modernizar la operación tecnológica de tu empresa. Cada componente está optimizado para cargas críticas y administrado por ingenieros certificados.
                     </p>
                     
-                    <div class="components-grid">
+                    <div class="components-grid" id="iaas-components-scroll">
                         <!-- Componente 1: VPS -->
                         <div class="component-card">
                             <i class="fas fa-server component-icon"></i>
-                            <h5>Servidores Virtuales (VPS)</h5>
+                            <h5>Servidores<br>Virtuales (VPS)</h5>
                             <p>Entornos virtualizados de alto rendimiento que permiten ejecutar aplicaciones empresariales, sistemas internos, sitios web, bases de datos o servicios especializados.<br><br>Ofrecen escalabilidad inmediata, alta disponibilidad y un control total sobre recursos y rendimiento.</p>
                         </div>
                         
                         <!-- Componente 2: VPC -->
                         <div class="component-card">
-                            <i class="fas fa-cloud-shield component-icon"></i>
+                            <i class="fas fa-shield-alt component-icon"></i>
                             <h5>Nube Privada Dedicada (VPC)</h5>
                             <p>Infraestructura completamente aislada en nuestra plataforma hiperconvergente, ideal para organizaciones que requieren seguridad avanzada, mayor cumplimiento y control total sobre sus datos.<br><br>Permite ejecutar cargas críticas en un entorno dedicado y administrado.</p>
                         </div>
@@ -647,6 +588,12 @@
                             <h5>Arquitectura Hiperconvergente Nutanix</h5>
                             <p>Nuestra plataforma unifica almacenamiento, cómputo, redes y virtualización en una sola arquitectura administrada desde un panel centralizado.<br><br>Alojada en Data Center Tier III, asegura alta disponibilidad, escalabilidad modular y seguridad integrada.</p>
                         </div>
+                    </div>
+                    
+                    <!-- Controles solo para móvil -->
+                    <div class="iaas-controls">
+                         <button class="scroll-btn prev light-theme" data-target="iaas-components-scroll"><i class="fas fa-chevron-left"></i></button>
+                         <button class="scroll-btn next light-theme" data-target="iaas-components-scroll"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
 
@@ -687,7 +634,7 @@
                 <!-- Tarjeta 4: Servicios Profesionales (Alternada) -->
                 <div class="service-full-card consult alt">
                     <div class="service-image-side">
-                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80" alt="Servicios Profesionales">
+                        <img src="img/servicios-pro.jpg" onerror="this.src='https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80'" alt="Servicios Profesionales">
                         <div class="service-image-overlay"></div>
                     </div>
                     <div class="service-content-side">
@@ -769,7 +716,6 @@
                     <h2 class="title-std title-dark title-centered" style="margin-bottom: 25px;">
                         BENEFICIOS DE ELEGIR <span style="color: var(--title-blue);">XFERA</span>
                     </h2>
-                    <!-- Párrafo eliminado -->
                 </div>
                 
                 <div class="benefit-grid-mobile">
@@ -818,7 +764,7 @@
                         <p class="form-intro-text">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
                         <p class="form-intro-text" style="margin-top: 30px; font-weight: 600;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
                         
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Tecnología" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
+                        <img src="img/contacto-soporte.jpg" alt="Tecnología" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
                     </div>
                     
                     <form>
@@ -970,7 +916,7 @@
                 const isNext = this.classList.contains('next');
                 
                 // Buscar el item dentro del contenedor específico
-                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card');
+                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.component-card');
                 if(!item) return;
                 
                 // Medidas

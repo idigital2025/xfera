@@ -7,6 +7,7 @@
     
     <title>XFERA | Servicios Integrales</title>
     <meta name="description" content="Servicios de infraestructura TI, nube privada e hiperconvergencia Nutanix. Diseño, implementación y administración de entornos críticos.">
+    <meta name="keywords" content="infraestructura TI, nube privada, IaaS Chile, infraestructura on premise, hiperconvergencia Nutanix, servicios gestionados TI, consultoría TI, migración TI, servidores virtuales VPS, nube privada VPC, data center Tier III, continuidad operativa, modernización TI, soporte TI especializado">
     
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +33,7 @@
             --title-blue: #1f32ce;      
             --text-dark-hero: #191919; 
             
-            /* Variables Light */
+            /* Variables Light & Fondos Nuevos (ACTUALIZADOS) */
             --bg-light: #ffffff;
             --bg-light-alt: #f8f9fa; 
             --bg-soft-gray: #f8fafc;
@@ -52,12 +53,20 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+        html { 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+            width: 100%;
+        }
         
         body {
-            overflow-x: hidden; width: 100%; margin: 0; padding: 0;
-            position: relative; font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light); color: var(--text-dark);
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0; padding: 0;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             font-size: 16px;
         }
 
@@ -70,59 +79,152 @@
         /* =========================================
            2. UTILIDADES
            ========================================= */
-        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-        @media (min-width: 1200px) { .container { padding: 0 160px; max-width: 1400px; } }
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        .title-std { font-size: 1.8rem; text-transform: uppercase; margin-bottom: 2rem; font-weight: 700; letter-spacing: 0.5px; position: relative; color: var(--text-dark); }
-        .title-std::after { content: ''; display: block; width: 60px; height: 5px; background-color: var(--title-blue); margin-top: 10px; border-radius: 2px; }
+        @media (min-width: 1200px) {
+            .container { padding: 0 160px; max-width: 1400px; }
+        }
+
+        .title-std {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: relative;
+            color: var(--text-dark);
+        }
+        .title-std::after {
+            content: ''; display: block;
+            width: 60px; height: 5px;
+            background-color: var(--title-blue); 
+            margin-top: 10px; border-radius: 2px;
+        }
         .title-centered { text-align: center; }
         .title-centered::after { margin-left: auto; margin-right: auto; }
 
-        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+        .reveal {
+            opacity: 0; transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* Botones */
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; border-radius: 999px; font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem; transition: var(--transition); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 30px; border-radius: 999px;
+            font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem;
+            transition: var(--transition);
+        }
         .btn-primary { background: var(--title-blue); color: #fff; box-shadow: 0 4px 15px rgba(31, 50, 206, 0.3); }
         .btn-primary:hover { background: var(--blue-accent); transform: translateY(-2px); }
         
-        .btn-white-filled { background: #ffffff; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .btn-white-filled:hover { background: #f0f0f0; color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .btn-white-filled {
+            background: #ffffff; color: var(--text-dark);
+            border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .btn-white-filled:hover {
+            background: #f0f0f0; color: var(--primary);
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .btn-hero-secondary {
+            background: #ffffff; color: var(--text-dark-hero); border: 1px solid #000000; 
+        }
+        .btn-hero-secondary:hover {
+            background: var(--primary); border-color: var(--primary); color: #fff;
+        }
 
         /* =========================================
-           3. HEADER
+           3. HEADER & NAVEGACIÓN
            ========================================= */
-        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 15px 0; background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.4s ease; }
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 15px 0; background: #ffffff; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo-img { height: 72px; width: auto; object-fit: contain; }
 
         .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
         .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
-        .nav-link { color: var(--text-dark); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-link { 
+            color: var(--text-dark); font-size: 0.85rem; font-weight: 500; 
+            text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; 
+        }
         .nav-link:hover { color: var(--blue-accent); }
         .mobile-toggle { font-size: 1.5rem; color: #333; cursor: pointer; }
 
-        .mobile-menu-overlay { position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh; background: #111; z-index: 2000; padding: 80px 30px; transition: right 0.4s; display: flex; flex-direction: column; gap: 25px; }
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
+            background: #111; z-index: 2000; padding: 80px 30px; transition: right 0.4s;
+            display: flex; flex-direction: column; gap: 25px;
+        }
         .mobile-menu-overlay.active { right: 0; }
-        .overlay-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .overlay-backdrop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
         .overlay-backdrop.active { opacity: 1; visibility: visible; }
         .mobile-link { color: #fff; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .mobile-close { position: absolute; top: 25px; right: 25px; font-size: 1.5rem; color: #fff; cursor: pointer; }
-        @media(min-width: 992px) { .desktop-menu { display: flex; } .mobile-toggle { display: none; } .mobile-menu-overlay, .overlay-backdrop { display: none; } }
+
+        @media(min-width: 992px) { 
+            .desktop-menu { display: flex; } .mobile-toggle { display: none; } .mobile-menu-overlay, .overlay-backdrop { display: none; }
+        }
 
         /* =========================================
-           4. SECCIONES ESPECÍFICAS
+           4. SECCIONES ESPECÍFICAS SERVICIOS
            ========================================= */
 
-        /* HERO */
-        #services-header { position: relative; height: 60vh; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-dark); background: url('img/hero-servicios.jpg') no-repeat center center; background-size: cover; margin-top: 80px; }
-        #services-header::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 1; }
+        /* HERO - PADDING CORREGIDO (Menos altura) */
+        #services-header {
+            position: relative;
+            height: 60vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-dark);
+            background: url('img/hero-servicios.jpg') no-repeat center center;
+            background-size: cover;
+            margin-top: 80px;
+        }
+        #services-header::before {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(255,255,255,0.4); /* Filtro blanco reducido al 40% para ver la imagen */
+            z-index: 1;
+        }
         .header-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
-        #services-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 20px; text-transform: none; letter-spacing: 0; color: var(--text-dark-hero); }
-        #services-header p { font-size: 1.2rem; color: #666; margin-bottom: 40px; font-weight: 500; }
+        
+        #services-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 800; margin-bottom: 20px;
+            text-transform: none; letter-spacing: 0;
+            color: var(--text-dark-hero);
+        }
+        #services-header p {
+            font-size: 1.2rem; 
+            color: #444; /* Texto un poco más oscuro para contraste con filtro suave */
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
 
-        /* INTRO */
-        #intro-services { padding: 120px 0; background: #fff; }
+        /* SECCIÓN INTRODUCCIÓN Y ANCLAS */
+        #intro-services { 
+            padding: 120px 0; 
+            background: #fff; 
+        }
         .intro-flex { display: flex; flex-direction: column; gap: 30px; max-width: 1000px; margin: 0 auto; }
         .intro-header-centered { text-align: center; }
         .intro-header-centered .title-std { display: inline-block; }
@@ -130,11 +232,21 @@
         .intro-text-col p { color: var(--text-desc-light); font-size: 1.1rem; line-height: 1.6; max-width: 100%; text-align: left; }
         
         .anchor-buttons-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
-        .anchor-btn { display: flex; align-items: center; gap: 15px; padding: 15px 30px; border-radius: 16px; background: #f9fafb; border: 1px solid #eee; color: var(--text-dark); font-weight: 700; font-size: 1rem; transition: all 0.3s ease; cursor: pointer; min-width: 220px; text-decoration: none; justify-content: center; }
+        .anchor-btn {
+            display: flex; align-items: center; gap: 15px; padding: 15px 30px;
+            border-radius: 16px; background: #f9fafb; border: 1px solid #eee;
+            color: var(--text-dark); font-weight: 700; font-size: 1rem;
+            transition: all 0.3s ease; cursor: pointer; min-width: 220px; text-decoration: none; justify-content: center;
+        }
         .anchor-btn i { font-size: 1.4rem; }
-        .anchor-btn.infra:hover { background: #e0faff; border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
-        .anchor-btn.consult:hover { background: #f3e5f5; border-color: var(--secondary); color: var(--secondary); transform: translateY(-3px); }
-        @media(max-width: 768px) { .intro-text-col { text-align: center; } .anchor-buttons-container { justify-content: center; flex-direction: column; } .anchor-btn { width: 100%; justify-content: center; } }
+        .anchor-btn.infra:hover { background: #e0faff; border-color: var(--primary); color: var(--primary); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2); transform: translateY(-3px); }
+        .anchor-btn.consult:hover { background: #f3e5f5; border-color: var(--secondary); color: var(--secondary); box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2); transform: translateY(-3px); }
+
+        @media(max-width: 768px) {
+            .intro-text-col { text-align: center; }
+            .anchor-buttons-container { justify-content: center; flex-direction: column; }
+            .anchor-btn { width: 100%; justify-content: center; }
+        }
 
         /* SERVICIOS */
         .service-section { padding: var(--padding-section); } 
@@ -143,7 +255,11 @@
         .service-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; }
         #infraestructura { border-bottom: 1px solid #dbeafe; } 
 
-        .service-full-card { background: #fff; border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 100px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .service-full-card {
+            background: #fff; border-radius: 24px; overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee;
+        }
         .service-full-card.infra { border: 1px solid var(--primary); }
         .service-full-card.consult { border: 1px solid var(--secondary); }
         .service-full-card:last-child { margin-bottom: 0; }
@@ -160,7 +276,7 @@
         .service-content-side h3 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 700; }
         .service-content-side p { font-size: 1.05rem; color: var(--text-desc-light); margin-bottom: 30px; }
         .service-content-side h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; display: inline-block; }
-        
+
         .service-list { list-style: none; padding: 0; }
         .service-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 12px; color: var(--text-desc-light); font-size: 1rem; font-weight: 500; }
         .service-full-card.infra .service-list i { color: var(--primary); }
@@ -187,14 +303,18 @@
         .component-card {
             background: #ffffff; padding: 35px 25px; border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #eee;
-            border-top: 4px solid var(--primary); text-align: left; transition: 0.3s;
+            border-top: 4px solid var(--primary);
+            text-align: left; transition: 0.3s;
         }
         .component-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
         .component-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
-        .component-card h5 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 700; min-height: 3.5rem; display: flex; align-items: center; }
+        .component-card h5 { 
+            font-size: 1.2rem; color: var(--text-dark); 
+            margin-bottom: 15px; font-weight: 700;
+            min-height: 3.5rem; display: flex; align-items: center;
+        }
         .component-card p { font-size: 0.95rem; color: var(--text-desc-light); margin: 0; line-height: 1.5; }
 
-        /* Ajuste Mobile: Carrusel CENTRADO */
         @media(max-width: 768px) {
             .components-grid {
                 display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
@@ -217,8 +337,6 @@
         .benefits-header .title-std::after { margin-left: auto; margin-right: auto; }
         
         .benefits-slider-wrapper { position: relative; width: 100%; margin-bottom: 50px; }
-        
-        /* Ajuste Mobile: Carrusel CENTRADO */
         .benefits-carousel {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
             padding: 40px 20px; width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
@@ -236,24 +354,25 @@
         .benefit-card p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-desc-light); }
 
         @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
-        @media(max-width: 600px) { 
-            .benefits-carousel .benefit-card { 
-                flex: 0 0 85vw; 
-                scroll-snap-align: center; /* Centrar tarjeta en móvil */
-            } 
-        }
+        @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
 
         .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .scroll-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s; }
+        .scroll-btn {
+            width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
+        }
         .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
         .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
+
+        .benefits-controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
 
         /* CTA INTERMEDIO */
         .cta-mid { background: var(--bg-soft-gray); padding: 120px 5%; text-align: center; }
         .cta-mid h2 { color: var(--title-blue); font-size: 2rem; margin-bottom: 15px; }
         .cta-mid p { max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
 
-        /* --- INFRAESTRUCTURA CENTRALIZADA (CORREGIDO) --- */
+        /* --- INFRAESTRUCTURA CENTRALIZADA --- */
         .sec-infra { 
             background: var(--title-blue); padding: var(--padding-section); text-align: center; color: #fff;
         }
@@ -263,31 +382,32 @@
         .sec-infra h4 { color: #fff; margin-bottom: 30px; font-size: 1.2rem; }
         
         .tech-list-centered { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        
-        /* Pills modificados: Cuadrado redondeado y check azul */
-        .infra-pill {
+        .tech-pill {
             background: #fff; padding: 15px 30px; 
             border-radius: 12px; 
             display: flex; gap: 10px; align-items: center; 
             color: var(--text-dark); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
-        
-        /* FORZAR COLOR AZUL EN CHECK */
-        .infra-pill i { 
-            color: var(--title-blue) !important; 
-            font-size: 1.1rem; 
-            display: inline-block; /* Asegurar renderizado */
-        }
+        .tech-pill i { color: var(--title-blue) !important; font-size: 1.1rem; }
 
-        /* Partners */
+        /* --- PARTNERS --- */
         .sec-partners { padding: 80px 5%; background: #ffffff; }
         .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 40px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
         .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
+        
+        /* LOGO BOX MODIFICADO (300x150, sin padding, efecto gris) */
         .logo-box {
-            background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex; align-items: center; justify-content: center; width: 180px; height: 80px;
+            background: #fff; padding: 0; 
+            border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex; align-items: center; justify-content: center; 
+            width: 300px; height: 150px;
         }
-        .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .logo-box img { 
+            width: 100%; height: 100%; object-fit: contain; 
+            filter: grayscale(100%); transition: filter 0.3s ease;
+        }
+        .logo-box:hover img { filter: grayscale(0%); }
+
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* Formulario */
@@ -392,7 +512,7 @@
         <section id="infraestructura" class="service-section bg-light-blue reveal">
             <div class="container">
                 <div class="service-intro">
-                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--primary);">TI</span></h2>
+                    <h2 class="title-std title-centered" style="color: var(--text-dark);">INFRAESTRUCTURA <span style="color: var(--title-blue);">TI</span></h2>
                     <p>Diseñamos plataformas de infraestructura robusta y de alto rendimiento —en tus instalaciones o en nuestra nube privada Tier III— asegurando disponibilidad, seguridad y eficiencia.</p>
                 </div>
                 
@@ -543,14 +663,18 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=VEEAM" alt="VEEAM"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=SUSESO" alt="SUSESO"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=PURE" alt="PURE"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=NUTANIX" alt="NUTANIX"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=LENOVO" alt="LENOVO"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=VEEAM" alt="VEEAM"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=SUSESO" alt="SUSESO"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=PURE" alt="PURE"></div>
+                        <!-- Logos Actualizados -->
+                        <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
+                        <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
+                        <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
+                        <div class="logo-box"><img src="img/partner-pure.png" alt="PURE"></div>
+                        <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
+                        <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
+                        <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
+                        <!-- Repetir para efecto infinito -->
+                        <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
+                        <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
+                        <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
                     </div>
                 </div>
             </div>
@@ -575,7 +699,6 @@
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
-                    <!-- REINTEGRADO: Checks azules y cajas blancas -->
                     <div class="infra-pill">
                         <i class="fas fa-check-circle"></i> Escalabilidad instantánea
                     </div>

@@ -469,8 +469,6 @@
 
         /* --- DIFERENCIAL --- */
         #diferencial { padding: var(--padding-section); background: var(--bg-light); }
-        .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(4, 1fr); } 
-        
         .diff-card { 
             background: #f9f9f9; padding: 2rem; border-radius: 20px; 
             border: 1px solid #eee; box-shadow: var(--shadow-card); transition: 0.3s; min-width: 0; 
@@ -544,14 +542,48 @@
         }
 
         /* --- PARTNERS --- */
-        .sec-partners { padding: 60px 5%; background: #ffffff; }
-        .sec-partners p { color: var(--text-desc-light); }
-        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 40px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
-        .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
-        .logo-box {
-            background: #fff; padding: 15px 30px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            color: #555; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 1; filter: none;
+        .sec-partners { padding: 80px 5%; background: #ffffff; }
+        .marquee-wrapper { 
+            overflow: hidden; 
+            width: 100%; 
+            position: relative; 
+            margin-top: 40px; 
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); 
         }
+
+        .marquee-track { 
+            display: flex; 
+            gap: 60px; 
+            width: max-content; 
+            animation: scroll 30s linear infinite; 
+        }
+
+        /* LOGO BOX (Igual a Servicios) */
+        .logo-box {
+            background: #fff; 
+            padding: 0; 
+            border-radius: 8px; 
+            border: 1px solid #eee; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 240px; 
+            height: 120px; 
+        }
+
+        .logo-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            filter: grayscale(100%); 
+            transition: filter 0.3s ease;
+        }
+
+        .logo-box:hover img { 
+            filter: grayscale(0%); 
+        }
+
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- CTA PROCESS --- */
@@ -642,6 +674,7 @@
         .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label { top: -10px; font-size: 0.8rem; color: var(--primary); }
         .form-label { position: absolute; top: 15px; left: 0; color: rgba(255,255,255,0.7); pointer-events: none; transition: 0.3s ease all; font-size: 1rem; }
         .form-intro-text { font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6; }
+        .privacy-text { margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center; }
 
         @media(max-width: 768px) {
             #contact { margin-top: 0; border-radius: 30px 30px 0 0; padding-top: 40px !important; padding-bottom: 60px; }
@@ -690,9 +723,9 @@
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
-        <a href="#home" class="mobile-link">Inicio</a>
-        <a href="#about" class="mobile-link">XFERA</a>
-        <a href="https://idigital2025.github.io/xfera/servicios" class="mobile-link">Servicios</a>
+        <a href="index.html" class="mobile-link">Inicio</a>
+        <a href="xfera.html" class="mobile-link">XFERA</a>
+        <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="#contact" class="mobile-link">Contacto</a>
         <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
@@ -700,16 +733,16 @@
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container nav-flex">
-            <a href="#">
+            <a href="index.html">
                 <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
             </a>
             
             <div class="desktop-menu">
                 <div class="nav-links-group">
-                    <a href="#home" class="nav-link">Inicio</a>
-                    <a href="#about" class="nav-link">XFERA</a>
-                    <a href="https://idigital2025.github.io/xfera/servicios" class="nav-link">Servicios</a>
-                    <a href="#contact" class="nav-link">Contacto</a>
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="xfera.html" class="nav-link">XFERA</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="index.html#contact" class="nav-link">Contacto</a>
                 </div>
                 <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
             </div>
@@ -784,7 +817,7 @@
                         <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
                         
                         <div class="btn-wrapper">
-                            <a href="xfera.html" class="btn btn-primary">Conocer más</a>
+                            <a href="https://idigital2025.github.io/xfera/xfera" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
                     <div class="about-image-col">
@@ -831,9 +864,13 @@
                             <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
                             <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
                         </ul>
+                        <!-- BOTÓN CONOCER MÁS (CIAN) -->
+                        <div style="margin-top: 30px;">
+                             <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary" style="background-color: var(--primary); border-color: var(--primary);">Conocer más</a>
+                        </div>
                     </div>
                 </div>
-
+                <!-- SERVICIO 2 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -853,8 +890,18 @@
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
                         </ul>
+                        <!-- BOTÓN CONOCER MÁS (MORADO) -->
+                        <div style="margin-top: 30px;">
+                             <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary" style="background-color: var(--secondary); border-color: var(--secondary);">Conocer más</a>
+                        </div>
                     </div>
                 </div>
+                
+                <!-- BOTÓN FINAL VER SERVICIOS -->
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="https://idigital2025.github.io/xfera/servicios" class="btn btn-secondary-dark" style="padding: 15px 40px; font-size: 1rem;">Ver Servicios</a>
+                </div>
+
             </div>
         </section>
 
@@ -935,7 +982,7 @@
         <!-- CASOS DE ÉXITO (MODIFICADO BOTONES Y SUBTÍTULO) -->
         <section id="casos" class="sec-cases reveal">
             <div class="container">
-                <h2 class="title-std title-dark title-centered">
+                <h2 class="title-std title-dark">
                     CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
                 </h2>
                 <!-- Subtítulo Actualizado -->
@@ -1131,29 +1178,20 @@
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
             </div>
-            
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                 <div class="footer-links">
                     <a href="index.html">Inicio</a>
-                    <a href="index.html#about">Somos Xfera</a>
+                    <a href="xfera.html">Somos Xfera</a>
                     <a href="servicios.html">Servicios</a>
                     <a href="index.html#contact">Contacto</a>
                 </div>
             </div>
-
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
-                <div class="contact-info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>contacto@xfera.cl</span>
-                </div>
+                <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span></div>
+                <div class="contact-info-item"><i class="fas fa-envelope"></i><span>contacto@xfera.cl</span></div>
             </div>
-
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal</h4>
                 <div class="footer-links">
@@ -1227,7 +1265,7 @@
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card');
+                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card') || container.querySelector('.industria-item');
                 if(!item) return;
                 
                 const gap = 20; 

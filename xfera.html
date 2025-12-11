@@ -5,47 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>XFERA | Quiénes Somos - Infraestructura TI & Consultoría</title>
-    <meta name="description" content="Expertos en infraestructura TI, nube privada e ingeniería tecnológica en Chile. 15 años de experiencia en continuidad operativa para misión crítica.">
-    <meta name="keywords" content="infraestructura TI, infraestructura TI en Chile, nube privada Chile, consultoría TI Chile, IaaS Chile, hiperconvergencia Nutanix, continuidad operativa, ingeniería TI, servicios gestionados TI">
+    <title>XFERA | Infraestructura TI & IaaS</title>
+    <meta name="description" content="Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix.">
     
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Iconos: FontAwesome (General) + Phosphor Icons (Lineales para Sectores) -->
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-        /* =========================================
-           1. VARIABLES (Sincronizadas)
-           ========================================= */
+        /* --- 1. VARIABLES --- */
         :root {
-            --primary: #00D4FF;         
-            --secondary: #7B2CBF;       
+            --primary: #00D4FF;
+            --secondary: #7B2CBF;
             --bg-dark: #050505;
             --bg-grey: #111111;
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
             --blue-accent: #1b30af; 
             --blue-form: #101f75;
-            --title-blue: #1f32ce;      
+            --title-blue: #1f32ce;
             --text-dark-hero: #191919; 
             
             /* Variables Light */
             --bg-light: #ffffff;
-            --bg-light-alt: #f8f9fa; 
+            --bg-light-alt: #f8f9fa; /* Gris Claro */
             --bg-soft-gray: #f8fafc;
             --bg-soft-blue: #F7FDFF;
-            
+            --bg-soft-purple: #FAF7FC;
+
             --text-dark: #1a1a1a;
             --text-desc-light: #555555;
-            
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
             
-            --padding-section: 100px 5%; 
+            /* Sombra imagen sutilmente azul */
+            --shadow-image: 20px 20px 60px rgba(0, 212, 255, 0.15);
+            
+            --padding-section: 120px 5%;
             --radius-card: 24px;
             --nav-height: 80px;
             --transition: all 0.3s ease;
@@ -55,52 +54,605 @@
         
         html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
         
-        body {
-            overflow-x: hidden; width: 100%; margin: 0; padding: 0;
-            position: relative; font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light); color: var(--text-dark);
+        /* CORRECCIÓN ANCHO PAGINA */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-white);
             font-size: 16px;
         }
 
-        /* Tipografía Global */
         h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.1; margin-bottom: 1rem; }
-        p { line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; color: var(--text-desc-light); font-weight: 400; }
+        p { line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem; color: var(--text-gray); font-weight: 400; }
         a { text-decoration: none; transition: var(--transition); }
         ul { list-style: none; padding: 0; margin: 0; }
         img { max-width: 100%; height: auto; display: block; }
 
-        /* =========================================
-           2. UTILIDADES
-           ========================================= */
-        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-        @media (min-width: 1200px) { .container { padding: 0 160px; max-width: 1400px; } }
+        /* --- 2. UTILIDADES --- */
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* MODIFICACIÓN ANCHO ESCRITORIO */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 160px; 
+                max-width: 1400px; 
+            }
+        }
 
         .title-std {
-            font-size: 1.8rem; text-transform: uppercase; margin-bottom: 2rem;
-            font-weight: 700; letter-spacing: 0.5px; position: relative; color: var(--text-dark);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: relative;
         }
+        .title-std span { color: var(--title-blue); }
+        
+        .title-light { color: #ffffff; } 
+        .title-dark { color: var(--text-dark); } 
+
         .title-std::after {
-            content: ''; display: block; width: 60px; height: 5px;
-            background-color: var(--title-blue); margin-top: 10px; border-radius: 2px;
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background-color: var(--title-blue); 
+            margin-top: 10px;
+            border-radius: 2px;
         }
+
         .title-centered { text-align: center; }
         .title-centered::after { margin-left: auto; margin-right: auto; }
 
-        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* Botones */
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; border-radius: 999px; font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem; transition: var(--transition); }
-        .btn-primary { background: var(--title-blue); color: #fff; box-shadow: 0 4px 15px rgba(31, 50, 206, 0.3); }
-        .btn-primary:hover { background: var(--blue-accent); transform: translateY(-2px); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 30px; border-radius: 999px;
+            font-weight: 600; cursor: pointer; border: none; gap: 8px; font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .btn-primary {
+            background: var(--title-blue); 
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(31, 50, 206, 0.3);
+        }
+        .btn-primary:hover { 
+            background: var(--blue-accent);
+            box-shadow: 0 6px 20px rgba(31, 50, 206, 0.5); transform: translateY(-2px); 
+        }
+        .btn-outline {
+            background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff;
+        }
+        .btn-outline:hover { 
+            border-color: var(--primary); background: var(--primary); color: #000;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        .btn-secondary-dark {
+            background: transparent; border: 1px solid #333; color: #333;
+        }
+        .btn-secondary-dark:hover { 
+            background: var(--primary); color: #000; border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Botón Blanco Relleno */
+        .btn-white-filled {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .btn-white-filled:hover {
+            background: #f0f0f0;
+            color: var(--title-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* BOTÓN HERO SECUNDARIO */
+        .btn-hero-secondary {
+            background: #ffffff; 
+            color: var(--text-dark-hero); 
+            border: 1px solid #000000; 
+        }
+        .btn-hero-secondary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        /* --- 3. HEADER & NAV --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 15px 0;
+            background: #ffffff; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+        header.scrolled { padding: 10px 0; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
-        .btn-secondary-dark { background: transparent; border: 1px solid #333; color: #333; }
-        .btn-secondary-dark:hover { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+        .logo-img { 
+            height: 72px; 
+            width: auto; object-fit: contain; transition: 0.3s;
+            filter: none; 
+        }
 
-        .btn-white-filled { background: #ffffff; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .btn-white-filled:hover { background: #f0f0f0; color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
+        .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
+        
+        .nav-link { 
+            color: var(--text-dark); 
+            font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; 
+            transition: color 0.3s ease; 
+        }
+        .nav-link:hover { color: var(--blue-accent); }
 
-        /* Controles Carrusel */
+        .mobile-toggle { font-size: 1.5rem; color: #333; cursor: pointer; transition: 0.3s; }
+
+        .mobile-menu-overlay {
+            position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh;
+            background: #111; z-index: 2000; padding: 80px 30px;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; gap: 25px;
+        }
+        .mobile-menu-overlay.active { right: 0; }
+        .overlay-backdrop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
+        .overlay-backdrop.active { opacity: 1; visibility: visible; }
+        .mobile-link { color: #fff; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .mobile-close { position: absolute; top: 25px; right: 25px; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
+        @media(min-width: 992px) { 
+            .desktop-menu { display: flex; } 
+            .mobile-toggle { display: none; } 
+            .mobile-menu-overlay, .overlay-backdrop { display: none; }
+        }
+
+        /* --- 4. HERO --- */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background: #ffffff; 
+            position: relative;
+            padding-top: 135px;
+            padding-bottom: 50px;
+            overflow: hidden;
+        }
+        
+        .hero-orb-1 {
+            position: absolute; top: 0; right: 0; width: 500px; height: 500px;
+            background-color: rgba(0, 212, 255, 0.1); border-radius: 50%; filter: blur(120px);
+            z-index: 0; pointer-events: none;
+        }
+        .hero-orb-2 {
+            position: absolute; bottom: 0; left: 0; width: 400px; height: 400px;
+            background-color: rgba(123, 44, 191, 0.1); border-radius: 50%; filter: blur(100px);
+            z-index: 0; pointer-events: none;
+        }
+
+        .hero-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px; 
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text-col {
+            text-align: left;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center; background: #f0f9ff;
+            color: var(--title-blue); padding: 8px 16px; border-radius: 30px;
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; letter-spacing: 0.5px;
+        }
+        .hero-pill::before {
+            content: ''; display: block; width: 6px; height: 6px;
+            background-color: var(--title-blue); border-radius: 50%; margin-right: 8px;
+        }
+
+        #home h1 { 
+            color: var(--text-dark-hero) !important; 
+            font-size: clamp(2.1rem, 5vw, 3.3rem); line-height: 1.1; font-weight: 800; margin-bottom: 25px; text-transform: none; text-shadow: none !important;
+        }
+        .highlight-blue { color: var(--title-blue) !important; }
+        
+        #home h2 { 
+            color: var(--text-dark-hero) !important; font-size: 1.1rem; 
+            font-weight: 400; margin-bottom: 20px; text-shadow: none !important;
+        }
+        #home p { 
+            color: var(--text-desc-light) !important; text-shadow: none !important;
+            font-size: 1rem; margin-bottom: 35px; max-width: 90%;
+        }
+
+        .hero-img-col {
+            position: relative; display: flex; justify-content: center; background: transparent; box-shadow: none;
+        }
+        
+        .hero-img-col img {
+            width: 100%; height: auto; border-radius: 30px; box-shadow: none; object-fit: cover; background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            #home { padding-top: 120px; text-align: center; background: #ffffff; }
+            .hero-split-layout { grid-template-columns: 1fr; gap: 40px; }
+            .hero-img-col { order: -1; }
+            .hero-img-col img {
+                width: 85%; height: auto; max-width: 450px; object-fit: contain; margin: 0 auto; 
+                border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            }
+            .hero-text-col { text-align: center; }
+            #home p { margin-left: auto; margin-right: auto; }
+            .hero-actions { justify-content: center; }
+        }
+
+        /* --- SECCIÓN 0 - CIFRAS --- */
+        .sec-stats { 
+            background: var(--title-blue); 
+            padding: 60px 5%; border-bottom: 1px solid rgba(255,255,255,0.1); 
+            color: #ffffff;
+        }
+        .stats-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: nowrap; }
+        .stat-block { text-align: center; flex-shrink: 0; }
+        
+        .stat-item h3 { 
+            font-size: 2.5rem; 
+            color: #ffffff; /* Número Blanco */
+            margin-bottom: 10px; font-weight: 800; line-height: 1; 
+        }
+        .stat-item p { 
+            color: rgba(255,255,255,0.8); /* Texto Blanco Suave */
+            font-size: 0.9rem; margin: 0; line-height: 1.3; font-weight: 500; 
+        }
+        
+        .respaldo-block { 
+            text-align: left; border-left: 2px solid rgba(255,255,255,0.3); 
+            padding-left: 30px; flex-shrink: 1; 
+        }
+        .respaldo-block p { color: #ffffff !important; } /* Título Respaldo Blanco */
+        
+        .tech-check { 
+            color: rgba(255,255,255,0.9); /* Texto Check Blanco */
+            font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; 
+        }
+        .tech-check i { color: #ffffff; font-size: 1.1rem; } /* Icono Blanco */
+        .mobile-br { display: none; }
+
+        @media(max-width: 992px) { 
+            .stats-wrapper { flex-wrap: wrap; justify-content: center; gap: 40px; }
+            .stat-block { flex: 0 0 45%; }
+            .respaldo-block { border-left: none; padding-left: 0; text-align: center; margin-top: 30px; width: 100%; } 
+            .tech-check { justify-content: center; align-items: flex-start; text-align: left; }
+            .tech-check i { margin-top: 4px; }
+            .mobile-br { display: block; }
+        }
+
+        /* --- SECCIÓN 1 - SOMOS XFERA --- */
+        .sec-about { padding: var(--padding-section); background: #ffffff; color: #333; }
+        .about-split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px; 
+            align-items: center;
+        }
+        .about-content-col { text-align: left; }
+        .about-content-col .title-std { text-align: left; margin-bottom: 25px; }
+        .about-content-col .title-std::after { margin-left: 0; }
+        .about-content-col p {
+            color: var(--text-desc-light);
+            font-size: 0.9rem; 
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Lista de puntos eliminada en nueva versión */
+        .about-list-grid { display: none; }
+
+        .about-image-col { position: relative; }
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            box-shadow: var(--shadow-image); 
+            line-height: 0; 
+        }
+        .about-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+        }
+        .floating-badge {
+            position: absolute; bottom: 30px; left: -30px; background: #ffffff;
+            padding: 15px 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); color: var(--text-desc-light);
+            z-index: 2; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; line-height: 1.2;
+        }
+        .floating-badge strong { display: block; font-size: 1.8rem; color: var(--title-blue); font-weight: 800; margin-bottom: 2px; line-height: 1; }
+        .floating-badge span { font-size: 0.9rem; display: block; }
+
+        @media(min-width: 992px) { .about-split-layout { grid-template-columns: 1fr 1fr; } }
+        @media(max-width: 992px) {
+            .about-split-layout { grid-template-columns: 1fr; gap: 40px; }
+            .about-image-wrapper { margin-left: 20px; margin-bottom: 20px; } 
+            .floating-badge { left: -10px; bottom: 20px; padding: 10px 20px; }
+            .floating-badge strong { font-size: 1.5rem; }
+        }
+        @media(max-width: 768px) {
+            .sec-about { text-align: left; }
+        }
+
+        /* --- SERVICIOS --- */
+        #services { padding: var(--padding-section); background: #f8f9fa; }
+        
+        @media(min-width: 992px) {
+            #services .title-std { text-align: center; color: var(--text-dark) !important; }
+            #services .title-std::after { margin-left: auto; margin-right: auto; }
+            #services > .container > p { 
+                text-align: left; margin-left: 0; margin-right: 0; /* Alinear Párrafo a la izquierda y Ancho Completo */
+                max-width: 100%; color: var(--text-desc-light) !important; 
+            }
+        }
+
+        #services .title-std { color: var(--text-dark); }
+        #services > .container > p { font-size: 0.9rem; line-height: 1.6; color: var(--text-desc-light); }
+
+        .service-split-layout { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: stretch; margin-bottom: 80px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 60px; }
+        @media(min-width: 992px) { .service-split-layout { grid-template-columns: 1fr 1fr; } }
+        .service-split-layout:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .service-full-card {
+            background: #fff; border-radius: 24px; overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 80px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .service-full-card:last-child { margin-bottom: 0; }
+
+        .service-image-side { position: relative; min-height: 250px; }
+        .service-image-side img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        
+        .service-badge {
+            position: absolute; top: 30px; left: 30px; background: #000; color: var(--primary);
+            padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            border: 1px solid var(--primary); z-index: 2;
+        }
+        .service-title-overlay { position: absolute; bottom: 40px; left: 30px; right: 30px; z-index: 2; }
+        .service-title-overlay h3 { color: #fff !important; font-size: 2.2rem; line-height: 1.1; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .service-image-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); z-index: 1; }
+
+        .service-content-side { padding: 30px 40px; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+        .service-content-side p { color: var(--text-desc-light); font-size: 0.95rem; margin-bottom: 20px; }
+        .service-content-side h4 { color: var(--text-dark); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; display: inline-block; }
+
+        .service-list { list-style: none; padding: 0; }
+        .service-list li { margin-bottom: 8px; display: flex; align-items: start; gap: 12px; color: var(--text-desc-light); font-size: 1rem; font-weight: 500; }
+        .service-list li i { color: var(--primary); margin-top: 3px; }
+
+        @media (max-width: 992px) {
+            .service-full-card { grid-template-columns: 1fr; }
+            .service-image-side { min-height: 250px; }
+            .service-content-side { padding: 30px; }
+            #services .title-std { text-align: left; }
+            #services .title-std::after { margin-left: 0; }
+            #services > .container > p { text-align: left; margin-left: 0; }
+        }
+        @media (max-width: 768px) { .service-title-overlay h3 { font-size: 1.8rem !important; } }
+
+        /* --- DIFERENCIAL --- */
+        #diferencial { padding: var(--padding-section); background: var(--bg-light); }
+        .diff-card { 
+            background: #f9f9f9; padding: 2rem; border-radius: 20px; 
+            border: 1px solid #eee; box-shadow: var(--shadow-card); transition: 0.3s; min-width: 0; 
+        }
+        .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
+        .diff-card h3 { color: var(--text-dark); }
+        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; }
+
+        /* --- INFRAESTRUCTURA --- */
+        .sec-infra { 
+            background: var(--title-blue); /* Fondo Azul */
+            padding: var(--padding-section); text-align: center; color: #fff;
+        }
+        .sec-infra .title-std { color: #fff !important; }
+        .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
+        .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
+        
+        /* Pills modificados: Cuadrado redondeado y check azul */
+        .infra-pill {
+            background: #fff; padding: 15px 30px; 
+            border-radius: 12px; 
+            display: flex; gap: 10px; align-items: center; 
+            color: var(--text-dark); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .infra-pill i { color: var(--title-blue) !important; font-size: 1.1rem; }
+
+        /* --- CASOS DE ÉXITO --- */
+        .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); }
+        
+        /* Centrar título de sección Casos de Éxito */
+        .sec-cases .title-std { text-align: center; color: var(--text-dark); }
+        .sec-cases .title-std::after { margin-left: auto; margin-right: auto; }
+        
+        /* Estilo para el subtítulo de la sección */
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--text-desc-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .cases-split-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+        
+        .case-image-wrapper { position: relative; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-image); }
+        .case-image-wrapper img { width: 100%; height: auto; display: block; border-radius: 24px; }
+        .case-overlay-card {
+            position: absolute; bottom: 30px; left: 30px; background: #fff;
+            padding: 20px 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 280px; border: 1px solid #eee;
+        }
+        .case-overlay-card h4 { margin: 0 0 5px; font-size: 1.1rem; color: var(--text-dark); font-weight: 800; }
+        .case-overlay-card p { margin: 0; font-size: 0.8rem; color: var(--text-desc-light); line-height: 1.3; }
+
+        .case-content-col p.lead { font-size: 1.1rem; color: var(--text-desc-light); line-height: 1.6; margin-bottom: 30px; }
+        .case-results-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+        .case-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: var(--text-desc-light); font-weight: 500; font-size: 0.95rem; }
+        .case-list li i { color: var(--primary); font-size: 1.1rem; }
+        
+        /* Botones Casos de Éxito Actualizados */
+        .cases-actions {
+            display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px;
+        }
+        
+        .cases-nav { display: none; } /* Ocultar flechas ya que no es slide */
+
+        @media(max-width: 992px) {
+            .cases-split-layout { grid-template-columns: 1fr; gap: 40px; }
+            .case-overlay-card { position: relative; bottom: auto; left: auto; right: auto; margin: -40px 20px 0; max-width: none; }
+        }
+
+        /* --- PARTNERS --- */
+        .sec-partners { padding: 80px 5%; background: #ffffff; }
+        .marquee-wrapper { 
+            overflow: hidden; 
+            width: 100%; 
+            position: relative; 
+            margin-top: 40px; 
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); 
+        }
+
+        .marquee-track { 
+            display: flex; 
+            gap: 60px; 
+            width: max-content; 
+            animation: scroll 30s linear infinite; 
+        }
+
+        /* LOGO BOX (Igual a Servicios) */
+        .logo-box {
+            background: #fff; 
+            padding: 0; 
+            border-radius: 8px; 
+            border: 1px solid #eee; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 240px; 
+            height: 120px; 
+        }
+
+        .logo-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            filter: grayscale(100%); 
+            transition: filter 0.3s ease;
+        }
+
+        .logo-box:hover img { 
+            filter: grayscale(0%); 
+        }
+
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- CTA PROCESS --- */
+        .sec-process { background-color: #f8fafc; padding: 100px 5%; text-align: center; } 
+        .sec-process h2 { 
+            font-size: 1.8rem; margin-bottom: 25px; color: #111; font-weight: 700; text-transform: uppercase; position: relative; display: inline-block; 
+        }
+        .sec-process h2::after { content: ''; display: block; width: 60px; height: 5px; background-color: var(--title-blue); margin: 15px auto 0; border-radius: 2px; }
+        .sec-process h2 span { color: var(--title-blue); }
+        .sec-process .subtitle { font-size: 1rem; color: var(--text-desc-light); max-width: 600px; margin: 0 auto 50px; }
+        
+        .process-steps { display: flex; justify-content: center; gap: 40px; position: relative; margin-bottom: 50px; flex-wrap: wrap; }
+        .process-steps::before { content: ''; position: absolute; top: 40px; left: 20%; right: 20%; height: 1px; background: #dbeafe; z-index: 0; display: none; }
+        @media(min-width: 992px) { .process-steps { flex-wrap: nowrap; gap: 0; justify-content: space-between; max-width: 1000px; margin-left: auto; margin-right: auto; } .process-steps::before { display: block; } }
+
+        .step-item { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; min-width: 250px; }
+        .icon-box { width: 80px; height: 80px; background: #eef4ff; border-radius: 16px; display: flex; align-items: center; justify-content: center; border: 1px solid #dbeafe; margin-bottom: 20px; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .icon-box svg { width: 32px; height: 32px; stroke: var(--title-blue); stroke-width: 2; }
+        .step-badge { position: absolute; top: -8px; right: -8px; width: 24px; height: 24px; background: var(--title-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+        
+        .step-item.blue .icon-box { background: #eef4ff; border-color: #dbeafe; }
+        .step-item.blue .icon-box svg { stroke: var(--title-blue); }
+        .step-item.blue .step-badge { background: var(--title-blue); }
+        .step-item.purple .icon-box { background: #f3e8ff; border-color: #e9d5ff; }
+        .step-item.purple .icon-box svg { stroke: var(--secondary); }
+        .step-item.purple .step-badge { background: var(--secondary); }
+        .step-item.cyan .icon-box { background: #e0faff; border-color: #ccfbf1; }
+        .step-item.cyan .icon-box svg { stroke: #00bcd4; } 
+        .step-item.cyan .step-badge { background: #00bcd4; }
+        .step-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: #111; }
+        .step-item p { font-size: 0.9rem; color: var(--text-desc-light); line-height: 1.4; max-width: 250px; }
+
+        /* --- BENEFICIOS CLAVES --- */
+        .sec-benefits-bg { 
+            /* Reducido punto focal al 35% para que no toque bordes */
+            background: radial-gradient(circle at center, rgba(143, 244, 255, 0.4) 0%, #ffffff 35%); 
+            padding: var(--padding-section); 
+            color: #111; 
+        }
+
+        .benefits-header { text-align: center; max-width: 800px; margin: 0 auto 50px; }
+        .benefits-header .title-std { text-align: center; color: var(--text-dark); }
+        .benefits-header .title-std::after { margin-left: auto; margin-right: auto; }
+        .benefits-header p { font-size: 1.1rem; line-height: 1.6; color: var(--text-desc-light); margin-top: 20px; }
+        
+        .benefits-slider-wrapper { position: relative; width: 100%; margin-bottom: 50px; }
+        
+        .benefits-carousel {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
+            padding: 40px 20px; 
+            width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
+        }
+        .benefits-carousel::-webkit-scrollbar { display: none; }
+        
+        .benefit-card {
+            flex: 0 0 350px; scroll-snap-align: start;
+            background: #ffffff; 
+            border-radius: 20px; padding: 35px 25px; border: 1px solid #eee;
+            box-shadow: var(--shadow-card); transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); border-color: var(--primary); }
+        .benefit-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; font-weight: 700; }
+        .benefit-card p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-desc-light); }
+
+        @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
+        @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
+
+        /* Controles Globales (Ahora fuera de media query) */
         .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
         .scroll-btn {
             width: 45px; height: 45px; border-radius: 50%;
@@ -110,243 +662,58 @@
         .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
         .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
 
+        .benefits-controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
 
-        /* =========================================
-           3. HEADER & NAVEGACIÓN
-           ========================================= */
-        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 15px 0; background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.4s ease; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo-img { height: 72px; width: auto; object-fit: contain; }
-
-        .desktop-menu { display: none; align-items: center; flex-grow: 1; margin-left: 40px; justify-content: space-between; }
-        .nav-links-group { display: flex; gap: 0; flex-grow: 1; justify-content: space-evenly; padding: 0 40px; }
-        .nav-link { color: var(--text-dark); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
-        .nav-link:hover { color: var(--blue-accent); }
-        .mobile-toggle { font-size: 1.5rem; color: #333; cursor: pointer; }
-
-        /* Mobile Menu */
-        .mobile-menu-overlay { position: fixed; top: 0; right: -100%; width: 85%; max-width: 350px; height: 100vh; background: #111; z-index: 2000; padding: 80px 30px; transition: right 0.4s; display: flex; flex-direction: column; gap: 25px; }
-        .mobile-menu-overlay.active { right: 0; }
-        .overlay-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s; }
-        .overlay-backdrop.active { opacity: 1; visibility: visible; }
-        .mobile-link { color: #fff; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .mobile-close { position: absolute; top: 25px; right: 25px; font-size: 1.5rem; color: #fff; cursor: pointer; }
-        @media(min-width: 992px) { .desktop-menu { display: flex; } .mobile-toggle { display: none; } .mobile-menu-overlay, .overlay-backdrop { display: none; } }
-
-        /* =========================================
-           4. SECCIONES ESPECÍFICAS XFERA
-           ========================================= */
-
-        /* HERO - BANNER */
-        #xfera-header {
-            position: relative; height: 60vh; min-height: 450px;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
-            background: url('https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1920&q=80') no-repeat center center; 
-            background-size: cover;
-            margin-top: 80px;
-        }
-        #xfera-header::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.4); z-index: 1; } 
-        .header-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; color: var(--text-dark); }
-        
-        #xfera-header h1 { 
-            font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; margin-bottom: 20px; 
-            text-transform: uppercase; color: var(--text-dark-hero); letter-spacing: 2px; 
-        }
-        
-        #xfera-header p { 
-            font-size: 1.2rem; color: #444; margin-bottom: 40px; font-weight: 500; 
-            max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;
-        }
-
-        /* NUESTRA ESENCIA (FONDO AZUL) */
-        #esencia { 
-            padding: 100px 5%; 
-            background: var(--title-blue); /* Fondo Azul */
-            text-align: center; 
-            color: #fff; /* Texto Blanco */
-        }
-        #esencia .title-std { text-align: center; color: #fff; }
-        #esencia .title-std::after { margin-left: auto; margin-right: auto; background-color: #fff; }
-        #esencia p { text-align: left; max-width: 100%; margin: 0 auto 20px 0; font-size: 1.1rem; color: rgba(255,255,255,0.9); }
-        @media(max-width: 768px) { #esencia p { text-align: left; } }
-
-        /* PROPÓSITO Y FUTURO */
-        .sec-proposito { padding: 100px 5%; background: var(--bg-soft-gray); }
-        .grid-proposito { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .card-proposito { background: #fff; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-card); border-top: 5px solid var(--primary); }
-        .card-proposito:last-child { border-top-color: var(--secondary); }
-        
-        /* AUMENTO DE PADDING ENTRE TITULO Y CONTENEDORES */
-        .sec-proposito .title-std { margin-bottom: 60px; } /* Más aire aquí */
-        
-        .card-proposito h3 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 20px; }
-        @media(max-width: 768px) { .grid-proposito { grid-template-columns: 1fr; } }
-
-        /* POR QUÉ EXISTIMOS */
-        .sec-why { padding: 100px 5%; background: #fff; }
-        .why-split { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; 
-            align-items: start; 
-        }
-        .why-text-col { text-align: left; }
-        .why-text-col .title-std { text-align: left; }
-        .why-text-col .title-std::after { margin-left: 0; }
-        .why-image-col img { 
-            width: 100%; border-radius: 24px; box-shadow: var(--shadow-image); 
-            object-fit: cover; height: 100%; min-height: 300px;
-        }
-
-        /* SECTORES CLAVE (ICONOS LINEALES) */
-        .sectores-wrapper { margin-top: 60px; width: 100%; }
-        .sectores-wrapper h4 { text-align: center; margin-bottom: 30px; font-weight: 700; color: var(--text-dark); }
-
-        .industrias-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
-            gap: 40px 20px; 
-            text-align: center;
-        }
-        
-        .industria-item { 
-            background: transparent; padding: 0; border: none; box-shadow: none;
-            display: flex; flex-direction: column; align-items: center; gap: 10px;
-            transition: 0.3s;
-        }
-        .industria-item:hover { transform: translateY(-5px); }
-        
-        /* ICONOS PHOSPHOR (Lineales) */
-        .industria-item i { font-size: 2.2rem; color: var(--primary); margin-bottom: 5px; }
-        
-        .industria-item span { font-size: 0.9rem; font-weight: 400; color: var(--text-dark); line-height: 1.2; }
+        /* --- FORMULARIO --- */
+        #contact { background: var(--blue-form); margin-top: -60px; padding-top: 50px; padding-bottom: 80px; padding-left: 5%; padding-right: 5%; position: relative; z-index: 10; border-radius: 60px 60px 0 0; }
+        #contact .title-std { color: #ffffff !important; }
+        .form-container-blue { background: transparent; padding: clamp(40px, 8vw, 80px); display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; border-radius: 0; box-shadow: none; }
+        .form-floating-group { position: relative; margin-bottom: 25px; }
+        .form-input { width: 100%; padding: 15px 0 10px; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; outline: none; font-size: 1rem; transition: 0.3s; max-width: 100%; box-sizing: border-box; }
+        .form-input:focus { border-bottom-color: var(--primary); }
+        .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label { top: -10px; font-size: 0.8rem; color: var(--primary); }
+        .form-label { position: absolute; top: 15px; left: 0; color: rgba(255,255,255,0.7); pointer-events: none; transition: 0.3s ease all; font-size: 1rem; }
+        .form-intro-text { font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6; }
+        .privacy-text { margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center; }
 
         @media(max-width: 768px) {
-            .why-split { grid-template-columns: 1fr; } 
-            .why-image-col { order: -1; margin-bottom: 40px; }
-            .why-text-col { text-align: center; }
-            .why-text-col .title-std { text-align: center; }
-            .why-text-col .title-std::after { margin-left: auto; margin-right: auto; }
-            
-            .industrias-grid {
-                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; justify-content: flex-start;
-            }
-            .industria-item { flex: 0 0 45%; scroll-snap-align: center; min-width: auto; }
+            #contact { margin-top: 0; border-radius: 30px 30px 0 0; padding-top: 40px !important; padding-bottom: 60px; }
+            .form-container-blue { padding: 0; gap: 30px; display: flex; flex-direction: column; }
+            .form-container-blue img { width: 100%; height: auto; object-fit: cover; }
         }
 
-        /* CÓMO TRABAJAMOS (AZUL) */
-        .sec-workflow { 
-            padding: 100px 5%; 
-            background: var(--title-blue); /* Fondo Azul */
-            color: #fff; /* Texto Blanco */
-        }
-        .sec-workflow .title-std { color: #fff; }
-        .sec-workflow .title-std::after { background-color: #fff; }
-
-        .workflow-steps { max-width: 800px; margin: 0 auto; position: relative; }
-        .workflow-step { display: flex; gap: 20px; margin-bottom: 40px; position: relative; }
-        
-        .workflow-number { 
-            flex-shrink: 0; width: 50px; height: 50px; 
-            background: #fff; /* Fondo Blanco */
-            color: var(--title-blue); /* Numero Azul */
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            font-weight: 700; font-size: 1.2rem; z-index: 2;
-        }
-        
-        .workflow-content h3 { margin-bottom: 10px; font-size: 1.3rem; color: #fff; }
-        .workflow-content p { color: rgba(255,255,255,0.9); }
-
-        .workflow-steps::before {
-            content: ''; position: absolute; top: 20px; bottom: 50px; left: 24px; width: 2px; 
-            background: rgba(255,255,255,0.3); 
-            z-index: 1;
-        }
-
-        /* NUESTRO DIFERENCIAL */
-        .sec-diff { padding: 100px 5%; background: #fff; }
-        .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .diff-card { 
-            background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; 
-        }
-        .diff-card:nth-child(odd) { background-color: #e0f7fa; border-color: #b2ebf2; }
-        .diff-card:nth-child(even) { background-color: #f3e5f5; border-color: #e1bee7; }
-        .diff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .diff-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
-
-        /* CERTIFICACIONES (1 POR PANTALLA) */
-        .sec-certs { padding: 100px 5%; background: var(--bg-soft-gray); }
-        .cert-slider-wrapper { position: relative; width: 100%; margin-top: 40px; }
-        
-        .cert-slider {
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
-            padding: 60px 30px; 
-            width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
-        }
-        .cert-slider::-webkit-scrollbar { display: none; }
-        
-        .cert-card {
-            /* 1 POR PANTALLA EN TODAS LAS RESOLUCIONES */
-            flex: 0 0 100%; 
-            scroll-snap-align: center;
-            
-            background: #fff; padding: 40px 30px; border-radius: 20px; 
-            box-shadow: var(--shadow-card); border: 1px solid #eee;
-            display: flex; flex-direction: column; justify-content: start; text-align: left;
-            transition: 0.3s;
-        }
-        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-        
-        .cert-logo-container { height: 50px; margin-bottom: 20px; display: flex; align-items: center; }
-        .cert-logo-container img { max-height: 100%; width: auto; object-fit: contain; }
-        
-        .cert-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 5px; color: var(--text-dark) !important; }
-        .cert-card .cert-subtitle { 
-            font-size: 0.9rem; font-weight: 700; color: var(--blue-accent); 
-            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; 
-            border-bottom: 2px solid #eee; padding-bottom: 10px; display: inline-block; width: 100%;
-        }
-        .cert-card p { font-size: 0.95rem; color: var(--text-desc-light); margin-bottom: 20px; }
-        .cert-card ul { list-style: none; padding: 0; margin: 0; }
-        .cert-card li { margin-bottom: 8px; font-size: 0.9rem; color: #444; display: flex; gap: 10px; align-items: start; line-height: 1.4; }
-        .cert-card li::before { content: '✓'; color: var(--primary); font-weight: bold; }
-
-        /* Ajuste de ancho responsivo para "1 por pantalla" pero con márgenes */
-        @media(min-width: 992px) { 
-            /* En desktop, dejamos que ocupe todo el ancho del slider visible, pero quizás queramos limitar el ancho máximo para que no sea ETERNO */
-            .cert-card { flex: 0 0 100%; max-width: 100%; } 
-        }
-        @media(max-width: 992px) { 
-            .cert-card { flex: 0 0 100%; } 
-        }
-
-        /* PARTNERS & CLIENTES */
-        .sec-ecosystem { padding: 80px 5%; background: #fff; }
-        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 30px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
-        .marquee-track { display: flex; gap: 40px; width: max-content; animation: scroll 40s linear infinite; }
-        .logo-box {
-            background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex; align-items: center; justify-content: center; width: 240px; height: 120px;
-        }
-        .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(100%); transition: 0.3s; }
-        .logo-box:hover img { filter: grayscale(0%); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* CTA FINAL */
-        .sec-cta-final { background: var(--title-blue); padding: 100px 5%; text-align: center; color: #fff; }
-        .sec-cta-final h2 { color: #fff !important; font-size: 2.2rem; margin-bottom: 20px; }
-        .sec-cta-final p { color: rgba(255,255,255,0.9) !important; max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6; }
-
-        /* Footer */
-        .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
+        /* --- FOOTER --- */
+        .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; }
         .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
-        .footer-logo { height: 72px; width: auto; filter: none; }
-        .contact-info-item { display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
-        .contact-info-item i { color: var(--primary); }
-
-        #back-to-top { position: fixed; right: 30px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100; }
+        
+        #back-to-top, #wsp-float {
+            position: fixed; right: 30px; width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100;
+        }
+        #back-to-top { bottom: 30px; background: var(--primary); color: #000; }
         #back-to-top.show { opacity: 1; pointer-events: auto; }
-        #wsp-float { position: fixed; bottom: 95px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 100; transition: 0.3s; }
+        #wsp-float { bottom: 95px; background: #25D366; color: #fff; width: 60px; height: 60px; font-size: 2rem; }
+
+        /* CARRUSEL RESPONSIVE */
+        .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(4, 1fr); } 
+        @media (max-width: 992px) {
+            .snap-container { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; gap: 20px; scroll-behavior: smooth; scrollbar-width: none; grid-template-columns: none !important; width: 100%; }
+            .snap-container::-webkit-scrollbar { display: none; }
+            .snap-item { flex: 0 0 85vw; width: 85vw; scroll-snap-align: center; min-width: 0; }
+            @media (min-width: 600px) { .snap-item { flex: 0 0 45vw; width: 45vw; } }
+        }
+        .mobile-nav-controls { display: none; }
+        @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
+
+        .desktop-only { display: inline-flex; }
+        .mobile-only { display: none; }
+        @media(max-width: 992px) {
+            .desktop-only { display: none; }
+            .mobile-only { display: flex; margin: 30px auto 0; width: auto; max-width: 90%; justify-content: center; }
+        }
 
     </style>
 </head>
@@ -357,10 +724,10 @@
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
         <a href="index.html" class="mobile-link">Inicio</a>
-        <a href="xfera.html" class="mobile-link" style="color: var(--primary);">XFERA</a>
+        <a href="xfera.html" class="mobile-link">XFERA</a>
         <a href="servicios.html" class="mobile-link">Servicios</a>
-        <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="#contact" class="mobile-link">Contacto</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
@@ -369,165 +736,303 @@
             <a href="index.html">
                 <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
             </a>
+            
             <div class="desktop-menu">
                 <div class="nav-links-group">
                     <a href="index.html" class="nav-link">Inicio</a>
-                    <a href="xfera.html" class="nav-link" style="color: var(--blue-accent);">XFERA</a>
+                    <a href="xfera.html" class="nav-link">XFERA</a>
                     <a href="servicios.html" class="nav-link">Servicios</a>
                     <a href="index.html#contact" class="nav-link">Contacto</a>
                 </div>
-                <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
             </div>
+            
             <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
     <main>
         <!-- HERO -->
-        <section id="xfera-header">
-            <div class="header-content">
-                <h1>XFERA</h1>
-                <p>Somos especialistas en infraestructura TI, nube privada e ingeniería tecnológica para organizaciones que requieren continuidad operativa, seguridad avanzada y arquitecturas que evolucionen con su negocio.</p>
-                <a href="#esencia" class="btn btn-primary">Conocer XFERA</a>
-            </div>
-        </section>
-
-        <!-- NUESTRA ESENCIA (AZUL) -->
-        <section id="esencia" class="reveal">
-            <div class="container">
-                <h2 class="title-std">Nuestra Esencia</h2>
-                <p>En Xfera ayudamos a las organizaciones a operar infraestructuras críticas con estabilidad, seguridad y resiliencia.</p>
-                <p>Combinamos ingeniería experta, tecnologías líderes y una visión estratégica que permite a nuestros clientes crecer sin interrupciones.</p>
-                <p>Somos una empresa chilena con más de 15 años de experiencia implementando soluciones de infraestructura TI en Chile, proyectos de nube privada (IaaS), plataformas hiperconvergentes Nutanix y servicios gestionados para instituciones de misión crítica.</p>
-            </div>
-        </section>
-
-        <!-- PROPÓSITO Y FUTURO -->
-        <section class="sec-proposito reveal">
-            <div class="container">
-                <h2 class="title-std title-centered">Propósito y Futuro</h2>
-                <div class="grid-proposito">
-                    <div class="card-proposito">
-                        <h3>Nuestro Propósito</h3>
-                        <p>Entregar soluciones y servicios de infraestructura TI, consultoría TI y nube privada en Chile que aseguren continuidad operativa, seguridad avanzada y crecimiento sostenible.</p>
-                        <p>Nos mueve la ingeniería aplicada, la innovación tecnológica y el acompañamiento directo a las organizaciones que confían en nosotros.</p>
-                    </div>
-                    <div class="card-proposito">
-                        <h3>Nuestro Futuro</h3>
-                        <p>Convertirnos en un referente nacional en infraestructura tecnológica y servicios de ingeniería TI, reconocidos por nuestra confiabilidad, calidad técnica y capacidad de transformar la operación TI de empresas e instituciones críticas en Chile.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- POR QUÉ EXISTIMOS -->
-        <section class="sec-why reveal">
-            <div class="container">
-                <div class="why-split">
-                    <div class="why-text-col">
-                        <h2 class="title-std">Por Qué Existimos</h2>
-                        <p>Las empresas enfrentan hoy entornos TI complejos: plataformas que no escalan, altos costos operativos, riesgos crecientes de seguridad y operaciones que no pueden detenerse.</p>
-                        <p>Xfera existe para resolver esos desafíos mediante arquitecturas modernas, seguras y resilientes, garantizando continuidad operativa, rendimiento y evolución constante. Cada industria presenta desafíos únicos; por eso diseñamos arquitecturas TI adaptadas a su nivel de problemática.</p>
+        <section id="home">
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="hero-split-layout">
+                    <!-- CONTENIDO IZQUIERDA -->
+                    <div class="hero-text-col">
+                        <span class="hero-pill">Transformación digital por expertos</span>
+                        <h1>Somos la solución a los desafíos más exigentes de infraestructura TI</h1>
+                        <p><strong>Infraestructura tecnológica</strong>, <strong>nube privada</strong> e <strong>hiperconvergencia Nutanix</strong> para empresas que exigen <strong>continuidad</strong>, <strong>seguridad</strong> y <strong>escalabilidad sin interrupciones</strong>.<br>
+                        Con más de <strong>15 años de experiencia</strong> y <strong>100+ implementaciones</strong>, en <strong>Xfera</strong> transformamos centros de datos en plataformas ágiles y listas para el futuro</p>
+                        
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
+                            <a href="servicios.html" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
+                            <a href="#contact" class="btn btn-hero-secondary">Cotiza tu solución <i class="fas fa-envelope" style="margin-left: 5px;"></i></a>
+                        </div>
                     </div>
                     
-                    <div class="why-image-col">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Ingeniería TI">
-                    </div>
-                </div>
-
-                <!-- SECTORES CLAVE (ICONOS PHOSPHOR LINEALES) -->
-                <div class="sectores-wrapper">
-                    <h4>Trabajamos con sectores clave:</h4>
-                    <div class="industrias-grid">
-                        <div class="industria-item"><i class="ph ph-pickaxe"></i><span>Minería y Energía</span></div>
-                        <div class="industria-item"><i class="ph ph-fish"></i><span>Salmonicultura</span></div>
-                        <div class="industria-item"><i class="ph ph-shopping-cart"></i><span>Retail</span></div>
-                        <div class="industria-item"><i class="ph ph-bank"></i><span>Finanzas</span></div>
-                        <div class="industria-item"><i class="ph ph-truck"></i><span>Logística</span></div>
-                        <div class="industria-item"><i class="ph ph-heartbeat"></i><span>Salud</span></div>
-                        <div class="industria-item"><i class="ph ph-graduation-cap"></i><span>Educación</span></div>
-                        <div class="industria-item"><i class="ph ph-buildings"></i><span>Sector Público</span></div>
-                        <div class="industria-item"><i class="ph ph-broadcast"></i><span>Telecom</span></div>
+                    <!-- IMAGEN DERECHA -->
+                    <div class="hero-img-col">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="img/hero-mobile.png">
+                            <img src="img/hero-desktop.png" alt="Infraestructura TI XFERA">
+                        </picture>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CÓMO TRABAJAMOS (AZUL) -->
-        <section class="sec-workflow reveal">
+        <!-- SECCIÓN 0 - CIFRAS -->
+        <section class="sec-stats reveal">
             <div class="container">
-                <h2 class="title-std title-centered">Cómo Trabajamos</h2>
-                <div class="workflow-steps">
-                    <div class="workflow-step">
-                        <div class="workflow-number">1</div>
-                        <div class="workflow-content">
-                            <h3>Diagnóstico Técnico</h3>
-                            <p>Evaluamos tu infraestructura, riesgos, brechas y requerimientos operativos.</p>
+                <div class="stats-wrapper">
+                    <div class="stat-block">
+                        <div class="stat-item"><h3 class="counter" data-target="15">+0</h3></div>
+                        <div class="stat-item"><p>Años de experiencia<br>en proyectos TI</p></div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-item"><h3 class="counter" data-target="100">+0</h3></div>
+                        <div class="stat-item"><p>Implementaciones<br>exitosas</p></div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-item"><h3 class="counter" data-target="30">+0</h3></div>
+                        <div class="stat-item"><p>Certificaciones<br>en plataformas</p></div>
+                    </div>
+                    <div class="respaldo-block">
+                        <p style="color: #fff; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">NUESTRO RESPALDO TÉCNICO</p>
+                        <div class="tech-check"><i class="fas fa-check-circle"></i> Infraestructura alojada en Data Center Certificado Tier III</div>
+                        <div class="tech-check"><i class="fas fa-check-circle"></i> Partner y actor autorizado <br class="mobile-br"> Nutanix en Chile</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 1 - SOMOS XFERA -->
+        <section id="about" class="sec-about reveal">
+            <div class="container">
+                <div class="about-split-layout">
+                    <div class="about-content-col">
+                        <h2 class="title-std title-dark">SOMOS <span>XFERA</span></h2>
+                        <p>Empresa especializada en servicios de Ingeniería e Infraestructura TI.</p>
+                        <p>Somos un equipo de profesionales de larga trayectoria, en distintas áreas de la informática y la consultoría, especialistas en infraestructura tecnológica y transformación digital.</p>
+                        <p>Somos el resultado de un equipo de ingenieros con sólida experiencia en la provisión de servicios de infraestructura y consultoría.</p>
+                        <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
+                        
+                        <div class="btn-wrapper">
+                            <a href="https://idigital2025.github.io/xfera/xfera" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
-                    <div class="workflow-step">
-                        <div class="workflow-number">2</div>
-                        <div class="workflow-content">
-                            <h3>Diseño de Arquitectura</h3>
-                            <p>Modelamos soluciones basadas en hiperconvergencia Nutanix, nube privada o entornos híbridos.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="workflow-number">3</div>
-                        <div class="workflow-content">
-                            <h3>Implementación Certificada</h3>
-                            <p>La instalación y configuración es realizada por ingenieros certificados en Nutanix, Lenovo, Veeam, etc.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="workflow-number">4</div>
-                        <div class="workflow-content">
-                            <h3>Migración sin Interrupciones</h3>
-                            <p>Trasladamos sistemas, datos y servicios con procesos controlados que aseguran continuidad operativa.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="workflow-number">5</div>
-                        <div class="workflow-content">
-                            <h3>Soporte y Operación Continua</h3>
-                            <p>Ofrecemos servicios gestionados TI en Chile, con monitoreo y soporte especializado.</p>
+                    <div class="about-image-col">
+                        <div class="about-image-wrapper">
+                            <img src="img/datacenter-hero-Dl1IAIUb.jpg" alt="Centro de Datos">
+                            <div class="floating-badge">
+                                <strong>100%</strong><span>Uptime garantizado</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3 - SERVICIOS (MODIFICADO: FONDO GRIS CLARO) -->
+        <section id="services" class="reveal">
+            <div class="container">
+                <h2 class="title-std title-centered" style="color: #000;">
+                    SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
+                </h2>
+                <!-- Texto Intro: Width 100%, Alineado Izquierda -->
+                <p style="width: 100%; text-align: left; max-width: 100%; margin-left: 0; color: var(--text-desc-light); margin-bottom: 4rem; font-size: 0.9rem;">
+                    Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad. En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
+                    <br><br>
+                    Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI
+                </p>
+
+                <div class="service-full-card">
+                    <div class="service-image-side">
+                        <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
+                        <div class="service-image-overlay"></div>
+                        <div class="service-badge">MODALIDAD 1</div>
+                        <div class="service-title-overlay">
+                            <h3>Infraestructura TI</h3>
+                        </div>
+                    </div>
+                    <div class="service-content-side">
+                        <p>Arquitecturas modernas basadas en Nutanix y cloud privada, diseñadas para garantizar rendimiento, disponibilidad y seguridad continua.</p>
+                        <h4>INCLUYE:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Infraestructura como Servicio (IaaS)</li>
+                            <li><i class="fas fa-check-circle"></i> Nube Privada (VPC)</li>
+                            <li><i class="fas fa-check-circle"></i> Servidores Virtuales (VPS)</li>
+                            <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
+                            <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
+                        </ul>
+                        <!-- BOTÓN CONOCER MÁS (CIAN) -->
+                        <div style="margin-top: 30px;">
+                             <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary" style="background-color: var(--primary); border-color: var(--primary);">Conocer más</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SERVICIO 2 -->
+                <div class="service-full-card">
+                    <div class="service-image-side">
+                        <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
+                        <div class="service-image-overlay"></div>
+                        <div class="service-badge" style="border-color: var(--secondary); color: var(--secondary);">MODALIDAD 2</div>
+                        <div class="service-title-overlay">
+                            <h3>Consultoría TI</h3>
+                        </div>
+                    </div>
+                    <div class="service-content-side">
+                        <p>Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.</p>
+                        <h4>INCLUYE:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios gestionados (Managed Services)</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios profesionales de ingeniería</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Migraciones TI</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
+                        </ul>
+                        <!-- BOTÓN CONOCER MÁS (MORADO) -->
+                        <div style="margin-top: 30px;">
+                             <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary" style="background-color: var(--secondary); border-color: var(--secondary);">Conocer más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BOTÓN FINAL VER SERVICIOS -->
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="https://idigital2025.github.io/xfera/servicios" class="btn btn-secondary-dark" style="padding: 15px 40px; font-size: 1rem;">Ver Servicios</a>
+                </div>
+
             </div>
         </section>
 
         <!-- NUESTRO DIFERENCIAL -->
-        <section class="sec-diff reveal">
+        <section id="diferencial" style="padding: var(--padding-section); background: var(--bg-light);" class="reveal">
             <div class="container">
-                <h2 class="title-std title-centered">Nuestro Diferencial</h2>
-                <div class="diff-grid">
-                    <div class="diff-card">
+                <h2 class="title-std title-dark title-centered">
+                    NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
+                </h2>
+                
+                <div class="snap-container" id="diff-scroll">
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
                         <h3>Equipo Certificado</h3>
-                        <p>Ingenieros con certificaciones en Nutanix, Lenovo, Veeam, Pure Storage y plataformas de misión crítica.</p>
+                        <p style="font-size: 0.9rem; margin:0;">Especialistas certificados en Nutanix, Lenovo, Veeam y más.</p>
                     </div>
-                    <div class="diff-card">
-                        <h3>Experiencia Crítica</h3>
-                        <p>Hemos ejecutado proyectos para SUSESO, TGR, MOP y empresas privadas de alto impacto.</p>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-server" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Hiperconvergencia</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Infraestructura moderna, centralizada y de alto rendimiento.</p>
                     </div>
-                    <div class="diff-card">
-                        <h3>Arquitecturas Modernas</h3>
-                        <p>Soluciones de hiperconvergencia y nube privada IaaS diseñadas para continuidad y escalabilidad.</p>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>Seguridad Tier III</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Data Center Certificado y continuidad operativa asegurada.</p>
                     </div>
-                    <div class="diff-card">
-                        <h3>Acompañamiento Integral</h3>
-                        <p>Estamos presentes en cada etapa del ciclo tecnológico: diagnóstico, diseño, implementación y operación.</p>
+                    <div class="diff-card snap-item">
+                        <i class="fas fa-cogs" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;"></i>
+                        <h3>100% Personalizado</h3>
+                        <p style="font-size: 0.9rem; margin:0;">Diseñamos la arquitectura exacta para tu realidad.</p>
+                    </div>
+                </div>
+
+                <div class="mobile-nav-controls controls-container">
+                    <button class="scroll-btn prev light-theme" data-target="diff-scroll"><i class="fas fa-chevron-left"></i></button>
+                    <button class="scroll-btn next light-theme" data-target="diff-scroll"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA PROCESO -->
+        <section class="sec-process reveal">
+            <div class="container">
+                <h2>¿LISTO PARA IMPULSAR LA CONTINUIDAD DE TU <br><span>EMPRESA?</span></h2>
+                <p class="subtitle">Avanza hoy en la modernización y rendimiento de tu infraestructura TI. Agenda una reunión con nuestros especialistas.</p>
+                
+                <div class="process-steps">
+                    <div class="step-item blue">
+                        <div class="icon-box">
+                            <div class="step-badge">1</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-10 h-10 text-primary"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>Diagnóstico inicial</h3>
+                        <p>Revisamos tus desafíos y requerimientos</p>
+                    </div>
+                    <div class="step-item purple">
+                        <div class="icon-box">
+                            <div class="step-badge">2</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-check w-10 h-10 text-primary"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="m9 15 2 2 4-4"></path></svg>
+                        </div>
+                        <h3>Propuesta personalizada</h3>
+                        <p>Clara y ajustada a tus necesidades</p>
+                    </div>
+                    <div class="step-item cyan">
+                        <div class="icon-box">
+                            <div class="step-badge">3</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-10 h-10 text-primary"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                        </div>
+                        <h3>Implementación</h3>
+                        <p>Modernización sin interrupciones</p>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-video" style="margin-right: 6px;"></i> Solicitar reunión</a>
+            </div>
+        </section>
+
+        <!-- CASOS DE ÉXITO (MODIFICADO BOTONES Y SUBTÍTULO) -->
+        <section id="casos" class="sec-cases reveal">
+            <div class="container">
+                <h2 class="title-std title-dark">
+                    CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
+                </h2>
+                <!-- Subtítulo Actualizado -->
+                <p class="section-subtitle">Conoce uno de nuestros proyectos realizados para institución pública del Gobierno, modernizando y asegurado infraestructura de primer nivel</p>
+                
+                <div class="cases-split-layout">
+                    <div class="case-image-col">
+                        <div class="case-image-wrapper">
+                            <picture>
+                                <img src="img/case-suseso.jpg" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'" alt="Caso de Éxito SUSESO">
+                            </picture>
+                            <div class="case-overlay-card">
+                                <h4>SUSESO</h4>
+                                <p>Superintendencia de Seguridad Social</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-content-col">
+                        <p class="lead">Modernizamos y aseguramos la infraestructura crítica para esta institución pública clave</p>
+                        
+                        <div class="case-results-title">Resultados principales</div>
+                        <ul class="case-list">
+                            <li><i class="fas fa-check-circle"></i> Continuidad operativa garantizada</li>
+                            <li><i class="fas fa-check-circle"></i> Migraciones sin interrupción</li>
+                            <li><i class="fas fa-check-circle"></i> Mayor resiliencia y seguridad</li>
+                            <li><i class="fas fa-check-circle"></i> Reducción de tiempos de administración</li>
+                            <li><i class="fas fa-check-circle"></i> Modernización completa en producción</li>
+                        </ul>
+                        
+                        <!-- BOTONES SECUNDARIOS (Lenovo y Nutanix) -->
+                        <div class="cases-actions">
+                             <a href="https://www.lenovo.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Lenovo</a>
+                             <a href="https://www.nutanix.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Nutanix</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PARTNERS & CLIENTES (MOVIDO ARRIBA) -->
-        <section class="sec-ecosystem reveal">
+        <!-- PARTNERS -->
+        <section class="sec-partners reveal">
             <div class="container">
-                <h2 class="title-std title-centered" style="color: var(--text-dark);">Nuestros Partners</h2>
+                <h2 class="title-std title-dark title-centered">
+                    NUESTROS <span style="color: var(--title-blue);">PARTNERS</span>
+                </h2>
+                <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
+                        <!-- Logos -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -535,6 +1040,7 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
+                        <!-- Repetir -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -542,99 +1048,125 @@
             </div>
         </section>
 
-        <!-- CERTIFICACIONES (1 SLIDE) -->
-        <section class="sec-certs reveal">
+        <!-- INFRAESTRUCTURA CENTRALIZADA -->
+        <section class="sec-infra reveal">
             <div class="container">
-                <h2 class="title-std title-centered">Certificaciones</h2>
+                <h2 class="title-std title-dark title-centered">
+                    INFRAESTRUCTURA <span style="color: #ffffff;">CENTRALIZADA</span>
+                </h2>
+                <p style="font-size: 0.95rem; max-width: 800px; margin: 0 auto 50px; color: #ffffff !important;">
+                    Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
+                </p>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
+                    <div class="infra-pill">
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Escalabilidad instantánea
+                    </div>
+                    <div class="infra-pill">
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Alta disponibilidad
+                    </div>
+                    <div class="infra-pill">
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Seguridad integrada
+                    </div>
+                </div>
+                <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-white-filled">Conocer más</a>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS CLAVES (FONDO DEGRADADO CYAN, TARJETAS BLANCAS) -->
+        <section class="sec-benefits-bg reveal">
+            <div class="container">
+                <div class="benefits-header">
+                    <h2 class="title-std title-dark title-centered" style="margin-bottom: 25px;">
+                        BENEFICIOS <span style="color: var(--title-blue);">CLAVES</span>
+                    </h2>
+                </div>
                 
-                <div class="cert-slider-wrapper">
-                    <div class="cert-slider" id="cert-scroll">
+                <div class="benefit-grid-mobile">
+                    <div class="benefits-carousel-wrapper">
+                        <div class="benefits-carousel" id="benefits-scroll">
+                            <div class="benefit-card">
+                                <h3>Expertos que acompañan tu operación TI de principio a fin</h3>
+                                <p>Nos involucramos desde el diagnóstico hasta la operación diaria.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Continuidad operativa como prioridad</h3>
+                                <p>Arquitecturas resilientes que mantienen tu negocio operativo incluso ante incidentes críticos.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Modernización sin interrupciones</h3>
+                                <p>Implementamos nuevas tecnologías sin afectar tus procesos.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Seguridad transversal y centralizada</h3>
+                                <p>Protección integral sobre datos, accesos, redes y servicios.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Escalabilidad real</h3>
+                                <p>Infraestructura que crece contigo sin rediseños mayores.</p>
+                            </div>
+                        </div>
+
+                        <div class="controls-container" style="margin-top: 20px;">
+                            <button class="scroll-btn prev light-theme" data-target="benefits-scroll"><i class="fas fa-chevron-left"></i></button>
+                            <button class="scroll-btn next light-theme" data-target="benefits-scroll"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 7: FORMULARIO -->
+        <section id="contact" class="reveal">
+            <div class="container">
+                <div class="form-container-blue">
+                    <div>
+                        <h2 class="title-std title-light" style="margin-bottom: 30px;">
+                            FORMULARIO DE <span style="color: #ffffff;">CONTACTO</span>
+                        </h2>
+                        <p class="form-intro-text">Completa el formulario y te contactaremos para coordinar una reunión según tu disponibilidad.</p>
+                        <p class="form-intro-text">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
+                        <p class="form-intro-text" style="margin-top: 30px; font-weight: 600;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
                         
-                        <!-- NUTANIX -->
-                        <div class="cert-card">
-                            <div class="cert-logo-container">
-                                <img src="img/partner-nutanix.png" alt="Nutanix">
-                            </div>
-                            <h3>NUTANIX</h3>
-                            <span class="cert-subtitle">Authorized Service Provider</span>
-                            <p>Expertos certificados en arquitectura hiperconvergente para infraestructura moderna.</p>
-                            <ul>
-                                <li>NCP-MCI (Multicloud Infrastructure)</li>
-                                <li>Accredited Professional – Infrastructure</li>
-                                <li>Sizing Professional</li>
-                                <li>Certified Sales Representative</li>
-                            </ul>
-                        </div>
-
-                        <!-- LENOVO -->
-                        <div class="cert-card">
-                            <div class="cert-logo-container">
-                                <img src="img/partner-lenovo.png" alt="Lenovo">
-                            </div>
-                            <h3>LENOVO</h3>
-                            <span class="cert-subtitle">Infrastructure Solutions Partner</span>
-                            <p>Especialistas en soluciones de datacenter y servidores empresariales.</p>
-                            <ul>
-                                <li>Data Center Professional</li>
-                                <li>Sustainability Service</li>
-                                <li>Intelligent Devices Support Service</li>
-                                <li>Intelligent Devices Configuration</li>
-                            </ul>
-                        </div>
-
-                        <!-- VEEAM -->
-                        <div class="cert-card">
-                            <div class="cert-logo-container">
-                                <img src="img/partner-veeam.png" alt="Veeam">
-                            </div>
-                            <h3>VEEAM</h3>
-                            <span class="cert-subtitle">Cloud & Service Provider</span>
-                            <p>Partners oficiales en respaldo, continuidad operativa y protección de datos.</p>
-                            <ul>
-                                <li>VMSP Cybersecurity & DR</li>
-                                <li>VMSP Cloud Service Provider</li>
-                                <li>VMSP SaaS Protection</li>
-                                <li>Cloud & Service Provider – Registered</li>
-                            </ul>
-                        </div>
-
+                        <img src="img/seccion8.jpg" alt="Tecnología" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
                     </div>
                     
-                    <div class="controls-container">
-                        <button class="scroll-btn prev light-theme" data-target="cert-scroll"><i class="fas fa-chevron-left"></i></button>
-                        <button class="scroll-btn next light-theme" data-target="cert-scroll"><i class="fas fa-chevron-right"></i></button>
-                    </div>
+                    <form>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label class="form-label">Nombre completo</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="email" class="form-input" placeholder=" " required>
+                            <label class="form-label">Correo electrónico</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="tel" class="form-input" placeholder=" " required>
+                            <label class="form-label">Teléfono</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label class="form-label">Empresa</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" ">
+                            <label class="form-label">Tamaño de la empresa (opcional)</label>
+                        </div>
+                        <div class="form-floating-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label class="form-label">Mensaje</label>
+                        </div>
+                        
+                        <div class="privacy-text">
+                            Al enviar tu mensaje, aceptas nuestras <a href="#" style="color: var(--primary);">Políticas de Privacidad</a>.
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 60px;">Enviar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
-
-        <!-- CLIENTES -->
-        <section class="sec-ecosystem reveal" style="background: #f8fafc; padding-top: 50px;">
-            <div class="container">
-                <h2 class="title-std title-centered">Clientes</h2>
-                <div class="marquee-wrapper">
-                    <div class="marquee-track">
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=SUSESO" alt="SUSESO"></div>
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=MOP" alt="MOP"></div>
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=TGR" alt="TGR"></div>
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=Cooperativas" alt="Coop"></div>
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=Empresas" alt="Empresas"></div>
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=SUSESO" alt="SUSESO"></div>
-                         <div class="logo-box"><img src="https://placehold.co/240x120?text=MOP" alt="MOP"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
-        <section class="sec-cta-final reveal">
-            <div class="container">
-                <h2>Conoce Nuestros Servicios</h2>
-                <p>Explora nuestras soluciones de Infraestructura TI y Consultoría TI, diseñadas para continuidad operativa, seguridad avanzada y crecimiento tecnológico en Chile.</p>
-                <a href="servicios.html" class="btn btn-white-filled">Ver Servicios</a>
-            </div>
-        </section>
-
     </main>
 
     <!-- FOOTER -->
@@ -733,19 +1265,12 @@
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                let item = container.querySelector('.snap-item') || container.querySelector('.cert-card') || container.querySelector('.diff-card') || container.querySelector('.industria-item');
+                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card') || container.querySelector('.industria-item');
                 if(!item) return;
                 
-                // Medidas - Lógica dinámica para 100% width slide
-                let stride;
-                if (item.classList.contains('cert-card')) {
-                     // Para certificaciones, el stride es el ancho del contenedor completo (1 item por vista)
-                     stride = container.clientWidth;
-                } else {
-                     const gap = 20; 
-                     const itemWidth = item.offsetWidth;
-                     stride = itemWidth + gap; 
-                }
+                const gap = 20; 
+                const itemWidth = item.offsetWidth;
+                const stride = itemWidth + gap; 
                 
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;
@@ -770,5 +1295,6 @@
             });
         });
     </script>
+
 </body>
 </html>

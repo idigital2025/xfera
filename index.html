@@ -32,9 +32,11 @@
             
             /* Variables Light */
             --bg-light: #ffffff;
-            --bg-light-alt: #f9fafb;
+            --bg-light-alt: #f8f9fa; /* Gris Claro */
             --bg-soft-gray: #f8fafc;
-            --bg-soft-blue: #f0f9ff;
+            --bg-soft-blue: #F7FDFF;
+            --bg-soft-purple: #FAF7FC;
+
             --text-dark: #1a1a1a;
             --text-desc-light: #555555;
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
@@ -42,17 +44,17 @@
             /* Sombra imagen sutilmente azul */
             --shadow-image: 20px 20px 60px rgba(0, 212, 255, 0.15);
             
-            --padding-section: 100px 5%;
-            --radius-card: 20px;
+            --padding-section: 120px 5%;
+            --radius-card: 24px;
             --nav-height: 80px;
             --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
         
-        /* CORRECCIÓN ANCHO PAGINA Y FONDO */
+        /* CORRECCIÓN ANCHO PAGINA */
         html, body {
             overflow-x: hidden;
             width: 100%;
@@ -60,7 +62,7 @@
             padding: 0;
             position: relative;
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; 
+            background-color: #f0f2f5;
             color: var(--text-white);
             font-size: 16px;
         }
@@ -151,7 +153,7 @@
             background: var(--primary); color: #000; border-color: var(--primary);
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
-        
+
         /* Botón Blanco Relleno */
         .btn-white-filled {
             background: #ffffff;
@@ -323,17 +325,27 @@
         .stats-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: nowrap; }
         .stat-block { text-align: center; flex-shrink: 0; }
         
-        .stat-item h3 { font-size: 2.5rem; color: #ffffff; margin-bottom: 10px; font-weight: 800; line-height: 1; }
-        .stat-item p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0; line-height: 1.3; font-weight: 500; }
+        .stat-item h3 { 
+            font-size: 2.5rem; 
+            color: #ffffff; /* Número Blanco */
+            margin-bottom: 10px; font-weight: 800; line-height: 1; 
+        }
+        .stat-item p { 
+            color: rgba(255,255,255,0.8); /* Texto Blanco Suave */
+            font-size: 0.9rem; margin: 0; line-height: 1.3; font-weight: 500; 
+        }
         
         .respaldo-block { 
             text-align: left; border-left: 2px solid rgba(255,255,255,0.3); 
             padding-left: 30px; flex-shrink: 1; 
         }
-        .respaldo-block p { color: #ffffff !important; } 
+        .respaldo-block p { color: #ffffff !important; } /* Título Respaldo Blanco */
         
-        .tech-check { color: rgba(255,255,255,0.9); font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .tech-check i { color: #ffffff; font-size: 1.1rem; } 
+        .tech-check { 
+            color: rgba(255,255,255,0.9); /* Texto Check Blanco */
+            font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; 
+        }
+        .tech-check i { color: #ffffff; font-size: 1.1rem; } /* Icono Blanco */
         .mobile-br { display: none; }
 
         @media(max-width: 992px) { 
@@ -347,33 +359,38 @@
 
         /* --- SECCIÓN 1 - SOMOS XFERA --- */
         .sec-about { padding: var(--padding-section); background: #ffffff; color: #333; }
-        .about-split-layout { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; }
+        .about-split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px; 
+            align-items: center;
+        }
         .about-content-col { text-align: left; }
         .about-content-col .title-std { text-align: left; margin-bottom: 25px; }
         .about-content-col .title-std::after { margin-left: 0; }
-        .about-content-col p { color: var(--text-desc-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        .about-content-col p {
+            color: var(--text-desc-light);
+            font-size: 0.9rem; 
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
         
-        .about-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; padding: 0; }
-        .about-list-grid li { display: flex; align-items: center; gap: 10px; color: var(--text-dark); font-weight: 500; font-size: 0.8rem; }
-        
-        .about-list-grid li::before {
-            content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-        }
-
-        /* COLORES PUNTOS SOMOS XFERA - MODIFICADO */
-        .about-list-grid li:nth-child(1)::before,
-        .about-list-grid li:nth-child(2)::before {
-            background-color: var(--secondary); /* Morado para los 2 primeros */
-        }
-        .about-list-grid li:nth-child(3)::before,
-        .about-list-grid li:nth-child(4)::before {
-            background-color: var(--primary); /* Cian para los 2 últimos */
-        }
-
+        /* Lista de puntos eliminada en nueva versión */
+        .about-list-grid { display: none; }
 
         .about-image-col { position: relative; }
-        .about-image-wrapper { position: relative; border-radius: 20px; box-shadow: var(--shadow-image); line-height: 0; }
-        .about-image-wrapper img { width: 100%; height: auto; border-radius: 20px; display: block; }
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            box-shadow: var(--shadow-image); 
+            line-height: 0; 
+        }
+        .about-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+        }
         .floating-badge {
             position: absolute; bottom: 30px; left: -30px; background: #ffffff;
             padding: 15px 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); color: var(--text-desc-light);
@@ -392,7 +409,6 @@
         }
         @media(max-width: 768px) {
             .sec-about { text-align: left; }
-            .about-list-grid { grid-template-columns: 1fr; } 
         }
 
         /* --- SERVICIOS --- */
@@ -401,7 +417,10 @@
         @media(min-width: 992px) {
             #services .title-std { text-align: center; color: var(--text-dark) !important; }
             #services .title-std::after { margin-left: auto; margin-right: auto; }
-            #services > .container > p { text-align: center; margin-left: auto; margin-right: auto; max-width: 800px; color: var(--text-desc-light) !important; }
+            #services > .container > p { 
+                text-align: left; margin-left: 0; margin-right: 0; /* Alinear Párrafo a la izquierda y Ancho Completo */
+                max-width: 100%; color: var(--text-desc-light) !important; 
+            }
         }
 
         #services .title-std { color: var(--text-dark); }
@@ -412,7 +431,9 @@
         .service-split-layout:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         
         .service-full-card {
-            background: #fff; border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 80px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: #fff; border-radius: 24px; overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 80px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .service-full-card:last-child { margin-bottom: 0; }
 
@@ -452,11 +473,9 @@
             background: #f9f9f9; padding: 2rem; border-radius: 20px; 
             border: 1px solid #eee; box-shadow: var(--shadow-card); transition: 0.3s; min-width: 0; 
         }
-        .diff-card:nth-child(1), .diff-card:nth-child(3) { background-color: #e0f7fa; border-color: #b2ebf2; }
-        .diff-card:nth-child(2), .diff-card:nth-child(4) { background-color: #f3e5f5; border-color: #e1bee7; }
-        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; min-height: 3em; }
-        .diff-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
-        .diff-card h3 { color: var(--text-dark); font-size: 1.1rem; }
+        .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
+        .diff-card h3 { color: var(--text-dark); }
+        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; }
 
         /* --- INFRAESTRUCTURA --- */
         .sec-infra { 
@@ -465,9 +484,9 @@
         }
         .sec-infra .title-std { color: #fff !important; }
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
-        .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 0.95rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.6; }
+        .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
         
-        /* Pills modificados */
+        /* Pills modificados: Cuadrado redondeado y check azul */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
             border-radius: 12px; 
@@ -478,6 +497,21 @@
 
         /* --- CASOS DE ÉXITO --- */
         .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); }
+        
+        /* Centrar título de sección Casos de Éxito */
+        .sec-cases .title-std { text-align: center; color: var(--text-dark); }
+        .sec-cases .title-std::after { margin-left: auto; margin-right: auto; }
+        
+        /* Estilo para el subtítulo de la sección */
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--text-desc-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
         .cases-split-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
         
         .case-image-wrapper { position: relative; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-image); }
@@ -495,13 +529,12 @@
         .case-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: var(--text-desc-light); font-weight: 500; font-size: 0.95rem; }
         .case-list li i { color: var(--primary); font-size: 1.1rem; }
         
-        .cases-nav { display: flex; gap: 15px; margin-top: 30px; }
-        .case-nav-btn {
-            width: 45px; height: 45px; border-radius: 50%; background: #fff; border: 1px solid #eee;
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.2s; color: #333;
+        /* Botones Casos de Éxito Actualizados */
+        .cases-actions {
+            display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px;
         }
-        .case-nav-btn:hover { background: var(--bg-light-alt); border-color: #ddd; }
+        
+        .cases-nav { display: none; } /* Ocultar flechas ya que no es slide */
 
         @media(max-width: 992px) {
             .cases-split-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -516,16 +549,13 @@
         .logo-box {
             background: #fff; padding: 15px 30px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             color: #555; display: flex; align-items: center; justify-content: center; font-weight: 700; opacity: 1; filter: none;
-            width: 180px; height: 80px;
         }
-        .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- CTA PROCESS --- */
         .sec-process { background-color: #f8fafc; padding: 100px 5%; text-align: center; } 
         .sec-process h2 { 
-            font-size: 1.8rem; /* MODIFICADO: Igual a .title-std */
-            margin-bottom: 25px; color: #111; font-weight: 700; text-transform: uppercase; position: relative; display: inline-block; 
+            font-size: 1.8rem; margin-bottom: 25px; color: #111; font-weight: 700; text-transform: uppercase; position: relative; display: inline-block; 
         }
         .sec-process h2::after { content: ''; display: block; width: 60px; height: 5px; background-color: var(--title-blue); margin: 15px auto 0; border-radius: 2px; }
         .sec-process h2 span { color: var(--title-blue); }
@@ -554,7 +584,8 @@
 
         /* --- BENEFICIOS CLAVES --- */
         .sec-benefits-bg { 
-            background: radial-gradient(circle at center, #8ff4ff 0%, #ffffff 35%); 
+            /* Reducido punto focal al 35% para que no toque bordes */
+            background: radial-gradient(circle at center, rgba(143, 244, 255, 0.4) 0%, #ffffff 35%); 
             padding: var(--padding-section); 
             color: #111; 
         }
@@ -657,9 +688,9 @@
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
-        <a href="#home" class="mobile-link">Inicio</a>
-        <a href="#about" class="mobile-link">XFERA</a>
-        <a href="https://idigital2025.github.io/xfera/servicios" class="mobile-link">Servicios</a>
+        <a href="index.html" class="mobile-link">Inicio</a>
+        <a href="xfera.html" class="mobile-link">XFERA</a>
+        <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="#contact" class="mobile-link">Contacto</a>
         <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
@@ -667,16 +698,16 @@
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container nav-flex">
-            <a href="#">
+            <a href="index.html">
                 <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
             </a>
             
             <div class="desktop-menu">
                 <div class="nav-links-group">
-                    <a href="#home" class="nav-link">Inicio</a>
-                    <a href="#about" class="nav-link">XFERA</a>
-                    <a href="https://idigital2025.github.io/xfera/servicios" class="nav-link">Servicios</a>
-                    <a href="#contact" class="nav-link">Contacto</a>
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="xfera.html" class="nav-link">XFERA</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="index.html#contact" class="nav-link">Contacto</a>
                 </div>
                 <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
             </div>
@@ -693,13 +724,12 @@
                     <!-- CONTENIDO IZQUIERDA -->
                     <div class="hero-text-col">
                         <span class="hero-pill">Transformación digital por expertos</span>
-                        <!-- Título con "infraestructura TI" en azul -->
-                        <h1>Somos la respuesta a los desafíos de <span class="highlight-blue">infraestructura TI</span> <br>más complejos</h1>
-                        <p>Soluciones de infraestructura TI, nube privada e hiperconvergencia Nutanix que garantizan continuidad operativa, seguridad avanzada y crecimiento sin interrupciones</p>
+                        <h1>Somos la solución a los desafíos más exigentes de infraestructura TI</h1>
+                        <p>Infraestructura tecnológica, nube privada e hiperconvergencia Nutanix para empresas que exigen continuidad, seguridad y escalabilidad sin interrupciones.<br>
+                        +15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro</p>
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
-                            <a href="#services" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
-                            <!-- Botón Secundario Modificado: Borde Negro + Icono Email -->
+                            <a href="servicios.html" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
                             <a href="#contact" class="btn btn-hero-secondary">Cotiza tu solución <i class="fas fa-envelope" style="margin-left: 5px;"></i></a>
                         </div>
                     </div>
@@ -707,9 +737,7 @@
                     <!-- IMAGEN DERECHA -->
                     <div class="hero-img-col">
                         <picture>
-                            <!-- MOBILE/TABLET VERTICAL (< 768px): Usa imagen mobile recortada en 300px via CSS -->
                             <source media="(max-width: 768px)" srcset="img/hero-mobile.png">
-                            <!-- DESKTOP/TABLET (> 768px): Usa imagen desktop completa -->
                             <img src="img/hero-desktop.png" alt="Infraestructura TI XFERA">
                         </picture>
                     </div>
@@ -717,7 +745,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 0 - CIFRAS (AZUL OSCURO Y TEXTO BLANCO) -->
+        <!-- SECCIÓN 0 - CIFRAS -->
         <section class="sec-stats reveal">
             <div class="container">
                 <div class="stats-wrapper">
@@ -746,26 +774,17 @@
         <section id="about" class="sec-about reveal">
             <div class="container">
                 <div class="about-split-layout">
-                    <!-- Columna Texto -->
                     <div class="about-content-col">
                         <h2 class="title-std title-dark">SOMOS <span>XFERA</span></h2>
-                        <p>
-                            Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad.
-                        </p>
-                        <p>
-                            En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
-                        </p>
-                        <ul class="about-list-grid">
-                            <li>Sistemas que no escalan</li>
-                            <li>Riesgos de fallos</li>
-                            <li>Altos costos operativos</li>
-                            <li>Demandas de seguridad</li>
-                        </ul>
+                        <p>Empresa especializada en servicios de Ingeniería e Infraestructura TI.</p>
+                        <p>Somos un equipo de profesionales de larga trayectoria, en distintas áreas de la informática y la consultoría, especialistas en infraestructura tecnológica y transformación digital.</p>
+                        <p>Somos el resultado de un equipo de ingenieros con sólida experiencia en la provisión de servicios de infraestructura y consultoría.</p>
+                        <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
+                        
                         <div class="btn-wrapper">
-                            <a href="#contact" class="btn btn-primary">Conocer más</a>
+                            <a href="xfera.html" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
-                    <!-- Columna Imagen -->
                     <div class="about-image-col">
                         <div class="about-image-wrapper">
                             <img src="img/datacenter-hero-Dl1IAIUb.jpg" alt="Centro de Datos">
@@ -781,15 +800,16 @@
         <!-- SECCIÓN 3 - SERVICIOS (MODIFICADO: FONDO GRIS CLARO) -->
         <section id="services" class="reveal">
             <div class="container">
-                <h2 class="title-std title-light" style="color: #000;">
+                <h2 class="title-std title-centered" style="color: #000;">
                     SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
                 </h2>
-                <!-- Subtítulo Actualizado -->
-                <p style="width: 100%; color: var(--text-desc-light); margin-bottom: 4rem; font-size: 0.9rem;">
+                <!-- Texto Intro: Width 100%, Alineado Izquierda -->
+                <p style="width: 100%; text-align: left; max-width: 100%; margin-left: 0; color: var(--text-desc-light); margin-bottom: 4rem; font-size: 0.9rem;">
+                    Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad. En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
+                    <br><br>
                     Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI
                 </p>
 
-                <!-- SERVICIO 1 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
@@ -800,9 +820,7 @@
                         </div>
                     </div>
                     <div class="service-content-side">
-                        <p>
-                            Arquitecturas modernas basadas en Nutanix y cloud privada, diseñadas para garantizar rendimiento, disponibilidad y seguridad continua.
-                        </p>
+                        <p>Arquitecturas modernas basadas en Nutanix y cloud privada, diseñadas para garantizar rendimiento, disponibilidad y seguridad continua.</p>
                         <h4>INCLUYE:</h4>
                         <ul class="service-list">
                             <li><i class="fas fa-check-circle"></i> Infraestructura como Servicio (IaaS)</li>
@@ -811,13 +829,9 @@
                             <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
                             <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
                         </ul>
-                        <div style="margin-top: 30px;">
-                            <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary">Conocer más</a>
-                        </div>
                     </div>
                 </div>
 
-                <!-- SERVICIO 2 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -828,9 +842,7 @@
                         </div>
                     </div>
                     <div class="service-content-side">
-                        <p>
-                            Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.
-                        </p>
+                        <p>Acompañamiento experto para evaluar, migrar, administrar y operar infraestructura crítica de forma segura y eficiente.</p>
                         <h4>INCLUYE:</h4>
                         <ul class="service-list">
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Servicios gestionados (Managed Services)</li>
@@ -839,9 +851,6 @@
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
                         </ul>
-                        <div style="margin-top: 30px;">
-                            <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary">Conocer más</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -921,14 +930,14 @@
             </div>
         </section>
 
-        <!-- CASOS DE ÉXITO -->
+        <!-- CASOS DE ÉXITO (MODIFICADO BOTONES Y SUBTÍTULO) -->
         <section id="casos" class="sec-cases reveal">
             <div class="container">
-                <h2 class="title-std title-dark">
+                <h2 class="title-std title-dark title-centered">
                     CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
                 </h2>
-                <!-- Subtítulo añadido -->
-                <p class="section-subtitle">Conoce uno de nuestros proyectos realizados para instituciones públicas y privadas, modernizando y asegurado infraestructura de primer nivel</p>
+                <!-- Subtítulo Actualizado -->
+                <p class="section-subtitle">Conoce uno de nuestros proyectos realizados para institución pública del Gobierno, modernizando y asegurado infraestructura de primer nivel</p>
                 
                 <div class="cases-split-layout">
                     <div class="case-image-col">
@@ -955,43 +964,41 @@
                             <li><i class="fas fa-check-circle"></i> Modernización completa en producción</li>
                         </ul>
                         
+                        <!-- BOTONES SECUNDARIOS (Lenovo y Nutanix) -->
                         <div class="cases-actions">
-                             <a href="#" class="btn btn-primary">Leer más</a>
-                             <div class="cases-nav">
-                                 <div class="case-nav-btn"><i class="fas fa-chevron-left"></i></div>
-                                 <div class="case-nav-btn"><i class="fas fa-chevron-right"></i></div>
-                             </div>
+                             <a href="https://www.lenovo.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Lenovo</a>
+                             <a href="https://www.nutanix.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Nutanix</a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- PARTNERS -->
-        <section style="padding: 60px 5%; background: #ffffff;" class="reveal">
+        <section class="sec-partners reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
                     NUESTROS <span style="color: var(--title-blue);">PARTNERS</span>
                 </h2>
-                <p style="text-align: center; font-size: 1rem; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
+                <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
-                        <!-- Reemplazar con imágenes reales -->
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=VEEAM" alt="VEEAM"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=SUSESO" alt="SUSESO"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=PURE" alt="PURE"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=NUTANIX" alt="NUTANIX"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=LENOVO" alt="LENOVO"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=VEEAM" alt="VEEAM"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=SUSESO" alt="SUSESO"></div>
-                        <div class="logo-box"><img src="https://placehold.co/120x60?text=PURE" alt="PURE"></div>
+                        <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
+                        <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
+                        <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
+                        <div class="logo-box"><img src="img/partner-pure.png" alt="PURE"></div>
+                        <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
+                        <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
+                        <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
+                        <!-- Repetir -->
+                        <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
+                        <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- INFRAESTRUCTURA CENTRALIZADA (SIN CTA) -->
+        <!-- INFRAESTRUCTURA CENTRALIZADA -->
         <section class="sec-infra reveal">
             <div class="container">
                 <h2 class="title-std title-dark title-centered">
@@ -1002,52 +1009,49 @@
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Escalabilidad instantánea
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Escalabilidad instantánea
                     </div>
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Alta disponibilidad
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Alta disponibilidad
                     </div>
                     <div class="infra-pill">
-                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important;"></i> Seguridad integrada
+                        <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Seguridad integrada
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- BENEFICIOS CLAVES (SIN CTA) -->
+        <!-- BENEFICIOS CLAVES (FONDO DEGRADADO CYAN, TARJETAS BLANCAS) -->
         <section class="sec-benefits-bg reveal">
             <div class="container">
                 <div class="benefits-header">
                     <h2 class="title-std title-dark title-centered" style="margin-bottom: 25px;">
                         BENEFICIOS <span style="color: var(--title-blue);">CLAVES</span>
                     </h2>
-                    <p>
-                        ¿Aún no te convences de XFERA? Somos experiencia Senior en nuestro equipo de trabajo, quienes te garantizamos soluciones viables desde todas las perspectivas para tu negocio.
-                    </p>
                 </div>
                 
                 <div class="benefit-grid-mobile">
                     <div class="benefits-carousel-wrapper">
                         <div class="benefits-carousel" id="benefits-scroll">
                             <div class="benefit-card">
-                                <h3>Continuidad operativa real</h3>
-                                <p>Disponibilidad incluso ante incidentes críticos.</p>
+                                <h3>Expertos que acompañan tu operación TI de principio a fin</h3>
+                                <p>Nos involucramos desde el diagnóstico hasta la operación diaria.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Escalabilidad inmediata</h3>
-                                <p>Infraestructura que crece con tu negocio sin interrupciones.</p>
+                                <h3>Continuidad operativa como prioridad</h3>
+                                <p>Arquitecturas resilientes que mantienen tu negocio operativo incluso ante incidentes críticos.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Migraciones sin riesgos</h3>
-                                <p>Procesos rápidos, seguros y sin fricción.</p>
+                                <h3>Modernización sin interrupciones</h3>
+                                <p>Implementamos nuevas tecnologías sin afectar tus procesos.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Menor costo total (TCO)</h3>
-                                <p>Menos mantenimiento, menos complejidad.</p>
+                                <h3>Seguridad transversal y centralizada</h3>
+                                <p>Protección integral sobre datos, accesos, redes y servicios.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Seguridad centralizada</h3>
-                                <p>Protección unificada de datos y sistemas críticos.</p>
+                                <h3>Escalabilidad real</h3>
+                                <p>Infraestructura que crece contigo sin rediseños mayores.</p>
                             </div>
                         </div>
 
@@ -1068,11 +1072,11 @@
                         <h2 class="title-std title-light" style="margin-bottom: 30px;">
                             FORMULARIO DE <span style="color: #ffffff;">CONTACTO</span>
                         </h2>
-                        <p class="form-intro-text" style="font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6;">Completa el formulario y te contactaremos para coordinar una reunión según tu disponibilidad.</p>
-                        <p class="form-intro-text" style="font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6;">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
-                        <p class="form-intro-text" style="margin-top: 30px; font-weight: 600; font-size: 1rem; color: #fff;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
+                        <p class="form-intro-text">Completa el formulario y te contactaremos para coordinar una reunión según tu disponibilidad.</p>
+                        <p class="form-intro-text">Cada empresa tiene necesidades distintas y diseñamos una propuesta según tu situación actual y tus objetivos.</p>
+                        <p class="form-intro-text" style="margin-top: 30px; font-weight: 600;">¿Tienes otra duda? Envíala por este medio y te orientamos.</p>
                         
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Operaciones Tecnológicas en la Nube" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
+                        <img src="img/seccion8.jpg" alt="Tecnología" style="width: 100%; border-radius: 20px; margin-top: 30px; opacity: 0.8;">
                     </div>
                     
                     <form>
@@ -1101,7 +1105,7 @@
                             <label class="form-label">Mensaje</label>
                         </div>
                         
-                        <div class="privacy-text" style="margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center;">
+                        <div class="privacy-text">
                             Al enviar tu mensaje, aceptas nuestras <a href="#" style="color: var(--primary);">Políticas de Privacidad</a>.
                         </div>
 
@@ -1118,41 +1122,28 @@
     <footer class="footer-section">
         <div class="container footer-grid">
             <div>
-                <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="logo-img" style="margin-right: 0;"></a>
+                <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0;"></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
             </div>
-            
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                 <div class="footer-links">
                     <a href="index.html">Inicio</a>
-                    <a href="index.html#about">Somos Xfera</a>
-                    <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
-                    <a href="#contact">Contacto</a>
+                    <a href="xfera.html">Somos Xfera</a>
+                    <a href="servicios.html">Servicios</a>
+                    <a href="index.html#contact">Contacto</a>
                 </div>
             </div>
-
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
-                <div class="contact-info-item" style="display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                    <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
-                    <span>Dirección Comercial Xfera,<br>Santiago, Chile.</span>
-                </div>
-                <div class="contact-info-item" style="display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                    <i class="fas fa-phone-alt" style="color: var(--primary);"></i>
-                    <span>+56 9 1234 5678</span>
-                </div>
-                <div class="contact-info-item" style="display: flex; gap: 10px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                    <i class="fas fa-envelope" style="color: var(--primary);"></i>
-                    <span>contacto@xfera.cl</span>
-                </div>
+                <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span></div>
+                <div class="contact-info-item"><i class="fas fa-envelope"></i><span>contacto@xfera.cl</span></div>
             </div>
-
             <div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal & Partners</h4>
-                <div class="footer-links" style="margin-bottom: 25px;">
+                <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal</h4>
+                <div class="footer-links">
                     <a href="#">Términos y Condiciones</a>
                     <a href="#">Políticas de Privacidad</a>
                 </div>
@@ -1171,14 +1162,12 @@
 
     <!-- SCRIPTS -->
     <script>
-        // 1. Efecto Scroll Header
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         }, { passive: true });
 
-        // 2. Lógica Menú Móvil
         const menuBtn = document.getElementById('menuBtn');
         const closeMenu = document.getElementById('closeMenu');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1195,44 +1184,6 @@
         overlay.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // 3. Animación de Contadores
-        const counterSection = document.querySelector('.sec-stats');
-        let countersStarted = false;
-
-        const startCounters = () => {
-            if(countersStarted) return;
-            countersStarted = true;
-            document.querySelectorAll('.counter').forEach(counter => {
-                counter.innerText = '+0';
-                const target = +counter.getAttribute('data-target');
-                const updateCounter = () => {
-                    const c = +counter.innerText.replace('+','');
-                    const increment = Math.max(1, target / 50);
-                    if(c < target) {
-                        counter.innerText = '+' + Math.ceil(c + increment);
-                        setTimeout(updateCounter, 30);
-                    } else {
-                        counter.innerText = '+' + target;
-                    }
-                };
-                updateCounter();
-            });
-        };
-
-        // 4. Reveal Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    if(entry.target.classList.contains('sec-stats')) startCounters();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // 5. Botón Back to Top
         const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) backToTop.classList.add('show');
@@ -1243,19 +1194,29 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+        
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
 
-        // 6. LÓGICA DE CARRUSEL CON LOOP INFINITO
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Lógica de Carrusel
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                // Buscar el item dentro del contenedor específico
-                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card');
+                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card');
                 if(!item) return;
                 
-                // Medidas
                 const gap = 20; 
                 const itemWidth = item.offsetWidth;
                 const stride = itemWidth + gap; 
@@ -1263,19 +1224,16 @@
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;
                 
-                // Ajuste de lógica de scroll
                 let newScroll;
 
                 if (isNext) {
                     if (currentScroll + stride > maxScroll) {
-                         // Si llegamos al final, volver al principio (Loop)
                         newScroll = 0;
                     } else {
                         newScroll = currentScroll + stride;
                     }
                 } else {
                     if (currentScroll - stride < 0) { 
-                        // Si estamos al principio, ir al final (Loop)
                         newScroll = maxScroll;
                     } else {
                         newScroll = currentScroll - stride;

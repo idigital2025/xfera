@@ -280,10 +280,10 @@
             background-color: var(--title-blue); border-radius: 50%; margin-right: 8px;
         }
 
-        /* AJUSTE TAMAÑO TÍTULO HERO (-2pt aprox) */
+        /* AJUSTE TAMAÑO TÍTULO HERO (-1pt adicional) */
         #home h1 { 
             color: var(--text-dark-hero) !important; 
-            font-size: clamp(1.9rem, 4.5vw, 3.1rem); /* Reducido levemente */
+            font-size: clamp(1.8rem, 4vw, 2.9rem); /* Reducido otro poco */
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 25px;
@@ -299,7 +299,7 @@
         /* AJUSTE TAMAÑO SUBTÍTULO HERO */
         #home p { 
             color: var(--text-desc-light) !important; text-shadow: none !important;
-            font-size: 0.95rem; /* Reducido levemente */
+            font-size: 0.9rem; /* Reducido a 0.9rem */
             margin-bottom: 35px; max-width: 90%;
         }
 
@@ -690,38 +690,46 @@
             .form-container-blue img { width: 100%; height: auto; object-fit: cover; }
         }
 
-        /* --- FOOTER --- */
-        .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; }
-        .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        /* --- FOOTER (4 COLUMNAS + LEGAL ROW) --- */
+        .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
+        
+        /* Grid 4 Columnas */
+        .footer-grid { 
+            display: grid; 
+            gap: 3rem; 
+            grid-template-columns: repeat(4, 1fr); /* 4 Columnas en Desktop */
+        }
+        
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
+        .footer-logo { height: 55px; width: auto; filter: none; } /* Logo Footer Reducido */
         
-        #back-to-top, #wsp-float {
-            position: fixed; right: 30px; width: 50px; height: 50px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-            cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100;
-        }
-        #back-to-top { bottom: 30px; background: var(--primary); color: #000; }
-        #back-to-top.show { opacity: 1; pointer-events: auto; }
-        #wsp-float { bottom: 95px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 100; transition: 0.3s; }
+        .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
+        .contact-info-item i { color: var(--primary); }
 
-        /* CARRUSEL RESPONSIVE */
-        .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(4, 1fr); } 
+        /* Estilo Fila Legal Horizontal */
+        .footer-legal-row {
+            border-top: 1px solid #222; 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px;
+        }
+        .footer-legal-row a { color: #888; font-size: 0.85rem; transition: 0.3s; }
+        .footer-legal-row a:hover { color: var(--primary); }
+
         @media (max-width: 992px) {
-            .snap-container { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; gap: 20px; scroll-behavior: smooth; scrollbar-width: none; grid-template-columns: none !important; width: 100%; }
-            .snap-container::-webkit-scrollbar { display: none; }
-            .snap-item { flex: 0 0 85vw; width: 85vw; scroll-snap-align: center; min-width: 0; }
-            @media (min-width: 600px) { .snap-item { flex: 0 0 45vw; width: 45vw; } }
+            .footer-grid { grid-template-columns: 1fr 1fr; } /* 2 cols en Tablet */
         }
-        .mobile-nav-controls { display: none; }
-        @media(max-width: 992px) { .mobile-nav-controls { display: flex; } }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; } /* 1 col en Mobile */
+            .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; }
+        }
 
-        .desktop-only { display: inline-flex; }
-        .mobile-only { display: none; }
-        @media(max-width: 992px) {
-            .desktop-only { display: none; }
-            .mobile-only { display: flex; margin: 30px auto 0; width: auto; max-width: 90%; justify-content: center; }
-        }
+        #back-to-top { position: fixed; right: 30px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100; }
+        #back-to-top.show { opacity: 1; pointer-events: auto; }
+        #wsp-float { position: fixed; bottom: 95px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 100; transition: 0.3s; }
 
     </style>
 </head>
@@ -768,8 +776,8 @@
                     <div class="hero-text-col">
                         <span class="hero-pill">Transformación digital liderada por expertos</span>
                         <h1>Somos la solución a los desafíos más exigentes de <span class="highlight-blue">Infraestructura TI</span></h1>
-                        <p>Infraestructura tecnológica, nube privada e hiperconvergencia Nutanix para empresas que exigen continuidad, seguridad y escalabilidad sin interrupciones.<br><br>
-                        <span style="display:block; margin-top: 15px;">Con más de 15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro.</span></p>
+                        <p><strong>Infraestructura tecnológica</strong>, <strong>nube privada</strong> e <strong>hiperconvergencia Nutanix</strong> para empresas que exigen <strong>continuidad</strong>, <strong>seguridad</strong> y <strong>escalabilidad sin interrupciones</strong>.<br>
+                        <span style="display:block; margin-top: 7px;">Con más de 15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro</span></p>
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
                             <a href="servicios.html" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
@@ -1040,7 +1048,7 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
-                        <!-- Logos -->
+                        <!-- Logos Actualizados -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -1177,51 +1185,57 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
     <footer class="footer-section">
-        <div class="container footer-grid">
-            <div>
-                <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0; height: 55px;"></a>
-                <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
-                    Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
-                </p>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div>
+                    <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0; height: 55px;"></a>
+                    <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
+                        Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
+                    </p>
+                </div>
+                <!-- Col 2 -->
+                <div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Inicio</a>
+                        <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
+                        <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
+                        <a href="index.html#contact">Contacto</a>
+                    </div>
+                </div>
+                <!-- Col 3 -->
+                <div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
+                    <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+                        <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
+                    </div>
+                    <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                        <i class="fas fa-envelope" style="color: var(--primary);"></i>
+                        <span>contacto@xfera.cl</span>
+                    </div>
+                </div>
+                <!-- Col 4: Mercado Público -->
+                <div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff; visibility: hidden;">MP</h4>
+                     <div style="background: #fff; padding: 12px 15px; border-radius: 10px; display: inline-block;">
+                        <img src="https://www.xfera.cl/assets/convenio-CoHGQRBL.png" alt="Mercado Público" style="height: 45px; display: block;">
+                    </div>
+                </div>
             </div>
             
-            <div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
-                <div class="footer-links">
-                    <a href="index.html">Inicio</a>
-                    <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
-                    <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
-                    <a href="index.html#contact">Contacto</a>
-                </div>
+            <!-- Fila Legal Horizontal -->
+            <div class="footer-legal-row" style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px;">
+                 <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Términos y Condiciones</a>
+                 <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Políticas de Privacidad</a>
             </div>
-
-            <div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
-                <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                    <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
-                    <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
-                </div>
-                <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                    <i class="fas fa-envelope" style="color: var(--primary);"></i>
-                    <span>contacto@xfera.cl</span>
-                </div>
+            
+            <div style="text-align: center; font-size: 0.85rem; color: #555; margin-top: 20px;">
+                &copy; 2024 XFERA. Todos los derechos reservados.
             </div>
-
-            <div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal</h4>
-                <div class="footer-links" style="margin-bottom: 25px;">
-                    <a href="#">Términos y Condiciones</a>
-                    <a href="#">Políticas de Privacidad</a>
-                </div>
-                <div style="background: #fff; padding: 12px 15px; border-radius: 10px; display: inline-block;">
-                    <img src="https://www.xfera.cl/assets/convenio-CoHGQRBL.png" alt="Mercado Público" style="height: 45px; display: block;">
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; font-size: 0.85rem; color: #555; border-top: 1px solid #222; margin-top: 50px; padding-top: 25px;">
-            &copy; 2024 XFERA. Todos los derechos reservados.
         </div>
     </footer>
 

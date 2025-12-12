@@ -280,9 +280,15 @@
             background-color: var(--title-blue); border-radius: 50%; margin-right: 8px;
         }
 
+        /* AJUSTE TAMAÑO TÍTULO HERO (-2pt aprox) */
         #home h1 { 
             color: var(--text-dark-hero) !important; 
-            font-size: clamp(2.1rem, 5vw, 3.3rem); line-height: 1.1; font-weight: 800; margin-bottom: 25px; text-transform: none; text-shadow: none !important;
+            font-size: clamp(1.9rem, 4.5vw, 3.1rem); /* Reducido levemente */
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: none; 
+            text-shadow: none !important;
         }
         .highlight-blue { color: var(--title-blue) !important; }
         
@@ -290,9 +296,11 @@
             color: var(--text-dark-hero) !important; font-size: 1.1rem; 
             font-weight: 400; margin-bottom: 20px; text-shadow: none !important;
         }
+        /* AJUSTE TAMAÑO SUBTÍTULO HERO */
         #home p { 
             color: var(--text-desc-light) !important; text-shadow: none !important;
-            font-size: 1rem; margin-bottom: 35px; max-width: 90%;
+            font-size: 0.95rem; /* Reducido levemente */
+            margin-bottom: 35px; max-width: 90%;
         }
 
         .hero-img-col {
@@ -669,12 +677,12 @@
         #contact .title-std { color: #ffffff !important; }
         .form-container-blue { background: transparent; padding: clamp(40px, 8vw, 80px); display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; border-radius: 0; box-shadow: none; }
         .form-floating-group { position: relative; margin-bottom: 25px; }
-        .form-input { width: 100%; padding: 15px 0 10px; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; outline: none; font-size: 1rem; transition: 0.3s; max-width: 100%; box-sizing: border-box; }
+        .form-input { width: 100%; padding: 15px 0 10px; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff !important; outline: none; font-size: 1rem; transition: 0.3s; max-width: 100%; box-sizing: border-box; }
         .form-input:focus { border-bottom-color: var(--primary); }
         .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label { top: -10px; font-size: 0.8rem; color: var(--primary); }
-        .form-label { position: absolute; top: 15px; left: 0; color: rgba(255,255,255,0.7); pointer-events: none; transition: 0.3s ease all; font-size: 1rem; }
-        .form-intro-text { font-size: 1rem; color: #fff; margin-bottom: 20px; line-height: 1.6; }
-        .privacy-text { margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: center; }
+        .form-label { position: absolute; top: 15px; left: 0; color: rgba(255,255,255,0.7) !important; pointer-events: none; transition: 0.3s ease all; font-size: 1rem; }
+        .form-intro-text { font-size: 1rem; color: #fff !important; margin-bottom: 20px; line-height: 1.6; }
+        .privacy-text { margin-bottom: 25px; font-size: 0.85rem; color: rgba(255,255,255,0.7) !important; text-align: center; }
 
         @media(max-width: 768px) {
             #contact { margin-top: 0; border-radius: 30px 30px 0 0; padding-top: 40px !important; padding-bottom: 60px; }
@@ -695,7 +703,7 @@
         }
         #back-to-top { bottom: 30px; background: var(--primary); color: #000; }
         #back-to-top.show { opacity: 1; pointer-events: auto; }
-        #wsp-float { bottom: 95px; background: #25D366; color: #fff; width: 60px; height: 60px; font-size: 2rem; }
+        #wsp-float { bottom: 95px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 100; transition: 0.3s; }
 
         /* CARRUSEL RESPONSIVE */
         .snap-container { display: grid; gap: 1.5rem; grid-template-columns: repeat(4, 1fr); } 
@@ -758,10 +766,10 @@
                 <div class="hero-split-layout">
                     <!-- CONTENIDO IZQUIERDA -->
                     <div class="hero-text-col">
-                        <span class="hero-pill">Transformación digital por expertos</span>
-                        <h1>Somos la solución a los desafíos más exigentes de infraestructura TI</h1>
-                        <p><strong>Infraestructura tecnológica</strong>, <strong>nube privada</strong> e <strong>hiperconvergencia Nutanix</strong> para empresas que exigen <strong>continuidad</strong>, <strong>seguridad</strong> y <strong>escalabilidad sin interrupciones</strong>.<br>
-                        Con más de <strong>15 años de experiencia</strong> y <strong>100+ implementaciones</strong>, en <strong>Xfera</strong> transformamos centros de datos en plataformas ágiles y listas para el futuro</p>
+                        <span class="hero-pill">Transformación digital liderada por expertos</span>
+                        <h1>Somos la solución a los desafíos más exigentes de <span class="highlight-blue">Infraestructura TI</span></h1>
+                        <p>Infraestructura tecnológica, nube privada e hiperconvergencia Nutanix para empresas que exigen continuidad, seguridad y escalabilidad sin interrupciones.<br><br>
+                        <span style="display:block; margin-top: 15px;">Con más de 15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro.</span></p>
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
                             <a href="servicios.html" class="btn btn-primary">Descubre XFERA <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></a>
@@ -785,15 +793,15 @@
             <div class="container">
                 <div class="stats-wrapper">
                     <div class="stat-block">
-                        <div class="stat-item"><h3 class="counter" data-target="15">+0</h3></div>
+                        <div class="stat-item"><h3 class="counter" data-target="15">0</h3></div>
                         <div class="stat-item"><p>Años de experiencia<br>en proyectos TI</p></div>
                     </div>
                     <div class="stat-block">
-                        <div class="stat-item"><h3 class="counter" data-target="100">+0</h3></div>
+                        <div class="stat-item"><h3 class="counter" data-target="100">0</h3></div>
                         <div class="stat-item"><p>Implementaciones<br>exitosas</p></div>
                     </div>
                     <div class="stat-block">
-                        <div class="stat-item"><h3 class="counter" data-target="30">+0</h3></div>
+                        <div class="stat-item"><h3 class="counter" data-target="30">0</h3></div>
                         <div class="stat-item"><p>Certificaciones<br>en plataformas</p></div>
                     </div>
                     <div class="respaldo-block">
@@ -817,7 +825,7 @@
                         <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
                         
                         <div class="btn-wrapper">
-                            <a href="https://idigital2025.github.io/xfera/xfera" class="btn btn-primary">Conocer más</a>
+                            <a href="xfera.html" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
                     <div class="about-image-col">
@@ -870,7 +878,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- SERVICIO 2 -->
+
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -1173,28 +1181,37 @@
     <footer class="footer-section">
         <div class="container footer-grid">
             <div>
-                <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0;"></a>
+                <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0; height: 55px;"></a>
                 <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                     Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                 </p>
             </div>
+            
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                 <div class="footer-links">
                     <a href="index.html">Inicio</a>
-                    <a href="xfera.html">Somos Xfera</a>
-                    <a href="servicios.html">Servicios</a>
+                    <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
+                    <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
                     <a href="index.html#contact">Contacto</a>
                 </div>
             </div>
+
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
-                <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span></div>
-                <div class="contact-info-item"><i class="fas fa-envelope"></i><span>contacto@xfera.cl</span></div>
+                <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+                    <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
+                </div>
+                <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
+                    <i class="fas fa-envelope" style="color: var(--primary);"></i>
+                    <span>contacto@xfera.cl</span>
+                </div>
             </div>
+
             <div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Legal</h4>
-                <div class="footer-links">
+                <div class="footer-links" style="margin-bottom: 25px;">
                     <a href="#">Términos y Condiciones</a>
                     <a href="#">Políticas de Privacidad</a>
                 </div>
@@ -1246,11 +1263,36 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
+        // Animación Cifras (Corregido)
+        const counterSection = document.querySelector('.sec-stats');
+        let countersStarted = false;
+
+        const startCounters = () => {
+            if(countersStarted) return;
+            countersStarted = true;
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const updateCounter = () => {
+                    const increment = target / 50; 
+                    if(count < target) {
+                        count += increment;
+                        counter.innerText = '+' + Math.ceil(count);
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.innerText = '+' + target;
+                    }
+                };
+                updateCounter();
+            });
+        };
+        
         // Reveal Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    if(entry.target.classList.contains('sec-stats')) startCounters();
                     observer.unobserve(entry.target);
                 }
             });
@@ -1268,9 +1310,14 @@
                 let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card') || container.querySelector('.industria-item');
                 if(!item) return;
                 
-                const gap = 20; 
-                const itemWidth = item.offsetWidth;
-                const stride = itemWidth + gap; 
+                let stride;
+                if (item.classList.contains('cert-card')) {
+                     stride = container.clientWidth; 
+                } else {
+                     const gap = 20; 
+                     const itemWidth = item.offsetWidth;
+                     stride = itemWidth + gap; 
+                }
                 
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;

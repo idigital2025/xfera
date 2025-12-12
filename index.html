@@ -280,10 +280,9 @@
             background-color: var(--title-blue); border-radius: 50%; margin-right: 8px;
         }
 
-        /* AJUSTE TAMAÑO TÍTULO HERO (-1pt adicional) */
         #home h1 { 
             color: var(--text-dark-hero) !important; 
-            font-size: clamp(1.8rem, 4vw, 2.9rem); /* Reducido otro poco */
+            font-size: clamp(1.8rem, 4vw, 2.9rem); 
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 25px;
@@ -296,10 +295,9 @@
             color: var(--text-dark-hero) !important; font-size: 1.1rem; 
             font-weight: 400; margin-bottom: 20px; text-shadow: none !important;
         }
-        /* AJUSTE TAMAÑO SUBTÍTULO HERO */
         #home p { 
             color: var(--text-desc-light) !important; text-shadow: none !important;
-            font-size: 0.9rem; /* Reducido a 0.9rem */
+            font-size: 0.9rem;
             margin-bottom: 35px; max-width: 90%;
         }
 
@@ -383,7 +381,6 @@
             margin-bottom: 20px;
         }
         
-        /* Lista de puntos eliminada en nueva versión */
         .about-list-grid { display: none; }
 
         .about-image-col { position: relative; }
@@ -426,7 +423,7 @@
             #services .title-std { text-align: center; color: var(--text-dark) !important; }
             #services .title-std::after { margin-left: auto; margin-right: auto; }
             #services > .container > p { 
-                text-align: left; margin-left: 0; margin-right: 0; /* Alinear Párrafo a la izquierda y Ancho Completo */
+                text-align: left; margin-left: 0; margin-right: 0; 
                 max-width: 100%; color: var(--text-desc-light) !important; 
             }
         }
@@ -494,7 +491,7 @@
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
         .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
         
-        /* Pills modificados: Cuadrado redondeado y check azul */
+        /* Pills modificados */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
             border-radius: 12px; 
@@ -506,11 +503,9 @@
         /* --- CASOS DE ÉXITO --- */
         .sec-cases { background: var(--bg-light-alt); padding: var(--padding-section); }
         
-        /* Centrar título de sección Casos de Éxito */
         .sec-cases .title-std { text-align: center; color: var(--text-dark); }
         .sec-cases .title-std::after { margin-left: auto; margin-right: auto; }
         
-        /* Estilo para el subtítulo de la sección */
         .section-subtitle {
             text-align: center;
             max-width: 800px;
@@ -542,7 +537,7 @@
             display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px;
         }
         
-        .cases-nav { display: none; } /* Ocultar flechas ya que no es slide */
+        .cases-nav { display: none; } 
 
         @media(max-width: 992px) {
             .cases-split-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -566,7 +561,7 @@
             animation: scroll 30s linear infinite; 
         }
 
-        /* LOGO BOX (Igual a Servicios) */
+        /* LOGO BOX */
         .logo-box {
             background: #fff; 
             padding: 0; 
@@ -660,7 +655,7 @@
         @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
         @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
 
-        /* Controles Globales (Ahora fuera de media query) */
+        /* Controles Globales */
         .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
         .scroll-btn {
             width: 45px; height: 45px; border-radius: 50%;
@@ -693,19 +688,18 @@
         /* --- FOOTER (4 COLUMNAS + LEGAL ROW) --- */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
         
-        /* Grid 4 Columnas */
         .footer-grid { 
             display: grid; 
             gap: 3rem; 
-            grid-template-columns: repeat(4, 1fr); /* 4 Columnas en Desktop */
+            grid-template-columns: repeat(4, 1fr); 
         }
         
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
-        .footer-logo { height: 55px; width: auto; filter: none; } /* Logo Footer Reducido */
+        .footer-logo { height: 55px; width: auto; filter: none; }
         
         .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
-        .contact-info-item i { color: var(--primary); }
+        .contact-info-item i { color: #ffffff; } /* Iconos Footer Blancos */
 
         /* Estilo Fila Legal Horizontal */
         .footer-legal-row {
@@ -720,10 +714,10 @@
         .footer-legal-row a:hover { color: var(--primary); }
 
         @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; } /* 2 cols en Tablet */
+            .footer-grid { grid-template-columns: 1fr 1fr; } 
         }
         @media (max-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr; } /* 1 col en Mobile */
+            .footer-grid { grid-template-columns: 1fr; } 
             .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; }
         }
 
@@ -735,7 +729,7 @@
 </head>
 <body id="top">
 
-    <!-- MENÚ MÓVIL OVERLAY -->
+    <!-- MENÚ MÓVIL -->
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
@@ -748,22 +742,23 @@
 
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
-        <div class="container nav-flex">
-            <a href="index.html">
-                <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
-            </a>
-            
-            <div class="desktop-menu">
-                <div class="nav-links-group">
-                    <a href="index.html" class="nav-link">Inicio</a>
-                    <a href="xfera.html" class="nav-link">XFERA</a>
-                    <a href="servicios.html" class="nav-link">Servicios</a>
-                    <a href="index.html#contact" class="nav-link">Contacto</a>
+        <div class="container">
+            <!-- WRAPPER ANIDADO PARA ALINEACIÓN -->
+            <div class="footer-grid" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="index.html"><img src="img/logo-negro.png" alt="XFERA" class="logo-img"></a>
+                
+                <div class="desktop-menu">
+                    <div class="nav-links-group">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                        <a href="xfera.html" class="nav-link">XFERA</a>
+                        <a href="servicios.html" class="nav-link">Servicios</a>
+                        <a href="#contact" class="nav-link">Contacto</a>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
                 </div>
-                <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                
+                <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
             </div>
-            
-            <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
@@ -833,7 +828,7 @@
                         <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
                         
                         <div class="btn-wrapper">
-                            <a href="xfera.html" class="btn btn-primary">Conocer más</a>
+                            <a href="https://idigital2025.github.io/xfera/xfera" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
                     <div class="about-image-col">
@@ -848,19 +843,19 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3 - SERVICIOS (MODIFICADO: FONDO GRIS CLARO) -->
+        <!-- SECCIÓN 3 - SERVICIOS -->
         <section id="services" class="reveal">
             <div class="container">
                 <h2 class="title-std title-centered" style="color: #000;">
                     SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
                 </h2>
-                <!-- Texto Intro: Width 100%, Alineado Izquierda -->
                 <p style="width: 100%; text-align: left; max-width: 100%; margin-left: 0; color: var(--text-desc-light); margin-bottom: 4rem; font-size: 0.9rem;">
                     Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad. En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
                     <br><br>
                     Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI
                 </p>
 
+                <!-- Tarjeta 1 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
@@ -880,13 +875,13 @@
                             <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
                             <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
                         </ul>
-                        <!-- BOTÓN CONOCER MÁS (CIAN) -->
                         <div style="margin-top: 30px;">
                              <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary" style="background-color: var(--primary); border-color: var(--primary);">Conocer más</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Tarjeta 2 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -906,18 +901,15 @@
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
                         </ul>
-                        <!-- BOTÓN CONOCER MÁS (MORADO) -->
                         <div style="margin-top: 30px;">
                              <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary" style="background-color: var(--secondary); border-color: var(--secondary);">Conocer más</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- BOTÓN FINAL VER SERVICIOS -->
                 <div style="text-align: center; margin-top: 50px;">
                     <a href="https://idigital2025.github.io/xfera/servicios" class="btn btn-secondary-dark" style="padding: 15px 40px; font-size: 1rem;">Ver Servicios</a>
                 </div>
-
             </div>
         </section>
 
@@ -995,13 +987,12 @@
             </div>
         </section>
 
-        <!-- CASOS DE ÉXITO (MODIFICADO BOTONES Y SUBTÍTULO) -->
+        <!-- CASOS DE ÉXITO -->
         <section id="casos" class="sec-cases reveal">
             <div class="container">
                 <h2 class="title-std title-dark">
                     CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
                 </h2>
-                <!-- Subtítulo Actualizado -->
                 <p class="section-subtitle">Conoce uno de nuestros proyectos realizados para institución pública del Gobierno, modernizando y asegurado infraestructura de primer nivel</p>
                 
                 <div class="cases-split-layout">
@@ -1029,7 +1020,6 @@
                             <li><i class="fas fa-check-circle"></i> Modernización completa en producción</li>
                         </ul>
                         
-                        <!-- BOTONES SECUNDARIOS (Lenovo y Nutanix) -->
                         <div class="cases-actions">
                              <a href="https://www.lenovo.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Lenovo</a>
                              <a href="https://www.nutanix.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Nutanix</a>
@@ -1048,7 +1038,6 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
-                        <!-- Logos Actualizados -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -1056,7 +1045,6 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
-                        <!-- Repetir -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -1088,7 +1076,7 @@
             </div>
         </section>
 
-        <!-- BENEFICIOS CLAVES (FONDO DEGRADADO CYAN, TARJETAS BLANCAS) -->
+        <!-- BENEFICIOS CLAVES -->
         <section class="sec-benefits-bg reveal">
             <div class="container">
                 <div class="benefits-header">
@@ -1101,24 +1089,24 @@
                     <div class="benefits-carousel-wrapper">
                         <div class="benefits-carousel" id="benefits-scroll">
                             <div class="benefit-card">
-                                <h3>Expertos que acompañan tu operación TI de principio a fin</h3>
-                                <p>Nos involucramos desde el diagnóstico hasta la operación diaria.</p>
+                                <h3>Continuidad operativa real</h3>
+                                <p>Disponibilidad incluso ante incidentes críticos.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Continuidad operativa como prioridad</h3>
-                                <p>Arquitecturas resilientes que mantienen tu negocio operativo incluso ante incidentes críticos.</p>
+                                <h3>Escalabilidad inmediata</h3>
+                                <p>Infraestructura que crece con tu negocio sin interrupciones.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Modernización sin interrupciones</h3>
-                                <p>Implementamos nuevas tecnologías sin afectar tus procesos.</p>
+                                <h3>Migraciones sin riesgos</h3>
+                                <p>Procesos rápidos, seguros y sin fricción.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Seguridad transversal y centralizada</h3>
-                                <p>Protección integral sobre datos, accesos, redes y servicios.</p>
+                                <h3>Menor costo total (TCO)</h3>
+                                <p>Menos mantenimiento, menos complejidad.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Escalabilidad real</h3>
-                                <p>Infraestructura que crece contigo sin rediseños mayores.</p>
+                                <h3>Seguridad centralizada</h3>
+                                <p>Protección unificada de datos y sistemas críticos.</p>
                             </div>
                         </div>
 
@@ -1131,7 +1119,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 7: FORMULARIO -->
+        <!-- FORMULARIO -->
         <section id="contact" class="reveal">
             <div class="container">
                 <div class="form-container-blue">
@@ -1185,9 +1173,10 @@
         </section>
     </main>
 
-    <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
+    <!-- FOOTER ACTUALIZADO -->
     <footer class="footer-section">
         <div class="container">
+             <!-- Estructura Anidada para Alineación Correcta -->
             <div class="footer-grid">
                 <!-- Col 1 -->
                 <div>
@@ -1210,18 +1199,21 @@
                 <div>
                     <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
                     <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                        <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
-                        <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Antonio+Varas+303,+Providencia" target="_blank" style="color: #888; text-decoration: none; display: flex; gap: 18px;">
+                            <i class="fas fa-map-marker-alt" style="color: #ffffff; margin-top: 3px;"></i>
+                            <span>Av. Antonio Varas 303,<br>oficina 705 - Providencia</span>
+                        </a>
                     </div>
                     <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
-                        <i class="fas fa-envelope" style="color: var(--primary);"></i>
-                        <span>contacto@xfera.cl</span>
+                        <a href="mailto:contacto@xfera.cl" style="color: #888; text-decoration: none; display: flex; gap: 18px;">
+                             <i class="fas fa-envelope" style="color: #ffffff; margin-top: 3px;"></i>
+                             <span>contacto@xfera.cl</span>
+                        </a>
                     </div>
                 </div>
                 <!-- Col 4: Mercado Público -->
                 <div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff; visibility: hidden;">MP</h4>
-                     <div style="background: #fff; padding: 12px 15px; border-radius: 10px; display: inline-block;">
+                     <div style="background: #fff; padding: 12px 15px; border-radius: 10px; display: inline-block; margin-top: 45px;">
                         <img src="https://www.xfera.cl/assets/convenio-CoHGQRBL.png" alt="Mercado Público" style="height: 45px; display: block;">
                     </div>
                 </div>
@@ -1277,7 +1269,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Animación Cifras (Corregido)
+        // Animación Cifras
         const counterSection = document.querySelector('.sec-stats');
         let countersStarted = false;
 

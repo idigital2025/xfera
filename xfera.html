@@ -21,7 +21,7 @@
 
     <style>
         /* =========================================
-           1. VARIABLES (Sincronizadas)
+           1. VARIABLES 
            ========================================= */
         :root {
             --primary: #00D4FF;         
@@ -159,12 +159,12 @@
             max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;
         }
 
-        /* NUESTRA ESENCIA (FONDO AZUL) */
+        /* NUESTRA ESENCIA */
         #esencia { 
             padding: 100px 5%; 
-            background: var(--title-blue); 
+            background: var(--title-blue); /* Fondo Azul */
             text-align: center; 
-            color: #fff; 
+            color: #fff; /* Texto Blanco */
         }
         #esencia .title-std { text-align: center; color: #fff; }
         #esencia .title-std::after { margin-left: auto; margin-right: auto; background-color: #fff; }
@@ -225,28 +225,38 @@
         .workflow-content p { color: rgba(255,255,255,0.9); }
         .workflow-steps::before { content: ''; position: absolute; top: 20px; bottom: 50px; left: 24px; width: 2px; background: rgba(255,255,255,0.3); z-index: 1; }
 
-        /* NUESTRO DIFERENCIAL */
+        /* NUESTRO DIFERENCIAL (4 en fila) */
         .sec-diff { padding: 100px 5%; background: #fff; }
-        .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .diff-grid { 
+            display: grid; 
+            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Default */
+        }
+        
+        @media (min-width: 1200px) {
+            /* Forzar 4 columnas en desktop grande */
+            .diff-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
         .diff-card { background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
         .diff-card:nth-child(odd) { background-color: #e0f7fa; border-color: #b2ebf2; }
         .diff-card:nth-child(even) { background-color: #f3e5f5; border-color: #e1bee7; }
         .diff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .diff-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
 
-        /* CERTIFICACIONES (CARRUSEL) */
+        /* CERTIFICACIONES (CARRUSEL 100% ANCHO) */
         .sec-certs { padding: 100px 5%; background: var(--bg-soft-gray); }
         .cert-slider-wrapper { position: relative; width: 100%; margin-top: 40px; }
         
         .cert-slider {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; 
-            padding: 60px 30px; /* Padding para evitar corte de sombras */
+            padding: 60px 30px; 
             width: 100%; scrollbar-width: none; flex-wrap: nowrap !important;
         }
         .cert-slider::-webkit-scrollbar { display: none; }
         
         .cert-card {
-            flex: 0 0 100%; /* 1 POR PANTALLA */
+            flex: 0 0 100%; /* 1 POR PANTALLA SIEMPRE */
             scroll-snap-align: center;
             background: #fff; padding: 40px 30px; border-radius: 20px; 
             box-shadow: var(--shadow-card); border: 1px solid #eee;
@@ -257,46 +267,54 @@
         
         .cert-logo-container { height: 50px; margin-bottom: 20px; display: flex; align-items: center; }
         .cert-logo-container img { max-height: 100%; width: auto; object-fit: contain; }
-        /* --- CTA FINAL */
+        
+        .cert-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 5px; color: var(--text-dark) !important; }
+        .cert-card .cert-subtitle { 
+            font-size: 0.9rem; font-weight: 700; color: var(--blue-accent); 
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; 
+            border-bottom: 2px solid #eee; padding-bottom: 10px; display: inline-block; width: 100%;
+        }
+        .cert-card p { font-size: 0.95rem; color: var(--text-desc-light); margin-bottom: 20px; }
+        .cert-card ul { list-style: none; padding: 0; margin: 0; }
+        .cert-card li { margin-bottom: 8px; font-size: 0.9rem; color: #444; display: flex; gap: 10px; align-items: start; line-height: 1.4; }
+        .cert-card li::before { content: '✓'; color: var(--primary); font-weight: bold; }
+
+        /* PARTNERS & CLIENTES (CINTILLO CORRECTO) */
+        .sec-partners { padding: 80px 5%; background: #ffffff; }
+        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 40px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
+        .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
+        
+        /* LOGO BOX IGUAL A SERVICIOS */
+        .logo-box {
+            background: #fff; padding: 0; 
+            border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex; align-items: center; justify-content: center; 
+            width: 240px; height: 120px; 
+        }
+        .logo-box img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease; }
+        .logo-box:hover img { filter: grayscale(0%); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* CTA FINAL */
         .sec-cta-final { background: var(--title-blue); padding: 100px 5%; text-align: center; color: #fff; }
         .sec-cta-final h2 { color: #fff !important; font-size: 2.2rem; margin-bottom: 20px; }
         .sec-cta-final p { color: rgba(255,255,255,0.9) !important; max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6; }
 
-        /* --- FOOTER (4 COLUMNAS + LEGAL ROW) --- */
+        /* Footer */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
-
-        .footer-grid { 
-            display: grid; 
-            gap: 3rem; 
-            grid-template-columns: repeat(4, 1fr); 
-        }
-
+        .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(4, 1fr); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
         .footer-logo { height: 55px; width: auto; filter: none; }
-
         .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
-        .contact-info-item i { color: #ffffff; } /* Iconos Footer Blancos */
+        .contact-info-item i { color: #ffffff; }
 
-        /* Estilo Fila Legal Horizontal */
-        .footer-legal-row {
-            border-top: 1px solid #222; 
-            margin-top: 40px; 
-            padding-top: 20px; 
-            display: flex; 
-            justify-content: center; 
-            gap: 30px;
-        }
+        .footer-legal-row { border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px; }
         .footer-legal-row a { color: #888; font-size: 0.85rem; transition: 0.3s; }
         .footer-legal-row a:hover { color: var(--primary); }
 
-        @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; } 
-        }
-        @media (max-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr; } 
-            .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; }
-        }
+        @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; } }
 
         #back-to-top { position: fixed; right: 30px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100; }
         #back-to-top.show { opacity: 1; pointer-events: auto; }
@@ -314,15 +332,13 @@
         <a href="xfera.html" class="mobile-link" style="color: var(--primary);">XFERA</a>
         <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container nav-flex">
-            <a href="index.html">
-                <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
-            </a>
+            <a href="index.html"><img src="img/logo-negro.png" alt="XFERA" class="logo-img"></a>
             <div class="desktop-menu">
                 <div class="nav-links-group">
                     <a href="index.html" class="nav-link">Inicio</a>
@@ -330,7 +346,7 @@
                     <a href="servicios.html" class="nav-link">Servicios</a>
                     <a href="index.html#contact" class="nav-link">Contacto</a>
                 </div>
-                <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
             </div>
             <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
         </div>
@@ -383,7 +399,6 @@
                         <p>Las empresas enfrentan hoy entornos TI complejos: plataformas que no escalan, altos costos operativos, riesgos crecientes de seguridad y operaciones que no pueden detenerse.</p>
                         <p>Xfera existe para resolver esos desafíos mediante arquitecturas modernas, seguras y resilientes, garantizando continuidad operativa, rendimiento y evolución constante. Cada industria presenta desafíos únicos; por eso diseñamos arquitecturas TI adaptadas a su nivel de problemática.</p>
                     </div>
-                    
                     <div class="why-image-col">
                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Ingeniería TI">
                     </div>
@@ -392,7 +407,7 @@
                 <div class="sectores-wrapper">
                     <h4>Trabajamos con sectores clave:</h4>
                     <div class="industrias-grid">
-                        <div class="industria-item"><i class="ph ph-pickaxe"></i><span>Minería y Energía</span></div>
+                        <div class="industria-item"><i class="ph ph-hammer"></i><span>Minería y Energía</span></div>
                         <div class="industria-item"><i class="ph ph-fish"></i><span>Salmonicultura</span></div>
                         <div class="industria-item"><i class="ph ph-shopping-cart"></i><span>Retail</span></div>
                         <div class="industria-item"><i class="ph ph-bank"></i><span>Finanzas</span></div>
@@ -450,7 +465,7 @@
             </div>
         </section>
 
-        <!-- NUESTRO DIFERENCIAL -->
+        <!-- NUESTRO DIFERENCIAL (4 en fila desktop) -->
         <section class="sec-diff reveal">
             <div class="container">
                 <h2 class="title-std title-centered">Nuestro Diferencial</h2>
@@ -475,7 +490,7 @@
             </div>
         </section>
 
-        <!-- PARTNERS (EX-ECOSISTEMA) -->
+        <!-- PARTNERS -->
         <section class="sec-ecosystem reveal">
             <div class="container">
                 <h2 class="title-std title-centered" style="color: var(--text-dark);">Nuestros Partners</h2>
@@ -488,6 +503,7 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
+                        <!-- Repetir -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -503,11 +519,8 @@
                 <div class="cert-slider-wrapper">
                     <div class="cert-slider" id="cert-scroll">
                         
-                        <!-- NUTANIX -->
                         <div class="cert-card">
-                            <div class="cert-logo-container">
-                                <img src="img/partner-nutanix.png" alt="Nutanix">
-                            </div>
+                            <div class="cert-logo-container"><img src="img/partner-nutanix.png" alt="Nutanix"></div>
                             <h3>NUTANIX</h3>
                             <span class="cert-subtitle">Authorized Service Provider</span>
                             <p>Expertos certificados en arquitectura hiperconvergente para infraestructura moderna.</p>
@@ -519,11 +532,8 @@
                             </ul>
                         </div>
 
-                        <!-- LENOVO -->
                         <div class="cert-card">
-                            <div class="cert-logo-container">
-                                <img src="img/partner-lenovo.png" alt="Lenovo">
-                            </div>
+                            <div class="cert-logo-container"><img src="img/partner-lenovo.png" alt="Lenovo"></div>
                             <h3>LENOVO</h3>
                             <span class="cert-subtitle">Infrastructure Solutions Partner</span>
                             <p>Especialistas en soluciones de datacenter y servidores empresariales.</p>
@@ -535,11 +545,8 @@
                             </ul>
                         </div>
 
-                        <!-- VEEAM -->
                         <div class="cert-card">
-                            <div class="cert-logo-container">
-                                <img src="img/partner-veeam.png" alt="Veeam">
-                            </div>
+                            <div class="cert-logo-container"><img src="img/partner-veeam.png" alt="Veeam"></div>
                             <h3>VEEAM</h3>
                             <span class="cert-subtitle">Cloud & Service Provider</span>
                             <p>Partners oficiales en respaldo, continuidad operativa y protección de datos.</p>
@@ -572,10 +579,9 @@
 
     </main>
 
-    <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
+    <!-- FOOTER ACTUALIZADO -->
     <footer class="footer-section">
         <div class="container">
-             <!-- Estructura Anidada para Alineación Correcta -->
             <div class="footer-grid">
                 <!-- Col 1 -->
                 <div>
@@ -589,8 +595,8 @@
                     <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                     <div class="footer-links">
                         <a href="index.html">Inicio</a>
-                        <a href="xfera.html">Somos Xfera</a>
-                        <a href="servicios.html">Servicios</a>
+                        <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
+                        <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
                         <a href="index.html#contact">Contacto</a>
                     </div>
                 </div>
@@ -618,7 +624,6 @@
                 </div>
             </div>
             
-            <!-- Fila Legal Horizontal -->
             <div class="footer-legal-row" style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px;">
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Términos y Condiciones</a>
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Políticas de Privacidad</a>
@@ -687,19 +692,10 @@
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                let item = container.querySelector('.snap-item') || container.querySelector('.cert-card') || container.querySelector('.diff-card') || container.querySelector('.industria-item');
+                let item = container.querySelector('.snap-item') || container.querySelector('.cert-card');
                 if(!item) return;
                 
-                // Medidas - Lógica dinámica para 100% width slide
-                let stride;
-                if (item.classList.contains('cert-card')) {
-                     // Para certificaciones, el stride es el ancho del contenedor completo (1 item por vista)
-                     stride = container.clientWidth;
-                } else {
-                     const gap = 20; 
-                     const itemWidth = item.offsetWidth;
-                     stride = itemWidth + gap; 
-                }
+                let stride = container.clientWidth;
                 
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;
@@ -707,13 +703,13 @@
                 let newScroll;
 
                 if (isNext) {
-                    if (currentScroll + stride > maxScroll) {
+                    if (currentScroll + stride >= maxScroll - 5) {
                         newScroll = 0;
                     } else {
                         newScroll = currentScroll + stride;
                     }
                 } else {
-                    if (currentScroll - stride < 0) { 
+                    if (currentScroll - stride <= 5) { 
                         newScroll = maxScroll;
                     } else {
                         newScroll = currentScroll - stride;

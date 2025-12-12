@@ -195,7 +195,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--text-dark); /* Texto oscuro por defecto */
+            color: var(--text-dark); 
             background: url('img/hero-servicios.jpg') no-repeat center center;
             background-size: cover;
             margin-top: 80px;
@@ -203,7 +203,7 @@
         /* Filtro Blanco */
         #services-header::before {
             content: ''; position: absolute; inset: 0;
-            background: rgba(255,255,255,0.9); /* Blanco semitransparente */
+            background: rgba(255,255,255,0.9); 
             z-index: 1;
         }
         .header-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
@@ -211,13 +211,13 @@
         #services-header h1 {
             font-size: clamp(2.5rem, 5vw, 4rem); 
             font-weight: 800; margin-bottom: 20px;
-            text-transform: none; /* Minúscula / Sentence case */
+            text-transform: none; 
             letter-spacing: 0;
-            color: var(--text-dark-hero); /* Negro */
+            color: var(--text-dark-hero); 
         }
         #services-header p {
             font-size: 1.2rem; 
-            color: #666; /* Plomo */
+            color: #666; 
             margin-bottom: 40px;
             font-weight: 500;
         }
@@ -228,23 +228,20 @@
             background: #fff; 
         }
         
-        /* Contenedor flexible para intro */
         .intro-flex {
             display: flex; flex-direction: column; gap: 30px;
             max-width: 1000px; margin: 0 auto;
         }
         
-        /* Centrado de Títulos y Botones */
         .intro-header-centered { text-align: center; }
         .intro-header-centered .title-std { display: inline-block; }
         .intro-header-centered .title-std::after { margin-left: auto; margin-right: auto; }
         
         .intro-text-col p { 
             color: var(--text-desc-light); font-size: 1.1rem; line-height: 1.6; 
-            max-width: 100%; text-align: left; /* Párrafo a la izquierda */
+            max-width: 100%; text-align: left; 
         }
         
-        /* Botones de Ancla Centrados */
         .anchor-buttons-container {
             display: flex; justify-content: center; 
             gap: 30px; flex-wrap: wrap; margin-top: 30px;
@@ -278,15 +275,13 @@
         /* ESTILOS DE SECCIÓN DE SERVICIOS */
         .service-section { padding: var(--padding-section); } 
         
-        /* Fondos Específicos */
         .bg-light-blue { background-color: var(--bg-soft-blue); } 
-        .bg-light-purple { background-color: var(--bg-soft-purple); } /* Mismo fondo celeste unificado */
+        .bg-light-purple { background-color: var(--bg-soft-purple); } 
 
         .service-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; }
         
-        /* Línea separadora para Infraestructura */
         #infraestructura {
-            border-bottom: 1px solid #e5e7eb; /* Línea gris de separación */
+            border-bottom: 1px solid #e5e7eb; 
         }
 
         /* TARJETAS DE SERVICIO (Diseño Split) */
@@ -314,7 +309,6 @@
             display: flex; flex-direction: column; justify-content: center; 
         }
         
-        /* Colores Títulos */
         .service-full-card.infra h3 { color: var(--primary); } 
         .service-full-card.consult h3 { color: var(--secondary); }
 
@@ -332,7 +326,6 @@
             margin-bottom: 15px; display: flex; align-items: start; gap: 12px; 
             color: var(--text-desc-light); font-size: 1rem; font-weight: 500; 
         }
-        /* Iconos de lista con color específico */
         .service-full-card.infra .service-list i { color: var(--primary); }
         .service-full-card.consult .service-list i { color: var(--secondary); }
 
@@ -368,11 +361,10 @@
         
         .component-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
         
-        /* Título componente en 2 líneas */
         .component-card h5 { 
             font-size: 1.2rem; color: var(--text-dark); 
             margin-bottom: 15px; font-weight: 700;
-            min-height: 3rem; /* Espacio para 2 líneas */
+            min-height: 3rem; 
             display: flex; align-items: center;
         }
         .component-card p { font-size: 0.95rem; color: var(--text-desc-light); margin: 0; line-height: 1.5; }
@@ -385,7 +377,7 @@
                 scroll-snap-type: x mandatory;
                 gap: 20px;
                 padding-bottom: 20px;
-                padding-left: 10px; /* Margen para ver el primero */
+                padding-left: 10px; 
                 padding-right: 10px;
                 scrollbar-width: none;
             }
@@ -396,12 +388,10 @@
             }
             .iaas-controls { display: flex !important; justify-content: center; gap: 15px; margin-top: 20px; }
         }
-        /* Ocultar controles en Desktop */
         .iaas-controls { display: none; }
 
         /* --- BENEFICIOS CLAVES (Estilo Carrusel Home) --- */
         .sec-benefits-bg { 
-            /* Reducido punto focal al 35% para que no toque bordes */
             background: radial-gradient(circle at center, rgba(143, 244, 255, 0.4) 0%, #ffffff 35%); 
             padding: var(--padding-section); 
             color: #111; 
@@ -435,7 +425,6 @@
         @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
         @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
 
-        /* Controles Globales (Ahora fuera de media query) */
         .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
         .scroll-btn {
             width: 45px; height: 45px; border-radius: 50%;
@@ -489,7 +478,6 @@
         .form-container-blue { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; }
         .form-floating-group { position: relative; margin-bottom: 25px; }
         
-        /* Corrección Formulario Blanco */
         .form-input { 
             width: 100%; padding: 15px 0 10px; 
             background: transparent; 
@@ -803,7 +791,6 @@
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
-                    <!-- REINTEGRADO: Cajas blancas con borde redondeado y check azul -->
                     <div class="infra-pill">
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Escalabilidad instantánea
                     </div>
@@ -814,7 +801,6 @@
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Seguridad integrada
                     </div>
                 </div>
-                <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-white-filled">Conocer más</a>
             </div>
         </section>
 
@@ -1023,14 +1009,14 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Lógica de Carrusel
+        // Lógica de Carrusel (Para Beneficios y Partners)
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card') || container.querySelector('.industria-item');
+                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.component-card');
                 if(!item) return;
                 
                 // Medidas - Lógica dinámica para 100% width slide
@@ -1050,13 +1036,13 @@
                 let newScroll;
 
                 if (isNext) {
-                    if (currentScroll + stride > maxScroll) {
+                    if (currentScroll + stride >= maxScroll - 5) {
                         newScroll = 0;
                     } else {
                         newScroll = currentScroll + stride;
                     }
                 } else {
-                    if (currentScroll - stride < 0) { 
+                    if (currentScroll - stride <= 5) { 
                         newScroll = maxScroll;
                     } else {
                         newScroll = currentScroll - stride;
@@ -1067,5 +1053,6 @@
             });
         });
     </script>
+
 </body>
 </html>

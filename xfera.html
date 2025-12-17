@@ -21,7 +21,7 @@
 
     <style>
         /* =========================================
-           1. VARIABLES 
+           1. VARIABLES (Sincronizadas)
            ========================================= */
         :root {
             --primary: #00D4FF;         
@@ -138,68 +138,93 @@
            4. SECCIONES ESPECÍFICAS XFERA
            ========================================= */
 
-        /* HERO - REDISEÑADO (Split Layout) */
+        /* HERO - FULL SCREEN & SPLIT */
         #xfera-header {
-            padding-top: 135px; /* Padding top para compensar el header fijo */
-            padding-bottom: 50px;
-            background: #ffffff; 
-            overflow: hidden;
+            position: relative; height: 100vh; min-height: 600px;
+            display: flex; align-items: center; justify-content: center; 
+            text-align: left;
+            color: #fff;
+            /* IMAGEN DE FONDO */
+            background: url('img/hero-servicios.jpg') no-repeat center center; 
+            background-size: cover;
+            margin-top: 0; padding-top: 80px;
+        }
+        
+        /* Overlay Oscuro para legibilidad */
+        #xfera-header::before { 
+            content: ''; position: absolute; inset: 0; 
+            background: rgba(0,0,0,0.7); /* Oscuro para contraste de letras blancas */
+            z-index: 1; 
+        }
+
+        /* Contenedor Flex para layout dividido sobre la imagen de fondo */
+        .hero-inner-flex {
             display: flex;
             align-items: center;
-        }
-
-        .hero-split-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px; 
-            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            width: 100%;
         }
 
-        .hero-text-col {
-            text-align: left;
+        .header-content-left { 
+            flex: 1;
+            text-align: left; 
+            color: #fff; 
+        }
+        
+        .header-content-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .header-content-right img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255,255,255,0.1);
         }
         
         #xfera-header h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 20px; 
-            text-transform: uppercase; color: var(--text-dark-hero); letter-spacing: 2px; 
+            font-size: clamp(3rem, 6vw, 5rem); 
+            font-weight: 800; 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+            color: #fff; 
+            letter-spacing: 2px; 
         }
         
         #xfera-header p { 
-            font-size: 1.1rem; color: var(--text-desc-light); margin-bottom: 40px; font-weight: 400; 
-            max-width: 90%; line-height: 1.6;
+            font-size: 1.2rem; 
+            color: rgba(255,255,255,0.9); 
+            margin-bottom: 40px; 
+            font-weight: 400; 
+            max-width: 600px; 
+            line-height: 1.6;
         }
 
-        .hero-img-col {
-            position: relative; display: flex; justify-content: center; background: transparent; 
-        }
-        
-        .hero-img-col img {
-            width: 100%; height: auto; border-radius: 30px; object-fit: cover; 
-            max-width: 800px; /* Max width para desktop */
-        }
-
-        @media (max-width: 768px) {
-            #xfera-header { padding-top: 120px; text-align: center; }
-            .hero-split-layout { grid-template-columns: 1fr; gap: 40px; }
-            .hero-img-col { order: -1; }
-            
-            /* Ajuste imagen Mobile: 350px de ancho */
-            .hero-img-col img {
-                width: 100%; 
-                max-width: 350px; /* Ancho específico para mobile */
-                height: auto; 
-                margin: 0 auto; 
-                border-radius: 20px; 
-            }
-            
-            .hero-text-col { text-align: center; }
+        @media (max-width: 992px) {
+            #xfera-header { height: auto; padding: 140px 0 80px; text-align: center; }
+            .hero-inner-flex { flex-direction: column; text-align: center; gap: 30px; }
+            .header-content-left { text-align: center; width: 100%; }
             #xfera-header p { margin-left: auto; margin-right: auto; }
-            #xfera-header .btn { margin: 0 auto; }
+            
+            /* Imagen arriba en móvil */
+            .header-content-right { 
+                display: block; 
+                order: -1; /* Mueve la imagen arriba del texto */
+                margin-bottom: 20px;
+            }
+            .header-content-right img { 
+                max-width: 350px; /* Ancho restringido para móvil */
+                width: 100%;
+            }
         }
 
-        /* NUESTRA ESENCIA (FONDO BLANCO RESTAURADO) */
+        /* NUESTRA ESENCIA */
         #esencia { 
             padding: 100px 5%; 
             background: #ffffff; 
@@ -211,11 +236,7 @@
         #esencia .title-std::after { margin-left: auto; margin-right: auto; background-color: var(--title-blue); }
         
         #esencia p { 
-            text-align: left; 
-            max-width: 100%; 
-            margin: 0 auto 20px 0; 
-            font-size: 1.1rem; 
-            color: var(--text-desc-light); 
+            text-align: left; max-width: 100%; margin: 0 auto 20px 0; font-size: 1.1rem; color: var(--text-desc-light); 
         }
 
         /* PROPÓSITO Y FUTURO */
@@ -229,10 +250,7 @@
 
         /* POR QUÉ EXISTIMOS */
         .sec-why { padding: 100px 5%; background: #fff; }
-        .why-split { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; 
-            align-items: start; 
-        }
+        .why-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         .why-text-col { text-align: left; }
         .why-text-col .title-std { text-align: left; }
         .why-text-col .title-std::after { margin-left: 0; }
@@ -259,8 +277,10 @@
             .why-text-col .title-std { text-align: center; }
             .why-text-col .title-std::after { margin-left: auto; margin-right: auto; }
             
+            /* Carrusel Mobile para Sectores */
             .industrias-grid {
-                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; justify-content: flex-start; scrollbar-width: none;
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+                gap: 20px; padding-bottom: 20px; justify-content: flex-start; scrollbar-width: none;
             }
             .industria-item { flex: 0 0 45%; scroll-snap-align: center; min-width: auto; }
             .mobile-only-controls { display: flex; }
@@ -295,7 +315,7 @@
         .diff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .diff-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
 
-        /* CERTIFICACIONES */
+        /* CERTIFICACIONES (1 SLIDE POR VISTA, PADDING CORREGIDO) */
         .sec-certs { padding: 100px 5%; background: var(--bg-soft-gray); }
         .cert-slider-wrapper { position: relative; width: 100%; margin-top: 40px; }
         
@@ -335,8 +355,8 @@
 
         /* PARTNERS */
         .sec-ecosystem { padding: 80px 5%; background: #fff; }
-        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 30px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
-        .marquee-track { display: flex; gap: 40px; width: max-content; animation: scroll 40s linear infinite; }
+        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 40px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
+        .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
         .logo-box {
             background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             display: flex; align-items: center; justify-content: center; width: 240px; height: 120px;
@@ -382,7 +402,7 @@
         <a href="xfera.html" class="mobile-link" style="color: var(--primary);">XFERA</a>
         <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
@@ -398,7 +418,7 @@
                         <a href="servicios.html" class="nav-link">Servicios</a>
                         <a href="index.html#contact" class="nav-link">Contacto</a>
                     </div>
-                    <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                    <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
                 </div>
                 
                 <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
@@ -407,21 +427,22 @@
     </header>
 
     <main>
-        <!-- HERO REDISEÑADO -->
+        <!-- HERO FULL SCREEN / SPLIT OVERLAY -->
         <section id="xfera-header">
-            <div class="container">
-                <div class="hero-split-layout">
-                    <!-- Texto Izquierda -->
-                    <div class="hero-text-col">
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="hero-inner-flex">
+                    <!-- CONTENIDO IZQUIERDA -->
+                    <div class="header-content-left">
                         <h1>XFERA</h1>
                         <p>Somos especialistas en infraestructura TI, nube privada e ingeniería tecnológica para organizaciones que requieren continuidad operativa, seguridad avanzada y arquitecturas que evolucionen con su negocio.</p>
                         <a href="#esencia" class="btn btn-primary">Conocer XFERA</a>
                     </div>
-                    <!-- Imagen Derecha (Desktop 800x600, Mobile 350px width) -->
-                    <div class="hero-img-col">
+                    
+                    <!-- IMAGEN DERECHA (DESKTOP) -->
+                    <div class="header-content-right">
                          <picture>
                             <source media="(max-width: 768px)" srcset="img/xfera-hero-mobile.png">
-                            <img src="img/xfera-hero-desktop.png" alt="Xfera Hero" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-image);">
+                            <img src="img/xfera-hero-desktop.png" alt="Xfera Hero">
                         </picture>
                     </div>
                 </div>
@@ -472,7 +493,6 @@
 
                 <div class="sectores-wrapper">
                     <h4>Trabajamos con sectores clave:</h4>
-                    <!-- ID AGREGADO PARA SCRIPT -->
                     <div class="industrias-grid" id="sectores-scroll">
                         <div class="industria-item"><i class="ph ph-shopping-cart"></i><span>Retail</span></div>
                         <div class="industria-item"><i class="ph ph-bank"></i><span>Finanzas</span></div>
@@ -573,6 +593,7 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
+                        <!-- Repetir -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -750,7 +771,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Lógica de Carrusel (Index-Based)
+        // Lógica de Carrusel
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');

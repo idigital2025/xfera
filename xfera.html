@@ -7,6 +7,7 @@
     
     <title>XFERA | Quiénes Somos - Infraestructura TI & Consultoría</title>
     <meta name="description" content="Expertos en infraestructura TI, nube privada e ingeniería tecnológica en Chile. 15 años de experiencia en continuidad operativa para misión crítica.">
+    <meta name="keywords" content="infraestructura TI, infraestructura TI en Chile, nube privada Chile, consultoría TI Chile, IaaS Chile, hiperconvergencia Nutanix, continuidad operativa, ingeniería TI, servicios gestionados TI">
     
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +45,6 @@
             --text-desc-light: #555555;
             
             --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
-            --shadow-image: 20px 20px 60px rgba(0, 212, 255, 0.15);
             
             --padding-section: 100px 5%; 
             --radius-card: 24px;
@@ -95,6 +95,9 @@
         .btn-primary { background: var(--title-blue); color: #fff; box-shadow: 0 4px 15px rgba(31, 50, 206, 0.3); }
         .btn-primary:hover { background: var(--blue-accent); transform: translateY(-2px); }
         
+        .btn-secondary-dark { background: transparent; border: 1px solid #333; color: #333; }
+        .btn-secondary-dark:hover { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+
         .btn-white-filled { background: #ffffff; color: var(--text-dark); border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .btn-white-filled:hover { background: #f0f0f0; color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
 
@@ -106,6 +109,7 @@
             cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1rem; transition: 0.2s;
         }
         .scroll-btn.light-theme { background: #fff; color: #333; border: 1px solid #eee; z-index: 10; }
+        .scroll-btn.dark-theme { background: #000; color: #fff; border: 1px solid #fff; z-index: 10; }
 
 
         /* =========================================
@@ -134,31 +138,24 @@
            4. SECCIONES ESPECÍFICAS XFERA
            ========================================= */
 
-        /* HERO - FULL SCREEN & SPLIT (RESTAURADO) */
+        /* HERO - FULL SCREEN & SPLIT */
         #xfera-header {
-            position: relative; 
-            min-height: 85vh; /* Pantalla casi completa */
+            position: relative; height: 100vh; min-height: 600px;
             display: flex; align-items: center; justify-content: center; 
             text-align: left;
             color: #fff;
+            /* IMAGEN DE FONDO */
             background: url('img/hero-servicios.jpg') no-repeat center center; 
             background-size: cover;
-            margin-top: 80px; /* Offset Header */
-            padding: 80px 0;
+            margin-top: 0; padding-top: 80px;
         }
         
-        /* Overlay Oscuro para legibilidad sobre el fondo */
-        #xfera-header::before { 
-            content: ''; position: absolute; inset: 0; 
-            background: rgba(0,0,0,0.5); /* Semitransparente oscuro */
-            z-index: 1; 
-        }
-
+        /* Contenedor Flex para layout dividido sobre la imagen de fondo */
         .hero-inner-flex {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 60px;
+            gap: 50px;
             position: relative;
             z-index: 2;
             width: 100%;
@@ -181,7 +178,8 @@
             max-width: 600px; /* Tamaño controlado imagen derecha */
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: none; 
+            border: none;     
         }
         
         #xfera-header h1 { 
@@ -197,24 +195,26 @@
             font-size: 1.2rem; 
             color: rgba(255,255,255,0.95); 
             margin-bottom: 40px; 
-            font-weight: 500; 
+            font-weight: 400; 
             max-width: 600px; 
             line-height: 1.6;
         }
 
         @media (max-width: 992px) {
-            #xfera-header { height: auto; padding: 80px 0; text-align: center; }
+            #xfera-header { height: auto; padding: 140px 0 80px; text-align: center; }
             .hero-inner-flex { flex-direction: column; text-align: center; gap: 30px; }
             .header-content-left { text-align: center; width: 100%; order: 1; }
             #xfera-header p { margin-left: auto; margin-right: auto; }
             
+            /* Imagen arriba en móvil */
             .header-content-right { 
-                order: 0; /* Imagen arriba en móvil */
-                justify-content: center;
-                width: 100%;
+                display: block; 
+                order: -1; 
+                margin-bottom: 20px;
             }
             .header-content-right img { 
-                max-width: 350px; /* Ancho restringido móvil */
+                max-width: 350px; 
+                width: 100%;
             }
         }
 
@@ -223,14 +223,14 @@
             padding: 100px 5%; 
             background: #ffffff; 
             text-align: center; 
+            color: var(--text-dark);
         }
         
         #esencia .title-std { text-align: center; color: var(--text-dark); }
         #esencia .title-std::after { margin-left: auto; margin-right: auto; background-color: var(--title-blue); }
         
         #esencia p { 
-            text-align: left; max-width: 100%; margin: 0 auto 20px 0; 
-            font-size: 1.1rem; color: var(--text-desc-light); 
+            text-align: left; max-width: 100%; margin: 0 auto 20px 0; font-size: 1.1rem; color: var(--text-desc-light); 
         }
 
         /* PROPÓSITO Y FUTURO */
@@ -251,30 +251,18 @@
         .why-text-col { text-align: left; }
         .why-text-col .title-std { text-align: left; }
         .why-text-col .title-std::after { margin-left: 0; }
-        .why-image-col img { 
-            width: 100%; border-radius: 24px; box-shadow: var(--shadow-image); 
-            object-fit: cover; height: 100%; min-height: 300px;
-        }
+        .why-image-col img { width: 100%; border-radius: 24px; box-shadow: var(--shadow-image); object-fit: cover; height: 100%; min-height: 300px; }
 
-        /* SECTORES CLAVE (3 COLS DESKTOP / CAROUSEL MOBILE) */
         .sectores-wrapper { margin-top: 60px; width: 100%; }
-        .sectores-wrapper h4 { text-align: center; margin-bottom: 40px; font-weight: 700; color: var(--text-dark); }
-        
-        .industrias-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* 3 Columnas */
-            gap: 40px; 
-            text-align: center;
-            max-width: 900px; margin: 0 auto;
-        }
-        
+        .sectores-wrapper h4 { text-align: center; margin-bottom: 30px; font-weight: 700; color: var(--text-dark); }
+        .industrias-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 20px; text-align: center; }
         .industria-item { 
             background: transparent; padding: 0; border: none; box-shadow: none;
             display: flex; flex-direction: column; align-items: center; gap: 10px; transition: 0.3s;
         }
         .industria-item:hover { transform: translateY(-5px); }
-        .industria-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 5px; }
-        .industria-item span { font-size: 0.95rem; font-weight: 400; color: var(--text-dark); line-height: 1.2; }
+        .industria-item i { font-size: 2.2rem; color: var(--primary); margin-bottom: 5px; }
+        .industria-item span { font-size: 0.9rem; font-weight: 400; color: var(--text-dark); line-height: 1.2; text-align: center; }
 
         /* Estilos controles sectores mobile */
         .mobile-only-controls { display: none; margin-top: 20px; justify-content: center; gap: 15px; }
@@ -282,12 +270,13 @@
         @media(max-width: 768px) {
             .why-split { grid-template-columns: 1fr; } 
             .why-image-col { order: -1; margin-bottom: 40px; }
+            .why-text-col { text-align: center; }
+            .why-text-col .title-std { text-align: center; }
+            .why-text-col .title-std::after { margin-left: auto; margin-right: auto; }
             
             /* Carrusel Mobile para Sectores */
             .industrias-grid {
-                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
-                gap: 20px; padding-bottom: 20px; justify-content: flex-start; scrollbar-width: none;
-                grid-template-columns: none;
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; justify-content: flex-start; scrollbar-width: none; grid-template-columns: none;
             }
             .industria-item { flex: 0 0 45%; scroll-snap-align: center; min-width: auto; }
             .mobile-only-controls { display: flex; }
@@ -308,12 +297,9 @@
         .workflow-content p { color: rgba(255,255,255,0.9); }
         .workflow-steps::before { content: ''; position: absolute; top: 20px; bottom: 50px; left: 24px; width: 2px; background: rgba(255,255,255,0.3); z-index: 1; }
 
-        /* NUESTRO DIFERENCIAL (4 en fila desktop) */
+        /* NUESTRO DIFERENCIAL */
         .sec-diff { padding: 100px 5%; background: #fff; }
-        .diff-grid { 
-            display: grid; gap: 25px; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-        }
+        .diff-grid { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
         @media (min-width: 1200px) { .diff-grid { grid-template-columns: repeat(4, 1fr); } }
 
         .diff-card { background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
@@ -358,6 +344,7 @@
         .cert-card li::before { content: '✓'; color: var(--primary); font-weight: bold; }
 
         @media(min-width: 992px) { .cert-card { flex: 0 0 100%; } }
+        @media(max-width: 992px) { .cert-card { flex: 0 0 100%; } }
 
         /* PARTNERS */
         .sec-ecosystem { padding: 80px 5%; background: #fff; }
@@ -394,12 +381,13 @@
 
         #back-to-top { position: fixed; right: 30px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100; }
         #back-to-top.show { opacity: 1; pointer-events: auto; }
+        #wsp-float { position: fixed; bottom: 95px; right: 30px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 100; transition: 0.3s; }
 
     </style>
 </head>
 <body id="top">
 
-    <!-- MENÚ MÓVIL -->
+    <!-- MENÚ MÓVIL OVERLAY -->
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
@@ -443,7 +431,7 @@
                         <a href="#esencia" class="btn btn-primary">Conocer XFERA</a>
                     </div>
                     
-                    <!-- IMAGEN DERECHA (DESKTOP: img/xfera-hero-desktop.png | MOBILE: img/xfera-hero-mobile.png) -->
+                    <!-- IMAGEN DERECHA (DESKTOP) -->
                     <div class="header-content-right">
                          <picture>
                             <source media="(max-width: 768px)" srcset="img/xfera-hero-mobile.png">
@@ -498,7 +486,6 @@
 
                 <div class="sectores-wrapper">
                     <h4>Trabajamos con sectores clave:</h4>
-                    <!-- GRILLA FILTRADA -->
                     <div class="industrias-grid" id="sectores-scroll">
                         <div class="industria-item"><i class="ph ph-shopping-cart"></i><span>Retail</span></div>
                         <div class="industria-item"><i class="ph ph-bank"></i><span>Finanzas</span></div>
@@ -507,7 +494,7 @@
                         <div class="industria-item"><i class="ph ph-graduation-cap"></i><span>Educación</span></div>
                         <div class="industria-item"><i class="ph ph-buildings"></i><span>Sector Público</span></div>
                     </div>
-                    <!-- CONTROLES MÓVIL -->
+                    <!-- CONTROLES MÓVIL AGREGADOS -->
                     <div class="controls-container mobile-only-controls">
                         <button class="scroll-btn prev light-theme" data-target="sectores-scroll"><i class="fas fa-chevron-left"></i></button>
                         <button class="scroll-btn next light-theme" data-target="sectores-scroll"><i class="fas fa-chevron-right"></i></button>
@@ -585,7 +572,7 @@
             </div>
         </section>
 
-        <!-- PARTNERS (CINTILLO) -->
+        <!-- PARTNERS -->
         <section class="sec-ecosystem reveal">
             <div class="container">
                 <h2 class="title-std title-centered" style="color: var(--text-dark);">Nuestros Partners</h2>
@@ -674,7 +661,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-grid">
@@ -731,7 +718,8 @@
     </footer>
 
     <a href="#top" id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></a>
-    
+    <a href="https://wa.me/56912345678" target="_blank" id="wsp-float" title="Hablar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
     <!-- SCRIPTS -->
     <script>
         const header = document.getElementById('main-header');
@@ -779,7 +767,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Lógica de Carrusel (Index-Based)
+        // Lógica de Carrusel (Index-Based mejorado para loop)
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
@@ -798,24 +786,39 @@
                 const firstItem = items[0];
                 const style = window.getComputedStyle(container);
                 const gap = parseFloat(style.columnGap) || 20; 
-                const itemWidth = firstItem.offsetWidth;
-                const stride = itemWidth + gap;
+                let stride = firstItem.offsetWidth + gap;
                 
+                if (itemSelector === '.cert-card') {
+                    stride = container.clientWidth; // En certificaciones es 100%
+                }
+
                 const currentScroll = container.scrollLeft;
-                const currentIndex = Math.round(currentScroll / stride);
-                const totalItems = items.length;
+                const maxScroll = container.scrollWidth - container.clientWidth;
                 
-                let nextIndex;
+                // Cálculo de índice actual
+                const currentIndex = Math.round(currentScroll / stride);
+                
+                // Cálculo de items visibles por pantalla (aprox)
+                const itemsPerView = Math.floor(container.clientWidth / firstItem.offsetWidth);
+                const maxIndex = items.length - itemsPerView;
+
+                let nextScroll;
 
                 if (isNext) {
-                    nextIndex = currentIndex + 1;
-                    if (nextIndex >= totalItems) nextIndex = 0; 
+                    if (currentScroll >= maxScroll - 5) {
+                        nextScroll = 0; // Volver al inicio
+                    } else {
+                        nextScroll = (currentIndex + 1) * stride;
+                    }
                 } else {
-                    nextIndex = currentIndex - 1;
-                    if (nextIndex < 0) nextIndex = totalItems - 1; 
+                    if (currentScroll <= 5) {
+                        nextScroll = maxScroll; // Ir al final
+                    } else {
+                        nextScroll = (currentIndex - 1) * stride;
+                    }
                 }
                 
-                container.scrollTo({ left: nextIndex * stride, behavior: 'smooth' });
+                container.scrollTo({ left: nextScroll, behavior: 'smooth' });
             });
         });
     </script>

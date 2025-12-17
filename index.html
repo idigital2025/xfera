@@ -280,6 +280,7 @@
             background-color: var(--title-blue); border-radius: 50%; margin-right: 8px;
         }
 
+        /* AJUSTE TAMAÑO TÍTULO HERO (-1pt adicional) */
         #home h1 { 
             color: var(--text-dark-hero) !important; 
             font-size: clamp(1.8rem, 4vw, 2.9rem); 
@@ -295,6 +296,7 @@
             color: var(--text-dark-hero) !important; font-size: 1.1rem; 
             font-weight: 400; margin-bottom: 20px; text-shadow: none !important;
         }
+        /* AJUSTE TAMAÑO SUBTÍTULO HERO */
         #home p { 
             color: var(--text-desc-light) !important; text-shadow: none !important;
             font-size: 0.9rem;
@@ -474,13 +476,19 @@
 
         /* --- DIFERENCIAL --- */
         #diferencial { padding: var(--padding-section); background: var(--bg-light); }
-        .diff-card { 
-            background: #f9f9f9; padding: 2rem; border-radius: 20px; 
-            border: 1px solid #eee; box-shadow: var(--shadow-card); transition: 0.3s; min-width: 0; 
+        
+        /* AUMENTO GAP A 60PX */
+        .diff-grid { 
+            display: grid; gap: 60px; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
         }
-        .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
-        .diff-card h3 { color: var(--text-dark); }
-        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; }
+        @media (min-width: 1200px) { .diff-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .diff-card { background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; min-width: 0; }
+        .diff-card:nth-child(odd) { background-color: #e0f7fa; border-color: #b2ebf2; }
+        .diff-card:nth-child(even) { background-color: #f3e5f5; border-color: #e1bee7; }
+        .diff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .diff-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
 
         /* --- INFRAESTRUCTURA --- */
         .sec-infra { 
@@ -491,7 +499,7 @@
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
         .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
         
-        /* Pills modificados */
+        /* Pills modificados: Cuadrado redondeado y check azul */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
             border-radius: 12px; 
@@ -687,39 +695,19 @@
 
         /* --- FOOTER (4 COLUMNAS + LEGAL ROW) --- */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
-        
-        .footer-grid { 
-            display: grid; 
-            gap: 3rem; 
-            grid-template-columns: repeat(4, 1fr); 
-        }
-        
+        .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(4, 1fr); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
         .footer-logo { height: 55px; width: auto; filter: none; }
-        
         .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
-        .contact-info-item i { color: #ffffff; } /* Iconos Footer Blancos */
+        .contact-info-item i { color: #ffffff; }
 
-        /* Estilo Fila Legal Horizontal */
-        .footer-legal-row {
-            border-top: 1px solid #222; 
-            margin-top: 40px; 
-            padding-top: 20px; 
-            display: flex; 
-            justify-content: center; 
-            gap: 30px;
-        }
+        .footer-legal-row { border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px; }
         .footer-legal-row a { color: #888; font-size: 0.85rem; transition: 0.3s; }
         .footer-legal-row a:hover { color: var(--primary); }
 
-        @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; } 
-        }
-        @media (max-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr; } 
-            .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; }
-        }
+        @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; } }
 
         #back-to-top { position: fixed; right: 30px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 100; }
         #back-to-top.show { opacity: 1; pointer-events: auto; }
@@ -729,22 +717,21 @@
 </head>
 <body id="top">
 
-    <!-- MENÚ MÓVIL -->
+    <!-- MENÚ MÓVIL OVERLAY -->
     <div class="overlay-backdrop" id="overlay"></div>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <div class="mobile-close" id="closeMenu">&times;</div>
         <a href="index.html" class="mobile-link">Inicio</a>
         <a href="xfera.html" class="mobile-link">XFERA</a>
         <a href="servicios.html" class="mobile-link">Servicios</a>
-        <a href="#contact" class="mobile-link">Contacto</a>
+        <a href="index.html#contact" class="mobile-link">Contacto</a>
         <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container">
-            <!-- WRAPPER ANIDADO PARA ALINEACIÓN -->
-            <div class="footer-grid" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="footer-grid" style="display: flex; justify-content: space-between; align-items: center; grid-template-columns: none;">
                 <a href="index.html"><img src="img/logo-negro.png" alt="XFERA" class="logo-img"></a>
                 
                 <div class="desktop-menu">
@@ -752,7 +739,7 @@
                         <a href="index.html" class="nav-link">Inicio</a>
                         <a href="xfera.html" class="nav-link">XFERA</a>
                         <a href="servicios.html" class="nav-link">Servicios</a>
-                        <a href="#contact" class="nav-link">Contacto</a>
+                        <a href="index.html#contact" class="nav-link">Contacto</a>
                     </div>
                     <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
                 </div>
@@ -771,7 +758,7 @@
                     <div class="hero-text-col">
                         <span class="hero-pill">Transformación digital liderada por expertos</span>
                         <h1>Somos la solución a los desafíos más exigentes de <span class="highlight-blue">Infraestructura TI</span></h1>
-                        <p><strong>Infraestructura tecnológica</strong>, <strong>nube privada</strong> e <strong>hiperconvergencia Nutanix</strong> para empresas que exigen <strong>continuidad</strong>, <strong>seguridad</strong> y <strong>escalabilidad sin interrupciones</strong>.<br>
+                        <p>Infraestructura tecnológica, nube privada e hiperconvergencia Nutanix para empresas que exigen continuidad, seguridad y escalabilidad sin interrupciones.<br>
                         <span style="display:block; margin-top: 7px;">Con más de 15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro.</span></p>
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
@@ -822,13 +809,13 @@
                 <div class="about-split-layout">
                     <div class="about-content-col">
                         <h2 class="title-std title-dark">SOMOS <span>XFERA</span></h2>
-                        <p>Empresa especializada en servicios de Ingeniería e Infraestructura TI.</p>
+                        <p>Empresa especializada es servicios de Ingeniería e Infraestructura TI.</p>
                         <p>Somos un equipo de profesionales de larga trayectoria, en distintas áreas de la informática y la consultoría, especialistas en infraestructura tecnológica y transformación digital.</p>
                         <p>Somos el resultado de un equipo de ingenieros con sólida experiencia en la provisión de servicios de infraestructura y consultoría.</p>
                         <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
                         
                         <div class="btn-wrapper">
-                            <a href="https://idigital2025.github.io/xfera/xfera" class="btn btn-primary">Conocer más</a>
+                            <a href="xfera.html" class="btn btn-primary">Conocer más</a>
                         </div>
                     </div>
                     <div class="about-image-col">
@@ -843,19 +830,19 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3 - SERVICIOS -->
+        <!-- SECCIÓN 3 - SERVICIOS (MODIFICADO: FONDO GRIS CLARO) -->
         <section id="services" class="reveal">
             <div class="container">
                 <h2 class="title-std title-centered" style="color: #000;">
                     SERVICIOS <span style="color: var(--title-blue);">INTEGRALES</span>
                 </h2>
+                <!-- Texto Intro: Width 100%, Alineado Izquierda -->
                 <p style="width: 100%; text-align: left; max-width: 100%; margin-left: 0; color: var(--text-desc-light); margin-bottom: 4rem; font-size: 0.9rem;">
                     Las empresas hoy enfrentan sistemas que no escalan, riesgos de fallos, altos costos operativos, migraciones críticas y demandas crecientes de seguridad y disponibilidad. En Xfera, transformamos esos dolores en infraestructura confiable, moderna y resiliente, diseñada para que tu negocio nunca se detenga.
                     <br><br>
                     Ofrecemos servicios integrales en dos modalidades para modernizar tu operación TI
                 </p>
 
-                <!-- Tarjeta 1 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/infraestructura.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&w=1000&q=80'" alt="Data Center">
@@ -875,13 +862,13 @@
                             <li><i class="fas fa-check-circle"></i> Infraestructura On-Premise</li>
                             <li><i class="fas fa-check-circle"></i> Almacenamiento, respaldo, networking y virtualización</li>
                         </ul>
+                        <!-- BOTÓN CONOCER MÁS (CIAN) -->
                         <div style="margin-top: 30px;">
                              <a href="https://idigital2025.github.io/xfera/servicios#infraestructura" class="btn btn-primary" style="background-color: var(--primary); border-color: var(--primary);">Conocer más</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta 2 -->
                 <div class="service-full-card">
                     <div class="service-image-side">
                         <img src="img/consultoria.jpg" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80'" alt="Consultoría TI Expertos">
@@ -901,15 +888,18 @@
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Assessment y arquitectura TI</li>
                             <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Administración y soporte especializado</li>
                         </ul>
+                        <!-- BOTÓN CONOCER MÁS (MORADO) -->
                         <div style="margin-top: 30px;">
                              <a href="https://idigital2025.github.io/xfera/servicios#consultoria" class="btn btn-primary" style="background-color: var(--secondary); border-color: var(--secondary);">Conocer más</a>
                         </div>
                     </div>
                 </div>
                 
+                <!-- BOTÓN FINAL VER SERVICIOS -->
                 <div style="text-align: center; margin-top: 50px;">
                     <a href="https://idigital2025.github.io/xfera/servicios" class="btn btn-secondary-dark" style="padding: 15px 40px; font-size: 1rem;">Ver Servicios</a>
                 </div>
+
             </div>
         </section>
 
@@ -920,7 +910,7 @@
                     NUESTRO <span style="color: var(--title-blue);">DIFERENCIAL</span>
                 </h2>
                 
-                <div class="snap-container" id="diff-scroll">
+                <div class="snap-container" id="diff-scroll" style="display: grid; gap: 60px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
                     <div class="diff-card snap-item">
                         <i class="fas fa-certificate" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
                         <h3>Equipo Certificado</h3>
@@ -943,10 +933,6 @@
                     </div>
                 </div>
 
-                <div class="mobile-nav-controls controls-container">
-                    <button class="scroll-btn prev light-theme" data-target="diff-scroll"><i class="fas fa-chevron-left"></i></button>
-                    <button class="scroll-btn next light-theme" data-target="diff-scroll"><i class="fas fa-chevron-right"></i></button>
-                </div>
             </div>
         </section>
 
@@ -987,12 +973,13 @@
             </div>
         </section>
 
-        <!-- CASOS DE ÉXITO -->
+        <!-- CASOS DE ÉXITO (MODIFICADO BOTONES Y SUBTÍTULO) -->
         <section id="casos" class="sec-cases reveal">
             <div class="container">
                 <h2 class="title-std title-dark">
                     CASOS DE <span style="color: var(--title-blue);">ÉXITO</span>
                 </h2>
+                <!-- Subtítulo Actualizado -->
                 <p class="section-subtitle">Conoce uno de nuestros proyectos realizados para institución pública del Gobierno, modernizando y asegurado infraestructura de primer nivel</p>
                 
                 <div class="cases-split-layout">
@@ -1020,6 +1007,7 @@
                             <li><i class="fas fa-check-circle"></i> Modernización completa en producción</li>
                         </ul>
                         
+                        <!-- BOTONES SECUNDARIOS (Lenovo y Nutanix) -->
                         <div class="cases-actions">
                              <a href="https://www.lenovo.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Lenovo</a>
                              <a href="https://www.nutanix.com/" target="_blank" class="btn btn-secondary-dark" style="font-size: 0.9rem;">Leer más en Nutanix</a>
@@ -1046,7 +1034,7 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
-                        <!-- Repetir -->
+                        <!-- Repetir para efecto infinito -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -1064,6 +1052,7 @@
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
+                    <!-- REINTEGRADO: Cajas blancas con borde redondeado y check azul -->
                     <div class="infra-pill">
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Escalabilidad instantánea
                     </div>
@@ -1078,7 +1067,7 @@
             </div>
         </section>
 
-        <!-- BENEFICIOS CLAVES -->
+        <!-- BENEFICIOS CLAVES (FONDO DEGRADADO CYAN, TARJETAS BLANCAS) -->
         <section class="sec-benefits-bg reveal">
             <div class="container">
                 <div class="benefits-header">
@@ -1091,24 +1080,24 @@
                     <div class="benefits-carousel-wrapper">
                         <div class="benefits-carousel" id="benefits-scroll">
                             <div class="benefit-card">
-                                <h3>Continuidad operativa real</h3>
-                                <p>Disponibilidad incluso ante incidentes críticos.</p>
+                                <h3>Expertos que acompañan tu operación TI de principio a fin</h3>
+                                <p>Nos involucramos desde el diagnóstico hasta la operación diaria.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Escalabilidad inmediata</h3>
-                                <p>Infraestructura que crece con tu negocio sin interrupciones.</p>
+                                <h3>Continuidad operativa como prioridad</h3>
+                                <p>Arquitecturas resilientes que mantienen tu negocio operativo incluso ante incidentes críticos.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Migraciones sin riesgos</h3>
-                                <p>Procesos rápidos, seguros y sin fricción.</p>
+                                <h3>Modernización sin interrupciones</h3>
+                                <p>Implementamos nuevas tecnologías sin afectar tus procesos.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Menor costo total (TCO)</h3>
-                                <p>Menos mantenimiento, menos complejidad.</p>
+                                <h3>Seguridad transversal y centralizada</h3>
+                                <p>Protección integral sobre datos, accesos, redes y servicios.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Seguridad centralizada</h3>
-                                <p>Protección unificada de datos y sistemas críticos.</p>
+                                <h3>Escalabilidad real</h3>
+                                <p>Infraestructura que crece contigo sin rediseños mayores.</p>
                             </div>
                         </div>
 
@@ -1121,7 +1110,7 @@
             </div>
         </section>
 
-        <!-- FORMULARIO -->
+        <!-- SECCIÓN 7: FORMULARIO -->
         <section id="contact" class="reveal">
             <div class="container">
                 <div class="form-container-blue">
@@ -1178,7 +1167,6 @@
     <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
     <footer class="footer-section">
         <div class="container">
-             <!-- Estructura Anidada para Alineación Correcta -->
             <div class="footer-grid">
                 <!-- Col 1 -->
                 <div>
@@ -1192,8 +1180,8 @@
                     <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                     <div class="footer-links">
                         <a href="index.html">Inicio</a>
-                        <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
-                        <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
+                        <a href="xfera.html">Somos Xfera</a>
+                        <a href="servicios.html">Servicios</a>
                         <a href="index.html#contact">Contacto</a>
                     </div>
                 </div>
@@ -1221,7 +1209,6 @@
                 </div>
             </div>
             
-            <!-- Fila Legal Horizontal -->
             <div class="footer-legal-row" style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px;">
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Términos y Condiciones</a>
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Políticas de Privacidad</a>
@@ -1271,36 +1258,45 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Animación Cifras
+        // Animación Cifras (Corregido con requestAnimationFrame)
         const counterSection = document.querySelector('.sec-stats');
         let countersStarted = false;
 
-        const startCounters = () => {
-            if(countersStarted) return;
-            countersStarted = true;
-            document.querySelectorAll('.counter').forEach(counter => {
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                let count = 0;
+                const duration = 2000; // duración en ms
+                const frameDuration = 1000 / 60; // 60fps
+                const totalFrames = Math.round(duration / frameDuration);
+                const increment = target / totalFrames;
+
+                let currentCount = 0;
+
                 const updateCounter = () => {
-                    const increment = target / 50; 
-                    if(count < target) {
-                        count += increment;
-                        counter.innerText = '+' + Math.ceil(count);
-                        setTimeout(updateCounter, 30);
+                    currentCount += increment;
+                    if (currentCount < target) {
+                        counter.innerText = '+' + Math.ceil(currentCount);
+                        requestAnimationFrame(updateCounter);
                     } else {
                         counter.innerText = '+' + target;
                     }
                 };
                 updateCounter();
             });
-        };
+        }
         
-        // Reveal Animations
+        // Reveal Animations & Counter Trigger
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    if(entry.target.classList.contains('sec-stats')) startCounters();
+                    if(entry.target.classList.contains('sec-stats')) {
+                        if (!countersStarted) {
+                            startCounters();
+                            countersStarted = true;
+                        }
+                    }
                     observer.unobserve(entry.target);
                 }
             });
@@ -1308,48 +1304,61 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Lógica de Carrusel
+        // Lógica de Carrusel (Index-Based)
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.cert-card') || container.querySelector('.industria-item');
-                if(!item) return;
+                let itemSelector = '.snap-item';
+                if (container.querySelector('.cert-card')) itemSelector = '.cert-card';
+                else if (container.querySelector('.diff-card')) itemSelector = '.diff-card';
+                else if (container.querySelector('.industria-item')) itemSelector = '.industria-item';
+                else if (container.querySelector('.benefit-card')) itemSelector = '.benefit-card';
+
+                const items = container.querySelectorAll(itemSelector);
+                if (items.length === 0) return;
                 
-                let stride;
-                if (item.classList.contains('cert-card')) {
-                     stride = container.clientWidth; 
-                } else {
-                     const gap = 20; 
-                     const itemWidth = item.offsetWidth;
-                     stride = itemWidth + gap; 
+                const firstItem = items[0];
+                const style = window.getComputedStyle(container);
+                const gap = parseFloat(style.columnGap) || 20; 
+                let stride = firstItem.offsetWidth + gap;
+                
+                if (itemSelector === '.cert-card') {
+                    stride = container.clientWidth; 
                 }
-                
+
                 const currentScroll = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;
                 
-                let newScroll;
+                // Cálculo de índice actual
+                const currentIndex = Math.round(currentScroll / stride);
+                const totalItems = items.length;
+                
+                // Cálculo de items visibles por pantalla (aprox)
+                const itemsPerView = Math.round(container.clientWidth / stride) || 1;
+                const maxIndex = totalItems - itemsPerView; 
+
+                let nextScroll;
 
                 if (isNext) {
-                    if (currentScroll + stride > maxScroll) {
-                        newScroll = 0;
+                    if (currentIndex >= maxIndex) {
+                        nextScroll = 0; // Volver al inicio
                     } else {
-                        newScroll = currentScroll + stride;
+                        nextScroll = (currentIndex + 1) * stride;
                     }
                 } else {
-                    if (currentScroll - stride < 0) { 
-                        newScroll = maxScroll;
+                    if (currentIndex <= 0) {
+                        nextScroll = maxScroll; // Ir al final
                     } else {
-                        newScroll = currentScroll - stride;
+                        nextScroll = (currentIndex - 1) * stride;
                     }
                 }
                 
-                container.scrollTo({ left: newScroll, behavior: 'smooth' });
+                container.scrollTo({ left: nextScroll, behavior: 'smooth' });
             });
         });
     </script>
-
 </body>
 </html>

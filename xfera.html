@@ -21,7 +21,7 @@
 
     <style>
         /* =========================================
-           1. VARIABLES (Sincronizadas)
+           1. VARIABLES 
            ========================================= */
         :root {
             --primary: #00D4FF;         
@@ -199,7 +199,7 @@
             #xfera-header .btn { margin: 0 auto; }
         }
 
-        /* NUESTRA ESENCIA */
+        /* NUESTRA ESENCIA (FONDO BLANCO RESTAURADO) */
         #esencia { 
             padding: 100px 5%; 
             background: #ffffff; 
@@ -217,8 +217,6 @@
             font-size: 1.1rem; 
             color: var(--text-desc-light); 
         }
-
-        @media(max-width: 768px) { #esencia p { text-align: left; } }
 
         /* PROPÓSITO Y FUTURO */
         .sec-proposito { padding: 100px 5%; background: var(--bg-soft-gray); }
@@ -238,10 +236,7 @@
         .why-text-col { text-align: left; }
         .why-text-col .title-std { text-align: left; }
         .why-text-col .title-std::after { margin-left: 0; }
-        .why-image-col img { 
-            width: 100%; border-radius: 24px; box-shadow: var(--shadow-image); 
-            object-fit: cover; height: 100%; min-height: 300px;
-        }
+        .why-image-col img { width: 100%; border-radius: 24px; box-shadow: var(--shadow-image); object-fit: cover; height: 100%; min-height: 300px; }
 
         .sectores-wrapper { margin-top: 60px; width: 100%; }
         .sectores-wrapper h4 { text-align: center; margin-bottom: 30px; font-weight: 700; color: var(--text-dark); }
@@ -254,17 +249,24 @@
         .industria-item i { font-size: 2.2rem; color: var(--primary); margin-bottom: 5px; }
         .industria-item span { font-size: 0.9rem; font-weight: 400; color: var(--text-dark); line-height: 1.2; }
 
+        /* Estilos controles sectores mobile */
+        .mobile-only-controls { display: none; margin-top: 20px; justify-content: center; gap: 15px; }
+
         @media(max-width: 768px) {
             .why-split { grid-template-columns: 1fr; } 
             .why-image-col { order: -1; margin-bottom: 40px; }
             .why-text-col { text-align: center; }
             .why-text-col .title-std { text-align: center; }
             .why-text-col .title-std::after { margin-left: auto; margin-right: auto; }
-            .industrias-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; justify-content: flex-start; }
+            
+            .industrias-grid {
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; justify-content: flex-start; scrollbar-width: none;
+            }
             .industria-item { flex: 0 0 45%; scroll-snap-align: center; min-width: auto; }
+            .mobile-only-controls { display: flex; }
         }
 
-        /* CÓMO TRABAJAMOS */
+        /* CÓMO TRABAJAMOS (AZUL) */
         .sec-workflow { padding: 100px 5%; background: var(--title-blue); color: #fff; }
         .sec-workflow .title-std { color: #fff; }
         .sec-workflow .title-std::after { background-color: #fff; }
@@ -279,10 +281,8 @@
         .workflow-content p { color: rgba(255,255,255,0.9); }
         .workflow-steps::before { content: ''; position: absolute; top: 20px; bottom: 50px; left: 24px; width: 2px; background: rgba(255,255,255,0.3); z-index: 1; }
 
-        /* NUESTRO DIFERENCIAL */
+        /* NUESTRO DIFERENCIAL (4 en fila desktop) */
         .sec-diff { padding: 100px 5%; background: #fff; }
-        
-        /* Modificado: Forzar 4 columnas en desktop grande */
         .diff-grid { 
             display: grid; gap: 25px; 
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -333,15 +333,13 @@
         @media(min-width: 992px) { .cert-card { flex: 0 0 100%; } }
         @media(max-width: 992px) { .cert-card { flex: 0 0 100%; } }
 
-        /* PARTNERS (LOGO BOX IGUAL A SERVICIOS) */
+        /* PARTNERS */
         .sec-ecosystem { padding: 80px 5%; background: #fff; }
         .marquee-wrapper { overflow: hidden; width: 100%; position: relative; margin-top: 30px; mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent); }
-        .marquee-track { display: flex; gap: 60px; width: max-content; animation: scroll 30s linear infinite; }
+        .marquee-track { display: flex; gap: 40px; width: max-content; animation: scroll 40s linear infinite; }
         .logo-box {
-            background: #fff; padding: 0; 
-            border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex; align-items: center; justify-content: center; 
-            width: 240px; height: 120px; /* Reducido a 240x120 */
+            background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex; align-items: center; justify-content: center; width: 240px; height: 120px;
         }
         .logo-box img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease; }
         .logo-box:hover img { filter: grayscale(0%); }
@@ -384,7 +382,7 @@
         <a href="xfera.html" class="mobile-link" style="color: var(--primary);">XFERA</a>
         <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
@@ -400,7 +398,7 @@
                         <a href="servicios.html" class="nav-link">Servicios</a>
                         <a href="index.html#contact" class="nav-link">Contacto</a>
                     </div>
-                    <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                    <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
                 </div>
                 
                 <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
@@ -474,14 +472,20 @@
 
                 <div class="sectores-wrapper">
                     <h4>Trabajamos con sectores clave:</h4>
-                    <div class="industrias-grid">
-                        <!-- Eliminados Minería, Salmonicultura, Telecom -->
+                    <!-- ID AGREGADO PARA SCRIPT -->
+                    <div class="industrias-grid" id="sectores-scroll">
                         <div class="industria-item"><i class="ph ph-shopping-cart"></i><span>Retail</span></div>
                         <div class="industria-item"><i class="ph ph-bank"></i><span>Finanzas</span></div>
                         <div class="industria-item"><i class="ph ph-truck"></i><span>Logística</span></div>
                         <div class="industria-item"><i class="ph ph-heartbeat"></i><span>Salud</span></div>
                         <div class="industria-item"><i class="ph ph-graduation-cap"></i><span>Educación</span></div>
                         <div class="industria-item"><i class="ph ph-buildings"></i><span>Sector Público</span></div>
+                        <div class="industria-item"><i class="ph ph-broadcast"></i><span>Telecom</span></div>
+                    </div>
+                    <!-- CONTROLES MÓVIL AGREGADOS -->
+                    <div class="controls-container mobile-only-controls">
+                        <button class="scroll-btn prev light-theme" data-target="sectores-scroll"><i class="fas fa-chevron-left"></i></button>
+                        <button class="scroll-btn next light-theme" data-target="sectores-scroll"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -569,7 +573,6 @@
                         <div class="logo-box"><img src="img/partner-commvault.png" alt="COMMVAULT"></div>
                         <div class="logo-box"><img src="img/partner-proxmox.png" alt="PROXMOX"></div>
                         <div class="logo-box"><img src="img/partner-super.png" alt="SUPER"></div>
-                        <!-- Repetir -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                     </div>
@@ -577,7 +580,7 @@
             </div>
         </section>
 
-        <!-- CERTIFICACIONES (1 SLIDE - Lógica Mejorada) -->
+        <!-- CERTIFICACIONES (1 SLIDE) -->
         <section class="sec-certs reveal">
             <div class="container">
                 <h2 class="title-std title-centered">Certificaciones</h2>
@@ -585,7 +588,6 @@
                 <div class="cert-slider-wrapper">
                     <div class="cert-slider" id="cert-scroll">
                         
-                        <!-- NUTANIX -->
                         <div class="cert-card">
                             <div class="cert-logo-container"><img src="img/partner-nutanix.png" alt="Nutanix"></div>
                             <h3>NUTANIX</h3>
@@ -599,7 +601,6 @@
                             </ul>
                         </div>
 
-                        <!-- LENOVO -->
                         <div class="cert-card">
                             <div class="cert-logo-container"><img src="img/partner-lenovo.png" alt="Lenovo"></div>
                             <h3>LENOVO</h3>
@@ -613,7 +614,6 @@
                             </ul>
                         </div>
 
-                        <!-- VEEAM -->
                         <div class="cert-card">
                             <div class="cert-logo-container"><img src="img/partner-veeam.png" alt="Veeam"></div>
                             <h3>VEEAM</h3>
@@ -652,24 +652,21 @@
     <footer class="footer-section">
         <div class="container">
             <div class="footer-grid">
-                <!-- Col 1 -->
                 <div>
                     <a href="index.html"><img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0; height: 55px;"></a>
                     <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
                         Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                     </p>
                 </div>
-                <!-- Col 2 -->
                 <div>
                     <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                     <div class="footer-links">
                         <a href="index.html">Inicio</a>
-                        <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
-                        <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
+                        <a href="xfera.html">Somos Xfera</a>
+                        <a href="servicios.html">Servicios</a>
                         <a href="index.html#contact">Contacto</a>
                     </div>
                 </div>
-                <!-- Col 3 -->
                 <div>
                     <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Contacto</h4>
                     <div class="contact-info-item" style="display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start;">
@@ -685,7 +682,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Col 4: Mercado Público -->
                 <div>
                      <div style="background: #fff; padding: 12px 15px; border-radius: 10px; display: inline-block; margin-top: 45px;">
                         <img src="https://www.xfera.cl/assets/convenio-CoHGQRBL.png" alt="Mercado Público" style="height: 45px; display: block;">

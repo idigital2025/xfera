@@ -1325,6 +1325,7 @@
                 else if (container.querySelector('.diff-card')) itemSelector = '.diff-card';
                 else if (container.querySelector('.industria-item')) itemSelector = '.industria-item';
                 else if (container.querySelector('.benefit-card')) itemSelector = '.benefit-card';
+                else if (container.querySelector('.component-card')) itemSelector = '.component-card';
 
                 const items = container.querySelectorAll(itemSelector);
                 if (items.length === 0) return;
@@ -1339,31 +1340,34 @@
                 }
 
                 const currentScroll = container.scrollLeft;
-                const currentIndex = Math.round(currentScroll / stride);
-                const totalItems = items.length;
+                const maxScroll = container.scrollWidth - container.clientWidth;
                 
-                // Cálculo de items visibles por pantalla (aprox)
-                // Esto es importante para saber cuándo "tope" el final visualmente
-                const itemsPerView = Math.round(container.clientWidth / stride) || 1;
-                const maxIndex = totalItems - itemsPerView; 
+                // Cálculo de índice actual
+                const currentIndex = Math.round(currentScroll / stride);
 
                 let nextScroll;
 
                 if (isNext) {
-                    if (currentIndex >= maxIndex) {
-                        nextScroll = 0; // Volver al inicio si estamos en el "tope" visual
+                    // Lógica de Loop Corregida:
+                    // Si la posición actual + el ancho visible es mayor o igual al ancho total (con un pequeño margen de error de 5px)
+                    // Significa que estamos al final, entonces volvemos a 0.
+                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
+                        nextScroll = 0; // Volver al inicio
                     } else {
                         nextScroll = (currentIndex + 1) * stride;
+                        // Asegurar que no nos pasemos del máximo posible
+                        if (nextScroll > maxScroll) nextScroll = maxScroll;
                     }
                 } else {
-                    if (currentIndex <= 0) {
+                    // Si estamos al principio (con margen de 5px)
+                    if (container.scrollLeft <= 5) {
                         nextScroll = maxScroll; // Ir al final
                     } else {
                         nextScroll = (currentIndex - 1) * stride;
                     }
                 }
                 
-                container.scrollTo({ left: nextIndex * stride, behavior: 'smooth' });
+                container.scrollTo({ left: nextScroll, behavior: 'smooth' });
             });
         });
     </script>

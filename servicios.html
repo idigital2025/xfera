@@ -186,7 +186,7 @@
            4. SECCIONES ESPECÍFICAS SERVICIOS
            ========================================= */
 
-        /* HERO - BANNER CLARO */
+        /* HERO - BANNER SIN FILTRO BLANCO */
         #services-header {
             position: relative;
             height: 60vh;
@@ -195,16 +195,17 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--text-dark); /* Texto oscuro por defecto */
+            color: #ffffff; /* Texto Blanco para contraste */
             background: url('img/hero-servicios.jpg') no-repeat center center;
             background-size: cover;
             margin-top: 80px;
         }
-        /* Filtro Blanco */
+        /* Filtro Blanco Eliminado/Oculto */
         #services-header::before {
             content: ''; position: absolute; inset: 0;
-            background: rgba(255,255,255,0.9); /* Blanco semitransparente */
+            background: transparent; /* Sin filtro */
             z-index: 1;
+            display: none;
         }
         .header-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
         
@@ -213,11 +214,11 @@
             font-weight: 800; margin-bottom: 20px;
             text-transform: none; /* Minúscula / Sentence case */
             letter-spacing: 0;
-            color: var(--text-dark-hero); /* Negro */
+            color: #ffffff; /* Blanco */
         }
         #services-header p {
             font-size: 1.2rem; 
-            color: #666; /* Plomo */
+            color: #f0f0f0; /* Blanco suave */
             margin-bottom: 40px;
             font-weight: 500;
         }
@@ -363,6 +364,8 @@
         @media (max-width: 768px) {
             .service-section { padding: 80px 5%; }
             .service-content-side { padding: 30px 20px; }
+            .anchor-buttons-container { flex-direction: column; align-items: center; }
+            .anchor-btn { width: 100%; justify-content: center; }
         }
 
         /* --- NUEVA SUBSECCIÓN COMPONENTES (IaaS) --- */
@@ -528,10 +531,17 @@
 
         /* Footer (4 COLUMNAS + LEGAL ROW) */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
-        .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(4, 1fr); }
+        
+        .footer-grid { 
+            display: grid; 
+            gap: 3rem; 
+            grid-template-columns: repeat(4, 1fr); 
+        }
+        
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
         .footer-logo { height: 55px; width: auto; filter: none; }
+        
         .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
         .contact-info-item i { color: #ffffff; }
 
@@ -564,9 +574,9 @@
         <div class="mobile-close" id="closeMenu">&times;</div>
         <a href="index.html" class="mobile-link">Inicio</a>
         <a href="xfera.html" class="mobile-link">XFERA</a>
-        <a href="servicios.html" class="mobile-link">Servicios</a>
+        <a href="servicios.html" class="mobile-link" style="color: var(--primary);">Servicios</a>
         <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
@@ -579,10 +589,10 @@
                     <div class="nav-links-group">
                         <a href="index.html" class="nav-link">Inicio</a>
                         <a href="xfera.html" class="nav-link">XFERA</a>
-                        <a href="servicios.html" class="nav-link">Servicios</a>
+                        <a href="servicios.html" class="nav-link" style="color: var(--blue-accent);">Servicios</a>
                         <a href="index.html#contact" class="nav-link">Contacto</a>
                     </div>
-                    <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                    <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
                 </div>
                 
                 <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
@@ -787,7 +797,7 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
-                        <!-- Logos -->
+                        <!-- Logos Actualizados -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -937,6 +947,7 @@
     <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
     <footer class="footer-section">
         <div class="container">
+             <!-- Estructura Anidada para Alineación Correcta -->
             <div class="footer-grid">
                 <!-- Col 1 -->
                 <div>
@@ -979,6 +990,7 @@
                 </div>
             </div>
             
+            <!-- Fila Legal Horizontal -->
             <div class="footer-legal-row" style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px;">
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Términos y Condiciones</a>
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Políticas de Privacidad</a>

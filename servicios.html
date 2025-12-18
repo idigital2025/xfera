@@ -531,25 +531,37 @@
 
         /* Footer (4 COLUMNAS + LEGAL ROW) */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
-        .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(4, 1fr); }
+        
+        .footer-grid { 
+            display: grid; 
+            gap: 3rem; 
+            grid-template-columns: repeat(4, 1fr); 
+        }
+        
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
         .footer-logo { height: 85px; width: auto; filter: none; }
+        
         .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
         .contact-info-item i { color: #ffffff; }
 
+        /* Estilo Fila Legal Horizontal */
         .footer-legal-row {
-            border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; 
-            display: flex; justify-content: center; gap: 30px;
+            border-top: 1px solid #222; 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px;
         }
         .footer-legal-row a { color: #888; font-size: 0.85rem; transition: 0.3s; }
         .footer-legal-row a:hover { color: var(--primary); }
 
         @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; } 
         }
         @media (max-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; } 
             .footer-legal-row { flex-direction: column; align-items: center; gap: 15px; }
         }
 
@@ -582,7 +594,7 @@
                     <div class="nav-links-group">
                         <a href="index.html" class="nav-link">Inicio</a>
                         <a href="xfera.html" class="nav-link">XFERA</a>
-                        <a href="servicios.html" class="nav-link">Servicios</a>
+                        <a href="servicios.html" class="nav-link" style="color: var(--blue-accent);">Servicios</a>
                         <a href="index.html#contact" class="nav-link">Contacto</a>
                     </div>
                     <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
@@ -790,6 +802,7 @@
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-desc-light);">La confianza de las organizaciones que requieren infraestructura crítica</p>
                 <div class="marquee-wrapper">
                     <div class="marquee-track">
+                        <!-- Logos Actualizados -->
                         <div class="logo-box"><img src="img/partner-veeam.png" alt="VEEAM"></div>
                         <div class="logo-box"><img src="img/partner-lenovo.png" alt="LENOVO"></div>
                         <div class="logo-box"><img src="img/partner-nutanix.png" alt="NUTANIX"></div>
@@ -843,20 +856,19 @@
             <div class="container">
                 <div class="benefits-header">
                     <h2 class="title-std title-dark title-centered" style="margin-bottom: 25px;">
-                        BENEFICIOS DE ELEGIR <span style="color: var(--title-blue);">XFERA</span>
+                        BENEFICIOS <span style="color: var(--title-blue);">CLAVES</span>
                     </h2>
-                    <!-- Párrafo eliminado -->
                 </div>
                 
                 <div class="benefit-grid-mobile">
                     <div class="benefits-carousel-wrapper">
                         <div class="benefits-carousel" id="benefits-scroll">
                             <div class="benefit-card">
-                                <h3>Expertos que acompañan tu operación TI de principio a fin</h3>
+                                <h3>Expertos que acompañan</h3>
                                 <p>Nos involucramos desde el diagnóstico hasta la operación diaria.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Continuidad operativa como prioridad</h3>
+                                <h3>Continuidad operativa</h3>
                                 <p>Arquitecturas resilientes que mantienen tu negocio operativo incluso ante incidentes críticos.</p>
                             </div>
                             <div class="benefit-card">
@@ -864,7 +876,7 @@
                                 <p>Implementamos nuevas tecnologías sin afectar tus procesos.</p>
                             </div>
                             <div class="benefit-card">
-                                <h3>Seguridad transversal y centralizada</h3>
+                                <h3>Seguridad transversal</h3>
                                 <p>Protección integral sobre datos, accesos, redes y servicios.</p>
                             </div>
                             <div class="benefit-card">
@@ -946,7 +958,7 @@
                     <a href="index.html" style="display: inline-block;">
                         <img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0; height: 85px;">
                     </a>
-                    <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
+                    <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6; text-align: left;">
                         Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                     </p>
                 </div>

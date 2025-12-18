@@ -190,12 +190,12 @@
         #services-header {
             position: relative;
             height: 60vh;
-            min-height: 350px;
+            min-height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--text-dark); 
+            color: var(--text-dark); /* Texto oscuro por defecto */
             background: url('img/hero-servicios.jpg') no-repeat center center;
             background-size: cover;
             margin-top: 80px;
@@ -203,7 +203,7 @@
         /* Filtro Blanco */
         #services-header::before {
             content: ''; position: absolute; inset: 0;
-            background: rgba(255,255,255,0.9); 
+            background: rgba(255,255,255,0.9); /* Blanco semitransparente */
             z-index: 1;
         }
         .header-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
@@ -211,13 +211,13 @@
         #services-header h1 {
             font-size: clamp(2.5rem, 5vw, 4rem); 
             font-weight: 800; margin-bottom: 20px;
-            text-transform: none; 
+            text-transform: none; /* Minúscula / Sentence case */
             letter-spacing: 0;
-            color: var(--text-dark-hero); 
+            color: var(--text-dark-hero); /* Negro */
         }
         #services-header p {
             font-size: 1.2rem; 
-            color: #666; 
+            color: #666; /* Plomo */
             margin-bottom: 40px;
             font-weight: 500;
         }
@@ -228,29 +228,44 @@
             background: #fff; 
         }
         
-        .intro-flex {
-            display: flex; flex-direction: column; gap: 30px;
-            max-width: 1000px; margin: 0 auto;
+        /* Contenedor específico para el desafío actual + botones */
+        .challenge-container {
+            background-color: #f9fafb; /* Fondo sutil para destacar */
+            border-radius: 20px;
+            padding: 50px 40px; /* Padding interno */
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px; 
+            text-align: center; /* Centrar contenido por defecto */
+            max-width: 1000px; /* Ancho máximo igual que intro-flex antes */
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .intro-header-centered { text-align: center; }
-        .intro-header-centered .title-std { display: inline-block; }
-        .intro-header-centered .title-std::after { margin-left: auto; margin-right: auto; }
-        
+
+        /* Ajustes específicos dentro del contenedor */
+        .challenge-container .title-std {
+            display: inline-block;
+        }
+        .challenge-container .title-std::after {
+            margin-left: auto; margin-right: auto;
+        }
+
         .intro-text-col p { 
             color: var(--text-desc-light); font-size: 1.1rem; line-height: 1.6; 
-            max-width: 100%; text-align: left; 
+            max-width: 900px; /* Ancho lectura */
+            margin: 0 auto 30px auto; /* Centrado y margen inferior */
+            text-align: left; /* Párrafo a la izquierda dentro del bloque centrado */
         }
         
+        /* Botones de Ancla Centrados */
         .anchor-buttons-container {
             display: flex; justify-content: center; 
-            gap: 30px; flex-wrap: wrap; margin-top: 30px;
+            gap: 30px; flex-wrap: wrap; margin-top: 10px;
         }
         .anchor-btn {
             display: flex; align-items: center; gap: 15px;
             padding: 15px 30px;
             border-radius: 16px;
-            background: #f9fafb;
+            background: #fff; /* Blanco sobre el gris del contenedor */
             border: 1px solid #eee;
             color: var(--text-dark);
             font-weight: 700;
@@ -260,6 +275,7 @@
             min-width: 220px;
             text-decoration: none;
             justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         .anchor-btn i { font-size: 1.4rem; }
         
@@ -270,6 +286,12 @@
         .anchor-btn.consult:hover {
             background: #f3e5f5; border-color: var(--secondary); color: var(--secondary);
             box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2); transform: translateY(-3px);
+        }
+
+        @media(max-width: 768px) {
+            .challenge-container { padding: 40px 20px; }
+            .anchor-buttons-container { flex-direction: column; align-items: center; }
+            .anchor-btn { width: 100%; justify-content: center; }
         }
 
         /* ESTILOS DE SECCIÓN DE SERVICIOS */
@@ -309,6 +331,7 @@
             display: flex; flex-direction: column; justify-content: center; 
         }
         
+        /* Colores Títulos */
         .service-full-card.infra h3 { color: var(--primary); } 
         .service-full-card.consult h3 { color: var(--secondary); }
 
@@ -326,6 +349,7 @@
             margin-bottom: 15px; display: flex; align-items: start; gap: 12px; 
             color: var(--text-desc-light); font-size: 1rem; font-weight: 500; 
         }
+        /* Iconos de lista con color específico */
         .service-full-card.infra .service-list i { color: var(--primary); }
         .service-full-card.consult .service-list i { color: var(--secondary); }
 
@@ -339,8 +363,6 @@
         @media (max-width: 768px) {
             .service-section { padding: 80px 5%; }
             .service-content-side { padding: 30px 20px; }
-            .anchor-buttons-container { flex-direction: column; align-items: center; }
-            .anchor-btn { width: 100%; justify-content: center; }
         }
 
         /* --- NUEVA SUBSECCIÓN COMPONENTES (IaaS) --- */
@@ -361,10 +383,11 @@
         
         .component-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
         
+        /* Título componente en 2 líneas */
         .component-card h5 { 
             font-size: 1.2rem; color: var(--text-dark); 
             margin-bottom: 15px; font-weight: 700;
-            min-height: 3rem; 
+            min-height: 3rem; /* Espacio para 2 líneas */
             display: flex; align-items: center;
         }
         .component-card p { font-size: 0.95rem; color: var(--text-desc-light); margin: 0; line-height: 1.5; }
@@ -388,10 +411,12 @@
             }
             .iaas-controls { display: flex !important; justify-content: center; gap: 15px; margin-top: 20px; }
         }
+        /* Ocultar controles en Desktop */
         .iaas-controls { display: none; }
 
         /* --- BENEFICIOS CLAVES (Estilo Carrusel Home) --- */
         .sec-benefits-bg { 
+            /* Reducido punto focal al 35% para que no toque bordes */
             background: radial-gradient(circle at center, rgba(143, 244, 255, 0.4) 0%, #ffffff 35%); 
             padding: var(--padding-section); 
             color: #111; 
@@ -425,6 +450,7 @@
         @media(max-width: 992px) { .benefits-carousel .benefit-card { flex: 0 0 45vw; } }
         @media(max-width: 600px) { .benefits-carousel .benefit-card { flex: 0 0 85vw; } }
 
+        /* Controles Globales (Ahora fuera de media query) */
         .controls-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
         .scroll-btn {
             width: 45px; height: 45px; border-radius: 50%;
@@ -478,6 +504,7 @@
         .form-container-blue { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; }
         .form-floating-group { position: relative; margin-bottom: 25px; }
         
+        /* Corrección Formulario Blanco */
         .form-input { 
             width: 100%; padding: 15px 0 10px; 
             background: transparent; 
@@ -537,15 +564,14 @@
         <div class="mobile-close" id="closeMenu">&times;</div>
         <a href="index.html" class="mobile-link">Inicio</a>
         <a href="xfera.html" class="mobile-link">XFERA</a>
-        <a href="servicios.html" class="mobile-link" style="color: var(--primary);">Servicios</a>
+        <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
         <div class="container">
-            <!-- WRAPPER ANIDADO PARA ALINEACIÓN -->
             <div class="footer-grid" style="display: flex; justify-content: space-between; align-items: center; grid-template-columns: none;">
                 <a href="index.html"><img src="img/logo-negro.png" alt="XFERA" class="logo-img"></a>
                 
@@ -553,10 +579,10 @@
                     <div class="nav-links-group">
                         <a href="index.html" class="nav-link">Inicio</a>
                         <a href="xfera.html" class="nav-link">XFERA</a>
-                        <a href="servicios.html" class="nav-link" style="color: var(--blue-accent);">Servicios</a>
+                        <a href="servicios.html" class="nav-link">Servicios</a>
                         <a href="index.html#contact" class="nav-link">Contacto</a>
                     </div>
-                    <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+                    <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
                 </div>
                 
                 <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
@@ -577,26 +603,31 @@
         <!-- INTRODUCCIÓN Y ANCLAS -->
         <section id="intro-services" class="reveal">
             <div class="container intro-flex">
-                <div class="intro-header-centered">
-                    <h2 class="title-std">El Desafío Actual</h2>
-                </div>
                 
-                <div class="intro-text-col">
-                    <p>
-                        Las organizaciones enfrentan hoy entornos TI complejos, sistemas que no escalan, infraestructuras que fallan, riesgos crecientes de seguridad y altos costos operativos. En Xfera resolvemos esos desafíos diseñando, implementando y administrando infraestructuras modernas, seguras y escalables.
-                        <br><br>
-                        Contamos con dos modalidades de servicio que permiten a cada empresa adoptar la arquitectura más adecuada para su etapa de madurez tecnológica.
-                    </p>
+                <!-- CONTENEDOR INTEGRADO: TITULO + TEXTO + BOTONES -->
+                <div class="challenge-container">
+                    <div class="intro-header-centered">
+                        <h2 class="title-std">El Desafío Actual</h2>
+                    </div>
+
+                    <div class="intro-text-col">
+                        <p>
+                            Las organizaciones enfrentan hoy entornos TI complejos, sistemas que no escalan, infraestructuras que fallan, riesgos crecientes de seguridad y altos costos operativos. En Xfera resolvemos esos desafíos diseñando, implementando y administrando infraestructuras modernas, seguras y escalables.
+                            <br><br>
+                            Contamos con dos modalidades de servicio que permiten a cada empresa adoptar la arquitectura más adecuada para su etapa de madurez tecnológica.
+                        </p>
+                    </div>
+
+                    <div class="anchor-buttons-container">
+                        <a href="#infraestructura" class="anchor-btn infra">
+                            <i class="fas fa-server" style="color: var(--primary);"></i> Infraestructura TI
+                        </a>
+                        <a href="#consultoria" class="anchor-btn consult">
+                            <i class="fas fa-user-tie" style="color: var(--secondary);"></i> Consultoría TI
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="anchor-buttons-container">
-                    <a href="#infraestructura" class="anchor-btn infra">
-                        <i class="fas fa-server" style="color: var(--primary);"></i> Infraestructura TI
-                    </a>
-                    <a href="#consultoria" class="anchor-btn consult">
-                        <i class="fas fa-user-tie" style="color: var(--secondary);"></i> Consultoría TI
-                    </a>
-                </div>
+
             </div>
         </section>
 
@@ -791,6 +822,7 @@
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
+                    <!-- REINTEGRADO: Cajas blancas con borde redondeado y check azul -->
                     <div class="infra-pill">
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Escalabilidad instantánea
                     </div>
@@ -809,8 +841,9 @@
             <div class="container">
                 <div class="benefits-header">
                     <h2 class="title-std title-dark title-centered" style="margin-bottom: 25px;">
-                        BENEFICIOS <span style="color: var(--title-blue);">CLAVES</span>
+                        BENEFICIOS DE ELEGIR <span style="color: var(--title-blue);">XFERA</span>
                     </h2>
+                    <!-- Párrafo eliminado -->
                 </div>
                 
                 <div class="benefit-grid-mobile">
@@ -904,7 +937,6 @@
     <!-- FOOTER ACTUALIZADO 4 COLUMNAS -->
     <footer class="footer-section">
         <div class="container">
-             <!-- Estructura Anidada para Alineación Correcta -->
             <div class="footer-grid">
                 <!-- Col 1 -->
                 <div>
@@ -918,8 +950,8 @@
                     <h4 style="font-size: 1.1rem; margin-bottom: 20px; color: #fff;">Navegación</h4>
                     <div class="footer-links">
                         <a href="index.html">Inicio</a>
-                        <a href="https://idigital2025.github.io/xfera/xfera">Somos Xfera</a>
-                        <a href="https://idigital2025.github.io/xfera/servicios">Servicios</a>
+                        <a href="xfera.html">Somos Xfera</a>
+                        <a href="servicios.html">Servicios</a>
                         <a href="index.html#contact">Contacto</a>
                     </div>
                 </div>
@@ -947,7 +979,6 @@
                 </div>
             </div>
             
-            <!-- Fila Legal Horizontal -->
             <div class="footer-legal-row" style="border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; display: flex; justify-content: center; gap: 30px;">
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Términos y Condiciones</a>
                  <a href="#" style="color: #888; font-size: 0.85rem; transition: 0.3s;">Políticas de Privacidad</a>
@@ -1009,50 +1040,59 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Lógica de Carrusel (Para Beneficios y Partners)
+        // Lógica de Carrusel (Index-Based)
         document.querySelectorAll('.scroll-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const container = document.getElementById(targetId);
                 const isNext = this.classList.contains('next');
                 
-                let item = container.querySelector('.snap-item') || container.querySelector('.benefit-card') || container.querySelector('.diff-card') || container.querySelector('.component-card');
-                if(!item) return;
+                let itemSelector = '.snap-item';
+                if (container.querySelector('.cert-card')) itemSelector = '.cert-card';
+                else if (container.querySelector('.diff-card')) itemSelector = '.diff-card';
+                else if (container.querySelector('.industria-item')) itemSelector = '.industria-item';
+                else if (container.querySelector('.benefit-card')) itemSelector = '.benefit-card';
+
+                const items = container.querySelectorAll(itemSelector);
+                if (items.length === 0) return;
                 
-                // Medidas - Lógica dinámica para 100% width slide
-                let stride;
-                if (item.classList.contains('cert-card')) {
-                     // Para certificaciones, el stride es el ancho del contenedor completo (1 item por vista)
-                     stride = container.clientWidth;
-                } else {
-                     const gap = 20; 
-                     const itemWidth = item.offsetWidth;
-                     stride = itemWidth + gap; 
+                const firstItem = items[0];
+                const style = window.getComputedStyle(container);
+                const gap = parseFloat(style.columnGap) || 20; 
+                let stride = firstItem.offsetWidth + gap;
+                
+                if (itemSelector === '.cert-card') {
+                    stride = container.clientWidth; 
                 }
-                
+
                 const currentScroll = container.scrollLeft;
-                const maxScroll = container.scrollWidth - container.clientWidth;
+                const currentIndex = Math.round(currentScroll / stride);
+                const totalItems = items.length;
                 
-                let newScroll;
+                // Cálculo de items visibles por pantalla (aprox)
+                // Esto es importante para saber cuándo "tope" el final visualmente
+                const itemsPerView = Math.round(container.clientWidth / stride) || 1;
+                const maxIndex = totalItems - itemsPerView; 
+
+                let nextScroll;
 
                 if (isNext) {
-                    if (currentScroll + stride >= maxScroll - 5) {
-                        newScroll = 0;
+                    if (currentIndex >= maxIndex) {
+                        nextScroll = 0; // Volver al inicio si estamos en el "tope" visual
                     } else {
-                        newScroll = currentScroll + stride;
+                        nextScroll = (currentIndex + 1) * stride;
                     }
                 } else {
-                    if (currentScroll - stride <= 5) { 
-                        newScroll = maxScroll;
+                    if (currentIndex <= 0) {
+                        nextScroll = maxScroll; // Ir al final
                     } else {
-                        newScroll = currentScroll - stride;
+                        nextScroll = (currentIndex - 1) * stride;
                     }
                 }
                 
-                container.scrollTo({ left: newScroll, behavior: 'smooth' });
+                container.scrollTo({ left: nextScroll, behavior: 'smooth' });
             });
         });
     </script>
-
 </body>
 </html>

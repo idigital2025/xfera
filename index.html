@@ -15,6 +15,8 @@
     
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         /* --- 1. VARIABLES --- */
@@ -476,19 +478,20 @@
 
         /* --- DIFERENCIAL --- */
         #diferencial { padding: var(--padding-section); background: var(--bg-light); }
-        
-        /* AUMENTO GAP A 60PX */
+        /* 4 Columnas forzadas en desktop */
         .diff-grid { 
-            display: grid; gap: 60px; 
+            display: grid; gap: 60px; /* Separación Aumentada */
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
         }
         @media (min-width: 1200px) { .diff-grid { grid-template-columns: repeat(4, 1fr); } }
 
-        .diff-card { background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; min-width: 0; }
-        .diff-card:nth-child(odd) { background-color: #e0f7fa; border-color: #b2ebf2; }
-        .diff-card:nth-child(even) { background-color: #f3e5f5; border-color: #e1bee7; }
-        .diff-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .diff-card h3 { color: var(--text-dark); font-size: 1.2rem; margin-bottom: 15px; }
+        .diff-card { 
+            background: #f9f9f9; padding: 2rem; border-radius: 20px; 
+            border: 1px solid #eee; box-shadow: var(--shadow-card); transition: 0.3s; min-width: 0; 
+        }
+        .diff-card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
+        .diff-card h3 { color: var(--text-dark); }
+        .diff-card p { color: var(--text-desc-light); margin: 0; font-size: 0.9rem; }
 
         /* --- INFRAESTRUCTURA --- */
         .sec-infra { 
@@ -499,7 +502,7 @@
         .sec-infra .title-std::after { background-color: #ffffff; margin-left: auto; margin-right: auto; }
         .sec-infra p { color: #fff !important; opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 0 auto 50px; }
         
-        /* Pills modificados: Cuadrado redondeado y check azul */
+        /* Pills modificados */
         .infra-pill {
             background: #fff; padding: 15px 30px; 
             border-radius: 12px; 
@@ -693,12 +696,17 @@
             .form-container-blue img { width: 100%; height: auto; object-fit: cover; }
         }
 
-        /* --- FOOTER (4 COLUMNAS + LEGAL ROW) --- */
+        /* --- FOOTER ACTUALIZADO 4 COLUMNAS --- */
         .footer-section { padding: 60px 5% 30px; background: #050505; border-top: 1px solid #111; color: #fff; }
         .footer-grid { display: grid; gap: 3rem; grid-template-columns: repeat(4, 1fr); }
         .footer-links a { color: #888; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
-        .footer-logo { height: 55px; width: auto; filter: none; }
+        .footer-logo { height: 85px; width: auto; filter: none; }
+        
+        /* Ajuste: Logo centrado + Texto alineado a la izquierda */
+        .footer-brand-col { text-align: center; }
+        .footer-brand-col p { text-align: left; }
+
         .contact-info-item { display: flex; gap: 18px; color: #888; font-size: 0.9rem; margin-bottom: 12px; align-items: start; }
         .contact-info-item i { color: #ffffff; }
 
@@ -725,27 +733,27 @@
         <a href="xfera.html" class="mobile-link">XFERA</a>
         <a href="servicios.html" class="mobile-link">Servicios</a>
         <a href="index.html#contact" class="mobile-link">Contacto</a>
-        <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
+        <a href="index.html#contact" class="btn btn-primary" style="margin-top: 20px;">Cotizar tu Solución</a>
     </div>
 
     <!-- HEADER DINÁMICO -->
     <header id="main-header">
-        <div class="container">
-            <div class="footer-grid" style="display: flex; justify-content: space-between; align-items: center; grid-template-columns: none;">
-                <a href="index.html"><img src="img/logo-negro.png" alt="XFERA" class="logo-img"></a>
-                
-                <div class="desktop-menu">
-                    <div class="nav-links-group">
-                        <a href="index.html" class="nav-link">Inicio</a>
-                        <a href="xfera.html" class="nav-link">XFERA</a>
-                        <a href="servicios.html" class="nav-link">Servicios</a>
-                        <a href="index.html#contact" class="nav-link">Contacto</a>
-                    </div>
-                    <a href="#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
+        <div class="container nav-flex">
+            <a href="index.html">
+                <img src="img/logo-negro.png" alt="XFERA" class="logo-img">
+            </a>
+            
+            <div class="desktop-menu">
+                <div class="nav-links-group">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="xfera.html" class="nav-link">XFERA</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="index.html#contact" class="nav-link">Contacto</a>
                 </div>
-                
-                <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
+                <a href="index.html#contact" class="btn btn-primary" style="color: #fff;">Cotizar tu Solución</a>
             </div>
+            
+            <div class="mobile-toggle" id="menuBtn"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
@@ -758,7 +766,7 @@
                     <div class="hero-text-col">
                         <span class="hero-pill">Transformación digital liderada por expertos</span>
                         <h1>Somos la solución a los desafíos más exigentes de <span class="highlight-blue">Infraestructura TI</span></h1>
-                        <p>Infraestructura tecnológica, nube privada e hiperconvergencia Nutanix para empresas que exigen continuidad, seguridad y escalabilidad sin interrupciones.<br>
+                        <p><strong>Infraestructura tecnológica</strong>, <strong>nube privada</strong> e <strong>hiperconvergencia Nutanix</strong> para empresas que exigen <strong>continuidad</strong>, <strong>seguridad</strong> y <strong>escalabilidad sin interrupciones</strong>.<br>
                         <span style="display:block; margin-top: 7px;">Con más de 15 años de experiencia y 100+ implementaciones, en Xfera transformamos centros de datos en plataformas ágiles y listas para el futuro.</span></p>
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="hero-actions">
@@ -809,7 +817,7 @@
                 <div class="about-split-layout">
                     <div class="about-content-col">
                         <h2 class="title-std title-dark">SOMOS <span>XFERA</span></h2>
-                        <p>Empresa especializada es servicios de Ingeniería e Infraestructura TI.</p>
+                        <p>Empresa especializada en servicios de Ingeniería e Infraestructura TI.</p>
                         <p>Somos un equipo de profesionales de larga trayectoria, en distintas áreas de la informática y la consultoría, especialistas en infraestructura tecnológica y transformación digital.</p>
                         <p>Somos el resultado de un equipo de ingenieros con sólida experiencia en la provisión de servicios de infraestructura y consultoría.</p>
                         <p>Nuestros profesionales cuentan con más de 15 de años de experiencia y se encuentran certificados en soluciones de infraestructura de líderes Nutanix, Lenovo, Veeam, entre otros.</p>
@@ -1052,7 +1060,6 @@
                     Nuestra plataforma hiperconvergente combina almacenamiento, cómputo, conectividad y virtualización en una única solución
                 </p>
                 <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px;">
-                    <!-- REINTEGRADO: Cajas blancas con borde redondeado y check azul -->
                     <div class="infra-pill">
                         <i class="fas fa-check-circle" style="color: var(--title-blue) !important; display: inline-block;"></i> Escalabilidad instantánea
                     </div>
@@ -1168,12 +1175,12 @@
     <footer class="footer-section">
         <div class="container">
             <div class="footer-grid">
-                <!-- Col 1 (Modificada: Centrada y Logo más grande) -->
+                <!-- Col 1 -->
                 <div style="text-align: center;">
                     <a href="index.html" style="display: inline-block;">
                         <img src="img/xferalogo.png" alt="XFERA" class="footer-logo" style="margin-right: 0; height: 85px;">
                     </a>
-                    <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6;">
+                    <p style="font-size: 0.9rem; margin-top: 20px; color: #888; line-height: 1.6; text-align: left;">
                         Transformamos el presente a través de soluciones IaaS y datacenter diseñadas para llevar tu empresa al siguiente nivel.
                     </p>
                 </div>
@@ -1332,13 +1339,11 @@
                 }
 
                 const currentScroll = container.scrollLeft;
-                const maxScroll = container.scrollWidth - container.clientWidth;
-                
-                // Cálculo de índice actual
                 const currentIndex = Math.round(currentScroll / stride);
                 const totalItems = items.length;
                 
                 // Cálculo de items visibles por pantalla (aprox)
+                // Esto es importante para saber cuándo "tope" el final visualmente
                 const itemsPerView = Math.round(container.clientWidth / stride) || 1;
                 const maxIndex = totalItems - itemsPerView; 
 
@@ -1346,7 +1351,7 @@
 
                 if (isNext) {
                     if (currentIndex >= maxIndex) {
-                        nextScroll = 0; // Volver al inicio
+                        nextScroll = 0; // Volver al inicio si estamos en el "tope" visual
                     } else {
                         nextScroll = (currentIndex + 1) * stride;
                     }
@@ -1358,7 +1363,7 @@
                     }
                 }
                 
-                container.scrollTo({ left: nextScroll, behavior: 'smooth' });
+                container.scrollTo({ left: nextIndex * stride, behavior: 'smooth' });
             });
         });
     </script>
